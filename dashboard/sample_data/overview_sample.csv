@@ -1,0 +1,17 @@
+category,experience_level,location,work_type,job_count,sample_size,data_source
+Software Engineering,Mid-Senior level,San Francisco CA,Full-time,1250,5000,SYNTHETIC_SAMPLE
+Software Engineering,Entry level,San Francisco CA,Full-time,420,5000,SYNTHETIC_SAMPLE
+Software Engineering,Associate,New York NY,Full-time,680,5000,SYNTHETIC_SAMPLE
+Software Engineering,Director,Remote,Full-time,190,5000,SYNTHETIC_SAMPLE
+Data & AI,Mid-Senior level,New York NY,Full-time,850,5000,SYNTHETIC_SAMPLE
+Data & AI,Entry level,Austin TX,Full-time,310,5000,SYNTHETIC_SAMPLE
+Data & AI,Associate,Remote,Full-time,520,5000,SYNTHETIC_SAMPLE
+Cloud & DevOps,Mid-Senior level,Seattle WA,Full-time,740,5000,SYNTHETIC_SAMPLE
+Cloud & DevOps,Associate,Remote,Contract,280,5000,SYNTHETIC_SAMPLE
+Cloud & DevOps,Entry level,Austin TX,Full-time,190,5000,SYNTHETIC_SAMPLE
+Cybersecurity,Mid-Senior level,Washington DC,Full-time,430,5000,SYNTHETIC_SAMPLE
+Cybersecurity,Associate,New York NY,Full-time,260,5000,SYNTHETIC_SAMPLE
+IT Support & Systems,Entry level,Chicago IL,Full-time,510,5000,SYNTHETIC_SAMPLE
+IT Support & Systems,Associate,Dallas TX,Full-time,390,5000,SYNTHETIC_SAMPLE
+Product & Project Management,Mid-Senior level,San Francisco CA,Full-time,480,5000,SYNTHETIC_SAMPLE
+Product & Project Management,Director,Remote,Full-time,140,5000,SYNTHETIC_SAMPLE

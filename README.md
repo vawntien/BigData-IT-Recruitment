@@ -109,3 +109,14 @@ Smoke test completed successfully.
 
 Cảnh báo về `winutils.exe` hoặc native Hadoop trên Windows là không chặn nếu
 smoke test vẫn hoàn thành trong local mode.
+
+### 5. Khởi chạy Dashboard (Dành cho TV3)
+
+Để chạy giao diện trực quan hóa Streamlit ở chế độ phát triển:
+
+```powershell
+.\.venv\Scripts\python.exe -m streamlit run dashboard\app.py
+```
+
+Chi tiết hướng dẫn phát triển và hợp đồng dữ liệu xem tại `docs/dashboard/dashboard_handoff.md`.
+
