@@ -1,0 +1,2 @@
+table,candidate_key,duplicate_groups,removed_rows,keep_rule
+company_specialities,company_id + speciality,20,20,"most non-null non-key fields, then ascending SHA-256 typed-row fingerprint"

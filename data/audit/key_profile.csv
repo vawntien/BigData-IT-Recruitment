@@ -1,0 +1,20 @@
+table,candidate_key,total_rows,null_key_count,distinct_count,duplicate_count,assessment
+postings,job_id,123849,0,123849,0,UNIQUE
+postings,company_id,123849,1717,24474,97658,NON_UNIQUE
+companies,company_id,24473,0,24473,0,UNIQUE
+company_industries,company_id,24375,0,24365,10,NON_UNIQUE
+company_industries,company_id + industry,24375,0,24375,0,UNIQUE
+company_specialities,company_id,169387,0,17780,151607,NON_UNIQUE
+company_specialities,company_id + speciality,169387,0,169387,0,UNIQUE
+employee_counts,company_id,35787,0,24473,11314,NON_UNIQUE
+employee_counts,company_id + time_recorded,35787,0,35665,122,NON_UNIQUE
+benefits,job_id,67943,0,30023,37920,NON_UNIQUE
+benefits,job_id + type,67943,0,67943,0,UNIQUE
+job_industries,job_id,164808,0,127125,37683,NON_UNIQUE
+job_industries,job_id + industry_id,164808,0,164808,0,UNIQUE
+job_skills,job_id,213768,0,126807,86961,NON_UNIQUE
+job_skills,job_id + skill_abr,213768,0,213768,0,UNIQUE
+salaries,salary_id,40785,0,40785,0,UNIQUE
+salaries,job_id,40785,0,40785,0,UNIQUE
+industries,industry_id,422,0,422,0,UNIQUE
+skills,skill_abr,35,0,35,0,UNIQUE

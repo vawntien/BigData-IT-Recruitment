@@ -1,0 +1,12 @@
+table,total_rows,distinct_full_rows,duplicate_full_rows
+postings,123849,123849,0
+companies,24473,24473,0
+company_industries,24375,24375,0
+company_specialities,169387,169387,0
+employee_counts,35787,35787,0
+benefits,67943,67943,0
+job_industries,164808,164808,0
+job_skills,213768,213768,0
+salaries,40785,40785,0
+industries,422,422,0
+skills,35,35,0

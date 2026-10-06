@@ -1,0 +1,11 @@
+parent_table,child_table,parent_key,child_key,child_non_missing_rows,raw_child_distinct_keys,comparison_mode,compared_child_distinct_keys,exact_matched_distinct_keys,exact_unmatched_distinct_keys,matched_distinct_keys,unmatched_distinct_keys,coverage_percent
+companies,postings,company_id,company_id,122132,24474,NUMERIC_CANONICAL,24474,0,24474,24473,1,99.995914
+postings,job_skills,job_id,job_id,213768,126807,EXACT_RAW,126807,122096,4711,122096,4711,96.284905
+postings,job_industries,job_id,job_id,164808,127125,EXACT_RAW,127125,122413,4712,122413,4712,96.293412
+postings,benefits,job_id,job_id,67943,30023,EXACT_RAW,30023,28735,1288,28735,1288,95.709956
+postings,salaries,job_id,job_id,40785,40785,EXACT_RAW,40785,36073,4712,36073,4712,88.446733
+skills,job_skills,skill_abr,skill_abr,213768,35,EXACT_RAW,35,35,0,35,0,100.0
+industries,job_industries,industry_id,industry_id,164808,422,EXACT_RAW,422,422,0,422,0,100.0
+companies,company_industries,company_id,company_id,24375,24365,EXACT_RAW,24365,24365,0,24365,0,100.0
+companies,company_specialities,company_id,company_id,169387,17780,EXACT_RAW,17780,17780,0,17780,0,100.0
+companies,employee_counts,company_id,company_id,35787,24473,EXACT_RAW,24473,24473,0,24473,0,100.0

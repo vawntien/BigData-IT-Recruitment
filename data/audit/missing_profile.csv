@@ -1,0 +1,69 @@
+table,column,raw_spark_type,total_rows,missing_count,missing_percent,candidate_role,notes
+postings,job_id,string,123849,0,0.0,identifier,Included in candidate-key audit; Included in referential-coverage audit
+postings,company_name,string,123849,1719,1.387981,categorical,
+postings,title,string,123849,0,0.0,text,
+postings,description,string,123849,7,0.005652,text,
+postings,max_salary,string,123849,94056,75.944093,measure,
+postings,pay_period,string,123849,87776,70.873402,categorical,
+postings,location,string,123849,0,0.0,categorical,
+postings,company_id,string,123849,1717,1.386366,foreign key candidate,Included in candidate-key audit; Included in referential-coverage audit
+postings,views,string,123849,1689,1.363757,measure,
+postings,med_salary,string,123849,117569,94.929309,measure,
+postings,min_salary,string,123849,94056,75.944093,measure,
+postings,formatted_work_type,string,123849,0,0.0,categorical,
+postings,applies,string,123849,100529,81.170619,measure,
+postings,original_listed_time,string,123849,0,0.0,timestamp candidate,Unit inferred only after inspecting actual values
+postings,remote_allowed,string,123849,108603,87.689848,categorical,
+postings,job_posting_url,string,123849,0,0.0,URL,
+postings,application_url,string,123849,36665,29.604599,URL,
+postings,application_type,string,123849,0,0.0,categorical,
+postings,expiry,string,123849,0,0.0,timestamp candidate,Unit inferred only after inspecting actual values
+postings,closed_time,string,123849,122776,99.133622,timestamp candidate,Unit inferred only after inspecting actual values
+postings,formatted_experience_level,string,123849,29409,23.745852,categorical,
+postings,skills_desc,string,123849,121410,98.030666,text,
+postings,listed_time,string,123849,0,0.0,timestamp candidate,Unit inferred only after inspecting actual values
+postings,posting_domain,string,123849,39968,32.271556,URL,
+postings,sponsored,string,123849,0,0.0,categorical,
+postings,work_type,string,123849,0,0.0,categorical,
+postings,currency,string,123849,87776,70.873402,categorical,
+postings,compensation_type,string,123849,87776,70.873402,categorical,
+postings,normalized_salary,string,123849,87776,70.873402,measure,
+postings,zip_code,string,123849,20872,16.85278,categorical,
+postings,fips,string,123849,27415,22.135827,categorical,
+companies,company_id,string,24473,0,0.0,identifier,Included in candidate-key audit; Included in referential-coverage audit
+companies,name,string,24473,0,0.0,categorical,
+companies,description,string,24473,296,1.209496,text,
+companies,company_size,string,24473,2774,11.334941,measure,
+companies,state,string,24473,22,0.089895,categorical,
+companies,country,string,24473,0,0.0,measure,
+companies,city,string,24473,1,0.004086,categorical,
+companies,zip_code,string,24473,29,0.118498,categorical,
+companies,address,string,24473,22,0.089895,text,
+companies,url,string,24473,0,0.0,URL,
+company_industries,company_id,string,24375,0,0.0,foreign key candidate,Included in candidate-key audit; Included in referential-coverage audit
+company_industries,industry,string,24375,0,0.0,categorical,Included in candidate-key audit
+company_specialities,company_id,string,169387,0,0.0,foreign key candidate,Included in candidate-key audit; Included in referential-coverage audit
+company_specialities,speciality,string,169387,0,0.0,text,Included in candidate-key audit
+employee_counts,company_id,string,35787,0,0.0,foreign key candidate,Included in candidate-key audit; Included in referential-coverage audit
+employee_counts,employee_count,string,35787,0,0.0,measure,
+employee_counts,follower_count,string,35787,0,0.0,measure,
+employee_counts,time_recorded,string,35787,0,0.0,timestamp candidate,Included in candidate-key audit; Unit inferred only after inspecting actual values
+benefits,job_id,string,67943,0,0.0,foreign key candidate,Included in candidate-key audit; Included in referential-coverage audit
+benefits,inferred,string,67943,0,0.0,categorical,
+benefits,type,string,67943,0,0.0,categorical,Included in candidate-key audit
+job_industries,job_id,string,164808,0,0.0,foreign key candidate,Included in candidate-key audit; Included in referential-coverage audit
+job_industries,industry_id,string,164808,0,0.0,foreign key candidate,Included in candidate-key audit; Included in referential-coverage audit
+job_skills,job_id,string,213768,0,0.0,foreign key candidate,Included in candidate-key audit; Included in referential-coverage audit
+job_skills,skill_abr,string,213768,0,0.0,foreign key candidate,Included in candidate-key audit; Included in referential-coverage audit
+salaries,salary_id,string,40785,0,0.0,identifier,Included in candidate-key audit
+salaries,job_id,string,40785,0,0.0,foreign key candidate,Included in candidate-key audit; Included in referential-coverage audit
+salaries,max_salary,string,40785,6838,16.765968,measure,
+salaries,med_salary,string,40785,33947,83.234032,measure,
+salaries,min_salary,string,40785,6838,16.765968,measure,
+salaries,pay_period,string,40785,0,0.0,categorical,
+salaries,currency,string,40785,0,0.0,categorical,
+salaries,compensation_type,string,40785,0,0.0,categorical,
+industries,industry_id,string,422,0,0.0,identifier,Included in candidate-key audit; Included in referential-coverage audit
+industries,industry_name,string,422,34,8.056872,mapping value,
+skills,skill_abr,string,35,0,0.0,identifier,Included in candidate-key audit; Included in referential-coverage audit
+skills,skill_name,string,35,0,0.0,mapping value,

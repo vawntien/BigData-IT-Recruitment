@@ -1,0 +1,74 @@
+table,column,raw_type,clean_type,rule
+postings,job_id,string,bigint,Trim; missing→NULL; accept integral numeric syntax including .0; cast to bigint
+postings,company_name,string,string,Trim leading/trailing whitespace; missing sentinel→NULL; otherwise preserve text
+postings,title,string,string,Trim leading/trailing whitespace; missing sentinel→NULL; otherwise preserve text
+postings,description,string,string,Trim leading/trailing whitespace; missing sentinel→NULL; otherwise preserve text
+postings,max_salary,string,"decimal(20,4)","Trim; missing→NULL; try-cast to decimal(20,4); no salary business normalization"
+postings,pay_period,string,string,Trim leading/trailing whitespace; missing sentinel→NULL; otherwise preserve text
+postings,location,string,string,Trim leading/trailing whitespace; missing sentinel→NULL; otherwise preserve text
+postings,company_id,string,bigint,Trim; missing→NULL; accept integral numeric syntax including .0; cast to bigint
+postings,views,string,bigint,Trim; missing→NULL; strict integral cast; failures logged
+postings,med_salary,string,"decimal(20,4)","Trim; missing→NULL; try-cast to decimal(20,4); no salary business normalization"
+postings,min_salary,string,"decimal(20,4)","Trim; missing→NULL; try-cast to decimal(20,4); no salary business normalization"
+postings,formatted_work_type,string,string,Trim leading/trailing whitespace; missing sentinel→NULL; otherwise preserve text
+postings,applies,string,bigint,Trim; missing→NULL; strict integral cast; failures logged
+postings,original_listed_time,string,timestamp,Preserve *_raw; strict integer epoch milliseconds→UTC timestamp
+postings,original_listed_time_raw,derived copy,string,Preserved normalized raw value for auditability of original_listed_time
+postings,remote_allowed,string,boolean,Explicit true/1/1.0 and false/0/0.0 mapping; failures logged
+postings,job_posting_url,string,string,Trim leading/trailing whitespace; missing sentinel→NULL; otherwise preserve text
+postings,application_url,string,string,Trim leading/trailing whitespace; missing sentinel→NULL; otherwise preserve text
+postings,application_type,string,string,Trim leading/trailing whitespace; missing sentinel→NULL; otherwise preserve text
+postings,expiry,string,timestamp,Preserve *_raw; strict integer epoch milliseconds→UTC timestamp
+postings,expiry_raw,derived copy,string,Preserved normalized raw value for auditability of expiry
+postings,closed_time,string,timestamp,Preserve *_raw; strict integer epoch milliseconds→UTC timestamp
+postings,closed_time_raw,derived copy,string,Preserved normalized raw value for auditability of closed_time
+postings,formatted_experience_level,string,string,Trim leading/trailing whitespace; missing sentinel→NULL; otherwise preserve text
+postings,skills_desc,string,string,Trim leading/trailing whitespace; missing sentinel→NULL; otherwise preserve text
+postings,listed_time,string,timestamp,Preserve *_raw; strict integer epoch milliseconds→UTC timestamp
+postings,listed_time_raw,derived copy,string,Preserved normalized raw value for auditability of listed_time
+postings,posting_domain,string,string,Trim leading/trailing whitespace; missing sentinel→NULL; otherwise preserve text
+postings,sponsored,string,boolean,Explicit true/1/1.0 and false/0/0.0 mapping; failures logged
+postings,work_type,string,string,Trim leading/trailing whitespace; missing sentinel→NULL; otherwise preserve text
+postings,currency,string,string,Trim leading/trailing whitespace; missing sentinel→NULL; otherwise preserve text
+postings,compensation_type,string,string,Trim leading/trailing whitespace; missing sentinel→NULL; otherwise preserve text
+postings,normalized_salary,string,"decimal(20,4)","Trim; missing→NULL; try-cast to decimal(20,4); no salary business normalization"
+postings,zip_code,string,string,Trim leading/trailing whitespace; missing sentinel→NULL; otherwise preserve text
+postings,fips,string,string,Trim leading/trailing whitespace; missing sentinel→NULL; otherwise preserve text
+companies,company_id,string,bigint,Trim; missing→NULL; accept integral numeric syntax including .0; cast to bigint
+companies,name,string,string,Trim leading/trailing whitespace; missing sentinel→NULL; otherwise preserve text
+companies,description,string,string,Trim leading/trailing whitespace; missing sentinel→NULL; otherwise preserve text
+companies,company_size,string,bigint,Trim; missing→NULL; strict integral cast; failures logged
+companies,state,string,string,Trim leading/trailing whitespace; missing sentinel→NULL; otherwise preserve text
+companies,country,string,string,Trim leading/trailing whitespace; missing sentinel→NULL; otherwise preserve text
+companies,city,string,string,Trim leading/trailing whitespace; missing sentinel→NULL; otherwise preserve text
+companies,zip_code,string,string,Trim leading/trailing whitespace; missing sentinel→NULL; otherwise preserve text
+companies,address,string,string,Trim leading/trailing whitespace; missing sentinel→NULL; otherwise preserve text
+companies,url,string,string,Trim leading/trailing whitespace; missing sentinel→NULL; otherwise preserve text
+company_industries,company_id,string,bigint,Trim; missing→NULL; accept integral numeric syntax including .0; cast to bigint
+company_industries,industry,string,string,Trim leading/trailing whitespace; missing sentinel→NULL; otherwise preserve text
+company_specialities,company_id,string,bigint,Trim; missing→NULL; accept integral numeric syntax including .0; cast to bigint
+company_specialities,speciality,string,string,Trim leading/trailing whitespace; missing sentinel→NULL; otherwise preserve text
+employee_counts,company_id,string,bigint,Trim; missing→NULL; accept integral numeric syntax including .0; cast to bigint
+employee_counts,employee_count,string,bigint,Trim; missing→NULL; strict integral cast; failures logged
+employee_counts,follower_count,string,bigint,Trim; missing→NULL; strict integral cast; failures logged
+employee_counts,time_recorded,string,timestamp,Preserve *_raw; strict integer epoch seconds→UTC timestamp
+employee_counts,time_recorded_raw,derived copy,string,Preserved normalized raw value for auditability of time_recorded
+benefits,job_id,string,bigint,Trim; missing→NULL; accept integral numeric syntax including .0; cast to bigint
+benefits,inferred,string,boolean,Explicit true/1/1.0 and false/0/0.0 mapping; failures logged
+benefits,type,string,string,Trim leading/trailing whitespace; missing sentinel→NULL; otherwise preserve text
+job_industries,job_id,string,bigint,Trim; missing→NULL; accept integral numeric syntax including .0; cast to bigint
+job_industries,industry_id,string,bigint,Trim; missing→NULL; accept integral numeric syntax including .0; cast to bigint
+job_skills,job_id,string,bigint,Trim; missing→NULL; accept integral numeric syntax including .0; cast to bigint
+job_skills,skill_abr,string,string,Trim leading/trailing whitespace; missing sentinel→NULL; otherwise preserve text
+salaries,salary_id,string,bigint,Trim; missing→NULL; accept integral numeric syntax including .0; cast to bigint
+salaries,job_id,string,bigint,Trim; missing→NULL; accept integral numeric syntax including .0; cast to bigint
+salaries,max_salary,string,"decimal(20,4)","Trim; missing→NULL; try-cast to decimal(20,4); no salary business normalization"
+salaries,med_salary,string,"decimal(20,4)","Trim; missing→NULL; try-cast to decimal(20,4); no salary business normalization"
+salaries,min_salary,string,"decimal(20,4)","Trim; missing→NULL; try-cast to decimal(20,4); no salary business normalization"
+salaries,pay_period,string,string,Trim leading/trailing whitespace; missing sentinel→NULL; otherwise preserve text
+salaries,currency,string,string,Trim leading/trailing whitespace; missing sentinel→NULL; otherwise preserve text
+salaries,compensation_type,string,string,Trim leading/trailing whitespace; missing sentinel→NULL; otherwise preserve text
+industries,industry_id,string,bigint,Trim; missing→NULL; accept integral numeric syntax including .0; cast to bigint
+industries,industry_name,string,string,Trim leading/trailing whitespace; missing sentinel→NULL; otherwise preserve text
+skills,skill_abr,string,string,Trim leading/trailing whitespace; missing sentinel→NULL; otherwise preserve text
+skills,skill_name,string,string,Trim leading/trailing whitespace; missing sentinel→NULL; otherwise preserve text

@@ -1,0 +1,68 @@
+table,check,status,details
+postings,unique(job_id),PASS,duplicate_groups=0
+postings,required_non_null(job_id),PASS,null_rows=0
+postings,parquet_readback_row_count,PASS,expected=123849;actual=123849
+postings,type(job_id),PASS,expected=bigint;actual=bigint
+postings,type(company_id),PASS,expected=bigint;actual=bigint
+postings,type(max_salary),PASS,"expected=decimal(20,4);actual=decimal(20,4)"
+postings,type(med_salary),PASS,"expected=decimal(20,4);actual=decimal(20,4)"
+postings,type(min_salary),PASS,"expected=decimal(20,4);actual=decimal(20,4)"
+postings,type(normalized_salary),PASS,"expected=decimal(20,4);actual=decimal(20,4)"
+postings,type(views),PASS,expected=bigint;actual=bigint
+postings,type(applies),PASS,expected=bigint;actual=bigint
+postings,type(remote_allowed),PASS,expected=boolean;actual=boolean
+postings,type(sponsored),PASS,expected=boolean;actual=boolean
+postings,type(original_listed_time),PASS,expected=timestamp;actual=timestamp
+postings,type(listed_time),PASS,expected=timestamp;actual=timestamp
+postings,type(expiry),PASS,expected=timestamp;actual=timestamp
+postings,type(closed_time),PASS,expected=timestamp;actual=timestamp
+companies,unique(company_id),PASS,duplicate_groups=0
+companies,required_non_null(company_id),PASS,null_rows=0
+companies,parquet_readback_row_count,PASS,expected=24473;actual=24473
+companies,type(company_id),PASS,expected=bigint;actual=bigint
+companies,type(company_size),PASS,expected=bigint;actual=bigint
+company_industries,"unique(company_id, industry)",PASS,duplicate_groups=0
+company_industries,"required_non_null(company_id, industry)",PASS,null_rows=0
+company_industries,parquet_readback_row_count,PASS,expected=24375;actual=24375
+company_industries,type(company_id),PASS,expected=bigint;actual=bigint
+company_specialities,"unique(company_id, speciality)",PASS,duplicate_groups=0
+company_specialities,"required_non_null(company_id, speciality)",PASS,null_rows=0
+company_specialities,parquet_readback_row_count,PASS,expected=169367;actual=169367
+company_specialities,type(company_id),PASS,expected=bigint;actual=bigint
+employee_counts,"unique(company_id, time_recorded)",PASS,duplicate_groups=0
+employee_counts,"required_non_null(company_id, time_recorded)",PASS,null_rows=0
+employee_counts,parquet_readback_row_count,PASS,expected=35665;actual=35665
+employee_counts,type(company_id),PASS,expected=bigint;actual=bigint
+employee_counts,type(employee_count),PASS,expected=bigint;actual=bigint
+employee_counts,type(follower_count),PASS,expected=bigint;actual=bigint
+employee_counts,type(time_recorded),PASS,expected=timestamp;actual=timestamp
+benefits,"unique(job_id, type)",PASS,duplicate_groups=0
+benefits,"required_non_null(job_id, type)",PASS,null_rows=0
+benefits,parquet_readback_row_count,PASS,expected=67943;actual=67943
+benefits,type(job_id),PASS,expected=bigint;actual=bigint
+benefits,type(inferred),PASS,expected=boolean;actual=boolean
+job_industries,"unique(job_id, industry_id)",PASS,duplicate_groups=0
+job_industries,"required_non_null(job_id, industry_id)",PASS,null_rows=0
+job_industries,parquet_readback_row_count,PASS,expected=164808;actual=164808
+job_industries,type(job_id),PASS,expected=bigint;actual=bigint
+job_industries,type(industry_id),PASS,expected=bigint;actual=bigint
+job_skills,"unique(job_id, skill_abr)",PASS,duplicate_groups=0
+job_skills,"required_non_null(job_id, skill_abr)",PASS,null_rows=0
+job_skills,parquet_readback_row_count,PASS,expected=213768;actual=213768
+job_skills,type(job_id),PASS,expected=bigint;actual=bigint
+salaries,unique(salary_id),PASS,duplicate_groups=0
+salaries,unique(job_id),PASS,duplicate_groups=0
+salaries,"required_non_null(salary_id, job_id)",PASS,null_rows=0
+salaries,parquet_readback_row_count,PASS,expected=40785;actual=40785
+salaries,type(salary_id),PASS,expected=bigint;actual=bigint
+salaries,type(job_id),PASS,expected=bigint;actual=bigint
+salaries,type(max_salary),PASS,"expected=decimal(20,4);actual=decimal(20,4)"
+salaries,type(med_salary),PASS,"expected=decimal(20,4);actual=decimal(20,4)"
+salaries,type(min_salary),PASS,"expected=decimal(20,4);actual=decimal(20,4)"
+industries,unique(industry_id),PASS,duplicate_groups=0
+industries,required_non_null(industry_id),PASS,null_rows=0
+industries,parquet_readback_row_count,PASS,expected=422;actual=422
+industries,type(industry_id),PASS,expected=bigint;actual=bigint
+skills,unique(skill_abr),PASS,duplicate_groups=0
+skills,required_non_null(skill_abr),PASS,null_rows=0
+skills,parquet_readback_row_count,PASS,expected=35;actual=35

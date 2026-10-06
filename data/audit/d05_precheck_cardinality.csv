@@ -1,0 +1,6 @@
+table,entity_key,distinct_entities,total_rows,avg_per_entity,median_per_entity,max_per_entity,entities_gt_1
+job_skills,job_id,126807,213768,1.6858,2,3,71658
+job_industries,job_id,127125,164808,1.2964,1,3,24406
+benefits,job_id,30023,67943,2.2630,2,12,16101
+company_specialities,company_id,17780,169367,9.5257,8,84,16970
+company_industries,company_id,24365,24375,1.0004,1,2,10

@@ -1,0 +1,11 @@
+parent_table,child_table,parent_key,child_key,child_total_rows,child_null_rows,child_non_null_rows,distinct_child_keys,matched_keys,unmatched_keys,orphan_child_rows,key_coverage_pct
+companies,postings,company_id,company_id,123849,1717,122132,24474,24473,1,1,99.9959
+postings,job_skills,job_id,job_id,213768,0,213768,126807,122096,4711,7990,96.2849
+postings,job_industries,job_id,job_id,164808,0,164808,127125,122413,4712,5845,96.2934
+postings,benefits,job_id,job_id,67943,0,67943,30023,28735,1288,2550,95.7100
+postings,salaries,job_id,job_id,40785,0,40785,40785,36073,4712,4712,88.4467
+skills,job_skills,skill_abr,skill_abr,213768,0,213768,35,35,0,0,100.0000
+industries,job_industries,industry_id,industry_id,164808,0,164808,422,422,0,0,100.0000
+companies,company_industries,company_id,company_id,24375,0,24375,24365,24365,0,0,100.0000
+companies,company_specialities,company_id,company_id,169367,0,169367,17780,17780,0,0,100.0000
+companies,employee_counts,company_id,company_id,35665,0,35665,24473,24473,0,0,100.0000
