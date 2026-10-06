@@ -116,7 +116,9 @@ smoke test vẫn hoàn thành trong local mode.
 
 ```powershell
 .\.venv\Scripts\python.exe -m streamlit run dashboard\app.py
+# Hoặc chạy script tự động:
+.\scripts\run_dashboard.ps1
 ```
 
-Chi tiết hướng dẫn phát triển và hợp đồng dữ liệu xem tại `docs/dashboard/dashboard_handoff.md`.
+Chi tiết hướng dẫn xem tại [dashboard_handoff.md](docs/dashboard/dashboard_handoff.md) và [dashboard_user_guide_draft.md](docs/dashboard/dashboard_user_guide_draft.md).
 

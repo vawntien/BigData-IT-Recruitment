@@ -15,6 +15,7 @@ if str(DASHBOARD_DIR) not in sys.path:
 import streamlit as st
 import pandas as pd
 from components.data_loader import load_overview_data, STATUS_MISSING
+from components.contract_validator import validate_overview_schema
 from components.ui_helpers import render_header, render_data_status_banner, render_todo_placeholder
 from components.filters import render_sidebar_controls
 
@@ -36,13 +37,21 @@ render_data_status_banner(status, message)
 if status == STATUS_MISSING or df is None:
     st.stop()
 
-# Re-render filters with loaded dataframe to populate options
+# Schema contract validation
+is_valid, missing_cols, extra_cols, schema_msg = validate_overview_schema(df)
+if not is_valid:
+    st.error(f"⚠️ **Lỗi hợp đồng dữ liệu (Schema Mismatch):** {schema_msg}")
+    if missing_cols:
+        st.markdown(f"Các cột còn thiếu: `{missing_cols}`")
+    st.stop()
+
+# Populate filters with validated dataframe
 controls = render_sidebar_controls(df)
 selected_cats = controls["categories"]
 selected_exps = controls["experience_levels"]
 selected_locs = controls["locations"]
 
-# Apply filters
+# Apply filters safely
 filtered_df = df.copy()
 if selected_cats and "category" in filtered_df.columns:
     filtered_df = filtered_df[filtered_df["category"].isin(selected_cats)]
@@ -51,28 +60,27 @@ if selected_exps and "experience_level" in filtered_df.columns:
 if selected_locs and "location" in filtered_df.columns:
     filtered_df = filtered_df[filtered_df["location"].isin(selected_locs)]
 
+# Handle empty filter result (no-match combination)
+if filtered_df.empty:
+    st.warning("⚠️ **Không tìm thấy bản ghi nào phù hợp với bộ lọc hiện tại.** Vui lòng nới lỏng hoặc chọn lại các tiêu chí lọc ở thanh bên trái.")
+    st.stop()
+
 # --- SECTION 1: KEY PERFORMANCE INDICATORS (KPIs) ---
 st.subheader("📌 Chỉ số Tổng quan")
 kpi1, kpi2, kpi3, kpi4 = st.columns(4)
 
-total_jobs = int(filtered_df["job_count"].sum()) if "job_count" in filtered_df.columns else len(filtered_df)
+total_jobs = int(filtered_df["job_count"].fillna(0).sum()) if "job_count" in filtered_df.columns else len(filtered_df)
 kpi1.metric("Tổng số tin tuyển dụng", f"{total_jobs:,}")
 
-top_cat = (
-    filtered_df.groupby("category")["job_count"].sum().idxmax()
-    if "category" in filtered_df.columns and not filtered_df.empty
-    else "N/A"
-)
+top_cat_series = filtered_df.groupby("category")["job_count"].sum()
+top_cat = top_cat_series.idxmax() if not top_cat_series.empty else "N/A"
 kpi2.metric("Nhóm nghề hàng đầu", str(top_cat))
 
-top_loc = (
-    filtered_df.groupby("location")["job_count"].sum().idxmax()
-    if "location" in filtered_df.columns and not filtered_df.empty
-    else "N/A"
-)
+top_loc_series = filtered_df.groupby("location")["job_count"].sum()
+top_loc = top_loc_series.idxmax() if not top_loc_series.empty else "N/A"
 kpi3.metric("Địa điểm nhiều nhất", str(top_loc))
 
-# Salary coverage metric
+# Actual audited salary coverage baseline
 kpi4.metric("Độ phủ thông tin lương", "29.13%", help="Đo lường từ dữ liệu sạch thực tế tại D03/D04")
 
 st.markdown("---")
@@ -87,8 +95,6 @@ with col_chart1:
         cat_counts = filtered_df.groupby("category")["job_count"].sum().reset_index()
         cat_counts = cat_counts.sort_values(by="job_count", ascending=False)
         st.bar_chart(cat_counts.set_index("category"), height=320)
-    else:
-        st.info("Trường 'category' chưa sẵn sàng trong analytics schema.")
 
 with col_chart2:
     st.markdown("#### 2. Phân bố theo Cấp bậc Kinh nghiệm")
@@ -96,8 +102,6 @@ with col_chart2:
         exp_counts = filtered_df.groupby("experience_level")["job_count"].sum().reset_index()
         exp_counts = exp_counts.sort_values(by="job_count", ascending=False)
         st.bar_chart(exp_counts.set_index("experience_level"), height=320)
-    else:
-        st.info("Trường 'experience_level' chưa sẵn sàng trong analytics schema.")
 
 col_chart3, col_chart4 = st.columns(2)
 
@@ -107,8 +111,6 @@ with col_chart3:
         loc_counts = filtered_df.groupby("location")["job_count"].sum().reset_index()
         loc_counts = loc_counts.sort_values(by="job_count", ascending=False).head(10)
         st.bar_chart(loc_counts.set_index("location"), height=320)
-    else:
-        st.info("Trường 'location' chưa sẵn sàng trong analytics schema.")
 
 with col_chart4:
     st.markdown("#### 4. Hình thức làm việc & Remote Indicator")

@@ -15,6 +15,7 @@ if str(DASHBOARD_DIR) not in sys.path:
 import streamlit as st
 import pandas as pd
 from components.data_loader import load_salary_quality_data, STATUS_MISSING
+from components.contract_validator import validate_salary_quality_schema
 from components.ui_helpers import render_header, render_data_status_banner, render_todo_placeholder
 from components.filters import render_sidebar_controls
 
@@ -44,35 +45,42 @@ with tab_salary:
     render_data_status_banner(status, message)
 
     if status != STATUS_MISSING and df is not None:
-        col_pay1, col_pay2 = st.columns([1, 1])
+        is_valid, missing_cols, extra_cols, schema_msg = validate_salary_quality_schema(df)
+        if not is_valid:
+            st.error(f"⚠️ **Lỗi hợp đồng dữ liệu lương (Schema Mismatch):** {schema_msg}")
+            if missing_cols:
+                st.markdown(f"Các cột còn thiếu: `{missing_cols}`")
+        else:
+            col_pay1, col_pay2 = st.columns([1, 1])
 
-        # Yearly salary view
-        yearly_df = df[df["pay_period"] == "YEARLY"] if "pay_period" in df.columns else df
+            # Yearly salary view
+            yearly_df = df[df["pay_period"] == "YEARLY"] if "pay_period" in df.columns else df
 
-        with col_pay1:
-            st.markdown("#### 1. Mức lương Trung vị theo Nhóm nghề (USD / Năm)")
-            if "category" in yearly_df.columns and "median_salary" in yearly_df.columns:
-                chart_data = yearly_df.sort_values(by="median_salary", ascending=False)
-                st.bar_chart(chart_data.set_index("category")[["median_salary"]], height=320)
-            else:
-                st.info("Trường 'median_salary' chưa sẵn sàng trong analytics schema.")
+            with col_pay1:
+                st.markdown("#### 1. Mức lương Trung vị theo Nhóm nghề (USD / Năm)")
+                if "category" in yearly_df.columns and "median_salary" in yearly_df.columns and not yearly_df.empty:
+                    chart_data = yearly_df.sort_values(by="median_salary", ascending=False)
+                    st.bar_chart(chart_data.set_index("category")[["median_salary"]], height=320)
+                else:
+                    st.info("Chưa có bản ghi lương YEARLY hợp lệ để vẽ biểu đồ.")
 
-        with col_pay2:
-            st.markdown("#### 2. Dải lương Tuyển dụng (Min - Median - Max)")
-            if {"min_salary", "median_salary", "max_salary", "category"}.issubset(yearly_df.columns):
-                st.dataframe(
-                    yearly_df[["category", "min_salary", "median_salary", "max_salary", "job_count_with_salary"]],
-                    use_container_width=True,
-                    hide_index=True,
-                )
-            else:
-                st.info("Chưa đủ các trường min/median/max để hiển thị bảng dải lương.")
+            with col_pay2:
+                st.markdown("#### 2. Dải lương Tuyển dụng (Min - Median - Max)")
+                display_cols = [c for c in ["category", "min_salary", "median_salary", "max_salary", "job_count_with_salary"] if c in yearly_df.columns]
+                if not yearly_df.empty and display_cols:
+                    st.dataframe(
+                        yearly_df[display_cols],
+                        use_container_width=True,
+                        hide_index=True,
+                    )
+                else:
+                    st.info("Chưa đủ dữ liệu hiển thị dải lương chi tiết.")
 
-        st.markdown("---")
-        render_todo_placeholder(
-            section_name="Quantile Salary Distribution (Boxplot/Violin)",
-            requirement_desc="Cần phân phối phân vị lương (P25, Median, P75) từ task A08/D07.",
-        )
+            st.markdown("---")
+            render_todo_placeholder(
+                section_name="Quantile Salary Distribution (Boxplot/Violin)",
+                requirement_desc="Cần phân phối phân vị lương (P25, Median, P75) từ task A08/D07.",
+            )
     else:
         st.warning("Dữ liệu phân tích lương chưa sẵn sàng.")
 
