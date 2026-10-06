@@ -1,0 +1,5 @@
+benchmark_id,timestamp_utc,operation,dataset,input_rows,output_rows,input_partitions,output_partitions,elapsed_seconds,spark_master,spark_version,shuffle_partitions,dev_smoke_only,official,notes
+SMOKE_A_READ_POSTINGS,2026-10-06T09:32:06Z,READ_PARQUET_POSTINGS,data/processed/clean/postings,,,,12,2.4313,local[*],4.2.0,200,true,false,Metadata & schema scan only (lazy evaluation)
+SMOKE_B_COUNT_POSTINGS,2026-10-06T09:32:07.161584+00:00,COUNT_FULL_SCAN,clean/postings,,123849,12,12,0.9943,local[*],4.2.0,200,true,false,Eager full dataset scan action
+SMOKE_C_GROUPBY_EXP,2026-10-06T09:32:08.065536+00:00,GROUPBY_EXPERIENCE_LEVEL,clean/postings,123849,7,12,,0.883,local[*],4.2.0,200,true,false,Shuffled aggregation on categorical field
+SMOKE_D_AGG_BRIDGE_SKILLS,2026-10-06T09:32:09.008026+00:00,AGGREGATE_BRIDGE_ARRAY_SORT,clean/job_skills,,126807,1,,0.8297,local[*],4.2.0,200,true,false,Deterministic array aggregation (collect_set + array_sort)
