@@ -118,4 +118,4 @@ Phạm vi địa lý chi tiết sẽ được xác định dựa trên các giá
 - Không giả định khóa JOIN trước khi kiểm tra dữ liệu.
 - Không gán giá trị thiếu thành 0 nếu chưa có quy tắc.
 - Không suy rộng kết quả ngoài phạm vi dataset.
-// Trần Nguyễn Bảo An - Nguyễn Văn Tiến 
+  // Trần Nguyễn Bảo An - Nguyễn Văn Tiến - Đồng Viết Dũng
