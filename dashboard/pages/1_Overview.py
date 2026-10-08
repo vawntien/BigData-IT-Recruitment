@@ -17,7 +17,7 @@ import pandas as pd
 from components.data_loader import load_overview_data, STATUS_MISSING
 from components.contract_validator import validate_overview_schema
 from components.ui_helpers import render_header, render_data_status_banner, render_todo_placeholder
-from components.filters import render_sidebar_controls
+from components.filters import render_sample_control, render_data_filters
 
 st.set_page_config(page_title="Overview - IT Recruitment", page_icon="📊", layout="wide")
 
@@ -27,8 +27,7 @@ render_header(
 )
 
 # Sidebar controls
-controls = render_sidebar_controls()
-sample_mode = controls["sample_mode"]
+sample_mode = render_sample_control()
 
 # Load data
 df, status, message = load_overview_data(enable_sample_mode=sample_mode)
@@ -46,7 +45,7 @@ if not is_valid:
     st.stop()
 
 # Populate filters with validated dataframe
-controls = render_sidebar_controls(df)
+controls = render_data_filters(df)
 selected_cats = controls["categories"]
 selected_exps = controls["experience_levels"]
 selected_locs = controls["locations"]

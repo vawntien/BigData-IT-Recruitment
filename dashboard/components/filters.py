@@ -7,17 +7,20 @@ import pandas as pd
 import streamlit as st
 
 
-def render_sidebar_controls(df: pd.DataFrame | None = None) -> Dict[str, Any]:
-    """Render global sidebar filters and configuration switches."""
+def render_sample_control() -> bool:
+    """Render the sample toggle once, before loading data."""
     st.sidebar.header("⚙️ Dashboard Controls")
 
     # Development mode toggle
-    sample_mode = st.sidebar.checkbox(
+    return st.sidebar.checkbox(
         "Enable Development Sample Mode",
         value=True,
         help="When enabled, loads small synthetic mockup data if production analytics tables are not found.",
     )
 
+
+def render_data_filters(df: pd.DataFrame | None = None) -> Dict[str, Any]:
+    """Render filters after data has been loaded and validated."""
     st.sidebar.markdown("---")
     st.sidebar.subheader("🔍 Filters")
 
@@ -54,8 +57,13 @@ def render_sidebar_controls(df: pd.DataFrame | None = None) -> Dict[str, Any]:
             )
 
     return {
-        "sample_mode": sample_mode,
         "categories": selected_categories,
         "experience_levels": selected_exp,
         "locations": selected_locations,
     }
+
+
+def render_sidebar_controls(df: pd.DataFrame | None = None) -> Dict[str, Any]:
+    """Render the complete sidebar for existing callers."""
+    sample_mode = render_sample_control()
+    return {"sample_mode": sample_mode, **render_data_filters(df)}
