@@ -1,0 +1,385 @@
+{
+  "date": "2026-10-13",
+  "branch": "feat/tv2-analysis",
+  "updated_unique_jobs": 93,
+  "updated_source_rows": 93,
+  "skipped_cases": [],
+  "authorized_manual_cells": 744,
+  "changed_cells": 203,
+  "preserved_prior_decisions": 83,
+  "preserved_chua_ro": 4,
+  "supplemental_workbook_byte_unchanged": true,
+  "protected_artifacts_checked": 234,
+  "protected_artifacts_unchanged": true,
+  "source_fields_and_nondecision_cells_unchanged": true,
+  "workbook_unmodified_zip_entries_unchanged": true,
+  "same_job_consistent_across_workbooks": true,
+  "all_source_counts_valid": true,
+  "raw_hashes_match_manifest": 11,
+  "git_head_index_tracked_diff_unchanged": true,
+  "before_sha256": {
+    "data/analytics/a04_manual_seed42/a04_manual_labels_filled.xlsx": "ff462bc34c13810f3bd5ec2eecc2e4e8eeba12382997fc2f3c914c5f0450ce55",
+    "data/analytics/a04_taxonomy_v0_2_0_20261008/accept_downgrades_for_review_blind.xlsx": "7951c40d59271b58e1ca8d33e0e97c8f83a29c069be39cc6813826e6897cfe09"
+  },
+  "after_sha256": {
+    "data/analytics/a04_manual_seed42/a04_manual_labels_filled.xlsx": "bbe53db071a75478705c8be3b692356c896018bd20dfac40aebc489d97d305a2",
+    "data/analytics/a04_taxonomy_v0_2_0_20261008/accept_downgrades_for_review_blind.xlsx": "7951c40d59271b58e1ca8d33e0e97c8f83a29c069be39cc6813826e6897cfe09"
+  },
+  "generated_reports": {
+    "docs/a04_review_summary.md": "cfebb93ccc08766f0e4c9a8c99867f880e202627b53e89084c7a8fd9250fef7f",
+    "docs/a04_validation_report.md": "5fb607d8a728d9c708dd33b5dcb70eeb5c1209c3bf7f7c85bf6f160a99f61ba5",
+    "docs/a04_prediction_disagreements.csv": "582a0086cc3ba1ac9943337d98e9a0c09d5ae46b99ebae4d2c32c8937e790efc",
+    "docs/a04_missing_review_metadata.csv": "59f404aebf46cd378b2450e7db7bce8b08dab390223db3344e92ede3c94c93cb",
+    "docs/a04_label_consistency_review.csv": "fc6d5559184100ea4b65c0cd32a53c7496416fe46fb40d2c34100badadf76521",
+    "docs/a04_manual_labeling.md": "725dd64d0c190d7a6d8d2436ca2a898f6022ed417ba655442b51bc5c5b9ab0a5",
+    "docs/a04_v020_comparison.md": "bc40afc74704cedd9809e752eb376cb3ec2121f45757bf9cf661df7d25d2692d",
+    "docs/a04_completion_criteria.md": "e51539310d84df45d3f284ea044e98a5ff282197053927aa2c44cb62e4573c4c",
+    "docs/a04_remaining93_review_summary.md": "2ad6143f554b03b42d7efeddc8aae4af5b7b94c57f14c48d53249e7c5ae9f500"
+  },
+  "comparison": {
+    "date": "2026-10-13",
+    "timezone": "Asia/Bangkok",
+    "branch": "feat/tv2-analysis",
+    "reviewer": "Dũng",
+    "status": "LABEL_DECISIONS_APPLIED_A04_ACCEPTANCE_PENDING",
+    "join_key": "job_id",
+    "purpose": "ASSISTED_RULE_DEVELOPMENT_NOT_INDEPENDENT_EVALUATION",
+    "prediction_sources": [
+      "data/analytics/a04_taxonomy_v0_2_0_20261008/seed42_v020_predictions_private.jsonl",
+      "data/analytics/a04_taxonomy_v0_2_0_20261008/accept_downgrade_predictions_private.jsonl"
+    ],
+    "taxonomy_version": "0.2.0",
+    "taxonomy_sha256": "086b0d938c7557091cb4c31f25cdfec2a746fd6853d91156087104d0f60e0d9d",
+    "metric_source": "Recomputed from saved predictions and final source workbooks; no XLSX metric sheet read",
+    "sources": {
+      "data/analytics/a04_manual_seed42/a04_manual_labels_filled.xlsx": {
+        "rows": 160,
+        "distinct_job_ids": 160,
+        "labels": {
+          "NGOAI_CNTT": 66,
+          "CNTT": 90,
+          "CHUA_RO": 4
+        },
+        "matrix": {
+          "ACCEPT": {
+            "CNTT": 76,
+            "NGOAI_CNTT": 0,
+            "CHUA_RO": 3
+          },
+          "REJECT": {
+            "CNTT": 5,
+            "NGOAI_CNTT": 51,
+            "CHUA_RO": 1
+          },
+          "REVIEW": {
+            "CNTT": 9,
+            "NGOAI_CNTT": 15,
+            "CHUA_RO": 0
+          }
+        },
+        "tp": 76,
+        "fp": 0,
+        "fn": 5,
+        "tn": 51,
+        "chua_ro": 4,
+        "machine_review": 24,
+        "clear_machine_review": 24,
+        "membership_on_decided": {
+          "numerator": 127,
+          "denominator": 132,
+          "rate": 0.9621212121212122
+        },
+        "decision_coverage_clear": {
+          "numerator": 132,
+          "denominator": 156,
+          "rate": 0.8461538461538461
+        },
+        "decision_coverage_all": {
+          "numerator": 136,
+          "denominator": 160,
+          "rate": 0.85
+        },
+        "correct_decisions_on_clear": {
+          "numerator": 127,
+          "denominator": 156,
+          "rate": 0.8141025641025641
+        },
+        "precision_decided": {
+          "numerator": 76,
+          "denominator": 76,
+          "rate": 1.0
+        },
+        "recall_decided": {
+          "numerator": 76,
+          "denominator": 81,
+          "rate": 0.9382716049382716
+        },
+        "accept_capture_all_manual_it": {
+          "numerator": 76,
+          "denominator": 90,
+          "rate": 0.8444444444444444
+        },
+        "primary_group": {
+          "numerator": 73,
+          "denominator": 76,
+          "rate": 0.9605263157894737
+        },
+        "software_subgroup": {
+          "numerator": 29,
+          "denominator": 38,
+          "rate": 0.7631578947368421
+        },
+        "fn_examples": [
+          {
+            "job_id": "3899522608",
+            "sample_id": "A04-030",
+            "title": "Philips or Carestream PACS solutions",
+            "group": "IT_SUPPORT",
+            "manual_reason": "Role Description giao trực tiếp cấu hình, cài đặt, xử lý sự cố và hỗ trợ hệ thống PACS; đây là công việc hỗ trợ hệ thống thông tin trong y tế, không chăm sóc bệnh nhân hoặc chỉ căn cứ giới thiệu công ty IT. Giữ CNTT/true/IT_SUPPORT; title tên sản phẩm và coverage/gate rule cần rà riêng, không đổi nhãn theo REJECT.",
+            "manual_evidence": "[1] As a part of the role, you will be responsible for performing day-to-day tasks related to Philips or Carestream PACS solutions. This includes tasks such as system configuration, installation, testing, troubleshooting, and providing support.",
+            "machine_reason_codes": [
+              "NO_IT_ROLE_EVIDENCE"
+            ],
+            "machine_selected_rule_id": null
+          },
+          {
+            "job_id": "3884442452",
+            "sample_id": "A04-036",
+            "title": "Workday Integration - C2H",
+            "group": "SOFTWARE",
+            "manual_reason": "Nhiệm vụ trực tiếp thiết kế/phát triển/test/deploy integrations Workday và hệ thống kết nối, kiến trúc/coding standards; không chỉ dùng Workday như người dùng HR. Giữ CNTT/true/SOFTWARE/SOFTWARE_OTHER; web service xuất hiện dưới yêu cầu trình độ, chưa đủ nhiệm vụ Web/Mobile để đổi phân nhóm. REJECT không là căn cứ sửa nhãn.",
+            "manual_evidence": "[1] Design, develop, test, deploy, and manage integration in Workday platform and all connected systems.\n\n[2] Implementing best practices for architecture, design, coding standards & CI/CD",
+            "machine_reason_codes": [
+              "NO_IT_ROLE_EVIDENCE"
+            ],
+            "machine_selected_rule_id": null
+          },
+          {
+            "job_id": "3887714064",
+            "sample_id": "A04-037",
+            "title": "Junior Scrum Master",
+            "group": "IT_BUSINESS",
+            "manual_reason": "Chuyển IT_BUSINESS: điều phối IT epics và backlog, không phải lãnh đạo chức năng IT.",
+            "manual_evidence": "[1] The Scrum Master manages all aspects of one to three IT Epics from planning to deployment.\n\n[2] Key Partner with the Product Owner to ensure product backlog items are refined, prioritized, and scheduled.",
+            "machine_reason_codes": [
+              "NO_IT_ROLE_EVIDENCE"
+            ],
+            "machine_selected_rule_id": null
+          },
+          {
+            "job_id": "3251984218",
+            "sample_id": "A04-066",
+            "title": "SAP BTP",
+            "group": "SOFTWARE",
+            "manual_reason": "Hồ sơ yêu cầu phát triển dịch vụ CAPM Node.js, review và sửa code. Chọn SOFTWARE_OTHER; data modeling và cloud là chuyên môn đi kèm.",
+            "manual_evidence": "[1] Should be able to design and develop the data model using the CDS and deploy to HANA DB.\n\n[2] Experience in developing the services using the CAPM Node.JS is desired.\n\n[3] Should be able to review code, triage and provide recommendations and fix the code by comparing possible options, pros & cons of designed solution.",
+            "machine_reason_codes": [
+              "NO_IT_ROLE_EVIDENCE"
+            ],
+            "machine_selected_rule_id": null
+          },
+          {
+            "job_id": "3904363315",
+            "sample_id": "A04-081",
+            "title": "Senior Oracle Cloud Financial Analyst - Fusion, PaaS, ERP, SAP (Hybrid LA / Houston)",
+            "group": "IT_BUSINESS",
+            "manual_reason": "Giữ IT_BUSINESS: phân tích yêu cầu và triển khai/cấu hình Oracle Financials, không chỉ sử dụng phần mềm để lập báo cáo tài chính.",
+            "manual_evidence": "[1] Gather business requirements and translate them into implementable solutions using leading Oracle Cloud practices and processes, avoiding customizations wherever possible.\n\n[2] Write and maintain clear, concise functional and technical specifications for Cloud Financials applications including data mapping, configuration, integrations, and post-launch support etc.",
+            "machine_reason_codes": [
+              "OUTSIDE_IT_ROLE"
+            ],
+            "machine_selected_rule_id": null
+          }
+        ],
+        "fp_examples": []
+      },
+      "data/analytics/a04_taxonomy_v0_2_0_20261008/accept_downgrades_for_review_blind.xlsx": {
+        "rows": 17,
+        "distinct_job_ids": 17,
+        "labels": {
+          "CNTT": 16,
+          "NGOAI_CNTT": 1
+        },
+        "matrix": {
+          "ACCEPT": {
+            "CNTT": 0,
+            "NGOAI_CNTT": 0,
+            "CHUA_RO": 0
+          },
+          "REJECT": {
+            "CNTT": 3,
+            "NGOAI_CNTT": 0,
+            "CHUA_RO": 0
+          },
+          "REVIEW": {
+            "CNTT": 13,
+            "NGOAI_CNTT": 1,
+            "CHUA_RO": 0
+          }
+        },
+        "tp": 0,
+        "fp": 0,
+        "fn": 3,
+        "tn": 0,
+        "chua_ro": 0,
+        "machine_review": 14,
+        "clear_machine_review": 14,
+        "membership_on_decided": {
+          "numerator": 0,
+          "denominator": 3,
+          "rate": 0.0
+        },
+        "decision_coverage_clear": {
+          "numerator": 3,
+          "denominator": 17,
+          "rate": 0.17647058823529413
+        },
+        "decision_coverage_all": {
+          "numerator": 3,
+          "denominator": 17,
+          "rate": 0.17647058823529413
+        },
+        "correct_decisions_on_clear": {
+          "numerator": 0,
+          "denominator": 17,
+          "rate": 0.0
+        },
+        "precision_decided": {
+          "numerator": 0,
+          "denominator": 0,
+          "rate": null
+        },
+        "recall_decided": {
+          "numerator": 0,
+          "denominator": 3,
+          "rate": 0.0
+        },
+        "accept_capture_all_manual_it": {
+          "numerator": 0,
+          "denominator": 16,
+          "rate": 0.0
+        },
+        "primary_group": {
+          "numerator": 0,
+          "denominator": 0,
+          "rate": null
+        },
+        "software_subgroup": {
+          "numerator": 0,
+          "denominator": 0,
+          "rate": null
+        },
+        "fn_examples": [
+          {
+            "job_id": "3903891231",
+            "sample_id": "",
+            "title": "Lead Research Scientist",
+            "group": "DATA_AI",
+            "manual_reason": "Giữ nhãn/nhóm. Nên thay bằng chứng yêu cầu kinh nghiệm/giới thiệu bằng đoạn nhiệm vụ cụ thể trong bảng nguồn.",
+            "manual_evidence": "[1] Be fluent working with large, complex medical claims data using analytics technologies (SQL, SAS, Python/Pyspark, Databricks, Microsoft Azure, PowerBI) and analytics methodologies (exploratory/descriptive analysis, predictive modeling, causal outcomes research, and data visualization).\n\n[2] This involves you filling a variety of roles in a project that can range from data engineering/architecture, business intelligence, behavioral economics, machine learning, to analytics DevOps support.",
+            "machine_reason_codes": [
+              "NO_IT_ROLE_EVIDENCE"
+            ],
+            "machine_selected_rule_id": null
+          },
+          {
+            "job_id": "3904949360",
+            "sample_id": "",
+            "title": "Programmer",
+            "group": "SOFTWARE",
+            "manual_reason": "Giữ nhãn/nhóm. Nên thay bằng chứng yêu cầu kinh nghiệm/giới thiệu bằng đoạn nhiệm vụ cụ thể trong bảng nguồn.",
+            "manual_evidence": "[1] This position will also migrate and upgrade selected systems from a client/server environment to a Web-based environment.\n\n[2] This position may also be involved in new development, maintenance and enhancements which would encompass testing, implementation, and support.",
+            "machine_reason_codes": [
+              "NO_IT_ROLE_EVIDENCE"
+            ],
+            "machine_selected_rule_id": null
+          },
+          {
+            "job_id": "3906223537",
+            "sample_id": "",
+            "title": "ECC Designer/Programmer",
+            "group": "NETWORK_SYSTEMS",
+            "manual_reason": "Full JD xác nhận vận hành/bảo trì hệ thống EMS gồm OS, mạng, ứng dụng, backup/disaster recovery và troubleshooting, cùng phát triển custom apps. Không loại CNTT chỉ vì power/SCADA; cũng không nhầm power system network với computer network: nhiệm vụ hành chính liệt kê rõ network infrastructure/OS. DATABASE trong danh sách hạ tầng EMS không chứng minh DBA chuyên biệt hoặc pipeline/ML là nghề chính. NETWORK_SYSTEMS phù hợp vận hành hệ thống nhiều thành phần; software custom là nhiệm vụ kèm, không có bằng chứng Web/Mobile. Giữ nhãn, nhóm và evidence disaster recovery có thật.",
+            "manual_evidence": "[1] Performs administrative tasks associated with the maintenance of the EMS and associated support systems. Include; operating systems, relational database management systems, communication front-end components, network infrastructure and software applications that comprise a number of functional subsystems key to the operation of a critical business system.\n\n[2] Implement and maintains infrastructure and procedures for Disaster recovery, essential data backup of application software, operating systems, historical data, network configuration and similar data required to restore the EMS to production operation and necessary to maintain business continuity and compliance with regulatory requirements.",
+            "machine_reason_codes": [
+              "NO_IT_ROLE_EVIDENCE"
+            ],
+            "machine_selected_rule_id": null
+          }
+        ],
+        "fp_examples": []
+      }
+    },
+    "source_rows": 177,
+    "unique_union_jobs": 176,
+    "updated_unique_jobs": 93,
+    "updated_source_rows": 93,
+    "preserved_prior_decisions": 83,
+    "overlap": [
+      {
+        "job_id": "3905848702",
+        "conflict_fields": [],
+        "all_manual_fields_equal": true
+      }
+    ],
+    "chua_ro": [
+      {
+        "job_id": "3904090413",
+        "sample_id": "A04-089",
+        "title": "Entry Level General Posting",
+        "reason": "Giữ CHUA_RO: tuyển nhiều chức năng, không chỉ định nghề của người được tuyển.",
+        "machine_decision": "REJECT"
+      },
+      {
+        "job_id": "3884811465",
+        "sample_id": "A04-128",
+        "title": "Information Technology Support Technician",
+        "reason": "Mô tả chủ yếu vận chuyển thiết bị, cover tech và go-live; chưa xác định cài đặt, xử lý sự cố hay hỗ trợ người dùng. Chốt CHUA_RO; boolean và nhóm phải để trống.",
+        "machine_decision": "ACCEPT"
+      },
+      {
+        "job_id": "3901929980",
+        "sample_id": "A04-149",
+        "title": "Graphic Designer and Web Developer",
+        "reason": "Giữ CHUA_RO: graphic/marketing và WordPress pha trộn; chưa rõ phần phát triển web và nghề chính.",
+        "machine_decision": "ACCEPT"
+      },
+      {
+        "job_id": "3905824874",
+        "sample_id": "A04-153",
+        "title": "Junior IT Project Manager (DIN-03HF) // 100% Onsite Bethesda, MD",
+        "reason": "Vai trò gồm đào tạo kỹ thuật và hành chính, chưa xác định nhiệm vụ delivery dự án IT đủ rõ. Chốt CHUA_RO, không giữ IT_MANAGEMENT chỉ từ chức danh.",
+        "machine_decision": "ACCEPT"
+      }
+    ],
+    "skipped_cases": [],
+    "schema_errors": [],
+    "missing_metadata_rows": 0,
+    "missing_metadata_unique_jobs": 0,
+    "checked_evidence_instances": 265,
+    "prediction_disagreement_unique_jobs": 61,
+    "difference_types": {
+      "MEMBERSHIP_MISMATCH": 8,
+      "GROUP_MISMATCH": 3,
+      "MANUAL_CHUA_RO": 4,
+      "MACHINE_REVIEW": 37,
+      "SUBGROUP_MISMATCH": 9
+    },
+    "machine_review_unique_jobs": 37,
+    "changed_core_jobs": {
+      "3884430597": [
+        "manual_primary_group_code"
+      ]
+    },
+    "classifier_rerun": false,
+    "etl_rerun": false,
+    "a05_performed": false,
+    "commit_performed": false,
+    "push_performed": false,
+    "acceptance_remaining": [
+      "Đối soát nguyên nhân và chốt cách xử lý các FN/bất đồng/REVIEW với người phụ trách.",
+      "Triển khai và xác minh sửa FP/FN nếu được phê duyệt; lượt này không sửa classifier.",
+      "Người rà soát xác nhận đầu ra và tiêu chí A04; chưa tự đánh dấu hoàn thành/100%."
+    ]
+  }
+}

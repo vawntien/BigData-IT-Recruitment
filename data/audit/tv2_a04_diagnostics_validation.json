@@ -1,0 +1,92 @@
+{
+  "status": "DIAGNOSTICS_VALIDATED_NOT_GOLD_LABELS",
+  "date": "2026-10-08",
+  "diagnostic_version": "a04-review-diagnostics-20261008.1",
+  "diagnostic_script_sha256": "c935a898066ad1d0735a8c87942bf9320258fdcc30b28528c4edbb22a40c5c60",
+  "taxonomy_version": "0.1.0",
+  "taxonomy_sha256": "99523fff775fc302507638b532491275c3bec54d2d38354ce329f574943c8278",
+  "interpreter_sha256": "453bb6bcd22d4cdf866c670f3634b8f1e42a233eb086b650e579b4b1d429dc86",
+  "source_trace_sha256": "8bccbf9ed92db4105f4539d1ca6eb0d7a069d60d717545697b07f1666be221d5",
+  "tests": {
+    "command": ".\\.venv\\Scripts\\python.exe -m unittest discover -s src -p \"test*a04*.py\" -v",
+    "passed": 14,
+    "failed": 0,
+    "json_illustrative_cases_passed": 57,
+    "py_compile_passed": true
+  },
+  "specimens": {
+    "total": 20,
+    "flagged": 19,
+    "decisions": {
+      "REVIEW": 13,
+      "ACCEPT": 4,
+      "REJECT": 3
+    },
+    "all_full_text_equal_raw": true,
+    "all_source_offsets_valid": true,
+    "all_replays_equal_saved_trace": true,
+    "manual_labels_not_assigned": true,
+    "development_job_ids": [
+      "3891008882",
+      "3891072754",
+      "3894268653",
+      "3895536438",
+      "3895547790",
+      "3900080548",
+      "3900956939",
+      "3901348414",
+      "3901349949",
+      "3901934857",
+      "3901946257",
+      "3901950685",
+      "3902328365",
+      "3902916761",
+      "3903449638",
+      "3905288395",
+      "3905305242",
+      "3905674215",
+      "3906203084",
+      "3906224755"
+    ]
+  },
+  "frozen_seed42": {
+    "rows": 160,
+    "distinct_job_ids": 160,
+    "all_full_text_equal_raw": true,
+    "manual_fields_populated_rows": 0,
+    "all_files_sha256_size_mtime_unchanged": true
+  },
+  "protected_artifacts_checked": 13,
+  "raw_postings_sha256": "de33f27c8d1b226014e0cede003404e9b0acb66db718671fda9b3e3538eca6ea",
+  "raw_postings_matches_saved_run_hash": true,
+  "new_classifier_predictions_created": false,
+  "config_and_interpreter_unchanged": true,
+  "tracked_git_files_unchanged": true,
+  "git_branch": "feat/tv2-analysis",
+  "diagnostic_artifacts_ignored": 5,
+  "final_evaluation_exclusion": "Exclude seed42 development IDs plus all diagnostic development IDs",
+  "outputs": {
+    "data/analytics/a04_diagnostics_v0_1_0_20261008/description_gate_task_examples.json": {
+      "bytes": 66983,
+      "sha256": "92d12652558723295b308df660d3a9512bc91b681ce0c85d5f12aeab060c3512"
+    },
+    "data/analytics/a04_diagnostics_v0_1_0_20261008/diagnostics_summary.json": {
+      "bytes": 11663,
+      "sha256": "530d53a9d4e53fefd72526d7e72f03f77e93c4dc72c81d3d1557642c5b44d71c"
+    },
+    "data/analytics/a04_diagnostics_v0_1_0_20261008/per_job_diagnostics.csv": {
+      "bytes": 8019600,
+      "sha256": "a30aabeed7054f5fd3dc390c135d8be48b8bd73b950428684c0618f4abc598c5"
+    },
+    "data/analytics/a04_diagnostics_v0_1_0_20261008/protected_before.json": {
+      "bytes": 2810,
+      "sha256": "20ab67e111e89e576048519c08ea592a6f28c69c66c67d2b3ffa67e73cb610d4"
+    },
+    "data/analytics/a04_diagnostics_v0_1_0_20261008/real_job_specimens.json": {
+      "bytes": 392431,
+      "sha256": "92fe33f2452137ae0886bbc9c83b89e1038eae28d37d5db139ee75f07af987cd"
+    }
+  },
+  "local_documentation_links_checked": 16,
+  "local_documentation_links_valid": true
+}

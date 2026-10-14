@@ -1,0 +1,28 @@
+# Preserve exact bytes for TV2 artifacts referenced by SHA-256 manifests.
+# Scope these rules to TV2; inherited settings still apply to other files.
+# Accept CRLF terminators while keeping the normal whitespace checks.
+config/it_taxonomy.json -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+config/versions/it_taxonomy_v*.json -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+data/audit/tv2_* -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+docs/a0[1-4]_*.md -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+docs/a04_*.csv -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+docs/tv2_raw_verification.md -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+src/a04_filter_fix_round1.py -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+src/a04_filter_fix_round2.py -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+src/apply_a04_decisions.py -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+src/apply_a04_remaining93.py -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+src/compare_a04_versions.py -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+src/description_processing.py -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+src/diagnose_a04.py -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+# Keep the archived interpreter's trailing blank line for its recorded hash.
+src/it_taxonomy.py -text whitespace=blank-at-eol,-blank-at-eof,space-before-tab,cr-at-eol
+src/it_taxonomy_v010.py -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+src/prepare_a04.py -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+src/test_a04_round1.py -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+src/test_a04_round2.py -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+src/test_a04_segmentation.py -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+src/test_a04_v020.py -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+src/test_tv2_a04.py -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+src/tv2_csv.py -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+src/tv2_verify_raw.py -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+src/validate_a04_v020.py -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol

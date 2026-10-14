@@ -1,0 +1,3108 @@
+{
+  "taxonomy_id": "it_taxonomy",
+  "version": "0.2.0",
+  "schema_version": 1,
+  "status": "reviewable_design_not_validated_on_real_data",
+  "author": "Đồng Viết Dũng – TV2",
+  "created_date": "2026-10-07",
+  "source_revision": "2386394",
+  "purpose": "A02: nhận diện nghề CNTT và gán một nhóm nghề chính; không trích kỹ năng A05, không triển khai pipeline D06.",
+  "design_languages": [
+    "en",
+    "vi"
+  ],
+  "inputs": {
+    "base_table": "postings",
+    "raw_file": "data/raw/postings.csv",
+    "preferred_clean_path": "data/processed/clean/postings/",
+    "key": "job_id",
+    "required_columns": [
+      "job_id",
+      "title",
+      "description"
+    ],
+    "search_fields": [
+      "title",
+      "description"
+    ],
+    "nullable_text_fields": [
+      "title",
+      "description"
+    ],
+    "metadata_policy": {
+      "enabled_for_decision": false,
+      "reason": "Nhãn job_skills và ngành job_industries chỉ là thông tin nguồn; A03 chưa bàn giao JOIN/ngữ nghĩa. Không đủ để đưa tin vào CNTT.",
+      "source_function_columns": [
+        "job_skills.skill_abr",
+        "skills.skill_name"
+      ],
+      "source_industry_columns": [
+        "job_industries.industry_id",
+        "industries.industry_name"
+      ]
+    },
+    "skills_desc_policy": "Không dùng cho quyết định A02 v0.1.0; nguồn kỹ năng phụ chờ A03/A05."
+  },
+  "normalization": {
+    "preserve_original_fields": true,
+    "unicode_form": "NFC",
+    "case": "lower",
+    "strip_diacritics": false,
+    "missing_tokens": [
+      "",
+      "null",
+      "n/a",
+      "na"
+    ],
+    "missing_policy": "NULL là không có bằng chứng; không chuyển thành nhãn hoặc false.",
+    "replacements": [
+      {
+        "pattern": "[‐‑‒–—−/\\-]",
+        "replacement": " "
+      }
+    ],
+    "whitespace": "trim_and_collapse_unicode_whitespace",
+    "preserve_punctuation": [
+      "+",
+      "#",
+      "."
+    ],
+    "literal_match": {
+      "mode": "unicode_token_bounded_literal_phrase",
+      "left_boundary": "(?<![\\p{L}\\p{N}_])",
+      "right_boundary": "(?![\\p{L}\\p{N}_])",
+      "phrase_separator": "\\s+",
+      "escape_each_token": "java.util.regex.Pattern.quote",
+      "match_aliases_with_same_normalization": true,
+      "standalone_it_is_positive": false
+    },
+    "description_segments": {
+      "split_before_whitespace_collapse": true,
+      "split_pattern": "(?:\\r?\\n)+|[.!?;](?:[\\p{Z}\\s]+|$)",
+      "max_normalized_characters": 500,
+      "oversize_policy": "retain_full_unit_use_task_anchored_windows_flag_unresolved_structure",
+      "blocked_term_sets": [
+        "negation_or_collaboration"
+      ],
+      "scope_warning": "Cùng một câu/dòng có hành động nghề và đối tượng kỹ thuật; không nối bằng chứng từ các đoạn xa nhau.",
+      "mode": "structured_source_v1",
+      "length_unit": "unicode_codepoints_after_NFC_lower_replacements_whitespace_collapse",
+      "split_pattern_role": "legacy_reference_statistics_only_in_structured_mode",
+      "blocked_term_sets_role": "legacy_only_see_context_policy_for_structured_mode",
+      "long_unit_policy": {
+        "window_characters": 500,
+        "window_anchor": "required_task_term_set_or_first_required_set",
+        "window_scope": "one_retained_sentence_clause_and_section",
+        "require_explicit_self_cue_or_task_led_clause": true,
+        "status": "RETAINED_LONG_UNRESOLVED",
+        "preserve_full_unit": true,
+        "no_match_policy": "REVIEW_DESCRIPTION_PROCESSING_INCOMPLETE",
+        "resolved_ineligible_section_is_complete": true
+      },
+      "parser": {
+        "html_engine": "stdlib_html.parser.HTMLParser",
+        "detect_tags_regex": "</?(?:p|div|span|br|li|ul|ol|h[1-6]|section|article|table|tr|td|th|a|b|strong|em|i|script|style|body|html)\\b[^>]*>",
+        "block_tags": [
+          "p",
+          "div",
+          "br",
+          "li",
+          "ul",
+          "ol",
+          "h1",
+          "h2",
+          "h3",
+          "h4",
+          "h5",
+          "h6",
+          "section",
+          "article",
+          "table",
+          "tr",
+          "td",
+          "th"
+        ],
+        "remove_content_tags": [
+          "script",
+          "style"
+        ],
+        "decode_entities": true,
+        "entity_regex": "&(?:[A-Za-z][A-Za-z0-9]+|#\\d+|#x[0-9A-Fa-f]+);",
+        "malformed_policy": "retain_text_mark_incomplete_no_unmapped_automatic_evidence",
+        "newline_regex": "\\r\\n|[\\r\\n\\u2028\\u2029]",
+        "bullet_regex": "[\\u2022\\u00b7\\u25cf\\u25aa\\u25e6\\u2023\\u2043]|(?m:^[ \\t]*(?:[-*]|\\d+[.)])(?=[ \\t]))",
+        "protected_regexes": [
+          "(?:https?://|www\\.)[^\\s<>]+",
+          "(?<!\\w)\\.net\\b",
+          "(?<!\\w)v?\\d+(?:\\.\\d+)+(?:[A-Za-z0-9.-]*)",
+          "\\b(?:e\\.g\\.|i\\.e\\.|U\\.S\\.|U\\.K\\.|Ph\\.D\\.|B\\.S\\.|M\\.S\\.|Inc\\.|Ltd\\.|Mr\\.|Mrs\\.|Dr\\.|etc\\.)",
+          "(?<!\\w)(?:[A-Za-z]\\.){2,}",
+          "(?<!\\w)[A-Z]\\.(?=\\s+[A-Z])"
+        ],
+        "sentence_boundary_regex": "[.!?;](?=\\s|$|[A-Z])",
+        "adversative_clause_regex": "\\b(?:but|however|yet|nevertheless)\\b",
+        "split_comma_and_and": false,
+        "implicit_heading_policy": "only_explicit_configured_heading_followed_by_colon_or_standalone_line"
+      },
+      "context_policy": {
+        "default_section": "UNKNOWN",
+        "eligible_sections": [
+          "UNKNOWN",
+          "RESPONSIBILITIES",
+          "ROLE"
+        ],
+        "excluded_sections": [
+          "COMPANY",
+          "COMPENSATION",
+          "BENEFITS",
+          "EEO",
+          "QUALIFICATIONS"
+        ],
+        "section_headings": {
+          "RESPONSIBILITIES": [
+            "key responsibilities",
+            "job responsibilities",
+            "responsibilities",
+            "essential functions",
+            "duties",
+            "job duties",
+            "what you will do",
+            "what you’ll do",
+            "your responsibilities",
+            "nhiệm vụ",
+            "trách nhiệm"
+          ],
+          "ROLE": [
+            "job description",
+            "position summary",
+            "role overview",
+            "about the role",
+            "the role",
+            "position overview"
+          ],
+          "COMPANY": [
+            "about us",
+            "about the company",
+            "company overview",
+            "company description",
+            "who we are"
+          ],
+          "COMPENSATION": [
+            "compensation",
+            "salary",
+            "pay range",
+            "wage range"
+          ],
+          "BENEFITS": [
+            "benefits",
+            "what we offer",
+            "perks",
+            "our benefits"
+          ],
+          "EEO": [
+            "equal opportunity",
+            "equal employment opportunity",
+            "eeo statement"
+          ],
+          "QUALIFICATIONS": [
+            "qualifications",
+            "requirements",
+            "minimum qualifications",
+            "required qualifications",
+            "preferred qualifications",
+            "technical skills",
+            "must have",
+            "what you bring"
+          ]
+        },
+        "negation_aliases": [
+          "not responsible",
+          "not required",
+          "no experience",
+          "do not develop",
+          "does not develop",
+          "not a software",
+          "not an it",
+          "không yêu cầu",
+          "không chịu trách nhiệm"
+        ],
+        "collaboration_aliases": [
+          "work with",
+          "working with",
+          "collaborate with",
+          "collaborating with",
+          "liaise with",
+          "partner with"
+        ],
+        "self_cue_term_set": "self_role_cues",
+        "hiring_cues": [
+          "we are seeking",
+          "we are hiring",
+          "we are looking for"
+        ],
+        "company_subject_regex": "^(?:our (?:company|clients|customers|team)|we (?:are|build|develop|provide|offer|deliver|serve))\\b",
+        "other_actor_regex": "^(?:help|assist|support)\\b.*\\b(?:teams?|developers?|engineers?)\\b|\\b(?:team|engineers?|developers?|clients?|customers?)\\b.{0,80}\\b(?:who|that|which)\\b",
+        "qualification_prefix_regex": "^(?:(?:strong|good|decent|basic|excellent)\\s+)?(?:knowledge|understanding|experience|familiarity|proficiency|proficient|should have|must have)\\b",
+        "compensation_sentence_regex": "^(?:the (?:wage|salary|pay|compensation) range|salary range|base salary|compensation for|our benefits)\\b",
+        "negation_scope": "one_sentence_adversative_clause",
+        "collaboration_scope": "block_only_when_before_task_and_no_explicit_self_cue_before_collaboration",
+        "company_scope": "subject_prefix_or_company_section_except_explicit_hiring_sentence",
+        "section_reset": "explicit_heading_only_no_cross_section_evidence",
+        "unknown_actor_long_unit": "retain_mark_incomplete_no_automatic_evidence"
+      },
+      "provenance": {
+        "raw_offsets": "unicode_codepoints_in_original_field_half_open",
+        "derived_offsets": "unicode_codepoints_in_parser_text_separate_coordinate_space",
+        "normalization_mapping": "NFC_lower_replacement_whitespace_spans_to_derived_then_raw",
+        "mapping_unavailable_policy": "no_raw_offset_claim_no_automatic_evidence",
+        "excerpt": "exact_raw_slice_max_240_codepoints_with_match_ranges_saved_separately"
+      }
+    },
+    "whitespace_regex": "[\\p{Z}\\s]+"
+  },
+  "rule_language": {
+    "allowed_operators": [
+      "any",
+      "all",
+      "match",
+      "full_match",
+      "is_missing",
+      "same_segment"
+    ],
+    "match_shape": {
+      "field": "title",
+      "term_set": "term_set_id"
+    },
+    "same_segment_shape": {
+      "field": "description",
+      "all_term_sets": [
+        "term_set_id"
+      ],
+      "blocked_term_sets_from": "normalization.description_segments.blocked_term_sets"
+    },
+    "semantics": "any=OR; all=AND; match=ít nhất một alias có ranh giới; full_match=toàn bộ trường bằng một alias sau chuẩn hóa; is_missing=trường thiếu; same_segment=mỗi bộ từ có ít nhất một alias trong cùng đoạn hợp lệ.",
+    "empty_predicates_policy": "invalid_configuration",
+    "evidence_tiers": [
+      {
+        "code": "TITLE_DIRECT",
+        "rank": 10
+      },
+      {
+        "code": "TITLE_CONTEXT",
+        "rank": 20
+      },
+      {
+        "code": "DESCRIPTION_ROLE_TASK",
+        "rank": 30
+      }
+    ],
+    "matching_policy": "Đánh giá tất cả quy tắc; không dừng ở hit đầu tiên, lưu toàn bộ bằng chứng."
+  },
+  "decision_policy": {
+    "states": [
+      {
+        "code": "ACCEPT",
+        "is_it": true,
+        "primary_group": "one_concrete_group_or_IT_OTHER"
+      },
+      {
+        "code": "REJECT",
+        "is_it": false,
+        "primary_group": null
+      },
+      {
+        "code": "REVIEW",
+        "is_it": null,
+        "primary_group": null
+      }
+    ],
+    "evaluation_order": [
+      "collect_group_and_general_it_matches",
+      "collect_exclusion_matches",
+      "positive_and_exclusion_conflict_to_REVIEW",
+      "exclusion_only_to_REJECT",
+      "group_match_to_ACCEPT",
+      "general_it_only_to_ACCEPT_IT_OTHER",
+      "missing_or_ambiguous_title_or_unresolved_description_processing_to_REVIEW",
+      "otherwise_REJECT_NO_IT_ROLE_EVIDENCE"
+    ],
+    "conflict_policy": "Bất kỳ quy tắc đưa vào và loại trừ cùng khớp => REVIEW; không tự cho bằng chứng mô tả ghi đè nghề ngoài CNTT trong title.",
+    "primary_selection_sort": [
+      "evidence_tier_rank_ascending",
+      "group_priority_ascending",
+      "rule_priority_ascending",
+      "rule_id_ascending"
+    ],
+    "multiple_group_policy": "Gán một nhóm thắng theo sort; lưu mọi nhóm/quy tắc ứng viên và thêm MULTIPLE_GROUP_CANDIDATES để A04 kiểm tra.",
+    "subgroup_policy": {
+      "parent": "SOFTWARE",
+      "maximum": 1,
+      "selection_sort": [
+        "evidence_tier_rank_ascending",
+        "subgroup_priority_ascending",
+        "rule_priority_ascending",
+        "rule_id_ascending"
+      ],
+      "fallback_code": "SOFTWARE_OTHER",
+      "non_software_value": null
+    },
+    "unresolved_it_group_code": "IT_OTHER",
+    "review_inclusion_policy": "REVIEW không được tự đưa vào hoặc âm thầm coi là REJECT; giữ hàng riêng để TV2 quyết định.",
+    "ambiguous_title_term_set": "ambiguous_title_terms",
+    "ambiguous_title_full_match_term_set": "ambiguous_exact_titles",
+    "no_match_reason": "NO_IT_ROLE_EVIDENCE là kết quả quy tắc hiện tại, không khẳng định tin chắc chắn ngoài CNTT."
+  },
+  "groups": [
+    {
+      "code": "SECURITY",
+      "name_vi": "An toàn thông tin và an ninh mạng",
+      "priority": 10,
+      "definition": "Bảo vệ phần mềm, mạng và hạ tầng số; điều tra sự cố, kiểm thử xâm nhập.",
+      "scope": "Không gồm bảo vệ vật lý; security chung cần ngữ cảnh.",
+      "search_fields": [
+        "title",
+        "description"
+      ],
+      "alias_term_sets": [
+        "security_titles",
+        "security_hints"
+      ],
+      "task_term_set": "security_tasks",
+      "context_term_set": "security_context"
+    },
+    {
+      "code": "DATA_AI",
+      "name_vi": "Dữ liệu, AI và cơ sở dữ liệu",
+      "priority": 20,
+      "definition": "Xây dựng pipeline/kho dữ liệu, quản trị CSDL, BI kỹ thuật, mô hình ML/AI.",
+      "scope": "Data/BI analyst chỉ nhận khi có nhiệm vụ kỹ thuật; phân tích tài chính/marketing hoặc dùng Excel/SQL đơn thuần chưa đủ.",
+      "search_fields": [
+        "title",
+        "description"
+      ],
+      "alias_term_sets": [
+        "data_titles",
+        "data_hints"
+      ],
+      "task_term_set": "data_tasks",
+      "context_term_set": "data_context"
+    },
+    {
+      "code": "DEVOPS_CLOUD",
+      "name_vi": "DevOps, Cloud và độ tin cậy dịch vụ",
+      "priority": 30,
+      "definition": "Tự động hóa triển khai, vận hành cloud, SRE và nền tảng dịch vụ phần mềm.",
+      "scope": "Platform/infrastructure engineer chung cần ngữ cảnh; không gồm bán dịch vụ cloud.",
+      "search_fields": [
+        "title",
+        "description"
+      ],
+      "alias_term_sets": [
+        "devops_titles",
+        "devops_hints"
+      ],
+      "task_term_set": "devops_tasks",
+      "context_term_set": "devops_context"
+    },
+    {
+      "code": "QA_TESTING",
+      "name_vi": "Kiểm thử và chất lượng phần mềm",
+      "priority": 40,
+      "definition": "Kiểm thử thủ công/tự động, thiết kế test phần mềm/API.",
+      "scope": "QA/quality assurance của sản xuất, thực phẩm, dược không thuộc nhóm.",
+      "search_fields": [
+        "title",
+        "description"
+      ],
+      "alias_term_sets": [
+        "qa_titles",
+        "qa_hints"
+      ],
+      "task_term_set": "qa_tasks",
+      "context_term_set": "qa_context"
+    },
+    {
+      "code": "NETWORK_SYSTEMS",
+      "name_vi": "Mạng máy tính và quản trị hệ thống",
+      "priority": 50,
+      "definition": "Quản trị mạng, máy chủ, hệ điều hành và trung tâm dữ liệu.",
+      "scope": "Không gồm kỹ thuật cơ khí/điện/hệ thống vật lý; database chuyên biệt thuộc DATA_AI.",
+      "search_fields": [
+        "title",
+        "description"
+      ],
+      "alias_term_sets": [
+        "network_titles",
+        "network_hints"
+      ],
+      "task_term_set": "network_tasks",
+      "context_term_set": "network_context"
+    },
+    {
+      "code": "SOFTWARE",
+      "name_vi": "Phát triển phần mềm",
+      "priority": 60,
+      "definition": "Thiết kế, lập trình và bảo trì phần mềm, gồm Web, Mobile, ứng dụng và firmware/embedded software.",
+      "scope": "Mobile và Web chỉ là phân nhóm; hardware design, thiết kế UI/UX thuần và bán hàng không tự thuộc nhóm.",
+      "search_fields": [
+        "title",
+        "description"
+      ],
+      "alias_term_sets": [
+        "software_titles",
+        "software_hints"
+      ],
+      "task_term_set": "software_tasks",
+      "context_term_set": "software_context"
+    },
+    {
+      "code": "IT_SUPPORT",
+      "name_vi": "Hỗ trợ kỹ thuật CNTT",
+      "priority": 70,
+      "definition": "Khắc phục sự cố máy tính/phần mềm và hỗ trợ người dùng hệ thống CNTT.",
+      "scope": "Support/customer service không kèm nhiệm vụ CNTT chưa đủ.",
+      "search_fields": [
+        "title",
+        "description"
+      ],
+      "alias_term_sets": [
+        "support_titles",
+        "support_hints"
+      ],
+      "task_term_set": "support_tasks",
+      "context_term_set": "support_context"
+    },
+    {
+      "code": "IT_BUSINESS",
+      "name_vi": "Nghiệp vụ, sản phẩm và dự án phần mềm",
+      "priority": 80,
+      "definition": "Phân tích yêu cầu và điều phối sản phẩm/dự án có đối tượng phần mềm/hệ thống thông tin.",
+      "scope": "BA/product/project manager chung cần ngữ cảnh; đây là phạm vi CNTT mở rộng đề xuất, cần TV2 xác nhận.",
+      "search_fields": [
+        "title",
+        "description"
+      ],
+      "alias_term_sets": [
+        "business_titles",
+        "business_hints"
+      ],
+      "task_term_set": "business_tasks",
+      "context_term_set": "business_context"
+    },
+    {
+      "code": "IT_MANAGEMENT",
+      "name_vi": "Quản lý và kiến trúc CNTT",
+      "priority": 90,
+      "definition": "Lãnh đạo chức năng CNTT, đội phần mềm và kiến trúc giải pháp doanh nghiệp.",
+      "scope": "Manager/architect/CTO chung cần ngữ cảnh; ưu tiên nghề chuyên môn cụ thể khi cùng tầng bằng chứng.",
+      "search_fields": [
+        "title",
+        "description"
+      ],
+      "alias_term_sets": [
+        "management_titles",
+        "management_hints"
+      ],
+      "task_term_set": "management_tasks",
+      "context_term_set": "management_context"
+    },
+    {
+      "code": "IT_OTHER",
+      "name_vi": "CNTT đã nhận diện, chưa phân nhóm",
+      "priority": 999,
+      "definition": "Chỉ gán khi có nghề CNTT rõ trong title nhưng không có nhóm chuyên môn nào khớp.",
+      "scope": "Nhóm dự phòng có membership CNTT đã xác định; không dùng cho REVIEW hoặc tin không có bằng chứng.",
+      "search_fields": [
+        "title"
+      ],
+      "alias_term_sets": [
+        "general_it_titles"
+      ],
+      "fallback_only": true
+    }
+  ],
+  "subgroups": [
+    {
+      "code": "SOFTWARE_MOBILE",
+      "parent_code": "SOFTWARE",
+      "name_vi": "Mobile",
+      "priority": 10,
+      "definition": "Phát triển ứng dụng di động.",
+      "search_fields": [
+        "title",
+        "description"
+      ],
+      "rules": [
+        {
+          "id": "SOFTWARE_MOBILE_TITLE",
+          "evidence_tier": "TITLE_DIRECT",
+          "rule_priority": 29,
+          "condition": {
+            "match": {
+              "field": "title",
+              "term_set": "mobile_titles"
+            }
+          }
+        },
+        {
+          "id": "SOFTWARE_MOBILE_CONTEXT",
+          "evidence_tier": "TITLE_CONTEXT",
+          "rule_priority": 30,
+          "condition": {
+            "same_segment": {
+              "field": "description",
+              "all_term_sets": [
+                "mobile_tasks",
+                "mobile_context"
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "code": "SOFTWARE_WEB",
+      "parent_code": "SOFTWARE",
+      "name_vi": "Web",
+      "priority": 20,
+      "definition": "Phát triển web/front-end/back-end/full-stack.",
+      "search_fields": [
+        "title",
+        "description"
+      ],
+      "rules": [
+        {
+          "id": "SOFTWARE_WEB_TITLE",
+          "evidence_tier": "TITLE_DIRECT",
+          "rule_priority": 31,
+          "condition": {
+            "match": {
+              "field": "title",
+              "term_set": "web_titles"
+            }
+          }
+        },
+        {
+          "id": "SOFTWARE_WEB_CONTEXT",
+          "evidence_tier": "TITLE_CONTEXT",
+          "rule_priority": 32,
+          "condition": {
+            "same_segment": {
+              "field": "description",
+              "all_term_sets": [
+                "web_tasks",
+                "web_context"
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "code": "SOFTWARE_OTHER",
+      "parent_code": "SOFTWARE",
+      "name_vi": "Software khác/chưa xác định phân nhóm",
+      "priority": 90,
+      "definition": "Software đã nhận diện nhưng chưa có bằng chứng đủ về Mobile/Web.",
+      "search_fields": [],
+      "fallback_only": true,
+      "rules": []
+    }
+  ],
+  "term_sets": {
+    "ambiguous_exact_titles": {
+      "purpose": "Title chỉ là tên lĩnh vực, chưa phải vai trò nghề; không khớp đại từ it trong một title dài.",
+      "aliases": [
+        "it",
+        "information technology",
+        "cntt",
+        "công nghệ thông tin"
+      ]
+    },
+    "negation_or_collaboration": {
+      "purpose": "Chặn đoạn phủ định hoặc chỉ nói về người/đội khác; bảo thủ, phải kiểm tra A04.",
+      "aliases": [
+        "not responsible",
+        "not required",
+        "no experience",
+        "do not develop",
+        "does not develop",
+        "not a software",
+        "not an it",
+        "không yêu cầu",
+        "không chịu trách nhiệm",
+        "our company",
+        "our clients",
+        "our customers",
+        "work with",
+        "working with",
+        "collaborate with",
+        "collaborating with",
+        "liaise with",
+        "partner with"
+      ]
+    },
+    "self_role_cues": {
+      "purpose": "Chỉ dùng cho fallback mô tả, gắn vai trò với vị trí cần tuyển.",
+      "aliases": [
+        "we are seeking",
+        "we are hiring",
+        "we are looking for",
+        "you will",
+        "your responsibilities",
+        "this role",
+        "the role",
+        "vị trí này",
+        "bạn sẽ",
+        "trách nhiệm",
+        "nhiệm vụ"
+      ]
+    },
+    "generic_exact_titles": {
+      "purpose": "Title chung hoặc thiếu chỉ được fallback từ đoạn có nghề+hành động+ngữ cảnh+chủ thể.",
+      "aliases": [
+        "engineer",
+        "senior engineer",
+        "junior engineer",
+        "analyst",
+        "senior analyst",
+        "specialist",
+        "consultant",
+        "intern",
+        "trainee",
+        "associate",
+        "developer",
+        "technician",
+        "administrator",
+        "manager",
+        "qa engineer",
+        "support engineer"
+      ]
+    },
+    "ambiguous_title_terms": {
+      "purpose": "Tự các từ này không đủ để đưa vào CNTT.",
+      "aliases": [
+        "engineer",
+        "analyst",
+        "support",
+        "qa",
+        "quality assurance",
+        "sales",
+        "security",
+        "architect",
+        "manager",
+        "developer",
+        "consultant",
+        "specialist",
+        "technician",
+        "cto",
+        "cio",
+        "sre",
+        "dba",
+        "bi",
+        "kỹ sư",
+        "chuyên viên",
+        "hỗ trợ",
+        "kiểm thử"
+      ]
+    },
+    "software_titles": {
+      "purpose": "Vai trò phát triển phần mềm cụ thể.",
+      "aliases": [
+        "software engineer",
+        "software developer",
+        "software architect",
+        "application developer",
+        "applications developer",
+        "embedded software engineer",
+        "firmware engineer",
+        "firmware developer",
+        "web developer",
+        "web engineer",
+        "front end developer",
+        "frontend developer",
+        "front end engineer",
+        "frontend engineer",
+        "back end developer",
+        "backend developer",
+        "back end engineer",
+        "backend engineer",
+        "full stack developer",
+        "fullstack developer",
+        "full stack engineer",
+        "mobile developer",
+        "mobile engineer",
+        "android developer",
+        "android engineer",
+        "ios developer",
+        "ios engineer",
+        "flutter developer",
+        "react native developer",
+        "lập trình viên",
+        "kỹ sư phần mềm",
+        "kỹ sư phát triển phần mềm"
+      ]
+    },
+    "software_hints": {
+      "purpose": "Vai trò mơ hồ cần hành động xây dựng phần mềm.",
+      "aliases": [
+        "engineer",
+        "developer",
+        "architect",
+        "programmer",
+        "kỹ sư",
+        "lập trình",
+        "application engineer"
+      ]
+    },
+    "software_tasks": {
+      "purpose": "Cụm hành động nghề, không chỉ nhắc tên công nghệ.",
+      "aliases": [
+        "develop software",
+        "develop applications",
+        "build applications",
+        "build software",
+        "write production code",
+        "implement apis",
+        "develop apis",
+        "design software architecture",
+        "phát triển phần mềm",
+        "phát triển ứng dụng",
+        "xây dựng ứng dụng",
+        "lập trình ứng dụng"
+      ]
+    },
+    "software_context": {
+      "purpose": "Đối tượng/công nghệ kỹ thuật cho quy tắc có ngữ cảnh; không phải nhãn kỹ năng đã trích.",
+      "aliases": [
+        "software",
+        "application",
+        "applications",
+        "api",
+        "apis",
+        "python",
+        "java",
+        "javascript",
+        "typescript",
+        "c++",
+        "c#",
+        ".net",
+        "react",
+        "android",
+        "ios",
+        "flutter",
+        "phần mềm",
+        "ứng dụng"
+      ]
+    },
+    "data_titles": {
+      "purpose": "Kỹ thuật dữ liệu, cơ sở dữ liệu và mô hình tính toán.",
+      "aliases": [
+        "data engineer",
+        "data scientist",
+        "analytics engineer",
+        "machine learning engineer",
+        "machine learning scientist",
+        "ai engineer",
+        "artificial intelligence engineer",
+        "database administrator",
+        "database developer",
+        "business intelligence developer",
+        "bi developer",
+        "kỹ sư dữ liệu",
+        "nhà khoa học dữ liệu",
+        "kỹ sư học máy",
+        "quản trị cơ sở dữ liệu",
+        "sql developer",
+        "database engineer",
+        "data architect"
+      ]
+    },
+    "data_hints": {
+      "purpose": "Data/BI analyst hoặc tên chung cần xác nhận nhiệm vụ kỹ thuật.",
+      "aliases": [
+        "data analyst",
+        "bi analyst",
+        "business intelligence analyst",
+        "analyst",
+        "engineer",
+        "dba",
+        "scientist",
+        "chuyên viên phân tích dữ liệu"
+      ]
+    },
+    "data_tasks": {
+      "purpose": "Nhiệm vụ kỹ thuật; không dùng 'analyze data' hoặc Excel riêng lẻ.",
+      "aliases": [
+        "build data pipelines",
+        "develop data pipelines",
+        "build etl pipelines",
+        "develop etl pipelines",
+        "train machine learning models",
+        "develop machine learning models",
+        "build predictive models",
+        "design data warehouses",
+        "develop bi dashboards",
+        "build bi dashboards",
+        "administer databases",
+        "optimize database queries",
+        "xây dựng pipeline dữ liệu",
+        "huấn luyện mô hình học máy",
+        "thiết kế kho dữ liệu",
+        "quản trị cơ sở dữ liệu"
+      ]
+    },
+    "data_context": {
+      "purpose": "Ngữ cảnh dữ liệu kỹ thuật.",
+      "aliases": [
+        "etl",
+        "data pipeline",
+        "data pipelines",
+        "data warehouse",
+        "data warehouses",
+        "machine learning",
+        "database",
+        "databases",
+        "sql",
+        "python",
+        "spark",
+        "power bi",
+        "tableau",
+        "cơ sở dữ liệu",
+        "kho dữ liệu",
+        "học máy"
+      ]
+    },
+    "devops_titles": {
+      "purpose": "DevOps, độ tin cậy hệ thống và cloud infrastructure.",
+      "aliases": [
+        "devops engineer",
+        "devops specialist",
+        "devops architect",
+        "site reliability engineer",
+        "cloud engineer",
+        "cloud architect",
+        "cloud infrastructure engineer",
+        "kỹ sư devops",
+        "kỹ sư điện toán đám mây"
+      ]
+    },
+    "devops_hints": {
+      "purpose": "Platform/SRE chỉ được nhận khi nhiệm vụ vận hành dịch vụ phần mềm rõ.",
+      "aliases": [
+        "platform engineer",
+        "platform developer",
+        "infrastructure engineer",
+        "sre",
+        "engineer",
+        "devops",
+        "kỹ sư hạ tầng"
+      ]
+    },
+    "devops_tasks": {
+      "purpose": "Hành động tự động hóa triển khai/vận hành.",
+      "aliases": [
+        "build deployment pipelines",
+        "maintain ci cd pipelines",
+        "automate deployments",
+        "manage kubernetes clusters",
+        "operate cloud infrastructure",
+        "improve service reliability",
+        "tự động hóa triển khai",
+        "vận hành hạ tầng đám mây"
+      ]
+    },
+    "devops_context": {
+      "purpose": "Ngữ cảnh cloud/triển khai phần mềm.",
+      "aliases": [
+        "ci cd",
+        "kubernetes",
+        "docker",
+        "terraform",
+        "cloud infrastructure",
+        "deployment pipeline",
+        "deployment pipelines",
+        "aws",
+        "azure",
+        "google cloud",
+        "đám mây"
+      ]
+    },
+    "qa_titles": {
+      "purpose": "Kiểm thử phần mềm cụ thể; QA trần không thuộc bộ này.",
+      "aliases": [
+        "software tester",
+        "software test engineer",
+        "software qa engineer",
+        "software quality assurance engineer",
+        "software quality engineer",
+        "test automation engineer",
+        "qa automation engineer",
+        "automation test engineer",
+        "sdet",
+        "software development engineer in test",
+        "kỹ sư kiểm thử phần mềm",
+        "kiểm thử viên phần mềm"
+      ]
+    },
+    "qa_hints": {
+      "purpose": "QA/test có thể thuộc sản xuất nên cần ngữ cảnh phần mềm.",
+      "aliases": [
+        "qa",
+        "quality assurance",
+        "test engineer",
+        "test analyst",
+        "tester",
+        "quality engineer",
+        "kiểm thử"
+      ]
+    },
+    "qa_tasks": {
+      "purpose": "Nhiệm vụ kiểm thử phần mềm.",
+      "aliases": [
+        "test software",
+        "test applications",
+        "build automated tests",
+        "write automated tests",
+        "automate software tests",
+        "execute software test cases",
+        "perform api testing",
+        "kiểm thử phần mềm",
+        "kiểm thử ứng dụng",
+        "viết kiểm thử tự động"
+      ]
+    },
+    "qa_context": {
+      "purpose": "Ngữ cảnh kiểm thử ứng dụng, không chỉ kiểm chất lượng vật lý.",
+      "aliases": [
+        "software",
+        "application",
+        "applications",
+        "api",
+        "selenium",
+        "playwright",
+        "cypress",
+        "test automation",
+        "phần mềm",
+        "ứng dụng"
+      ]
+    },
+    "security_titles": {
+      "purpose": "An ninh hệ thống thông tin; không gồm bảo vệ vật lý.",
+      "aliases": [
+        "cybersecurity analyst",
+        "cyber security analyst",
+        "cybersecurity engineer",
+        "cyber security engineer",
+        "information security analyst",
+        "information security engineer",
+        "software security engineer",
+        "application security engineer",
+        "cloud security engineer",
+        "penetration tester",
+        "chuyên viên an toàn thông tin",
+        "kỹ sư an ninh mạng"
+      ]
+    },
+    "security_hints": {
+      "purpose": "Security/SOC chung phải có nhiệm vụ bảo vệ hệ thống số.",
+      "aliases": [
+        "security engineer",
+        "security analyst",
+        "security specialist",
+        "soc analyst",
+        "soc engineer",
+        "engineer",
+        "analyst",
+        "an ninh",
+        "bảo mật"
+      ]
+    },
+    "security_tasks": {
+      "purpose": "Hành động bảo vệ hạ tầng số.",
+      "aliases": [
+        "monitor security incidents",
+        "respond to cyber incidents",
+        "perform penetration testing",
+        "assess application vulnerabilities",
+        "secure cloud infrastructure",
+        "investigate cybersecurity incidents",
+        "giám sát sự cố an ninh mạng",
+        "kiểm thử xâm nhập",
+        "đánh giá lỗ hổng ứng dụng"
+      ]
+    },
+    "security_context": {
+      "purpose": "Ngữ cảnh an ninh CNTT.",
+      "aliases": [
+        "cybersecurity",
+        "cyber security",
+        "information security",
+        "siem",
+        "soc",
+        "network security",
+        "application security",
+        "vulnerabilities",
+        "an toàn thông tin",
+        "an ninh mạng"
+      ]
+    },
+    "network_titles": {
+      "purpose": "Quản trị máy chủ, mạng máy tính và hệ điều hành.",
+      "aliases": [
+        "network engineer",
+        "network administrator",
+        "computer network engineer",
+        "systems administrator",
+        "system administrator",
+        "linux administrator",
+        "windows administrator",
+        "network architect",
+        "kỹ sư mạng máy tính",
+        "quản trị hệ thống",
+        "quản trị mạng"
+      ]
+    },
+    "network_hints": {
+      "purpose": "Systems/Infrastructure chung cần ngữ cảnh hệ thống máy tính.",
+      "aliases": [
+        "systems engineer",
+        "system engineer",
+        "infrastructure engineer",
+        "administrator",
+        "network specialist",
+        "kỹ sư hệ thống"
+      ]
+    },
+    "network_tasks": {
+      "purpose": "Hành động vận hành máy chủ/mạng.",
+      "aliases": [
+        "administer servers",
+        "configure network routers",
+        "maintain computer networks",
+        "manage linux servers",
+        "manage windows servers",
+        "manage active directory",
+        "operate data centers",
+        "quản trị máy chủ",
+        "cấu hình mạng máy tính",
+        "vận hành trung tâm dữ liệu"
+      ]
+    },
+    "network_context": {
+      "purpose": "Ngữ cảnh hạ tầng CNTT.",
+      "aliases": [
+        "linux",
+        "windows server",
+        "active directory",
+        "tcp ip",
+        "router",
+        "routers",
+        "computer network",
+        "computer networks",
+        "server",
+        "servers",
+        "máy chủ",
+        "mạng máy tính"
+      ]
+    },
+    "support_titles": {
+      "purpose": "Hỗ trợ kỹ thuật CNTT cụ thể, không phải customer service chung.",
+      "aliases": [
+        "it support specialist",
+        "it support engineer",
+        "it support technician",
+        "information technology support",
+        "desktop support technician",
+        "desktop support engineer",
+        "computer support specialist",
+        "it help desk",
+        "it helpdesk",
+        "chuyên viên hỗ trợ cntt",
+        "nhân viên hỗ trợ công nghệ thông tin"
+      ]
+    },
+    "support_hints": {
+      "purpose": "Support/help desk cần nhiệm vụ xử lý thiết bị/phần mềm.",
+      "aliases": [
+        "support",
+        "help desk",
+        "helpdesk",
+        "service desk",
+        "technical support",
+        "technician",
+        "hỗ trợ kỹ thuật"
+      ]
+    },
+    "support_tasks": {
+      "purpose": "Nhiệm vụ hỗ trợ người dùng hệ thống máy tính.",
+      "aliases": [
+        "troubleshoot computers",
+        "troubleshoot desktop applications",
+        "resolve it incidents",
+        "install operating systems",
+        "support computer users",
+        "troubleshoot software issues",
+        "xử lý sự cố máy tính",
+        "cài đặt hệ điều hành",
+        "hỗ trợ người dùng máy tính"
+      ]
+    },
+    "support_context": {
+      "purpose": "Đối tượng CNTT của hỗ trợ.",
+      "aliases": [
+        "computer",
+        "computers",
+        "operating system",
+        "operating systems",
+        "desktop",
+        "software",
+        "active directory",
+        "máy tính",
+        "hệ điều hành",
+        "phần mềm"
+      ]
+    },
+    "business_titles": {
+      "purpose": "Nghiệp vụ/sản phẩm/dự án có đối tượng phần mềm rõ trong title.",
+      "aliases": [
+        "it business analyst",
+        "software business analyst",
+        "it project manager",
+        "software project manager",
+        "software product owner",
+        "software product manager",
+        "chuyên viên phân tích nghiệp vụ phần mềm",
+        "quản lý dự án phần mềm"
+      ]
+    },
+    "business_hints": {
+      "purpose": "Chức danh nghiệp vụ chung chỉ nhận khi giao hàng phần mềm rõ.",
+      "aliases": [
+        "business analyst",
+        "product owner",
+        "product manager",
+        "project manager",
+        "scrum master",
+        "business systems analyst",
+        "phân tích nghiệp vụ",
+        "quản lý sản phẩm",
+        "quản lý dự án"
+      ]
+    },
+    "business_tasks": {
+      "purpose": "Nhiệm vụ đặc thù yêu cầu/sản phẩm/dự án phần mềm.",
+      "aliases": [
+        "define software requirements",
+        "write user stories",
+        "manage software backlog",
+        "manage software projects",
+        "design system specifications",
+        "manage software delivery",
+        "phân tích yêu cầu phần mềm",
+        "quản lý backlog phần mềm",
+        "quản lý dự án phần mềm"
+      ]
+    },
+    "business_context": {
+      "purpose": "Đối tượng hệ thống số cho nghiệp vụ.",
+      "aliases": [
+        "software",
+        "software development",
+        "information system",
+        "information systems",
+        "api",
+        "erp",
+        "saas",
+        "phần mềm",
+        "hệ thống thông tin"
+      ]
+    },
+    "management_titles": {
+      "purpose": "Lãnh đạo chức năng CNTT có đối tượng rõ.",
+      "aliases": [
+        "it manager",
+        "it director",
+        "information technology manager",
+        "information technology director",
+        "head of information technology",
+        "director of information technology",
+        "chief information officer",
+        "software engineering manager",
+        "software development manager",
+        "quản lý công nghệ thông tin",
+        "giám đốc công nghệ thông tin"
+      ]
+    },
+    "management_hints": {
+      "purpose": "Chức danh lãnh đạo/kiến trúc chung cần nhiệm vụ và đối tượng CNTT.",
+      "aliases": [
+        "engineering manager",
+        "technology manager",
+        "head of engineering",
+        "chief technology officer",
+        "cto",
+        "cio",
+        "solutions architect",
+        "solution architect",
+        "enterprise architect",
+        "technical architect",
+        "manager",
+        "architect",
+        "giám đốc công nghệ",
+        "kiến trúc sư giải pháp"
+      ]
+    },
+    "management_tasks": {
+      "purpose": "Lãnh đạo/kiến trúc CNTT, không chỉ quản lý nhân sự chung.",
+      "aliases": [
+        "lead software engineering teams",
+        "manage it operations",
+        "define it strategy",
+        "design enterprise software architecture",
+        "lead technology architecture",
+        "manage software engineering",
+        "quản lý vận hành cntt",
+        "thiết kế kiến trúc phần mềm",
+        "lãnh đạo đội phát triển phần mềm"
+      ]
+    },
+    "management_context": {
+      "purpose": "Phạm vi CNTT của lãnh đạo/kiến trúc.",
+      "aliases": [
+        "software",
+        "information technology",
+        "information systems",
+        "cloud infrastructure",
+        "it operations",
+        "enterprise software",
+        "phần mềm",
+        "công nghệ thông tin",
+        "hệ thống thông tin"
+      ]
+    },
+    "general_it_titles": {
+      "purpose": "Nghề CNTT rõ nhưng chưa đủ để chia nhóm chuyên môn.",
+      "aliases": [
+        "information technology specialist",
+        "it specialist",
+        "information technology technician",
+        "it technician",
+        "information technology consultant",
+        "it consultant",
+        "chuyên viên công nghệ thông tin",
+        "nhân viên công nghệ thông tin"
+      ]
+    },
+    "mobile_titles": {
+      "purpose": "Alias phân nhóm nghề Mobile của Software.",
+      "aliases": [
+        "mobile developer",
+        "mobile engineer",
+        "android developer",
+        "android engineer",
+        "ios developer",
+        "ios engineer",
+        "flutter developer",
+        "react native developer",
+        "lập trình viên mobile",
+        "lập trình viên di động"
+      ]
+    },
+    "mobile_tasks": {
+      "purpose": "Nhiệm vụ Mobile dùng khi title không xác định phân nhóm.",
+      "aliases": [
+        "develop mobile applications",
+        "build mobile applications",
+        "develop android applications",
+        "develop ios applications",
+        "phát triển ứng dụng di động"
+      ]
+    },
+    "mobile_context": {
+      "purpose": "Đối tượng Mobile, không phải nhãn kỹ năng đầu ra.",
+      "aliases": [
+        "android",
+        "ios",
+        "flutter",
+        "react native",
+        "mobile application",
+        "mobile applications",
+        "ứng dụng di động"
+      ]
+    },
+    "web_titles": {
+      "purpose": "Alias phân nhóm nghề Web của Software.",
+      "aliases": [
+        "web developer",
+        "web engineer",
+        "front end developer",
+        "frontend developer",
+        "front end engineer",
+        "frontend engineer",
+        "back end developer",
+        "backend developer",
+        "back end engineer",
+        "backend engineer",
+        "full stack developer",
+        "fullstack developer",
+        "full stack engineer",
+        "lập trình viên web"
+      ]
+    },
+    "web_tasks": {
+      "purpose": "Nhiệm vụ Web dùng khi title không xác định phân nhóm.",
+      "aliases": [
+        "develop web applications",
+        "build web applications",
+        "develop websites",
+        "build web services",
+        "phát triển ứng dụng web",
+        "xây dựng website"
+      ]
+    },
+    "web_context": {
+      "purpose": "Đối tượng Web.",
+      "aliases": [
+        "web",
+        "website",
+        "websites",
+        "web application",
+        "web applications",
+        "http",
+        "html",
+        "css",
+        "ứng dụng web"
+      ]
+    },
+    "outside_health_titles": {
+      "purpose": "Nghề chăm sóc sức khỏe/hành chính y tế.",
+      "aliases": [
+        "medical assistant",
+        "registered nurse",
+        "nurse practitioner",
+        "physician",
+        "dentist",
+        "pharmacist",
+        "food and nutrition manager",
+        "patient support ambassador",
+        "điều dưỡng",
+        "bác sĩ"
+      ]
+    },
+    "outside_physical_titles": {
+      "purpose": "Nghề kỹ thuật vật lý hoặc chất lượng sản xuất rõ.",
+      "aliases": [
+        "civil engineer",
+        "mechanical engineer",
+        "electrical engineer",
+        "chemical engineer",
+        "construction engineer",
+        "manufacturing engineer",
+        "structural engineer",
+        "quality control inspector",
+        "food safety analyst",
+        "security guard",
+        "kỹ sư xây dựng",
+        "kỹ sư cơ khí",
+        "nhân viên bảo vệ",
+        "cnc programmer",
+        "cnc machinist",
+        "plc programmer",
+        "controls engineer"
+      ]
+    },
+    "outside_domains": {
+      "purpose": "Ngữ cảnh ngoài CNTT trong title của QA/Engineer/Architect.",
+      "aliases": [
+        "civil",
+        "mechanical",
+        "electrical",
+        "chemical",
+        "construction",
+        "manufacturing",
+        "food manufacturing",
+        "food safety",
+        "pharmaceutical",
+        "cơ khí",
+        "xây dựng",
+        "thực phẩm"
+      ]
+    },
+    "outside_role_heads": {
+      "purpose": "Vai trò cần ghép với lĩnh vực ngoài CNTT.",
+      "aliases": [
+        "engineer",
+        "architect",
+        "qa",
+        "quality assurance",
+        "quality control",
+        "quality engineer",
+        "kỹ sư",
+        "kiến trúc sư"
+      ]
+    },
+    "outside_commercial_titles": {
+      "purpose": "Bán hàng/marketing/tài chính/HR/CS; nhắc SQL hay công ty phần mềm không đủ.",
+      "aliases": [
+        "sales engineer",
+        "sales representative",
+        "account executive",
+        "account manager",
+        "business development manager",
+        "marketing manager",
+        "marketing analyst",
+        "financial analyst",
+        "finance analyst",
+        "accountant",
+        "recruiter",
+        "talent acquisition",
+        "human resources",
+        "customer service representative",
+        "customer support representative",
+        "sales support",
+        "chuyên viên tuyển dụng",
+        "nhân viên kinh doanh",
+        "kế toán"
+      ]
+    },
+    "outside_education_titles": {
+      "purpose": "Vai trò giảng dạy/đào tạo nằm ngoài phạm vi nghề CNTT của phiên bản này.",
+      "aliases": [
+        "teacher",
+        "lecturer",
+        "instructor",
+        "trainer",
+        "giảng viên",
+        "giáo viên"
+      ]
+    }
+  },
+  "include_rules": [
+    {
+      "id": "SECURITY_TITLE",
+      "group_code": "SECURITY",
+      "evidence_tier": "TITLE_DIRECT",
+      "rule_priority": 1,
+      "condition": {
+        "match": {
+          "field": "title",
+          "term_set": "security_titles"
+        }
+      }
+    },
+    {
+      "id": "SECURITY_CONTEXT",
+      "group_code": "SECURITY",
+      "evidence_tier": "TITLE_CONTEXT",
+      "rule_priority": 2,
+      "condition": {
+        "all": [
+          {
+            "match": {
+              "field": "title",
+              "term_set": "security_hints"
+            }
+          },
+          {
+            "same_segment": {
+              "field": "description",
+              "all_term_sets": [
+                "security_tasks",
+                "security_context"
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "SECURITY_DESCRIPTION",
+      "group_code": "SECURITY",
+      "evidence_tier": "DESCRIPTION_ROLE_TASK",
+      "rule_priority": 3,
+      "condition": {
+        "all": [
+          {
+            "any": [
+              {
+                "is_missing": "title"
+              },
+              {
+                "full_match": {
+                  "field": "title",
+                  "term_set": "generic_exact_titles"
+                }
+              }
+            ]
+          },
+          {
+            "same_segment": {
+              "field": "description",
+              "all_term_sets": [
+                "security_titles",
+                "security_tasks",
+                "security_context",
+                "self_role_cues"
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "DATA_AI_TITLE",
+      "group_code": "DATA_AI",
+      "evidence_tier": "TITLE_DIRECT",
+      "rule_priority": 4,
+      "condition": {
+        "match": {
+          "field": "title",
+          "term_set": "data_titles"
+        }
+      }
+    },
+    {
+      "id": "DATA_AI_CONTEXT",
+      "group_code": "DATA_AI",
+      "evidence_tier": "TITLE_CONTEXT",
+      "rule_priority": 5,
+      "condition": {
+        "all": [
+          {
+            "match": {
+              "field": "title",
+              "term_set": "data_hints"
+            }
+          },
+          {
+            "same_segment": {
+              "field": "description",
+              "all_term_sets": [
+                "data_tasks",
+                "data_context"
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "DATA_AI_DESCRIPTION",
+      "group_code": "DATA_AI",
+      "evidence_tier": "DESCRIPTION_ROLE_TASK",
+      "rule_priority": 6,
+      "condition": {
+        "all": [
+          {
+            "any": [
+              {
+                "is_missing": "title"
+              },
+              {
+                "full_match": {
+                  "field": "title",
+                  "term_set": "generic_exact_titles"
+                }
+              }
+            ]
+          },
+          {
+            "same_segment": {
+              "field": "description",
+              "all_term_sets": [
+                "data_titles",
+                "data_tasks",
+                "data_context",
+                "self_role_cues"
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "DEVOPS_CLOUD_TITLE",
+      "group_code": "DEVOPS_CLOUD",
+      "evidence_tier": "TITLE_DIRECT",
+      "rule_priority": 7,
+      "condition": {
+        "match": {
+          "field": "title",
+          "term_set": "devops_titles"
+        }
+      }
+    },
+    {
+      "id": "DEVOPS_CLOUD_CONTEXT",
+      "group_code": "DEVOPS_CLOUD",
+      "evidence_tier": "TITLE_CONTEXT",
+      "rule_priority": 8,
+      "condition": {
+        "all": [
+          {
+            "match": {
+              "field": "title",
+              "term_set": "devops_hints"
+            }
+          },
+          {
+            "same_segment": {
+              "field": "description",
+              "all_term_sets": [
+                "devops_tasks",
+                "devops_context"
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "DEVOPS_CLOUD_DESCRIPTION",
+      "group_code": "DEVOPS_CLOUD",
+      "evidence_tier": "DESCRIPTION_ROLE_TASK",
+      "rule_priority": 9,
+      "condition": {
+        "all": [
+          {
+            "any": [
+              {
+                "is_missing": "title"
+              },
+              {
+                "full_match": {
+                  "field": "title",
+                  "term_set": "generic_exact_titles"
+                }
+              }
+            ]
+          },
+          {
+            "same_segment": {
+              "field": "description",
+              "all_term_sets": [
+                "devops_titles",
+                "devops_tasks",
+                "devops_context",
+                "self_role_cues"
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "QA_TESTING_TITLE",
+      "group_code": "QA_TESTING",
+      "evidence_tier": "TITLE_DIRECT",
+      "rule_priority": 10,
+      "condition": {
+        "match": {
+          "field": "title",
+          "term_set": "qa_titles"
+        }
+      }
+    },
+    {
+      "id": "QA_TESTING_CONTEXT",
+      "group_code": "QA_TESTING",
+      "evidence_tier": "TITLE_CONTEXT",
+      "rule_priority": 11,
+      "condition": {
+        "all": [
+          {
+            "match": {
+              "field": "title",
+              "term_set": "qa_hints"
+            }
+          },
+          {
+            "same_segment": {
+              "field": "description",
+              "all_term_sets": [
+                "qa_tasks",
+                "qa_context"
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "QA_TESTING_DESCRIPTION",
+      "group_code": "QA_TESTING",
+      "evidence_tier": "DESCRIPTION_ROLE_TASK",
+      "rule_priority": 12,
+      "condition": {
+        "all": [
+          {
+            "any": [
+              {
+                "is_missing": "title"
+              },
+              {
+                "full_match": {
+                  "field": "title",
+                  "term_set": "generic_exact_titles"
+                }
+              }
+            ]
+          },
+          {
+            "same_segment": {
+              "field": "description",
+              "all_term_sets": [
+                "qa_titles",
+                "qa_tasks",
+                "qa_context",
+                "self_role_cues"
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "NETWORK_SYSTEMS_TITLE",
+      "group_code": "NETWORK_SYSTEMS",
+      "evidence_tier": "TITLE_DIRECT",
+      "rule_priority": 13,
+      "condition": {
+        "match": {
+          "field": "title",
+          "term_set": "network_titles"
+        }
+      }
+    },
+    {
+      "id": "NETWORK_SYSTEMS_CONTEXT",
+      "group_code": "NETWORK_SYSTEMS",
+      "evidence_tier": "TITLE_CONTEXT",
+      "rule_priority": 14,
+      "condition": {
+        "all": [
+          {
+            "match": {
+              "field": "title",
+              "term_set": "network_hints"
+            }
+          },
+          {
+            "same_segment": {
+              "field": "description",
+              "all_term_sets": [
+                "network_tasks",
+                "network_context"
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "NETWORK_SYSTEMS_DESCRIPTION",
+      "group_code": "NETWORK_SYSTEMS",
+      "evidence_tier": "DESCRIPTION_ROLE_TASK",
+      "rule_priority": 15,
+      "condition": {
+        "all": [
+          {
+            "any": [
+              {
+                "is_missing": "title"
+              },
+              {
+                "full_match": {
+                  "field": "title",
+                  "term_set": "generic_exact_titles"
+                }
+              }
+            ]
+          },
+          {
+            "same_segment": {
+              "field": "description",
+              "all_term_sets": [
+                "network_titles",
+                "network_tasks",
+                "network_context",
+                "self_role_cues"
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "SOFTWARE_TITLE",
+      "group_code": "SOFTWARE",
+      "evidence_tier": "TITLE_DIRECT",
+      "rule_priority": 16,
+      "condition": {
+        "match": {
+          "field": "title",
+          "term_set": "software_titles"
+        }
+      }
+    },
+    {
+      "id": "SOFTWARE_CONTEXT",
+      "group_code": "SOFTWARE",
+      "evidence_tier": "TITLE_CONTEXT",
+      "rule_priority": 17,
+      "condition": {
+        "all": [
+          {
+            "match": {
+              "field": "title",
+              "term_set": "software_hints"
+            }
+          },
+          {
+            "same_segment": {
+              "field": "description",
+              "all_term_sets": [
+                "software_tasks",
+                "software_context"
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "SOFTWARE_DESCRIPTION",
+      "group_code": "SOFTWARE",
+      "evidence_tier": "DESCRIPTION_ROLE_TASK",
+      "rule_priority": 18,
+      "condition": {
+        "all": [
+          {
+            "any": [
+              {
+                "is_missing": "title"
+              },
+              {
+                "full_match": {
+                  "field": "title",
+                  "term_set": "generic_exact_titles"
+                }
+              }
+            ]
+          },
+          {
+            "same_segment": {
+              "field": "description",
+              "all_term_sets": [
+                "software_titles",
+                "software_tasks",
+                "software_context",
+                "self_role_cues"
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "IT_SUPPORT_TITLE",
+      "group_code": "IT_SUPPORT",
+      "evidence_tier": "TITLE_DIRECT",
+      "rule_priority": 19,
+      "condition": {
+        "match": {
+          "field": "title",
+          "term_set": "support_titles"
+        }
+      }
+    },
+    {
+      "id": "IT_SUPPORT_CONTEXT",
+      "group_code": "IT_SUPPORT",
+      "evidence_tier": "TITLE_CONTEXT",
+      "rule_priority": 20,
+      "condition": {
+        "all": [
+          {
+            "match": {
+              "field": "title",
+              "term_set": "support_hints"
+            }
+          },
+          {
+            "same_segment": {
+              "field": "description",
+              "all_term_sets": [
+                "support_tasks",
+                "support_context"
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "IT_SUPPORT_DESCRIPTION",
+      "group_code": "IT_SUPPORT",
+      "evidence_tier": "DESCRIPTION_ROLE_TASK",
+      "rule_priority": 21,
+      "condition": {
+        "all": [
+          {
+            "any": [
+              {
+                "is_missing": "title"
+              },
+              {
+                "full_match": {
+                  "field": "title",
+                  "term_set": "generic_exact_titles"
+                }
+              }
+            ]
+          },
+          {
+            "same_segment": {
+              "field": "description",
+              "all_term_sets": [
+                "support_titles",
+                "support_tasks",
+                "support_context",
+                "self_role_cues"
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "IT_BUSINESS_TITLE",
+      "group_code": "IT_BUSINESS",
+      "evidence_tier": "TITLE_DIRECT",
+      "rule_priority": 22,
+      "condition": {
+        "match": {
+          "field": "title",
+          "term_set": "business_titles"
+        }
+      }
+    },
+    {
+      "id": "IT_BUSINESS_CONTEXT",
+      "group_code": "IT_BUSINESS",
+      "evidence_tier": "TITLE_CONTEXT",
+      "rule_priority": 23,
+      "condition": {
+        "all": [
+          {
+            "match": {
+              "field": "title",
+              "term_set": "business_hints"
+            }
+          },
+          {
+            "same_segment": {
+              "field": "description",
+              "all_term_sets": [
+                "business_tasks",
+                "business_context"
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "IT_BUSINESS_DESCRIPTION",
+      "group_code": "IT_BUSINESS",
+      "evidence_tier": "DESCRIPTION_ROLE_TASK",
+      "rule_priority": 24,
+      "condition": {
+        "all": [
+          {
+            "any": [
+              {
+                "is_missing": "title"
+              },
+              {
+                "full_match": {
+                  "field": "title",
+                  "term_set": "generic_exact_titles"
+                }
+              }
+            ]
+          },
+          {
+            "same_segment": {
+              "field": "description",
+              "all_term_sets": [
+                "business_titles",
+                "business_tasks",
+                "business_context",
+                "self_role_cues"
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "IT_MANAGEMENT_TITLE",
+      "group_code": "IT_MANAGEMENT",
+      "evidence_tier": "TITLE_DIRECT",
+      "rule_priority": 25,
+      "condition": {
+        "match": {
+          "field": "title",
+          "term_set": "management_titles"
+        }
+      }
+    },
+    {
+      "id": "IT_MANAGEMENT_CONTEXT",
+      "group_code": "IT_MANAGEMENT",
+      "evidence_tier": "TITLE_CONTEXT",
+      "rule_priority": 26,
+      "condition": {
+        "all": [
+          {
+            "match": {
+              "field": "title",
+              "term_set": "management_hints"
+            }
+          },
+          {
+            "same_segment": {
+              "field": "description",
+              "all_term_sets": [
+                "management_tasks",
+                "management_context"
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "IT_MANAGEMENT_DESCRIPTION",
+      "group_code": "IT_MANAGEMENT",
+      "evidence_tier": "DESCRIPTION_ROLE_TASK",
+      "rule_priority": 27,
+      "condition": {
+        "all": [
+          {
+            "any": [
+              {
+                "is_missing": "title"
+              },
+              {
+                "full_match": {
+                  "field": "title",
+                  "term_set": "generic_exact_titles"
+                }
+              }
+            ]
+          },
+          {
+            "same_segment": {
+              "field": "description",
+              "all_term_sets": [
+                "management_titles",
+                "management_tasks",
+                "management_context",
+                "self_role_cues"
+              ]
+            }
+          }
+        ]
+      }
+    }
+  ],
+  "general_it_rules": [
+    {
+      "id": "GENERAL_IT_TITLE",
+      "group_code": "IT_OTHER",
+      "evidence_tier": "TITLE_DIRECT",
+      "rule_priority": 28,
+      "condition": {
+        "match": {
+          "field": "title",
+          "term_set": "general_it_titles"
+        }
+      }
+    }
+  ],
+  "exclusion_rules": [
+    {
+      "id": "EX_HEALTH",
+      "reason_vi": "Vai trò y tế/dinh dưỡng",
+      "rule_priority": 33,
+      "condition": {
+        "match": {
+          "field": "title",
+          "term_set": "outside_health_titles"
+        }
+      }
+    },
+    {
+      "id": "EX_PHYSICAL",
+      "reason_vi": "Vai trò kỹ thuật vật lý/bảo vệ",
+      "rule_priority": 34,
+      "condition": {
+        "match": {
+          "field": "title",
+          "term_set": "outside_physical_titles"
+        }
+      }
+    },
+    {
+      "id": "EX_COMMERCIAL",
+      "reason_vi": "Vai trò bán hàng/marketing/tài chính/nhân sự/CS",
+      "rule_priority": 35,
+      "condition": {
+        "match": {
+          "field": "title",
+          "term_set": "outside_commercial_titles"
+        }
+      }
+    },
+    {
+      "id": "EX_EDUCATION",
+      "reason_vi": "Vai trò giáo dục/đào tạo",
+      "rule_priority": 36,
+      "condition": {
+        "match": {
+          "field": "title",
+          "term_set": "outside_education_titles"
+        }
+      }
+    },
+    {
+      "id": "EX_PHYSICAL_CONTEXT",
+      "reason_vi": "Engineer/QA/Architect có lĩnh vực ngoài CNTT ngay trong title.",
+      "rule_priority": 37,
+      "condition": {
+        "all": [
+          {
+            "match": {
+              "field": "title",
+              "term_set": "outside_domains"
+            }
+          },
+          {
+            "match": {
+              "field": "title",
+              "term_set": "outside_role_heads"
+            }
+          }
+        ]
+      }
+    }
+  ],
+  "proposed_output_contract": {
+    "status": "proposal_pending_TV1_confirmation",
+    "grain": "1 row per non-null unique postings.job_id",
+    "fields": [
+      {
+        "name": "job_id",
+        "spark_type": "bigint",
+        "nullable": false,
+        "source": "postings.job_id"
+      },
+      {
+        "name": "taxonomy_version",
+        "spark_type": "string",
+        "nullable": false,
+        "source": "configuration"
+      },
+      {
+        "name": "taxonomy_sha256",
+        "spark_type": "string",
+        "nullable": false,
+        "source": "SHA-256 of exact UTF-8 config bytes"
+      },
+      {
+        "name": "it_decision",
+        "spark_type": "string",
+        "nullable": false,
+        "allowed_values": [
+          "ACCEPT",
+          "REJECT",
+          "REVIEW"
+        ]
+      },
+      {
+        "name": "is_it",
+        "spark_type": "boolean",
+        "nullable": true,
+        "source": "tri-state decision; REVIEW=>NULL"
+      },
+      {
+        "name": "primary_group_code",
+        "spark_type": "string",
+        "nullable": true,
+        "source": "one group for ACCEPT; null otherwise"
+      },
+      {
+        "name": "subgroup_code",
+        "spark_type": "string",
+        "nullable": true,
+        "source": "one SOFTWARE subgroup; null for other groups"
+      },
+      {
+        "name": "candidate_group_codes",
+        "spark_type": "array<string>",
+        "nullable": false,
+        "source": "distinct concrete candidate groups in selection order"
+      },
+      {
+        "name": "selected_rule_id",
+        "spark_type": "string",
+        "nullable": true,
+        "source": "winning include/general rule; null for REJECT/REVIEW"
+      },
+      {
+        "name": "reason_codes",
+        "spark_type": "array<string>",
+        "nullable": false,
+        "source": "decision reasons and review flags"
+      },
+      {
+        "name": "matched_rule_ids",
+        "spark_type": "array<string>",
+        "nullable": false,
+        "source": "all include/general/exclusion/subgroup rules that match"
+      },
+      {
+        "name": "match_evidence",
+        "spark_type": "array<struct<rule_id:string,field:string,term_set_id:string,matched_alias:string,segment_index:int,excerpt:string>>",
+        "nullable": false,
+        "source": "actual matched text; segment_index null for title, index from 0 for description"
+      },
+      {
+        "name": "description_processing",
+        "spark_type": "struct (proposal; see JSON trace)",
+        "nullable": false,
+        "source": "parser, retained long units and source coverage diagnostics"
+      },
+      {
+        "name": "description_segments",
+        "spark_type": "array<struct> (proposal; see JSON trace)",
+        "nullable": false,
+        "source": "retained derived units, section/actor/status, explicit raw source ranges"
+      }
+    ],
+    "proposed_reason_codes": [
+      "TITLE_DIRECT",
+      "TITLE_CONTEXT",
+      "DESCRIPTION_ROLE_TASK",
+      "GENERAL_IT_UNCLASSIFIED",
+      "OUTSIDE_IT_ROLE",
+      "POSITIVE_EXCLUSION_CONFLICT",
+      "MISSING_TITLE",
+      "AMBIGUOUS_TITLE_WITHOUT_CONTEXT",
+      "MULTIPLE_GROUP_CANDIDATES",
+      "MULTIPLE_SUBGROUP_CANDIDATES",
+      "NO_IT_ROLE_EVIDENCE",
+      "DESCRIPTION_PROCESSING_INCOMPLETE"
+    ],
+    "preserve_input_columns": [
+      "title",
+      "description"
+    ],
+    "evidence_excerpt_max_characters": 240,
+    "skill_labels_policy": "Kỹ năng có thể đa nhãn nhưng phải là đầu ra A05 riêng; A02 không tạo cột technical_skills hoặc đổi tên nhãn nguồn.",
+    "storage_path": "TV1 xác nhận sau; A02 không tạo bảng canonical hay Parquet.",
+    "evidence_v020_provenance": "Each hit includes raw_match_ranges, raw excerpt offsets, normalized segment coordinates, mapping status and context; old Spark struct remains pending TV1 confirmation."
+  },
+  "a04_review_design": {
+    "status": "guidance_only_not_executed",
+    "target_unique_jobs": 160,
+    "min_unique_jobs": 100,
+    "max_unique_jobs": 200,
+    "seed": 42,
+    "strata": [
+      {
+        "code": "ACCEPT_SINGLE_GROUP",
+        "target": 50
+      },
+      {
+        "code": "ACCEPT_MULTIPLE_OR_SUBGROUP",
+        "target": 30
+      },
+      {
+        "code": "REJECT_BY_EXCLUSION",
+        "target": 30
+      },
+      {
+        "code": "REJECT_NO_MATCH",
+        "target": 20
+      },
+      {
+        "code": "REVIEW_AMBIGUOUS_OR_MISSING",
+        "target": 30
+      }
+    ],
+    "sampling": "Tách strata không giao nhau theo thứ tự docs; hash(seed,job_id) để chọn tất định, không để join nhân bản mẫu.",
+    "metrics_policy": "Mẫu phân tầng phục vụ tìm lỗi. Chưa báo accuracy; chỉ tính số đối soát/precision-recall mẫu khi có nhãn tay và định nghĩa mẫu số, không suy thành toàn dataset."
+  },
+  "illustrative_cases_kind": "synthetic_rule_contract_examples_not_dataset_samples",
+  "illustrative_cases": [
+    {
+      "case_id": "ILLUSTRATIVE_01",
+      "kind": "synthetic_not_dataset_sample",
+      "input": {
+        "title": "Software Engineer",
+        "description": "Develop software in Java."
+      },
+      "expected": {
+        "it_decision": "ACCEPT",
+        "primary_group_code": "SOFTWARE",
+        "subgroup_code": "SOFTWARE_OTHER"
+      }
+    },
+    {
+      "case_id": "ILLUSTRATIVE_02",
+      "kind": "synthetic_not_dataset_sample",
+      "input": {
+        "title": "Senior Front-end Developer",
+        "description": null
+      },
+      "expected": {
+        "it_decision": "ACCEPT",
+        "primary_group_code": "SOFTWARE",
+        "subgroup_code": "SOFTWARE_WEB"
+      }
+    },
+    {
+      "case_id": "ILLUSTRATIVE_03",
+      "kind": "synthetic_not_dataset_sample",
+      "input": {
+        "title": "Android Developer",
+        "description": null
+      },
+      "expected": {
+        "it_decision": "ACCEPT",
+        "primary_group_code": "SOFTWARE",
+        "subgroup_code": "SOFTWARE_MOBILE"
+      }
+    },
+    {
+      "case_id": "ILLUSTRATIVE_04",
+      "kind": "synthetic_not_dataset_sample",
+      "input": {
+        "title": "Web Developer / Mobile Developer",
+        "description": null
+      },
+      "expected": {
+        "it_decision": "ACCEPT",
+        "primary_group_code": "SOFTWARE",
+        "subgroup_code": "SOFTWARE_MOBILE"
+      }
+    },
+    {
+      "case_id": "ILLUSTRATIVE_05",
+      "kind": "synthetic_not_dataset_sample",
+      "input": {
+        "title": "Software Engineer",
+        "description": "Build mobile applications using Android."
+      },
+      "expected": {
+        "it_decision": "ACCEPT",
+        "primary_group_code": "SOFTWARE",
+        "subgroup_code": "SOFTWARE_MOBILE"
+      }
+    },
+    {
+      "case_id": "ILLUSTRATIVE_06",
+      "kind": "synthetic_not_dataset_sample",
+      "input": {
+        "title": "Web Developer",
+        "description": "Develop mobile applications using Flutter."
+      },
+      "expected": {
+        "it_decision": "ACCEPT",
+        "primary_group_code": "SOFTWARE",
+        "subgroup_code": "SOFTWARE_WEB"
+      }
+    },
+    {
+      "case_id": "ILLUSTRATIVE_07",
+      "kind": "synthetic_not_dataset_sample",
+      "input": {
+        "title": "Data Engineer",
+        "description": "Build ETL pipelines using SQL."
+      },
+      "expected": {
+        "it_decision": "ACCEPT",
+        "primary_group_code": "DATA_AI",
+        "subgroup_code": null
+      }
+    },
+    {
+      "case_id": "ILLUSTRATIVE_08",
+      "kind": "synthetic_not_dataset_sample",
+      "input": {
+        "title": "Data Analyst",
+        "description": "Develop BI dashboards using Power BI."
+      },
+      "expected": {
+        "it_decision": "ACCEPT",
+        "primary_group_code": "DATA_AI",
+        "subgroup_code": null
+      }
+    },
+    {
+      "case_id": "ILLUSTRATIVE_09",
+      "kind": "synthetic_not_dataset_sample",
+      "input": {
+        "title": "Data Analyst",
+        "description": "Analyze sales figures using Excel."
+      },
+      "expected": {
+        "it_decision": "REVIEW",
+        "primary_group_code": null,
+        "subgroup_code": null
+      }
+    },
+    {
+      "case_id": "ILLUSTRATIVE_10",
+      "kind": "synthetic_not_dataset_sample",
+      "input": {
+        "title": "DevOps Engineer",
+        "description": null
+      },
+      "expected": {
+        "it_decision": "ACCEPT",
+        "primary_group_code": "DEVOPS_CLOUD",
+        "subgroup_code": null
+      }
+    },
+    {
+      "case_id": "ILLUSTRATIVE_11",
+      "kind": "synthetic_not_dataset_sample",
+      "input": {
+        "title": "SRE",
+        "description": "Improve service reliability using Kubernetes."
+      },
+      "expected": {
+        "it_decision": "ACCEPT",
+        "primary_group_code": "DEVOPS_CLOUD",
+        "subgroup_code": null
+      }
+    },
+    {
+      "case_id": "ILLUSTRATIVE_12",
+      "kind": "synthetic_not_dataset_sample",
+      "input": {
+        "title": "Platform Engineer",
+        "description": "Manage Kubernetes clusters."
+      },
+      "expected": {
+        "it_decision": "ACCEPT",
+        "primary_group_code": "DEVOPS_CLOUD",
+        "subgroup_code": null
+      }
+    },
+    {
+      "case_id": "ILLUSTRATIVE_13",
+      "kind": "synthetic_not_dataset_sample",
+      "input": {
+        "title": "QA Engineer",
+        "description": "Build automated tests with Selenium."
+      },
+      "expected": {
+        "it_decision": "ACCEPT",
+        "primary_group_code": "QA_TESTING",
+        "subgroup_code": null
+      }
+    },
+    {
+      "case_id": "ILLUSTRATIVE_14",
+      "kind": "synthetic_not_dataset_sample",
+      "input": {
+        "title": "QA Engineer",
+        "description": "Review documents."
+      },
+      "expected": {
+        "it_decision": "REVIEW",
+        "primary_group_code": null,
+        "subgroup_code": null
+      }
+    },
+    {
+      "case_id": "ILLUSTRATIVE_15",
+      "kind": "synthetic_not_dataset_sample",
+      "input": {
+        "title": "Quality Assurance Engineer - Food Manufacturing",
+        "description": "Inspect food batches."
+      },
+      "expected": {
+        "it_decision": "REJECT",
+        "primary_group_code": null,
+        "subgroup_code": null
+      }
+    },
+    {
+      "case_id": "ILLUSTRATIVE_16",
+      "kind": "synthetic_not_dataset_sample",
+      "input": {
+        "title": "Cybersecurity Analyst",
+        "description": null
+      },
+      "expected": {
+        "it_decision": "ACCEPT",
+        "primary_group_code": "SECURITY",
+        "subgroup_code": null
+      }
+    },
+    {
+      "case_id": "ILLUSTRATIVE_17",
+      "kind": "synthetic_not_dataset_sample",
+      "input": {
+        "title": "Security Analyst",
+        "description": "Monitor security incidents with SIEM."
+      },
+      "expected": {
+        "it_decision": "ACCEPT",
+        "primary_group_code": "SECURITY",
+        "subgroup_code": null
+      }
+    },
+    {
+      "case_id": "ILLUSTRATIVE_18",
+      "kind": "synthetic_not_dataset_sample",
+      "input": {
+        "title": "Security Guard",
+        "description": "Use a computer to file reports."
+      },
+      "expected": {
+        "it_decision": "REJECT",
+        "primary_group_code": null,
+        "subgroup_code": null
+      }
+    },
+    {
+      "case_id": "ILLUSTRATIVE_19",
+      "kind": "synthetic_not_dataset_sample",
+      "input": {
+        "title": "Systems Administrator",
+        "description": null
+      },
+      "expected": {
+        "it_decision": "ACCEPT",
+        "primary_group_code": "NETWORK_SYSTEMS",
+        "subgroup_code": null
+      }
+    },
+    {
+      "case_id": "ILLUSTRATIVE_20",
+      "kind": "synthetic_not_dataset_sample",
+      "input": {
+        "title": "Systems Engineer",
+        "description": "Manage Linux servers."
+      },
+      "expected": {
+        "it_decision": "ACCEPT",
+        "primary_group_code": "NETWORK_SYSTEMS",
+        "subgroup_code": null
+      }
+    },
+    {
+      "case_id": "ILLUSTRATIVE_21",
+      "kind": "synthetic_not_dataset_sample",
+      "input": {
+        "title": "IT Support Specialist",
+        "description": null
+      },
+      "expected": {
+        "it_decision": "ACCEPT",
+        "primary_group_code": "IT_SUPPORT",
+        "subgroup_code": null
+      }
+    },
+    {
+      "case_id": "ILLUSTRATIVE_22",
+      "kind": "synthetic_not_dataset_sample",
+      "input": {
+        "title": "Technical Support",
+        "description": "Troubleshoot computers and install operating systems."
+      },
+      "expected": {
+        "it_decision": "ACCEPT",
+        "primary_group_code": "IT_SUPPORT",
+        "subgroup_code": null
+      }
+    },
+    {
+      "case_id": "ILLUSTRATIVE_23",
+      "kind": "synthetic_not_dataset_sample",
+      "input": {
+        "title": "Customer Service Representative",
+        "description": "Use SQL reports."
+      },
+      "expected": {
+        "it_decision": "REJECT",
+        "primary_group_code": null,
+        "subgroup_code": null
+      }
+    },
+    {
+      "case_id": "ILLUSTRATIVE_24",
+      "kind": "synthetic_not_dataset_sample",
+      "input": {
+        "title": "IT Business Analyst",
+        "description": null
+      },
+      "expected": {
+        "it_decision": "ACCEPT",
+        "primary_group_code": "IT_BUSINESS",
+        "subgroup_code": null
+      }
+    },
+    {
+      "case_id": "ILLUSTRATIVE_25",
+      "kind": "synthetic_not_dataset_sample",
+      "input": {
+        "title": "Product Manager",
+        "description": "Manage software backlog for a SaaS product."
+      },
+      "expected": {
+        "it_decision": "ACCEPT",
+        "primary_group_code": "IT_BUSINESS",
+        "subgroup_code": null
+      }
+    },
+    {
+      "case_id": "ILLUSTRATIVE_26",
+      "kind": "synthetic_not_dataset_sample",
+      "input": {
+        "title": "Product Manager",
+        "description": "Manage pricing and packaging."
+      },
+      "expected": {
+        "it_decision": "REVIEW",
+        "primary_group_code": null,
+        "subgroup_code": null
+      }
+    },
+    {
+      "case_id": "ILLUSTRATIVE_27",
+      "kind": "synthetic_not_dataset_sample",
+      "input": {
+        "title": "IT Manager",
+        "description": null
+      },
+      "expected": {
+        "it_decision": "ACCEPT",
+        "primary_group_code": "IT_MANAGEMENT",
+        "subgroup_code": null
+      }
+    },
+    {
+      "case_id": "ILLUSTRATIVE_28",
+      "kind": "synthetic_not_dataset_sample",
+      "input": {
+        "title": "Engineering Manager",
+        "description": "Lead software engineering teams."
+      },
+      "expected": {
+        "it_decision": "ACCEPT",
+        "primary_group_code": "IT_MANAGEMENT",
+        "subgroup_code": null
+      }
+    },
+    {
+      "case_id": "ILLUSTRATIVE_29",
+      "kind": "synthetic_not_dataset_sample",
+      "input": {
+        "title": "CTO",
+        "description": "Manage factory machinery."
+      },
+      "expected": {
+        "it_decision": "REVIEW",
+        "primary_group_code": null,
+        "subgroup_code": null
+      }
+    },
+    {
+      "case_id": "ILLUSTRATIVE_30",
+      "kind": "synthetic_not_dataset_sample",
+      "input": {
+        "title": "IT Specialist",
+        "description": null
+      },
+      "expected": {
+        "it_decision": "ACCEPT",
+        "primary_group_code": "IT_OTHER",
+        "subgroup_code": null
+      }
+    },
+    {
+      "case_id": "ILLUSTRATIVE_31",
+      "kind": "synthetic_not_dataset_sample",
+      "input": {
+        "title": "Engineer",
+        "description": "Develop software using Java."
+      },
+      "expected": {
+        "it_decision": "ACCEPT",
+        "primary_group_code": "SOFTWARE",
+        "subgroup_code": "SOFTWARE_OTHER"
+      }
+    },
+    {
+      "case_id": "ILLUSTRATIVE_32",
+      "kind": "synthetic_not_dataset_sample",
+      "input": {
+        "title": "Engineer",
+        "description": "Coordinate operations."
+      },
+      "expected": {
+        "it_decision": "REVIEW",
+        "primary_group_code": null,
+        "subgroup_code": null
+      }
+    },
+    {
+      "case_id": "ILLUSTRATIVE_33",
+      "kind": "synthetic_not_dataset_sample",
+      "input": {
+        "title": "Civil Engineer",
+        "description": "Use Python and SQL reports."
+      },
+      "expected": {
+        "it_decision": "REJECT",
+        "primary_group_code": null,
+        "subgroup_code": null
+      }
+    },
+    {
+      "case_id": "ILLUSTRATIVE_34",
+      "kind": "synthetic_not_dataset_sample",
+      "input": {
+        "title": "Sales Engineer",
+        "description": "Develop software in Java."
+      },
+      "expected": {
+        "it_decision": "REVIEW",
+        "primary_group_code": null,
+        "subgroup_code": null
+      }
+    },
+    {
+      "case_id": "ILLUSTRATIVE_35",
+      "kind": "synthetic_not_dataset_sample",
+      "input": {
+        "title": "Civil Engineer / Software Engineer",
+        "description": null
+      },
+      "expected": {
+        "it_decision": "REVIEW",
+        "primary_group_code": null,
+        "subgroup_code": null
+      }
+    },
+    {
+      "case_id": "ILLUSTRATIVE_36",
+      "kind": "synthetic_not_dataset_sample",
+      "input": {
+        "title": "Software Engineer / Data Engineer",
+        "description": null
+      },
+      "expected": {
+        "it_decision": "ACCEPT",
+        "primary_group_code": "DATA_AI",
+        "subgroup_code": null
+      }
+    },
+    {
+      "case_id": "ILLUSTRATIVE_37",
+      "kind": "synthetic_not_dataset_sample",
+      "input": {
+        "title": "Software Engineer",
+        "description": "Build ETL pipelines in Python."
+      },
+      "expected": {
+        "it_decision": "ACCEPT",
+        "primary_group_code": "SOFTWARE",
+        "subgroup_code": "SOFTWARE_OTHER"
+      }
+    },
+    {
+      "case_id": "ILLUSTRATIVE_38",
+      "kind": "synthetic_not_dataset_sample",
+      "input": {
+        "title": "Software Engineer - Instructor",
+        "description": null
+      },
+      "expected": {
+        "it_decision": "REVIEW",
+        "primary_group_code": null,
+        "subgroup_code": null
+      }
+    },
+    {
+      "case_id": "ILLUSTRATIVE_39",
+      "kind": "synthetic_not_dataset_sample",
+      "input": {
+        "title": "Financial Analyst",
+        "description": "Build predictive models in Python."
+      },
+      "expected": {
+        "it_decision": "REVIEW",
+        "primary_group_code": null,
+        "subgroup_code": null
+      }
+    },
+    {
+      "case_id": "ILLUSTRATIVE_40",
+      "kind": "synthetic_not_dataset_sample",
+      "input": {
+        "title": "Recruiter at Software Development Company",
+        "description": "Hire Software Engineer candidates using SQL."
+      },
+      "expected": {
+        "it_decision": "REJECT",
+        "primary_group_code": null,
+        "subgroup_code": null
+      }
+    },
+    {
+      "case_id": "ILLUSTRATIVE_41",
+      "kind": "synthetic_not_dataset_sample",
+      "input": {
+        "title": "It takes initiative",
+        "description": "Information Technology company."
+      },
+      "expected": {
+        "it_decision": "REJECT",
+        "primary_group_code": null,
+        "subgroup_code": null
+      }
+    },
+    {
+      "case_id": "ILLUSTRATIVE_42",
+      "kind": "synthetic_not_dataset_sample",
+      "input": {
+        "title": "Engineer",
+        "description": "You are not responsible for developing software or writing production code in Java."
+      },
+      "expected": {
+        "it_decision": "REVIEW",
+        "primary_group_code": null,
+        "subgroup_code": null
+      }
+    },
+    {
+      "case_id": "ILLUSTRATIVE_43",
+      "kind": "synthetic_not_dataset_sample",
+      "input": {
+        "title": "Engineer",
+        "description": "Work with a team to develop software in Java."
+      },
+      "expected": {
+        "it_decision": "REVIEW",
+        "primary_group_code": null,
+        "subgroup_code": null
+      }
+    },
+    {
+      "case_id": "ILLUSTRATIVE_44",
+      "kind": "synthetic_not_dataset_sample",
+      "input": {
+        "title": null,
+        "description": "We are seeking a Software Engineer to develop software in Java."
+      },
+      "expected": {
+        "it_decision": "ACCEPT",
+        "primary_group_code": "SOFTWARE",
+        "subgroup_code": "SOFTWARE_OTHER"
+      }
+    },
+    {
+      "case_id": "ILLUSTRATIVE_45",
+      "kind": "synthetic_not_dataset_sample",
+      "input": {
+        "title": null,
+        "description": "Our company employs a Software Engineer to develop software in Java."
+      },
+      "expected": {
+        "it_decision": "REVIEW",
+        "primary_group_code": null,
+        "subgroup_code": null
+      }
+    },
+    {
+      "case_id": "ILLUSTRATIVE_46",
+      "kind": "synthetic_not_dataset_sample",
+      "input": {
+        "title": null,
+        "description": null
+      },
+      "expected": {
+        "it_decision": "REVIEW",
+        "primary_group_code": null,
+        "subgroup_code": null
+      }
+    },
+    {
+      "case_id": "ILLUSTRATIVE_47",
+      "kind": "synthetic_not_dataset_sample",
+      "input": {
+        "title": "SoftwareEngineer",
+        "description": null
+      },
+      "expected": {
+        "it_decision": "REJECT",
+        "primary_group_code": null,
+        "subgroup_code": null
+      }
+    },
+    {
+      "case_id": "ILLUSTRATIVE_48",
+      "kind": "synthetic_not_dataset_sample",
+      "input": {
+        "title": "SW Engineer",
+        "description": "Develop software in Java."
+      },
+      "expected": {
+        "it_decision": "ACCEPT",
+        "primary_group_code": "SOFTWARE",
+        "subgroup_code": "SOFTWARE_OTHER"
+      }
+    },
+    {
+      "case_id": "ILLUSTRATIVE_49",
+      "kind": "synthetic_not_dataset_sample",
+      "input": {
+        "title": "Specialist",
+        "description": "Information Technology; Software Development."
+      },
+      "expected": {
+        "it_decision": "REVIEW",
+        "primary_group_code": null,
+        "subgroup_code": null
+      }
+    },
+    {
+      "case_id": "ILLUSTRATIVE_50",
+      "kind": "synthetic_not_dataset_sample",
+      "input": {
+        "title": "Firmware Engineer",
+        "description": null
+      },
+      "expected": {
+        "it_decision": "ACCEPT",
+        "primary_group_code": "SOFTWARE",
+        "subgroup_code": "SOFTWARE_OTHER"
+      }
+    },
+    {
+      "case_id": "ILLUSTRATIVE_51",
+      "kind": "synthetic_not_dataset_sample",
+      "input": {
+        "title": "Application Engineer",
+        "description": "Manage equipment sizing."
+      },
+      "expected": {
+        "it_decision": "REVIEW",
+        "primary_group_code": null,
+        "subgroup_code": null
+      }
+    },
+    {
+      "case_id": "ILLUSTRATIVE_52",
+      "kind": "synthetic_not_dataset_sample",
+      "input": {
+        "title": "CNC Programmer",
+        "description": "Program machining equipment."
+      },
+      "expected": {
+        "it_decision": "REJECT",
+        "primary_group_code": null,
+        "subgroup_code": null
+      }
+    },
+    {
+      "case_id": "ILLUSTRATIVE_53",
+      "kind": "synthetic_not_dataset_sample",
+      "input": {
+        "title": "SQL Developer",
+        "description": null
+      },
+      "expected": {
+        "it_decision": "ACCEPT",
+        "primary_group_code": "DATA_AI",
+        "subgroup_code": null
+      }
+    },
+    {
+      "case_id": "ILLUSTRATIVE_54",
+      "kind": "synthetic_not_dataset_sample",
+      "input": {
+        "title": "Kỹ sư phần mềm",
+        "description": null
+      },
+      "expected": {
+        "it_decision": "ACCEPT",
+        "primary_group_code": "SOFTWARE",
+        "subgroup_code": "SOFTWARE_OTHER"
+      }
+    },
+    {
+      "case_id": "ILLUSTRATIVE_55",
+      "kind": "synthetic_not_dataset_sample",
+      "input": {
+        "title": "Financial Analyst",
+        "description": "Use SQL reports."
+      },
+      "expected": {
+        "it_decision": "REJECT",
+        "primary_group_code": null,
+        "subgroup_code": null
+      }
+    },
+    {
+      "case_id": "ILLUSTRATIVE_56",
+      "kind": "synthetic_not_dataset_sample",
+      "input": {
+        "title": "IT",
+        "description": null
+      },
+      "expected": {
+        "it_decision": "REVIEW",
+        "primary_group_code": null,
+        "subgroup_code": null
+      }
+    },
+    {
+      "case_id": "ILLUSTRATIVE_57",
+      "kind": "synthetic_not_dataset_sample",
+      "input": {
+        "title": "Software Engineer",
+        "description": null
+      },
+      "expected": {
+        "it_decision": "ACCEPT",
+        "primary_group_code": "SOFTWARE",
+        "subgroup_code": "SOFTWARE_OTHER"
+      }
+    }
+  ],
+  "description_processing_version": "structured-source-v1",
+  "changelog": [
+    {
+      "version": "0.2.0",
+      "date": "2026-10-08",
+      "changes": [
+        "Retain long descriptions; structured HTML/newline/bullet/sentence/clause parsing with source mapping.",
+        "Task-anchored windows inside retained long units; unresolved structure is explicit, never dropped.",
+        "Scope negation/collaboration by clause and actor; exclude company, compensation, benefits and qualifications from automatic description evidence.",
+        "Occupational groups, priorities, exclusions, include predicates and all original term sets including fallback gates/aliases are unchanged."
+      ],
+      "previous_config": "config/versions/it_taxonomy_v0.1.0.json"
+    }
+  ]
+}

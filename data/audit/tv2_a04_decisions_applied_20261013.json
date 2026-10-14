@@ -1,0 +1,234 @@
+{
+  "date": "2026-10-13",
+  "branch": "feat/tv2-analysis",
+  "updated_unique_jobs": 83,
+  "updated_source_rows": 84,
+  "skipped_cases": [],
+  "changed_cells": {
+    "data/analytics/a04_manual_seed42/a04_manual_labels_filled.xlsx": 536,
+    "data/analytics/a04_taxonomy_v0_2_0_20261008/accept_downgrades_for_review_blind.xlsx": 136
+  },
+  "protected_artifacts_checked": 155,
+  "protected_artifacts_unchanged": true,
+  "workbook_nonmanual_cells_unchanged": true,
+  "nondecision_rows_unchanged": true,
+  "workbook_unmodified_zip_entries_unchanged": true,
+  "same_job_consistent_across_workbooks": true,
+  "all_source_counts_valid": true,
+  "raw_hashes_match_manifest": 11,
+  "git_head_index_tracked_diff_unchanged": true,
+  "classifier_rerun": false,
+  "etl_rerun": false,
+  "before_sha256": {
+    "data/analytics/a04_manual_seed42/a04_manual_labels_filled.xlsx": "80b89a62cc096ee08672d50405bf2f4fc2c91afa148523f157532c127411c5ca",
+    "data/analytics/a04_taxonomy_v0_2_0_20261008/accept_downgrades_for_review_blind.xlsx": "28348ed393294ac3aae15f35599708641fdc92fb24f4fa8e340aff3c78a4e298"
+  },
+  "after_sha256": {
+    "data/analytics/a04_manual_seed42/a04_manual_labels_filled.xlsx": "ff462bc34c13810f3bd5ec2eecc2e4e8eeba12382997fc2f3c914c5f0450ce55",
+    "data/analytics/a04_taxonomy_v0_2_0_20261008/accept_downgrades_for_review_blind.xlsx": "7951c40d59271b58e1ca8d33e0e97c8f83a29c069be39cc6813826e6897cfe09"
+  },
+  "generated_reports": {
+    "docs/a04_review_summary.md": "a1f3cc71b4acfe6eadd20505d23208d51ed4815955b816d26a49569d092d319c",
+    "docs/a04_validation_report.md": "6a1f253de66238b818e7c57da628e5d8ba43e1803a07dfaf4bb0387f6f69906d",
+    "docs/a04_prediction_disagreements.csv": "2828fb6c54dec5b4e3a1f9d34dae07888d384218ffb5a1967c2e84cd8284b662",
+    "docs/a04_missing_review_metadata.csv": "483afc5ab55d5736722212909ea4b9fc04140ae73e3326b3ed8da17a721bb682",
+    "docs/a04_label_consistency_review.csv": "fc6d5559184100ea4b65c0cd32a53c7496416fe46fb40d2c34100badadf76521",
+    "docs/a04_manual_labeling.md": "fdfc03f976db738802cbcb5e23caa67f4de555a534b1d515fc4c9332b9b21743",
+    "docs/a04_v020_comparison.md": "7c3bf17b374c151be705a85ab0189c99cb9726a808f4ab605107f0345ba6f3f2"
+  },
+  "comparison": {
+    "date": "2026-10-13",
+    "timezone": "Asia/Bangkok",
+    "reviewer": "Dũng",
+    "branch": "feat/tv2-analysis",
+    "status": "DECISIONS_APPLIED_REMAINING_REVIEW_METADATA_PENDING",
+    "join_key": "job_id",
+    "purpose": "ASSISTED_RULE_DEVELOPMENT_NOT_INDEPENDENT_EVALUATION",
+    "sources": {
+      "data/analytics/a04_manual_seed42/a04_manual_labels_filled.xlsx": {
+        "rows": 160,
+        "distinct_job_ids": 160,
+        "labels": {
+          "NGOAI_CNTT": 66,
+          "CNTT": 90,
+          "CHUA_RO": 4
+        },
+        "matrix": {
+          "ACCEPT": {
+            "CNTT": 76,
+            "NGOAI_CNTT": 0,
+            "CHUA_RO": 3
+          },
+          "REJECT": {
+            "CNTT": 5,
+            "NGOAI_CNTT": 51,
+            "CHUA_RO": 1
+          },
+          "REVIEW": {
+            "CNTT": 9,
+            "NGOAI_CNTT": 15,
+            "CHUA_RO": 0
+          }
+        },
+        "updated_rows": 67,
+        "missing_metadata_rows": 93,
+        "differences": {
+          "MACHINE_REVIEW": 24,
+          "MEMBERSHIP_MISMATCH": 5,
+          "SUBGROUP_MISMATCH": 9,
+          "MANUAL_CHUA_RO": 4,
+          "GROUP_MISMATCH": 2
+        },
+        "primary_groups": {
+          "IT_BUSINESS": 7,
+          "IT_SUPPORT": 7,
+          "DATA_AI": 11,
+          "SOFTWARE": 43,
+          "DEVOPS_CLOUD": 4,
+          "IT_MANAGEMENT": 4,
+          "NETWORK_SYSTEMS": 6,
+          "SECURITY": 4,
+          "QA_TESTING": 4
+        },
+        "subgroups": {
+          "SOFTWARE_OTHER": 15,
+          "SOFTWARE_WEB": 22,
+          "SOFTWARE_MOBILE": 6
+        }
+      },
+      "data/analytics/a04_taxonomy_v0_2_0_20261008/accept_downgrades_for_review_blind.xlsx": {
+        "rows": 17,
+        "distinct_job_ids": 17,
+        "labels": {
+          "CNTT": 16,
+          "NGOAI_CNTT": 1
+        },
+        "matrix": {
+          "ACCEPT": {
+            "CNTT": 0,
+            "NGOAI_CNTT": 0,
+            "CHUA_RO": 0
+          },
+          "REJECT": {
+            "CNTT": 3,
+            "NGOAI_CNTT": 0,
+            "CHUA_RO": 0
+          },
+          "REVIEW": {
+            "CNTT": 13,
+            "NGOAI_CNTT": 1,
+            "CHUA_RO": 0
+          }
+        },
+        "updated_rows": 17,
+        "missing_metadata_rows": 0,
+        "differences": {
+          "MACHINE_REVIEW": 14,
+          "MEMBERSHIP_MISMATCH": 3
+        },
+        "primary_groups": {
+          "SOFTWARE": 11,
+          "DATA_AI": 3,
+          "SECURITY": 1,
+          "NETWORK_SYSTEMS": 1
+        },
+        "subgroups": {
+          "SOFTWARE_OTHER": 7,
+          "SOFTWARE_WEB": 4
+        }
+      }
+    },
+    "unique_union_jobs": 176,
+    "updated_unique_jobs": 83,
+    "updated_source_rows": 84,
+    "overlap": [
+      {
+        "job_id": "3905848702",
+        "conflict_fields": [],
+        "all_manual_fields_equal": true
+      }
+    ],
+    "skipped_cases": [],
+    "schema_errors": [],
+    "distinct_decision_quotes": 160,
+    "checked_evidence_instances": 256,
+    "core_changed_jobs": {
+      "3884811465": [
+        "manual_label",
+        "manual_is_it",
+        "manual_primary_group_code"
+      ],
+      "3887714064": [
+        "manual_primary_group_code"
+      ],
+      "3891074505": [
+        "manual_primary_group_code"
+      ],
+      "3891078124": [
+        "manual_primary_group_code"
+      ],
+      "3901356518": [
+        "manual_primary_group_code"
+      ],
+      "3901379461": [
+        "manual_subgroup_code"
+      ],
+      "3901998385": [
+        "manual_primary_group_code"
+      ],
+      "3905824874": [
+        "manual_label",
+        "manual_is_it",
+        "manual_primary_group_code"
+      ]
+    },
+    "prediction_disagreement_unique_jobs": 60,
+    "difference_types": {
+      "MEMBERSHIP_MISMATCH": 8,
+      "MANUAL_CHUA_RO": 4,
+      "MACHINE_REVIEW": 37,
+      "SUBGROUP_MISMATCH": 9,
+      "GROUP_MISMATCH": 2
+    },
+    "machine_review_unique_jobs": 37,
+    "chua_ro": [
+      {
+        "job_id": "3884811465",
+        "sample_id": "A04-128",
+        "title": "Information Technology Support Technician",
+        "reason": "Mô tả chủ yếu vận chuyển thiết bị, cover tech và go-live; chưa xác định cài đặt, xử lý sự cố hay hỗ trợ người dùng. Chốt CHUA_RO; boolean và nhóm phải để trống.",
+        "machine_decision": "ACCEPT"
+      },
+      {
+        "job_id": "3901929980",
+        "sample_id": "A04-149",
+        "title": "Graphic Designer and Web Developer",
+        "reason": "Giữ CHUA_RO: graphic/marketing và WordPress pha trộn; chưa rõ phần phát triển web và nghề chính.",
+        "machine_decision": "ACCEPT"
+      },
+      {
+        "job_id": "3904090413",
+        "sample_id": "A04-089",
+        "title": "Entry Level General Posting",
+        "reason": "Giữ CHUA_RO: tuyển nhiều chức năng, không chỉ định nghề của người được tuyển.",
+        "machine_decision": "REJECT"
+      },
+      {
+        "job_id": "3905824874",
+        "sample_id": "A04-153",
+        "title": "Junior IT Project Manager (DIN-03HF) // 100% Onsite Bethesda, MD",
+        "reason": "Vai trò gồm đào tạo kỹ thuật và hành chính, chưa xác định nhiệm vụ delivery dự án IT đủ rõ. Chốt CHUA_RO, không giữ IT_MANAGEMENT chỉ từ chức danh.",
+        "machine_decision": "ACCEPT"
+      }
+    ],
+    "missing_metadata_rows": 93,
+    "missing_metadata_unique_jobs": 93,
+    "consistency_pending_notes": 4,
+    "metrics": "NOT_COMPUTED; development sample, pending 93 reviewer/date records",
+    "classifier_rerun": false,
+    "etl_rerun": false,
+    "a05_performed": false,
+    "commit_performed": false,
+    "push_performed": false
+  }
+}

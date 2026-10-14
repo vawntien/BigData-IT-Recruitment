@@ -1,0 +1,291 @@
+{
+  "status": "PREDICTIONS_NOT_MANUALLY_EVALUATED",
+  "input": "raw CSV, not D04 Parquet or canonical D05",
+  "taxonomy_version": "0.1.0",
+  "taxonomy_sha256": "99523fff775fc302507638b532491275c3bec54d2d38354ce329f574943c8278",
+  "python": "3.11.9 (tags/v3.11.9:de54cf5, Apr  2 2024, 10:12:12) [MSC v.1938 64 bit (AMD64)]",
+  "python_executable": "C:\\Users\\dongv\\BigData-IT-Recruitment\\.venv\\Scripts\\python.exe",
+  "date": "2026-10-08",
+  "illustrative_cases_passed": 57,
+  "rows": 123849,
+  "distinct_job_ids": 123849,
+  "decisions": {
+    "REVIEW": 77192,
+    "REJECT": 41555,
+    "ACCEPT": 5102
+  },
+  "predicted_primary_groups": {
+    "SOFTWARE": 2299,
+    "DATA_AI": 1114,
+    "IT_MANAGEMENT": 89,
+    "IT_SUPPORT": 148,
+    "DEVOPS_CLOUD": 440,
+    "NETWORK_SYSTEMS": 555,
+    "QA_TESTING": 104,
+    "IT_BUSINESS": 91,
+    "IT_OTHER": 78,
+    "SECURITY": 184
+  },
+  "reason_counts": {
+    "DESCRIPTION_SEGMENT_SKIPPED": 71150,
+    "AMBIGUOUS_TITLE_WITHOUT_CONTEXT": 47683,
+    "NO_IT_ROLE_EVIDENCE": 26913,
+    "OUTSIDE_IT_ROLE": 14642,
+    "TITLE_DIRECT": 4958,
+    "GENERAL_IT_UNCLASSIFIED": 78,
+    "TITLE_CONTEXT": 66,
+    "MULTIPLE_GROUP_CANDIDATES": 21,
+    "POSITIVE_EXCLUSION_CONFLICT": 13
+  },
+  "raw_unchanged": true,
+  "sampling": {
+    "seed": 42,
+    "quotas": {
+      "ACCEPT_SINGLE_GROUP": 50,
+      "ACCEPT_MULTIPLE_OR_SUBGROUP": 30,
+      "REJECT_BY_EXCLUSION": 30,
+      "REJECT_NO_MATCH": 20,
+      "REVIEW_AMBIGUOUS_OR_MISSING": 30
+    },
+    "populations": {
+      "ACCEPT_SINGLE_GROUP": 4423,
+      "ACCEPT_MULTIPLE_OR_SUBGROUP": 679,
+      "REJECT_BY_EXCLUSION": 14642,
+      "REJECT_NO_MATCH": 26913,
+      "REVIEW_AMBIGUOUS_OR_MISSING": 77192
+    },
+    "sample_counts": {
+      "ACCEPT_MULTIPLE_OR_SUBGROUP": 30,
+      "ACCEPT_SINGLE_GROUP": 50,
+      "REJECT_BY_EXCLUSION": 30,
+      "REJECT_NO_MATCH": 20,
+      "REVIEW_AMBIGUOUS_OR_MISSING": 30
+    },
+    "reservations": [
+      {
+        "name": "SOFTWARE_MOBILE",
+        "requested": 5,
+        "available": 104,
+        "achieved": 5
+      },
+      {
+        "name": "SOFTWARE_WEB",
+        "requested": 5,
+        "available": 555,
+        "achieved": 5
+      },
+      {
+        "name": "SECURITY",
+        "requested": 4,
+        "available": 184,
+        "achieved": 4
+      },
+      {
+        "name": "DATA_AI",
+        "requested": 4,
+        "available": 1114,
+        "achieved": 4
+      },
+      {
+        "name": "DEVOPS_CLOUD",
+        "requested": 4,
+        "available": 440,
+        "achieved": 4
+      },
+      {
+        "name": "QA_TESTING",
+        "requested": 4,
+        "available": 104,
+        "achieved": 4
+      },
+      {
+        "name": "NETWORK_SYSTEMS",
+        "requested": 4,
+        "available": 555,
+        "achieved": 4
+      },
+      {
+        "name": "SOFTWARE",
+        "requested": 4,
+        "available": 2299,
+        "achieved": 10
+      },
+      {
+        "name": "IT_SUPPORT",
+        "requested": 4,
+        "available": 148,
+        "achieved": 4
+      },
+      {
+        "name": "IT_BUSINESS",
+        "requested": 4,
+        "available": 91,
+        "achieved": 4
+      },
+      {
+        "name": "IT_MANAGEMENT",
+        "requested": 4,
+        "available": 89,
+        "achieved": 4
+      },
+      {
+        "name": "IT_OTHER",
+        "requested": 1,
+        "available": 78,
+        "achieved": 1
+      },
+      {
+        "name": "TITLE_DIRECT",
+        "requested": 1,
+        "available": 4958,
+        "achieved": 42
+      },
+      {
+        "name": "TITLE_CONTEXT",
+        "requested": 1,
+        "available": 66,
+        "achieved": 1
+      },
+      {
+        "name": "DESCRIPTION_ROLE_TASK",
+        "requested": 1,
+        "available": 0,
+        "achieved": 0
+      },
+      {
+        "name": "MULTIPLE_GROUP_CANDIDATES",
+        "requested": 1,
+        "available": 21,
+        "achieved": 1
+      },
+      {
+        "name": "SHORT_ACRONYM_TITLE",
+        "requested": 1,
+        "available": 53,
+        "achieved": 3
+      },
+      {
+        "name": "EX_HEALTH",
+        "requested": 3,
+        "available": 4408,
+        "achieved": 3
+      },
+      {
+        "name": "EX_PHYSICAL",
+        "requested": 3,
+        "available": 1286,
+        "achieved": 3
+      },
+      {
+        "name": "EX_COMMERCIAL",
+        "requested": 3,
+        "available": 7315,
+        "achieved": 3
+      },
+      {
+        "name": "EX_EDUCATION",
+        "requested": 3,
+        "available": 1235,
+        "achieved": 3
+      },
+      {
+        "name": "EX_PHYSICAL_CONTEXT",
+        "requested": 3,
+        "available": 1365,
+        "achieved": 3
+      },
+      {
+        "name": "NO_MATCH_WITH_IT_OR_SOFTWARE_METADATA",
+        "requested": 5,
+        "available": 2653,
+        "achieved": 5
+      },
+      {
+        "name": "POSITIVE_EXCLUSION_CONFLICT",
+        "requested": 3,
+        "available": 13,
+        "achieved": 3
+      },
+      {
+        "name": "MISSING_TITLE",
+        "requested": 3,
+        "available": 0,
+        "achieved": 0
+      },
+      {
+        "name": "AMBIGUOUS_TITLE_WITHOUT_CONTEXT",
+        "requested": 3,
+        "available": 47683,
+        "achieved": 3
+      },
+      {
+        "name": "DESCRIPTION_SEGMENT_SKIPPED",
+        "requested": 3,
+        "available": 59831,
+        "achieved": 5
+      },
+      {
+        "name": "FILL_ACCEPT_SINGLE_GROUP",
+        "requested": 50,
+        "available": 4423,
+        "achieved": 50
+      },
+      {
+        "name": "FILL_ACCEPT_MULTIPLE_OR_SUBGROUP",
+        "requested": 30,
+        "available": 679,
+        "achieved": 30
+      },
+      {
+        "name": "FILL_REJECT_BY_EXCLUSION",
+        "requested": 30,
+        "available": 14642,
+        "achieved": 30
+      },
+      {
+        "name": "FILL_REJECT_NO_MATCH",
+        "requested": 20,
+        "available": 26913,
+        "achieved": 20
+      },
+      {
+        "name": "FILL_REVIEW_AMBIGUOUS_OR_MISSING",
+        "requested": 30,
+        "available": 77192,
+        "achieved": 30
+      }
+    ],
+    "shortfall_transfers": {},
+    "method": "Disjoint strata; reserve A02 coverage targets then fill each stratum by SHA-256('42:<canonical_job_id>'), numeric job_id tie-break; shuffle blind rows by same hash",
+    "purpose": "RULE_DEVELOPMENT_ONLY_NOT_FINAL_EVALUATION",
+    "estimation_limit": "Coverage reservations are purposive; do not use n/N as inclusion probabilities or extrapolate metrics to all postings."
+  },
+  "sample_group_counts": {
+    "SOFTWARE": 41,
+    "DEVOPS_CLOUD": 4,
+    "DATA_AI": 8,
+    "IT_MANAGEMENT": 4,
+    "NETWORK_SYSTEMS": 6,
+    "SECURITY": 4,
+    "QA_TESTING": 4,
+    "IT_BUSINESS": 4,
+    "IT_OTHER": 1,
+    "IT_SUPPORT": 4
+  },
+  "sample_subgroup_counts": {
+    "SOFTWARE_OTHER": 12,
+    "SOFTWARE_WEB": 23,
+    "SOFTWARE_MOBILE": 6
+  },
+  "manual_labels_filled": 0,
+  "final_evaluation_sample": "NOT_CREATED; draw independently after rules freeze, exclude all development job_ids",
+  "clean_parquet_present": false,
+  "spark_jvm_parity": "PENDING_TV1",
+  "metrics": "NOT_COMPUTED_NO_MANUAL_LABELS",
+  "output_path": "C:\\Users\\dongv\\BigData-IT-Recruitment\\data\\analytics\\a04_manual_seed42",
+  "all_predictions_file": "C:\\Users\\dongv\\BigData-IT-Recruitment\\data\\analytics\\a04_taxonomy_v0_1_0_seed42\\all_predictions.jsonl.gz",
+  "all_predictions_sha256": "8bccbf9ed92db4105f4539d1ca6eb0d7a069d60d717545697b07f1666be221d5",
+  "interpreter_sha256": "453bb6bcd22d4cdf866c670f3634b8f1e42a233eb086b650e579b4b1d429dc86",
+  "runner_sha256": "57e0886673643fece40bfa0b9ab26a178f914eaa8f7d4f045d7254a85bc81427",
+  "reused_predictions": true
+}

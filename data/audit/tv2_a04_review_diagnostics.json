@@ -1,0 +1,369 @@
+{
+  "status": "DIAGNOSTICS_ONLY_NOT_GOLD_LABELS",
+  "date": "2026-10-08",
+  "output": "C:\\Users\\dongv\\BigData-IT-Recruitment\\data\\analytics\\a04_diagnostics_v0_1_0_20261008",
+  "taxonomy_version": "0.1.0",
+  "taxonomy_sha256": "99523fff775fc302507638b532491275c3bec54d2d38354ce329f574943c8278",
+  "interpreter_sha256": "453bb6bcd22d4cdf866c670f3634b8f1e42a233eb086b650e579b4b1d429dc86",
+  "source_trace": "C:\\Users\\dongv\\BigData-IT-Recruitment\\data\\analytics\\a04_taxonomy_v0_1_0_seed42\\all_predictions.jsonl.gz",
+  "source_trace_sha256": "8bccbf9ed92db4105f4539d1ca6eb0d7a069d60d717545697b07f1666be221d5",
+  "counts": {
+    "jobs": 123849,
+    "REVIEW": 77192,
+    "segments": 3522729,
+    "skipped_segments": 118943,
+    "normalized_segment_codepoints": 457917954,
+    "skipped_normalized_codepoints": 101426742,
+    "flagged": 71150,
+    "review_due_only_to_skipped_reason": 29496,
+    "REJECT": 41555,
+    "ACCEPT": 5102,
+    "description_title_gate_jobs": 205,
+    "description_title_gate_flagged": 107,
+    "flagged_with_active_context_joint_in_long": 133,
+    "flagged_with_active_context_joint_in_long_unblocked": 61,
+    "review_with_active_context_joint_in_long_unblocked": 30
+  },
+  "flagged_states": {
+    "REVIEW": 59831,
+    "REJECT": 8070,
+    "ACCEPT": 3249
+  },
+  "review_flag_reason_combinations": {
+    "DESCRIPTION_SEGMENT_SKIPPED": 29496,
+    "AMBIGUOUS_TITLE_WITHOUT_CONTEXT + DESCRIPTION_SEGMENT_SKIPPED": 30327,
+    "DESCRIPTION_SEGMENT_SKIPPED + POSITIVE_EXCLUSION_CONFLICT": 8
+  },
+  "input_formats": {
+    "lf": 118521,
+    "punctuation_without_following_space": 92902,
+    "flagged_lf": 67729,
+    "flagged_punctuation_without_following_space": 60491,
+    "no_lf_or_cr": 5328,
+    "flagged_no_lf_or_cr": 3421,
+    "html_entity": 194,
+    "flagged_html_entity": 134,
+    "html_tag": 21,
+    "flagged_html_tag": 16,
+    "unicode_line_separator": 22,
+    "flagged_unicode_line_separator": 12
+  },
+  "generic_exact_title_counts": {
+    "manager": 10,
+    "technician": 19,
+    "associate": 31,
+    "consultant": 9,
+    "analyst": 18,
+    "engineer": 24,
+    "intern": 30,
+    "developer": 31,
+    "senior analyst": 9,
+    "administrator": 5,
+    "senior engineer": 8,
+    "specialist": 5,
+    "junior engineer": 1,
+    "support engineer": 4,
+    "qa engineer": 1
+  },
+  "title_gate_states": {
+    "REVIEW": 159,
+    "REJECT": 45,
+    "ACCEPT": 1
+  },
+  "description_rule_stage_counts": {
+    "SECURITY_DESCRIPTION": {
+      "title_gate_pass": 205,
+      "anywhere_self_role_cues": 90,
+      "all_four_anywhere": 0,
+      "all_four_joint_before_length_or_block": 0,
+      "all_four_joint_valid_length": 0,
+      "all_four_joint_valid_unblocked": 0,
+      "all_four_joint_long_unblocked": 0,
+      "all_four_joint_short_blocked": 0,
+      "all_four_anywhere_but_not_same_segment": 0,
+      "anywhere_security_context": 4
+    },
+    "DATA_AI_DESCRIPTION": {
+      "title_gate_pass": 205,
+      "anywhere_self_role_cues": 90,
+      "all_four_anywhere": 0,
+      "all_four_joint_before_length_or_block": 0,
+      "all_four_joint_valid_length": 0,
+      "all_four_joint_valid_unblocked": 0,
+      "all_four_joint_long_unblocked": 0,
+      "all_four_joint_short_blocked": 0,
+      "all_four_anywhere_but_not_same_segment": 0,
+      "anywhere_data_titles": 3,
+      "anywhere_data_context": 51
+    },
+    "DEVOPS_CLOUD_DESCRIPTION": {
+      "title_gate_pass": 205,
+      "anywhere_self_role_cues": 90,
+      "all_four_anywhere": 0,
+      "all_four_joint_before_length_or_block": 0,
+      "all_four_joint_valid_length": 0,
+      "all_four_joint_valid_unblocked": 0,
+      "all_four_joint_long_unblocked": 0,
+      "all_four_joint_short_blocked": 0,
+      "all_four_anywhere_but_not_same_segment": 0,
+      "anywhere_devops_context": 27
+    },
+    "QA_TESTING_DESCRIPTION": {
+      "title_gate_pass": 205,
+      "anywhere_self_role_cues": 90,
+      "all_four_anywhere": 0,
+      "all_four_joint_before_length_or_block": 0,
+      "all_four_joint_valid_length": 0,
+      "all_four_joint_valid_unblocked": 0,
+      "all_four_joint_long_unblocked": 0,
+      "all_four_joint_short_blocked": 0,
+      "all_four_anywhere_but_not_same_segment": 0,
+      "anywhere_qa_context": 88
+    },
+    "NETWORK_SYSTEMS_DESCRIPTION": {
+      "title_gate_pass": 205,
+      "anywhere_self_role_cues": 90,
+      "all_four_anywhere": 0,
+      "all_four_joint_before_length_or_block": 0,
+      "all_four_joint_valid_length": 0,
+      "all_four_joint_valid_unblocked": 0,
+      "all_four_joint_long_unblocked": 0,
+      "all_four_joint_short_blocked": 0,
+      "all_four_anywhere_but_not_same_segment": 0,
+      "anywhere_network_context": 14
+    },
+    "SOFTWARE_DESCRIPTION": {
+      "title_gate_pass": 205,
+      "anywhere_self_role_cues": 90,
+      "all_four_anywhere": 0,
+      "all_four_joint_before_length_or_block": 0,
+      "all_four_joint_valid_length": 0,
+      "all_four_joint_valid_unblocked": 0,
+      "all_four_joint_long_unblocked": 0,
+      "all_four_joint_short_blocked": 0,
+      "all_four_anywhere_but_not_same_segment": 0,
+      "anywhere_software_context": 96,
+      "anywhere_software_titles": 4,
+      "anywhere_software_tasks": 1
+    },
+    "IT_SUPPORT_DESCRIPTION": {
+      "title_gate_pass": 205,
+      "anywhere_self_role_cues": 90,
+      "all_four_anywhere": 0,
+      "all_four_joint_before_length_or_block": 0,
+      "all_four_joint_valid_length": 0,
+      "all_four_joint_valid_unblocked": 0,
+      "all_four_joint_long_unblocked": 0,
+      "all_four_joint_short_blocked": 0,
+      "all_four_anywhere_but_not_same_segment": 0,
+      "anywhere_support_context": 56,
+      "anywhere_support_tasks": 1
+    },
+    "IT_BUSINESS_DESCRIPTION": {
+      "title_gate_pass": 205,
+      "anywhere_self_role_cues": 90,
+      "all_four_anywhere": 0,
+      "all_four_joint_before_length_or_block": 0,
+      "all_four_joint_valid_length": 0,
+      "all_four_joint_valid_unblocked": 0,
+      "all_four_joint_long_unblocked": 0,
+      "all_four_joint_short_blocked": 0,
+      "all_four_anywhere_but_not_same_segment": 0,
+      "anywhere_business_context": 57
+    },
+    "IT_MANAGEMENT_DESCRIPTION": {
+      "title_gate_pass": 205,
+      "anywhere_self_role_cues": 90,
+      "all_four_anywhere": 0,
+      "all_four_joint_before_length_or_block": 0,
+      "all_four_joint_valid_length": 0,
+      "all_four_joint_valid_unblocked": 0,
+      "all_four_joint_long_unblocked": 0,
+      "all_four_joint_short_blocked": 0,
+      "all_four_anywhere_but_not_same_segment": 0,
+      "anywhere_management_context": 48,
+      "anywhere_management_titles": 1
+    }
+  },
+  "description_rules_matched_in_saved_trace": {},
+  "long_segment_lengths": {
+    "min": 501,
+    "median": 726,
+    "p90": 1333,
+    "max": 8051
+  },
+  "specimens": [
+    {
+      "job_id": "3891072754",
+      "title": "Lead Developer (Mobile Apps/Flutter)",
+      "category": "REVIEW_ACTIVE_CONTEXT_IN_SKIPPED",
+      "decision": "REVIEW",
+      "title_gate": false,
+      "active_long": [
+        {
+          "rule_id": "SOFTWARE_CONTEXT",
+          "segment_index": 2,
+          "blocked": true
+        }
+      ]
+    },
+    {
+      "job_id": "3902328365",
+      "title": "Principal Application Engineer (CD/CD)",
+      "category": "REVIEW_ACTIVE_CONTEXT_IN_SKIPPED",
+      "decision": "REVIEW",
+      "title_gate": false,
+      "active_long": [
+        {
+          "rule_id": "SOFTWARE_CONTEXT",
+          "segment_index": 15,
+          "blocked": true
+        }
+      ]
+    },
+    {
+      "job_id": "3891008882",
+      "title": "User Interface Architect",
+      "category": "REVIEW_ACTIVE_CONTEXT_IN_SKIPPED",
+      "decision": "REVIEW",
+      "title_gate": false,
+      "active_long": [
+        {
+          "rule_id": "SOFTWARE_CONTEXT",
+          "segment_index": 2,
+          "blocked": false
+        }
+      ]
+    },
+    {
+      "job_id": "3903449638",
+      "title": "Privacy Engineer",
+      "category": "REVIEW_ACTIVE_CONTEXT_IN_SKIPPED",
+      "decision": "REVIEW",
+      "title_gate": false,
+      "active_long": [
+        {
+          "rule_id": "SOFTWARE_CONTEXT",
+          "segment_index": 1,
+          "blocked": false
+        }
+      ]
+    },
+    {
+      "job_id": "3905674215",
+      "title": "Associate",
+      "category": "REVIEW_GENERIC_TITLE",
+      "decision": "REVIEW",
+      "title_gate": true,
+      "active_long": []
+    },
+    {
+      "job_id": "3900080548",
+      "title": "Consultant",
+      "category": "REVIEW_GENERIC_TITLE",
+      "decision": "REVIEW",
+      "title_gate": true,
+      "active_long": []
+    },
+    {
+      "job_id": "3901950685",
+      "title": "Associate",
+      "category": "REVIEW_GENERIC_TITLE",
+      "decision": "REVIEW",
+      "title_gate": true,
+      "active_long": []
+    },
+    {
+      "job_id": "3906203084",
+      "title": "Director Of Nursing ( RN )",
+      "category": "REVIEW_NO_ACTIVE_CONTEXT_IN_SKIPPED",
+      "decision": "REVIEW",
+      "title_gate": false,
+      "active_long": []
+    },
+    {
+      "job_id": "3905305242",
+      "title": "Community Mortgage Bank Sales Consultant",
+      "category": "REVIEW_NO_ACTIVE_CONTEXT_IN_SKIPPED",
+      "decision": "REVIEW",
+      "title_gate": false,
+      "active_long": []
+    },
+    {
+      "job_id": "3906224755",
+      "title": "Senior Visualization Engineer",
+      "category": "REVIEW_NO_ACTIVE_CONTEXT_IN_SKIPPED",
+      "decision": "REVIEW",
+      "title_gate": false,
+      "active_long": []
+    },
+    {
+      "job_id": "3901349949",
+      "title": "Crisis Program Manager",
+      "category": "REVIEW_NO_ACTIVE_CONTEXT_IN_SKIPPED",
+      "decision": "REVIEW",
+      "title_gate": false,
+      "active_long": []
+    },
+    {
+      "job_id": "3901934857",
+      "title": "Systems Administrator",
+      "category": "ACCEPT_FLAGGED",
+      "decision": "ACCEPT",
+      "title_gate": false,
+      "active_long": []
+    },
+    {
+      "job_id": "3901348414",
+      "title": "Mainframe/COBOL Software Engineer",
+      "category": "ACCEPT_FLAGGED",
+      "decision": "ACCEPT",
+      "title_gate": false,
+      "active_long": []
+    },
+    {
+      "job_id": "3895547790",
+      "title": "Database Administrator 4",
+      "category": "ACCEPT_FLAGGED",
+      "decision": "ACCEPT",
+      "title_gate": false,
+      "active_long": []
+    },
+    {
+      "job_id": "3902916761",
+      "title": "Virtual Critical Care Registered Nurse - Pulse Center - Full Time - Nights",
+      "category": "REJECT_FLAGGED",
+      "decision": "REJECT",
+      "title_gate": false,
+      "active_long": []
+    },
+    {
+      "job_id": "3895536438",
+      "title": "Oncology Account Manager - West Region (Remote) - 24-126",
+      "category": "REJECT_FLAGGED",
+      "decision": "REJECT",
+      "title_gate": false,
+      "active_long": []
+    },
+    {
+      "job_id": "3894268653",
+      "title": "Tax Account Manager ",
+      "category": "REJECT_FLAGGED",
+      "decision": "REJECT",
+      "title_gate": false,
+      "active_long": []
+    },
+    {
+      "job_id": "3901946257",
+      "title": "Fitness Specialist - FT: Eaton, Cleveland, OH",
+      "category": "HTML_FLAGGED",
+      "decision": "REVIEW",
+      "title_gate": false,
+      "active_long": []
+    }
+  ],
+  "protected_artifacts_unchanged": true,
+  "no_new_predictions": true,
+  "manual_labels_untouched": true,
+  "fallback_condition_parity_checked_on_all_gate_jobs": true
+}

@@ -1,0 +1,20 @@
+table,key,comparison,null_rows,distinct,duplicate_rows
+postings,job_id,NUMERIC_CANONICAL_IDS_TRIM_TEXT,0,123849,0
+postings,company_id,NUMERIC_CANONICAL_IDS_TRIM_TEXT,1717,24474,97658
+companies,company_id,NUMERIC_CANONICAL_IDS_TRIM_TEXT,0,24473,0
+company_industries,company_id,NUMERIC_CANONICAL_IDS_TRIM_TEXT,0,24365,10
+company_industries,company_id + industry,NUMERIC_CANONICAL_IDS_TRIM_TEXT,0,24375,0
+company_specialities,company_id,NUMERIC_CANONICAL_IDS_TRIM_TEXT,0,17780,151607
+company_specialities,company_id + speciality,NUMERIC_CANONICAL_IDS_TRIM_TEXT,0,169367,20
+employee_counts,company_id,NUMERIC_CANONICAL_IDS_TRIM_TEXT,0,24473,11314
+employee_counts,company_id + time_recorded,NUMERIC_CANONICAL_IDS_TRIM_TEXT,0,35665,122
+benefits,job_id,NUMERIC_CANONICAL_IDS_TRIM_TEXT,0,30023,37920
+benefits,job_id + type,NUMERIC_CANONICAL_IDS_TRIM_TEXT,0,67943,0
+job_industries,job_id,NUMERIC_CANONICAL_IDS_TRIM_TEXT,0,127125,37683
+job_industries,job_id + industry_id,NUMERIC_CANONICAL_IDS_TRIM_TEXT,0,164808,0
+job_skills,job_id,NUMERIC_CANONICAL_IDS_TRIM_TEXT,0,126807,86961
+job_skills,job_id + skill_abr,NUMERIC_CANONICAL_IDS_TRIM_TEXT,0,213768,0
+salaries,salary_id,NUMERIC_CANONICAL_IDS_TRIM_TEXT,0,40785,0
+salaries,job_id,NUMERIC_CANONICAL_IDS_TRIM_TEXT,0,40785,0
+industries,industry_id,NUMERIC_CANONICAL_IDS_TRIM_TEXT,0,422,0
+skills,skill_abr,NUMERIC_CANONICAL_IDS_TRIM_TEXT,0,35,0

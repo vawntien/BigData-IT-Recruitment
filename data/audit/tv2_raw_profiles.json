@@ -1,0 +1,3873 @@
+{
+  "profiles": {
+    "postings": {
+      "rows": 123849,
+      "top_values": {
+        "job_id": [
+          [
+            "921716",
+            1
+          ],
+          [
+            "1829192",
+            1
+          ],
+          [
+            "10998357",
+            1
+          ],
+          [
+            "23221523",
+            1
+          ],
+          [
+            "35982263",
+            1
+          ],
+          [
+            "91700727",
+            1
+          ],
+          [
+            "103254301",
+            1
+          ],
+          [
+            "112576855",
+            1
+          ],
+          [
+            "1218575",
+            1
+          ],
+          [
+            "2264355",
+            1
+          ],
+          [
+            "9615617",
+            1
+          ],
+          [
+            "11009123",
+            1
+          ]
+        ],
+        "company_name": [
+          [
+            "Liberty Healthcare and Rehabilitation Services",
+            1108
+          ],
+          [
+            "The Job Network",
+            1003
+          ],
+          [
+            "J. Galt",
+            604
+          ],
+          [
+            "TEKsystems",
+            529
+          ],
+          [
+            "Lowe's Companies, Inc.",
+            527
+          ],
+          [
+            "Ingersoll Rand",
+            517
+          ],
+          [
+            "Capital One",
+            496
+          ],
+          [
+            "Cogent Communications",
+            476
+          ],
+          [
+            "Insight Global",
+            418
+          ],
+          [
+            "Dice",
+            415
+          ],
+          [
+            "Wells Fargo",
+            388
+          ],
+          [
+            "Circle K",
+            381
+          ]
+        ],
+        "max_salary": [
+          [
+            "150000.0",
+            648
+          ],
+          [
+            "100000.0",
+            635
+          ],
+          [
+            "120000.0",
+            610
+          ],
+          [
+            "90000.0",
+            541
+          ],
+          [
+            "85000.0",
+            534
+          ],
+          [
+            "110000.0",
+            503
+          ],
+          [
+            "80000.0",
+            489
+          ],
+          [
+            "75000.0",
+            459
+          ],
+          [
+            "130000.0",
+            446
+          ],
+          [
+            "70000.0",
+            422
+          ],
+          [
+            "25.0",
+            390
+          ],
+          [
+            "200000.0",
+            370
+          ]
+        ],
+        "pay_period": [
+          [
+            "YEARLY",
+            20628
+          ],
+          [
+            "HOURLY",
+            14741
+          ],
+          [
+            "MONTHLY",
+            518
+          ],
+          [
+            "WEEKLY",
+            177
+          ],
+          [
+            "BIWEEKLY",
+            9
+          ]
+        ],
+        "location": [
+          [
+            "United States",
+            8125
+          ],
+          [
+            "New York, NY",
+            2756
+          ],
+          [
+            "Chicago, IL",
+            1834
+          ],
+          [
+            "Houston, TX",
+            1762
+          ],
+          [
+            "Dallas, TX",
+            1383
+          ],
+          [
+            "Atlanta, GA",
+            1363
+          ],
+          [
+            "Boston, MA",
+            1176
+          ],
+          [
+            "Austin, TX",
+            1083
+          ],
+          [
+            "Charlotte, NC",
+            1075
+          ],
+          [
+            "Phoenix, AZ",
+            1059
+          ],
+          [
+            "Washington, DC",
+            985
+          ],
+          [
+            "Los Angeles, CA",
+            972
+          ]
+        ],
+        "company_id": [
+          [
+            "53345529.0",
+            1108
+          ],
+          [
+            "167757.0",
+            1003
+          ],
+          [
+            "73013724.0",
+            604
+          ],
+          [
+            "2152.0",
+            529
+          ],
+          [
+            "4128.0",
+            527
+          ],
+          [
+            "3175.0",
+            517
+          ],
+          [
+            "1419.0",
+            496
+          ],
+          [
+            "163139.0",
+            476
+          ],
+          [
+            "11056.0",
+            418
+          ],
+          [
+            "6849.0",
+            415
+          ],
+          [
+            "1235.0",
+            388
+          ],
+          [
+            "12446.0",
+            381
+          ]
+        ],
+        "views": [
+          [
+            "4.0",
+            28323
+          ],
+          [
+            "3.0",
+            16960
+          ],
+          [
+            "5.0",
+            14513
+          ],
+          [
+            "2.0",
+            14417
+          ],
+          [
+            "6.0",
+            7834
+          ],
+          [
+            "7.0",
+            4922
+          ],
+          [
+            "1.0",
+            4587
+          ],
+          [
+            "8.0",
+            3376
+          ],
+          [
+            "9.0",
+            2472
+          ],
+          [
+            "10.0",
+            1926
+          ],
+          [
+            "11.0",
+            1539
+          ],
+          [
+            "12.0",
+            1264
+          ]
+        ],
+        "med_salary": [
+          [
+            "20.0",
+            268
+          ],
+          [
+            "18.0",
+            243
+          ],
+          [
+            "15.0",
+            177
+          ],
+          [
+            "17.0",
+            169
+          ],
+          [
+            "16.0",
+            158
+          ],
+          [
+            "25.0",
+            140
+          ],
+          [
+            "19.0",
+            137
+          ],
+          [
+            "21.0",
+            114
+          ],
+          [
+            "22.0",
+            107
+          ],
+          [
+            "23.0",
+            95
+          ],
+          [
+            "24.0",
+            84
+          ],
+          [
+            "30.0",
+            83
+          ]
+        ],
+        "min_salary": [
+          [
+            "100000.0",
+            873
+          ],
+          [
+            "80000.0",
+            841
+          ],
+          [
+            "90000.0",
+            766
+          ],
+          [
+            "70000.0",
+            752
+          ],
+          [
+            "60000.0",
+            676
+          ],
+          [
+            "20.0",
+            615
+          ],
+          [
+            "75000.0",
+            575
+          ],
+          [
+            "120000.0",
+            575
+          ],
+          [
+            "65000.0",
+            572
+          ],
+          [
+            "50000.0",
+            509
+          ],
+          [
+            "110000.0",
+            489
+          ],
+          [
+            "18.0",
+            457
+          ]
+        ],
+        "formatted_work_type": [
+          [
+            "Full-time",
+            98814
+          ],
+          [
+            "Contract",
+            12117
+          ],
+          [
+            "Part-time",
+            9696
+          ],
+          [
+            "Temporary",
+            1190
+          ],
+          [
+            "Internship",
+            983
+          ],
+          [
+            "Volunteer",
+            562
+          ],
+          [
+            "Other",
+            487
+          ]
+        ],
+        "applies": [
+          [
+            "1.0",
+            7830
+          ],
+          [
+            "2.0",
+            3351
+          ],
+          [
+            "3.0",
+            2053
+          ],
+          [
+            "4.0",
+            1395
+          ],
+          [
+            "5.0",
+            1108
+          ],
+          [
+            "6.0",
+            840
+          ],
+          [
+            "7.0",
+            625
+          ],
+          [
+            "8.0",
+            530
+          ],
+          [
+            "10.0",
+            419
+          ],
+          [
+            "9.0",
+            418
+          ],
+          [
+            "11.0",
+            351
+          ],
+          [
+            "12.0",
+            314
+          ]
+        ],
+        "original_listed_time": [
+          [
+            "1713398400000.0",
+            6788
+          ],
+          [
+            "1713312000000.0",
+            3979
+          ],
+          [
+            "1713484800000.0",
+            3373
+          ],
+          [
+            "1712275200000.0",
+            1975
+          ],
+          [
+            "1712793600000.0",
+            1966
+          ],
+          [
+            "1712534400000.0",
+            1229
+          ],
+          [
+            "1713139200000.0",
+            1120
+          ],
+          [
+            "1713225600000.0",
+            607
+          ],
+          [
+            "1712620800000.0",
+            442
+          ],
+          [
+            "1712880000000.0",
+            239
+          ],
+          [
+            "1712188800000.0",
+            140
+          ],
+          [
+            "1712361600000.0",
+            115
+          ]
+        ],
+        "remote_allowed": [
+          [
+            "1.0",
+            15246
+          ]
+        ],
+        "application_type": [
+          [
+            "OffsiteApply",
+            84607
+          ],
+          [
+            "ComplexOnsiteApply",
+            31049
+          ],
+          [
+            "SimpleOnsiteApply",
+            8192
+          ],
+          [
+            "UnknownApply",
+            1
+          ]
+        ],
+        "expiry": [
+          [
+            "1714966714000.0",
+            123
+          ],
+          [
+            "1716110539000.0",
+            96
+          ],
+          [
+            "1716110364000.0",
+            94
+          ],
+          [
+            "1716085196000.0",
+            91
+          ],
+          [
+            "1715869799000.0",
+            89
+          ],
+          [
+            "1715477166000.0",
+            88
+          ],
+          [
+            "1716064823000.0",
+            88
+          ],
+          [
+            "1715488650000.0",
+            87
+          ],
+          [
+            "1715496383000.0",
+            85
+          ],
+          [
+            "1715246494000.0",
+            85
+          ],
+          [
+            "1716086573000.0",
+            85
+          ],
+          [
+            "1715986284000.0",
+            85
+          ]
+        ],
+        "closed_time": [
+          [
+            "1712669690000.0",
+            15
+          ],
+          [
+            "1712669775000.0",
+            15
+          ],
+          [
+            "1712669840000.0",
+            14
+          ],
+          [
+            "1712669839000.0",
+            14
+          ],
+          [
+            "1712669778000.0",
+            11
+          ],
+          [
+            "1712669848000.0",
+            10
+          ],
+          [
+            "1712669762000.0",
+            9
+          ],
+          [
+            "1712669939000.0",
+            8
+          ],
+          [
+            "1712669893000.0",
+            8
+          ],
+          [
+            "1712669938000.0",
+            7
+          ],
+          [
+            "1712669864000.0",
+            7
+          ],
+          [
+            "1712669717000.0",
+            7
+          ]
+        ],
+        "formatted_experience_level": [
+          [
+            "Mid-Senior level",
+            41489
+          ],
+          [
+            "Entry level",
+            36708
+          ],
+          [
+            "Associate",
+            9826
+          ],
+          [
+            "Director",
+            3746
+          ],
+          [
+            "Internship",
+            1449
+          ],
+          [
+            "Executive",
+            1222
+          ]
+        ],
+        "listed_time": [
+          [
+            "1712374714000.0",
+            123
+          ],
+          [
+            "1713518539000.0",
+            96
+          ],
+          [
+            "1713518364000.0",
+            94
+          ],
+          [
+            "1713493196000.0",
+            91
+          ],
+          [
+            "1713277799000.0",
+            90
+          ],
+          [
+            "1712885166000.0",
+            88
+          ],
+          [
+            "1713472823000.0",
+            88
+          ],
+          [
+            "1712896650000.0",
+            87
+          ],
+          [
+            "1712904383000.0",
+            85
+          ],
+          [
+            "1712654494000.0",
+            85
+          ],
+          [
+            "1713494573000.0",
+            85
+          ],
+          [
+            "1713394284000.0",
+            85
+          ]
+        ],
+        "posting_domain": [
+          [
+            "www.click2apply.net",
+            3811
+          ],
+          [
+            "click.appcast.io",
+            2255
+          ],
+          [
+            "jsv3.recruitics.com",
+            1921
+          ],
+          [
+            "jobs.smartrecruiters.com",
+            1557
+          ],
+          [
+            "boards.greenhouse.io",
+            1493
+          ],
+          [
+            "rr.jobsyn.org",
+            1202
+          ],
+          [
+            "recruiting.ultipro.com",
+            1175
+          ],
+          [
+            "recruiting.adp.com",
+            809
+          ],
+          [
+            "sjobs.brassring.com",
+            785
+          ],
+          [
+            "dsp.prng.co",
+            766
+          ],
+          [
+            "recruiting2.ultipro.com",
+            729
+          ],
+          [
+            "jobs.jobvite.com",
+            630
+          ]
+        ],
+        "sponsored": [
+          [
+            "0",
+            123849
+          ]
+        ],
+        "work_type": [
+          [
+            "FULL_TIME",
+            98814
+          ],
+          [
+            "CONTRACT",
+            12117
+          ],
+          [
+            "PART_TIME",
+            9696
+          ],
+          [
+            "TEMPORARY",
+            1190
+          ],
+          [
+            "INTERNSHIP",
+            983
+          ],
+          [
+            "VOLUNTEER",
+            562
+          ],
+          [
+            "OTHER",
+            487
+          ]
+        ],
+        "currency": [
+          [
+            "USD",
+            36058
+          ],
+          [
+            "EUR",
+            6
+          ],
+          [
+            "CAD",
+            3
+          ],
+          [
+            "BBD",
+            2
+          ],
+          [
+            "AUD",
+            2
+          ],
+          [
+            "GBP",
+            2
+          ]
+        ],
+        "compensation_type": [
+          [
+            "BASE_SALARY",
+            36073
+          ]
+        ],
+        "normalized_salary": [
+          [
+            "41600.0",
+            416
+          ],
+          [
+            "100000.0",
+            410
+          ],
+          [
+            "75000.0",
+            393
+          ],
+          [
+            "80000.0",
+            388
+          ],
+          [
+            "70000.0",
+            387
+          ],
+          [
+            "90000.0",
+            375
+          ],
+          [
+            "37440.0",
+            359
+          ],
+          [
+            "130000.0",
+            352
+          ],
+          [
+            "85000.0",
+            337
+          ],
+          [
+            "65000.0",
+            332
+          ],
+          [
+            "110000.0",
+            320
+          ],
+          [
+            "52000.0",
+            316
+          ]
+        ],
+        "zip_code": [
+          [
+            "10001",
+            2765
+          ],
+          [
+            "60601",
+            1837
+          ],
+          [
+            "77002",
+            1762
+          ],
+          [
+            "75201",
+            1399
+          ],
+          [
+            "30303",
+            1367
+          ],
+          [
+            "02108",
+            1176
+          ],
+          [
+            "78701",
+            1083
+          ],
+          [
+            "28202",
+            1075
+          ],
+          [
+            "85003",
+            1064
+          ],
+          [
+            "90001",
+            1059
+          ],
+          [
+            "20001",
+            992
+          ],
+          [
+            "94101",
+            906
+          ]
+        ],
+        "fips": [
+          [
+            "36061",
+            2765
+          ],
+          [
+            "06037",
+            2396
+          ],
+          [
+            "17031",
+            2360
+          ],
+          [
+            "48113",
+            2263
+          ],
+          [
+            "48201",
+            2146
+          ],
+          [
+            "04013",
+            1758
+          ],
+          [
+            "53033",
+            1465
+          ],
+          [
+            "13121",
+            1460
+          ],
+          [
+            "06085",
+            1216
+          ],
+          [
+            "25025",
+            1194
+          ],
+          [
+            "06073",
+            1143
+          ],
+          [
+            "48453",
+            1109
+          ]
+        ]
+      },
+      "observed_values": {
+        "pay_period": [
+          [
+            "HOURLY",
+            14741
+          ],
+          [
+            "YEARLY",
+            20628
+          ],
+          [
+            "MONTHLY",
+            518
+          ],
+          [
+            "WEEKLY",
+            177
+          ],
+          [
+            "BIWEEKLY",
+            9
+          ]
+        ],
+        "formatted_work_type": [
+          [
+            "Full-time",
+            98814
+          ],
+          [
+            "Internship",
+            983
+          ],
+          [
+            "Contract",
+            12117
+          ],
+          [
+            "Part-time",
+            9696
+          ],
+          [
+            "Temporary",
+            1190
+          ],
+          [
+            "Volunteer",
+            562
+          ],
+          [
+            "Other",
+            487
+          ]
+        ],
+        "remote_allowed": [
+          [
+            "1.0",
+            15246
+          ]
+        ],
+        "formatted_experience_level": [
+          [
+            "Entry level",
+            36708
+          ],
+          [
+            "Mid-Senior level",
+            41489
+          ],
+          [
+            "Associate",
+            9826
+          ],
+          [
+            "Director",
+            3746
+          ],
+          [
+            "Internship",
+            1449
+          ],
+          [
+            "Executive",
+            1222
+          ]
+        ],
+        "work_type": [
+          [
+            "FULL_TIME",
+            98814
+          ],
+          [
+            "INTERNSHIP",
+            983
+          ],
+          [
+            "CONTRACT",
+            12117
+          ],
+          [
+            "PART_TIME",
+            9696
+          ],
+          [
+            "TEMPORARY",
+            1190
+          ],
+          [
+            "VOLUNTEER",
+            562
+          ],
+          [
+            "OTHER",
+            487
+          ]
+        ],
+        "currency": [
+          [
+            "USD",
+            36058
+          ],
+          [
+            "CAD",
+            3
+          ],
+          [
+            "BBD",
+            2
+          ],
+          [
+            "EUR",
+            6
+          ],
+          [
+            "AUD",
+            2
+          ],
+          [
+            "GBP",
+            2
+          ]
+        ],
+        "compensation_type": [
+          [
+            "BASE_SALARY",
+            36073
+          ]
+        ]
+      },
+      "numeric_ranges": {
+        "max_salary": {
+          "non_missing": 29793,
+          "min": "1.0",
+          "max": "120000000.0"
+        },
+        "med_salary": {
+          "non_missing": 6280,
+          "min": "0.0",
+          "max": "750000.0"
+        },
+        "min_salary": {
+          "non_missing": 29793,
+          "min": "1.0",
+          "max": "85000000.0"
+        },
+        "normalized_salary": {
+          "non_missing": 36073,
+          "min": "0.0",
+          "max": "535600000.0"
+        }
+      },
+      "timestamps": {
+        "original_listed_time": {
+          "non_missing": 123849,
+          "unit": "milliseconds",
+          "raw_min": "1701810533000.0",
+          "raw_max": "1713572803000.0",
+          "min_utc": "2023-12-05T21:08:53+00:00",
+          "max_utc": "2024-04-20T00:26:43+00:00"
+        },
+        "expiry": {
+          "non_missing": 123849,
+          "unit": "milliseconds",
+          "raw_min": "1712903448000.0",
+          "raw_max": "1729124796000.0",
+          "min_utc": "2024-04-12T06:30:48+00:00",
+          "max_utc": "2024-10-17T00:26:36+00:00"
+        },
+        "closed_time": {
+          "non_missing": 1073,
+          "unit": "milliseconds",
+          "raw_min": "1712345932000.0",
+          "raw_max": "1713562107000.0",
+          "min_utc": "2024-04-05T19:38:52+00:00",
+          "max_utc": "2024-04-19T21:28:27+00:00"
+        },
+        "listed_time": {
+          "non_missing": 123849,
+          "unit": "milliseconds",
+          "raw_min": "1711317014000.0",
+          "raw_max": "1713572816000.0",
+          "min_utc": "2024-03-24T21:50:14+00:00",
+          "max_utc": "2024-04-20T00:26:56+00:00"
+        }
+      },
+      "description_and_skills_desc": 2439,
+      "skills_desc_without_description": 0
+    },
+    "companies": {
+      "rows": 24473,
+      "top_values": {
+        "company_id": [
+          [
+            "1009",
+            1
+          ],
+          [
+            "1016",
+            1
+          ],
+          [
+            "1025",
+            1
+          ],
+          [
+            "1028",
+            1
+          ],
+          [
+            "1033",
+            1
+          ],
+          [
+            "1035",
+            1
+          ],
+          [
+            "1038",
+            1
+          ],
+          [
+            "1043",
+            1
+          ],
+          [
+            "1044",
+            1
+          ],
+          [
+            "1052",
+            1
+          ],
+          [
+            "1053",
+            1
+          ],
+          [
+            "1060",
+            1
+          ]
+        ],
+        "company_size": [
+          [
+            "2",
+            4956
+          ],
+          [
+            "1",
+            4348
+          ],
+          [
+            "5",
+            3918
+          ],
+          [
+            "3",
+            3108
+          ],
+          [
+            "4",
+            2333
+          ],
+          [
+            "7",
+            1953
+          ],
+          [
+            "6",
+            1083
+          ]
+        ],
+        "state": [
+          [
+            "0",
+            2175
+          ],
+          [
+            "California",
+            1759
+          ],
+          [
+            "CA",
+            1407
+          ],
+          [
+            "Texas",
+            1281
+          ],
+          [
+            "NY",
+            983
+          ],
+          [
+            "Florida",
+            768
+          ],
+          [
+            "New York",
+            660
+          ],
+          [
+            "TX",
+            585
+          ],
+          [
+            "Illinois",
+            552
+          ],
+          [
+            "IL",
+            509
+          ],
+          [
+            "New Jersey",
+            470
+          ],
+          [
+            "MA",
+            429
+          ]
+        ],
+        "country": [
+          [
+            "US",
+            21635
+          ],
+          [
+            "0",
+            727
+          ],
+          [
+            "GB",
+            620
+          ],
+          [
+            "CA",
+            258
+          ],
+          [
+            "IN",
+            157
+          ],
+          [
+            "DE",
+            128
+          ],
+          [
+            "FR",
+            118
+          ],
+          [
+            "CH",
+            93
+          ],
+          [
+            "AU",
+            73
+          ],
+          [
+            "NL",
+            64
+          ],
+          [
+            "SE",
+            48
+          ],
+          [
+            "CN",
+            47
+          ]
+        ],
+        "city": [
+          [
+            "New York",
+            1195
+          ],
+          [
+            "0",
+            1004
+          ],
+          [
+            "Chicago",
+            504
+          ],
+          [
+            "San Francisco",
+            429
+          ],
+          [
+            "Houston",
+            423
+          ],
+          [
+            "Los Angeles",
+            385
+          ],
+          [
+            "Atlanta",
+            343
+          ],
+          [
+            "London",
+            336
+          ],
+          [
+            "Dallas",
+            308
+          ],
+          [
+            "Austin",
+            283
+          ],
+          [
+            "Boston",
+            274
+          ],
+          [
+            "Washington",
+            270
+          ]
+        ],
+        "zip_code": [
+          [
+            "0",
+            3060
+          ],
+          [
+            "10001",
+            116
+          ],
+          [
+            "10017",
+            104
+          ],
+          [
+            "10018",
+            91
+          ],
+          [
+            "60606",
+            86
+          ],
+          [
+            "10036",
+            69
+          ],
+          [
+            "94105",
+            68
+          ],
+          [
+            "10022",
+            67
+          ],
+          [
+            "10016",
+            61
+          ],
+          [
+            "78701",
+            60
+          ],
+          [
+            "30339",
+            57
+          ],
+          [
+            "92618",
+            56
+          ]
+        ],
+        "address": [
+          [
+            "0",
+            3972
+          ],
+          [
+            "Downtown",
+            7
+          ],
+          [
+            "-",
+            6
+          ],
+          [
+            "New York",
+            6
+          ],
+          [
+            ".",
+            6
+          ],
+          [
+            "433 W Van Buren St",
+            6
+          ],
+          [
+            "175 Greenwich St",
+            5
+          ],
+          [
+            "450 N. State College Blvd.",
+            5
+          ],
+          [
+            "120 Broadway",
+            5
+          ],
+          [
+            "Headquarters",
+            5
+          ],
+          [
+            "21 Lombard Street",
+            5
+          ],
+          [
+            "195 Broadway",
+            5
+          ]
+        ]
+      },
+      "observed_values": {},
+      "numeric_ranges": {},
+      "timestamps": {},
+      "description_and_skills_desc": null,
+      "skills_desc_without_description": null
+    },
+    "company_industries": {
+      "rows": 24375,
+      "top_values": {
+        "company_id": [
+          [
+            "87089640",
+            2
+          ],
+          [
+            "2831596",
+            2
+          ],
+          [
+            "1687254",
+            2
+          ],
+          [
+            "13637042",
+            2
+          ],
+          [
+            "27292",
+            2
+          ],
+          [
+            "4721",
+            2
+          ],
+          [
+            "35583934",
+            2
+          ],
+          [
+            "21792",
+            2
+          ],
+          [
+            "69192017",
+            2
+          ],
+          [
+            "2471716",
+            2
+          ],
+          [
+            "391906",
+            1
+          ],
+          [
+            "22292832",
+            1
+          ]
+        ],
+        "industry": [
+          [
+            "Staffing and Recruiting",
+            2387
+          ],
+          [
+            "IT Services and IT Consulting",
+            2130
+          ],
+          [
+            "Hospitals and Health Care",
+            1673
+          ],
+          [
+            "Software Development",
+            1440
+          ],
+          [
+            "Financial Services",
+            986
+          ],
+          [
+            "Construction",
+            752
+          ],
+          [
+            "Advertising Services",
+            624
+          ],
+          [
+            "Non-profit Organizations",
+            617
+          ],
+          [
+            "Real Estate",
+            545
+          ],
+          [
+            "Business Consulting and Services",
+            498
+          ],
+          [
+            "Insurance",
+            492
+          ],
+          [
+            "Retail",
+            488
+          ]
+        ]
+      },
+      "observed_values": {
+        "industry": [
+          [
+            "Book and Periodical Publishing",
+            51
+          ],
+          [
+            "Construction",
+            752
+          ],
+          [
+            "Banking",
+            220
+          ],
+          [
+            "Staffing and Recruiting",
+            2387
+          ],
+          [
+            "IT Services and IT Consulting",
+            2130
+          ],
+          [
+            "Food and Beverage Services",
+            280
+          ],
+          [
+            "Financial Services",
+            986
+          ],
+          [
+            "Mining",
+            69
+          ],
+          [
+            "E-Learning Providers",
+            74
+          ],
+          [
+            "Truck Transportation",
+            372
+          ],
+          [
+            "Real Estate",
+            545
+          ],
+          [
+            "Industrial Machinery Manufacturing",
+            239
+          ],
+          [
+            "Food and Beverage Manufacturing",
+            194
+          ],
+          [
+            "Business Consulting and Services",
+            498
+          ],
+          [
+            "Restaurants",
+            106
+          ],
+          [
+            "Manufacturing",
+            359
+          ],
+          [
+            "Oil and Gas",
+            224
+          ],
+          [
+            "Retail Apparel and Fashion",
+            234
+          ],
+          [
+            "Software Development",
+            1440
+          ],
+          [
+            "Retail",
+            488
+          ],
+          [
+            "Non-profit Organizations",
+            617
+          ],
+          [
+            "Chemical Manufacturing",
+            139
+          ],
+          [
+            "Individual and Family Services",
+            150
+          ],
+          [
+            "Human Resources Services",
+            245
+          ],
+          [
+            "Motor Vehicle Manufacturing",
+            294
+          ],
+          [
+            "Gambling Facilities and Casinos",
+            41
+          ],
+          [
+            "Facilities Services",
+            104
+          ],
+          [
+            "Utilities",
+            184
+          ],
+          [
+            "Hospitals and Health Care",
+            1673
+          ],
+          [
+            "Renewable Energy Semiconductor Manufacturing",
+            122
+          ],
+          [
+            "Online Audio and Video Media",
+            37
+          ],
+          [
+            "Airlines and Aviation",
+            81
+          ],
+          [
+            "Medical Practices",
+            75
+          ],
+          [
+            "Semiconductor Manufacturing",
+            78
+          ],
+          [
+            "Information Services",
+            61
+          ],
+          [
+            "Architecture and Planning",
+            98
+          ],
+          [
+            "Telecommunications",
+            163
+          ],
+          [
+            "Investment Management",
+            11
+          ],
+          [
+            "Defense and Space Manufacturing",
+            176
+          ],
+          [
+            "Paper and Forest Product Manufacturing",
+            32
+          ],
+          [
+            "Government Administration",
+            372
+          ],
+          [
+            "Higher Education",
+            439
+          ],
+          [
+            "Insurance",
+            492
+          ],
+          [
+            "Automation Machinery Manufacturing",
+            87
+          ],
+          [
+            "Environmental Services",
+            214
+          ],
+          [
+            "Mental Health Care",
+            270
+          ],
+          [
+            "Medical Equipment Manufacturing",
+            243
+          ],
+          [
+            "Wholesale Building Materials",
+            166
+          ],
+          [
+            "Spectator Sports",
+            76
+          ],
+          [
+            "Hospitality",
+            356
+          ],
+          [
+            "Newspaper Publishing",
+            15
+          ],
+          [
+            "Translation and Localization",
+            16
+          ],
+          [
+            "Civil Engineering",
+            156
+          ],
+          [
+            "Wellness and Fitness Services",
+            249
+          ],
+          [
+            "Machinery Manufacturing",
+            176
+          ],
+          [
+            "Beverage Manufacturing",
+            49
+          ],
+          [
+            "Wholesale",
+            100
+          ],
+          [
+            "Entertainment Providers",
+            139
+          ],
+          [
+            "Primary and Secondary Education",
+            133
+          ],
+          [
+            "Shipbuilding",
+            6
+          ],
+          [
+            "Advertising Services",
+            624
+          ],
+          [
+            "Education Administration Programs",
+            236
+          ],
+          [
+            "Law Practice",
+            464
+          ],
+          [
+            "Consumer Services",
+            113
+          ],
+          [
+            "Design Services",
+            103
+          ],
+          [
+            "Professional Training and Coaching",
+            57
+          ],
+          [
+            "Textile Manufacturing",
+            24
+          ],
+          [
+            "Outsourcing and Offshoring Consulting",
+            41
+          ],
+          [
+            "Media Production",
+            56
+          ],
+          [
+            "Law Enforcement",
+            17
+          ],
+          [
+            "Plastics Manufacturing",
+            53
+          ],
+          [
+            "Research Services",
+            102
+          ],
+          [
+            "Pharmaceutical Manufacturing",
+            194
+          ],
+          [
+            "Government Relations Services",
+            27
+          ],
+          [
+            "Appliances, Electrical, and Electronics Manufacturing",
+            194
+          ],
+          [
+            "Public Relations and Communications Services",
+            87
+          ],
+          [
+            "Musicians",
+            30
+          ],
+          [
+            "Armed Forces",
+            18
+          ],
+          [
+            "Biotechnology Research",
+            316
+          ],
+          [
+            "Computer and Network Security",
+            110
+          ],
+          [
+            "Retail Luxury Goods and Jewelry",
+            79
+          ],
+          [
+            "Civic and Social Organizations",
+            68
+          ],
+          [
+            "Legal Services",
+            25
+          ],
+          [
+            "Personal Care Product Manufacturing",
+            67
+          ],
+          [
+            "Religious Institutions",
+            26
+          ],
+          [
+            "Packaging and Containers Manufacturing",
+            79
+          ],
+          [
+            "Market Research",
+            21
+          ],
+          [
+            "Accounting",
+            151
+          ],
+          [
+            "Computers and Electronics Manufacturing",
+            53
+          ],
+          [
+            "Technology, Information and Internet",
+            66
+          ],
+          [
+            "Public Safety",
+            41
+          ],
+          [
+            "Retail Office Equipment",
+            35
+          ],
+          [
+            "Security and Investigations",
+            77
+          ],
+          [
+            "Aviation and Aerospace Component Manufacturing",
+            121
+          ],
+          [
+            "Investment Banking",
+            18
+          ],
+          [
+            "Travel Arrangements",
+            64
+          ],
+          [
+            "Tobacco Manufacturing",
+            6
+          ],
+          [
+            "International Affairs",
+            12
+          ],
+          [
+            "Freight and Package Transportation",
+            8
+          ],
+          [
+            "Museums, Historical Sites, and Zoos",
+            41
+          ],
+          [
+            "Computer Hardware Manufacturing",
+            22
+          ],
+          [
+            "Recreational Facilities",
+            22
+          ],
+          [
+            "Artists and Writers",
+            9
+          ],
+          [
+            "Performing Arts",
+            25
+          ],
+          [
+            "Alternative Medicine",
+            14
+          ],
+          [
+            "Think Tanks",
+            8
+          ],
+          [
+            "Furniture and Home Furnishings Manufacturing",
+            51
+          ],
+          [
+            "Administration of Justice",
+            7
+          ],
+          [
+            "Libraries",
+            7
+          ],
+          [
+            "Maritime Transportation",
+            4
+          ],
+          [
+            "Computer Games",
+            42
+          ],
+          [
+            "Events Services",
+            62
+          ],
+          [
+            "Venture Capital and Private Equity Principals",
+            33
+          ],
+          [
+            "Broadcast Media Production and Distribution",
+            72
+          ],
+          [
+            "Transportation, Logistics, Supply Chain and Storage",
+            48
+          ],
+          [
+            "Wholesale Import and Export",
+            2
+          ],
+          [
+            "Farming",
+            29
+          ],
+          [
+            "Fundraising",
+            17
+          ],
+          [
+            "Sporting Goods Manufacturing",
+            8
+          ],
+          [
+            "Philanthropic Fundraising Services",
+            5
+          ],
+          [
+            "International Trade and Development",
+            25
+          ],
+          [
+            "Railroad Equipment Manufacturing",
+            6
+          ],
+          [
+            "Veterinary Services",
+            10
+          ],
+          [
+            "Printing Services",
+            38
+          ],
+          [
+            "Retail Groceries",
+            5
+          ],
+          [
+            "Mobile Gaming Apps",
+            1
+          ],
+          [
+            "Executive Offices",
+            17
+          ],
+          [
+            "Graphic Design",
+            4
+          ],
+          [
+            "Warehousing and Storage",
+            2
+          ],
+          [
+            "Fisheries",
+            2
+          ],
+          [
+            "Political Organizations",
+            17
+          ],
+          [
+            "Writing and Editing",
+            9
+          ],
+          [
+            "Glass, Ceramics and Concrete Manufacturing",
+            9
+          ],
+          [
+            "Public Policy Offices",
+            3
+          ],
+          [
+            "Nanotechnology Research",
+            4
+          ],
+          [
+            "Dairy Product Manufacturing",
+            3
+          ],
+          [
+            "Leasing Non-residential Real Estate",
+            6
+          ],
+          [
+            "Computer Networking Products",
+            6
+          ],
+          [
+            "Wireless Services",
+            1
+          ],
+          [
+            "Animation and Post-production",
+            3
+          ],
+          [
+            "Legislative Offices",
+            2
+          ],
+          [
+            "Strategic Management Services",
+            1
+          ],
+          [
+            "Photography",
+            6
+          ],
+          [
+            "Alternative Dispute Resolution",
+            1
+          ]
+        ]
+      },
+      "numeric_ranges": {},
+      "timestamps": {},
+      "description_and_skills_desc": null,
+      "skills_desc_without_description": null
+    },
+    "company_specialities": {
+      "rows": 169387,
+      "top_values": {
+        "company_id": [
+          [
+            "226965",
+            84
+          ],
+          [
+            "27946",
+            81
+          ],
+          [
+            "13423341",
+            77
+          ],
+          [
+            "86283098",
+            65
+          ],
+          [
+            "9340686",
+            60
+          ],
+          [
+            "99202927",
+            58
+          ],
+          [
+            "2488924",
+            57
+          ],
+          [
+            "202963",
+            55
+          ],
+          [
+            "6650168",
+            54
+          ],
+          [
+            "425337",
+            53
+          ],
+          [
+            "11350",
+            51
+          ],
+          [
+            "29214",
+            50
+          ]
+        ],
+        "speciality": [
+          [
+            "Engineering",
+            613
+          ],
+          [
+            "Recruiting",
+            596
+          ],
+          [
+            "Staffing",
+            589
+          ],
+          [
+            "Technology",
+            541
+          ],
+          [
+            "Consulting",
+            502
+          ],
+          [
+            "Healthcare",
+            450
+          ],
+          [
+            "Manufacturing",
+            428
+          ],
+          [
+            "Marketing",
+            424
+          ],
+          [
+            "Project Management",
+            388
+          ],
+          [
+            "Information Technology",
+            382
+          ],
+          [
+            "Executive Search",
+            373
+          ],
+          [
+            "Human Resources",
+            363
+          ]
+        ]
+      },
+      "observed_values": {},
+      "numeric_ranges": {},
+      "timestamps": {},
+      "description_and_skills_desc": null,
+      "skills_desc_without_description": null
+    },
+    "employee_counts": {
+      "rows": 35787,
+      "top_values": {
+        "company_id": [
+          [
+            "5235",
+            13
+          ],
+          [
+            "33242739",
+            13
+          ],
+          [
+            "1681",
+            12
+          ],
+          [
+            "79383535",
+            12
+          ],
+          [
+            "11056",
+            11
+          ],
+          [
+            "1353",
+            11
+          ],
+          [
+            "220336",
+            11
+          ],
+          [
+            "10696913",
+            11
+          ],
+          [
+            "3486",
+            11
+          ],
+          [
+            "3476",
+            10
+          ],
+          [
+            "11229",
+            10
+          ],
+          [
+            "2300",
+            10
+          ]
+        ],
+        "employee_count": [
+          [
+            "1",
+            459
+          ],
+          [
+            "2",
+            424
+          ],
+          [
+            "3",
+            383
+          ],
+          [
+            "4",
+            347
+          ],
+          [
+            "5",
+            310
+          ],
+          [
+            "6",
+            302
+          ],
+          [
+            "0",
+            295
+          ],
+          [
+            "7",
+            274
+          ],
+          [
+            "8",
+            244
+          ],
+          [
+            "9",
+            235
+          ],
+          [
+            "11",
+            234
+          ],
+          [
+            "12",
+            230
+          ]
+        ],
+        "follower_count": [
+          [
+            "1",
+            47
+          ],
+          [
+            "3",
+            43
+          ],
+          [
+            "2",
+            41
+          ],
+          [
+            "5",
+            36
+          ],
+          [
+            "14",
+            35
+          ],
+          [
+            "4",
+            32
+          ],
+          [
+            "8",
+            31
+          ],
+          [
+            "0",
+            28
+          ],
+          [
+            "28",
+            27
+          ],
+          [
+            "12",
+            25
+          ],
+          [
+            "17",
+            25
+          ],
+          [
+            "18",
+            24
+          ]
+        ],
+        "time_recorded": [
+          [
+            "1713550029",
+            49
+          ],
+          [
+            "1713467554",
+            47
+          ],
+          [
+            "1713458509",
+            46
+          ],
+          [
+            "1713458777",
+            45
+          ],
+          [
+            "1713459114",
+            42
+          ],
+          [
+            "1713465396",
+            42
+          ],
+          [
+            "1713557052",
+            42
+          ],
+          [
+            "1713465106",
+            41
+          ],
+          [
+            "1713459719",
+            40
+          ],
+          [
+            "1712857356",
+            39
+          ],
+          [
+            "1713458376",
+            39
+          ],
+          [
+            "1713458443",
+            39
+          ]
+        ]
+      },
+      "observed_values": {},
+      "numeric_ranges": {},
+      "timestamps": {
+        "time_recorded": {
+          "non_missing": 35787,
+          "unit": "seconds",
+          "raw_min": "1712346173",
+          "raw_max": "1713572859",
+          "min_utc": "2024-04-05T19:42:53+00:00",
+          "max_utc": "2024-04-20T00:27:39+00:00"
+        }
+      },
+      "description_and_skills_desc": null,
+      "skills_desc_without_description": null
+    },
+    "benefits": {
+      "rows": 67943,
+      "top_values": {
+        "job_id": [
+          [
+            "3884436211",
+            12
+          ],
+          [
+            "3884433392",
+            12
+          ],
+          [
+            "3884429620",
+            12
+          ],
+          [
+            "3886829352",
+            12
+          ],
+          [
+            "3891017362",
+            12
+          ],
+          [
+            "3894965952",
+            12
+          ],
+          [
+            "3895202109",
+            12
+          ],
+          [
+            "3894284750",
+            12
+          ],
+          [
+            "3891077593",
+            12
+          ],
+          [
+            "3891083396",
+            12
+          ],
+          [
+            "3901645782",
+            12
+          ],
+          [
+            "3901636160",
+            12
+          ]
+        ],
+        "inferred": [
+          [
+            "1",
+            40424
+          ],
+          [
+            "0",
+            27519
+          ]
+        ],
+        "type": [
+          [
+            "401(k)",
+            24231
+          ],
+          [
+            "Medical insurance",
+            9873
+          ],
+          [
+            "Vision insurance",
+            9309
+          ],
+          [
+            "Disability insurance",
+            7930
+          ],
+          [
+            "Dental insurance",
+            6868
+          ],
+          [
+            "Tuition assistance",
+            2614
+          ],
+          [
+            "Commuter benefits",
+            2226
+          ],
+          [
+            "Paid maternity leave",
+            1808
+          ],
+          [
+            "Paid paternity leave",
+            1540
+          ],
+          [
+            "Pension plan",
+            906
+          ],
+          [
+            "Student loan assistance",
+            365
+          ],
+          [
+            "Child care support",
+            273
+          ]
+        ]
+      },
+      "observed_values": {},
+      "numeric_ranges": {},
+      "timestamps": {},
+      "description_and_skills_desc": null,
+      "skills_desc_without_description": null
+    },
+    "job_industries": {
+      "rows": 164808,
+      "top_values": {
+        "job_id": [
+          [
+            "3887471331",
+            3
+          ],
+          [
+            "3884916106",
+            3
+          ],
+          [
+            "3884911725",
+            3
+          ],
+          [
+            "3884915161",
+            3
+          ],
+          [
+            "3884431558",
+            3
+          ],
+          [
+            "3884912506",
+            3
+          ],
+          [
+            "3887466995",
+            3
+          ],
+          [
+            "3884429609",
+            3
+          ],
+          [
+            "3884432493",
+            3
+          ],
+          [
+            "3884910870",
+            3
+          ],
+          [
+            "3884913450",
+            3
+          ],
+          [
+            "3887472403",
+            3
+          ]
+        ],
+        "industry_id": [
+          [
+            "14",
+            18326
+          ],
+          [
+            "27",
+            11033
+          ],
+          [
+            "96",
+            10396
+          ],
+          [
+            "104",
+            9005
+          ],
+          [
+            "43",
+            8535
+          ],
+          [
+            "4",
+            5091
+          ],
+          [
+            "25",
+            3689
+          ],
+          [
+            "48",
+            3445
+          ],
+          [
+            "41",
+            2923
+          ],
+          [
+            "42",
+            2673
+          ],
+          [
+            "15",
+            2469
+          ],
+          [
+            "31",
+            2455
+          ]
+        ]
+      },
+      "observed_values": {},
+      "numeric_ranges": {},
+      "timestamps": {},
+      "description_and_skills_desc": null,
+      "skills_desc_without_description": null
+    },
+    "job_skills": {
+      "rows": 213768,
+      "top_values": {
+        "job_id": [
+          [
+            "3884428798",
+            3
+          ],
+          [
+            "3887467939",
+            3
+          ],
+          [
+            "3887471274",
+            3
+          ],
+          [
+            "3884916106",
+            3
+          ],
+          [
+            "3887470545",
+            3
+          ],
+          [
+            "3884911725",
+            3
+          ],
+          [
+            "3884915161",
+            3
+          ],
+          [
+            "3884905745",
+            3
+          ],
+          [
+            "3887473145",
+            3
+          ],
+          [
+            "3884431558",
+            3
+          ],
+          [
+            "3884433257",
+            3
+          ],
+          [
+            "3884912506",
+            3
+          ]
+        ],
+        "skill_abr": [
+          [
+            "IT",
+            26137
+          ],
+          [
+            "SALE",
+            22475
+          ],
+          [
+            "MGMT",
+            20861
+          ],
+          [
+            "MNFC",
+            18185
+          ],
+          [
+            "HCPR",
+            17369
+          ],
+          [
+            "BD",
+            14290
+          ],
+          [
+            "ENG",
+            13009
+          ],
+          [
+            "OTHR",
+            12608
+          ],
+          [
+            "FIN",
+            8540
+          ],
+          [
+            "MRKT",
+            5525
+          ],
+          [
+            "ACCT",
+            5461
+          ],
+          [
+            "ADM",
+            4860
+          ]
+        ]
+      },
+      "observed_values": {
+        "skill_abr": [
+          [
+            "MRKT",
+            5525
+          ],
+          [
+            "PR",
+            1298
+          ],
+          [
+            "WRT",
+            1443
+          ],
+          [
+            "SALE",
+            22475
+          ],
+          [
+            "FIN",
+            8540
+          ],
+          [
+            "ADVR",
+            681
+          ],
+          [
+            "BD",
+            14290
+          ],
+          [
+            "ENG",
+            13009
+          ],
+          [
+            "PRJM",
+            3997
+          ],
+          [
+            "IT",
+            26137
+          ],
+          [
+            "GENB",
+            1984
+          ],
+          [
+            "ADM",
+            4860
+          ],
+          [
+            "SUPL",
+            1180
+          ],
+          [
+            "MNFC",
+            18185
+          ],
+          [
+            "PROD",
+            762
+          ],
+          [
+            "MGMT",
+            20861
+          ],
+          [
+            "TRNG",
+            2243
+          ],
+          [
+            "OTHR",
+            12608
+          ],
+          [
+            "LGL",
+            2371
+          ],
+          [
+            "ACCT",
+            5461
+          ],
+          [
+            "DSGN",
+            2244
+          ],
+          [
+            "RSCH",
+            2986
+          ],
+          [
+            "ANLS",
+            3858
+          ],
+          [
+            "CNSL",
+            2338
+          ],
+          [
+            "EDU",
+            2290
+          ],
+          [
+            "PRCH",
+            610
+          ],
+          [
+            "CUST",
+            4292
+          ],
+          [
+            "QA",
+            1791
+          ],
+          [
+            "HR",
+            2647
+          ],
+          [
+            "SCI",
+            813
+          ],
+          [
+            "HCPR",
+            17369
+          ],
+          [
+            "STRA",
+            1178
+          ],
+          [
+            "ART",
+            1664
+          ],
+          [
+            "DIST",
+            416
+          ],
+          [
+            "PRDM",
+            1362
+          ]
+        ]
+      },
+      "numeric_ranges": {},
+      "timestamps": {},
+      "description_and_skills_desc": null,
+      "skills_desc_without_description": null
+    },
+    "salaries": {
+      "rows": 40785,
+      "top_values": {
+        "salary_id": [
+          [
+            "1",
+            1
+          ],
+          [
+            "2",
+            1
+          ],
+          [
+            "3",
+            1
+          ],
+          [
+            "4",
+            1
+          ],
+          [
+            "5",
+            1
+          ],
+          [
+            "6",
+            1
+          ],
+          [
+            "7",
+            1
+          ],
+          [
+            "8",
+            1
+          ],
+          [
+            "9",
+            1
+          ],
+          [
+            "10",
+            1
+          ],
+          [
+            "11",
+            1
+          ],
+          [
+            "12",
+            1
+          ]
+        ],
+        "job_id": [
+          [
+            "3884428798",
+            1
+          ],
+          [
+            "3887470552",
+            1
+          ],
+          [
+            "3884431523",
+            1
+          ],
+          [
+            "3884911725",
+            1
+          ],
+          [
+            "3887473220",
+            1
+          ],
+          [
+            "3884432468",
+            1
+          ],
+          [
+            "3884915161",
+            1
+          ],
+          [
+            "3884428983",
+            1
+          ],
+          [
+            "3884433248",
+            1
+          ],
+          [
+            "3884429625",
+            1
+          ],
+          [
+            "3884435029",
+            1
+          ],
+          [
+            "3887468966",
+            1
+          ]
+        ],
+        "max_salary": [
+          [
+            "90000.0",
+            811
+          ],
+          [
+            "150000.0",
+            805
+          ],
+          [
+            "100000.0",
+            745
+          ],
+          [
+            "120000.0",
+            730
+          ],
+          [
+            "110000.0",
+            612
+          ],
+          [
+            "85000.0",
+            607
+          ],
+          [
+            "80000.0",
+            591
+          ],
+          [
+            "130000.0",
+            532
+          ],
+          [
+            "75000.0",
+            501
+          ],
+          [
+            "200000.0",
+            487
+          ],
+          [
+            "140000.0",
+            479
+          ],
+          [
+            "20.0",
+            462
+          ]
+        ],
+        "med_salary": [
+          [
+            "20.0",
+            333
+          ],
+          [
+            "18.0",
+            265
+          ],
+          [
+            "15.0",
+            209
+          ],
+          [
+            "17.0",
+            194
+          ],
+          [
+            "25.0",
+            191
+          ],
+          [
+            "16.0",
+            185
+          ],
+          [
+            "19.0",
+            148
+          ],
+          [
+            "21.0",
+            120
+          ],
+          [
+            "22.0",
+            111
+          ],
+          [
+            "23.0",
+            106
+          ],
+          [
+            "24.0",
+            90
+          ],
+          [
+            "60000.0",
+            84
+          ]
+        ],
+        "min_salary": [
+          [
+            "100000.0",
+            1082
+          ],
+          [
+            "80000.0",
+            995
+          ],
+          [
+            "90000.0",
+            936
+          ],
+          [
+            "70000.0",
+            841
+          ],
+          [
+            "60000.0",
+            728
+          ],
+          [
+            "20.0",
+            706
+          ],
+          [
+            "75000.0",
+            692
+          ],
+          [
+            "120000.0",
+            686
+          ],
+          [
+            "50000.0",
+            639
+          ],
+          [
+            "65000.0",
+            614
+          ],
+          [
+            "110000.0",
+            591
+          ],
+          [
+            "125000.0",
+            548
+          ]
+        ],
+        "pay_period": [
+          [
+            "YEARLY",
+            23768
+          ],
+          [
+            "HOURLY",
+            16289
+          ],
+          [
+            "MONTHLY",
+            539
+          ],
+          [
+            "WEEKLY",
+            180
+          ],
+          [
+            "BIWEEKLY",
+            9
+          ]
+        ],
+        "currency": [
+          [
+            "USD",
+            40770
+          ],
+          [
+            "EUR",
+            6
+          ],
+          [
+            "CAD",
+            3
+          ],
+          [
+            "BBD",
+            2
+          ],
+          [
+            "AUD",
+            2
+          ],
+          [
+            "GBP",
+            2
+          ]
+        ],
+        "compensation_type": [
+          [
+            "BASE_SALARY",
+            40785
+          ]
+        ]
+      },
+      "observed_values": {
+        "pay_period": [
+          [
+            "HOURLY",
+            16289
+          ],
+          [
+            "YEARLY",
+            23768
+          ],
+          [
+            "MONTHLY",
+            539
+          ],
+          [
+            "WEEKLY",
+            180
+          ],
+          [
+            "BIWEEKLY",
+            9
+          ]
+        ],
+        "currency": [
+          [
+            "USD",
+            40770
+          ],
+          [
+            "CAD",
+            3
+          ],
+          [
+            "BBD",
+            2
+          ],
+          [
+            "EUR",
+            6
+          ],
+          [
+            "AUD",
+            2
+          ],
+          [
+            "GBP",
+            2
+          ]
+        ],
+        "compensation_type": [
+          [
+            "BASE_SALARY",
+            40785
+          ]
+        ]
+      },
+      "numeric_ranges": {
+        "salary_id": {
+          "non_missing": 40785,
+          "min": "1",
+          "max": "40785"
+        },
+        "max_salary": {
+          "non_missing": 33947,
+          "min": "1.0",
+          "max": "120000000.0"
+        },
+        "med_salary": {
+          "non_missing": 6838,
+          "min": "0.0",
+          "max": "750000.0"
+        },
+        "min_salary": {
+          "non_missing": 33947,
+          "min": "1.0",
+          "max": "85000000.0"
+        }
+      },
+      "timestamps": {},
+      "description_and_skills_desc": null,
+      "skills_desc_without_description": null
+    },
+    "industries": {
+      "rows": 422,
+      "top_values": {
+        "industry_id": [
+          [
+            "1",
+            1
+          ],
+          [
+            "3",
+            1
+          ],
+          [
+            "4",
+            1
+          ],
+          [
+            "5",
+            1
+          ],
+          [
+            "6",
+            1
+          ],
+          [
+            "7",
+            1
+          ],
+          [
+            "8",
+            1
+          ],
+          [
+            "9",
+            1
+          ],
+          [
+            "10",
+            1
+          ],
+          [
+            "11",
+            1
+          ],
+          [
+            "12",
+            1
+          ],
+          [
+            "13",
+            1
+          ]
+        ],
+        "industry_name": [
+          [
+            "Defense and Space Manufacturing",
+            1
+          ],
+          [
+            "Computer Hardware Manufacturing",
+            1
+          ],
+          [
+            "Software Development",
+            1
+          ],
+          [
+            "Computer Networking Products",
+            1
+          ],
+          [
+            "Technology, Information and Internet",
+            1
+          ],
+          [
+            "Semiconductor Manufacturing",
+            1
+          ],
+          [
+            "Telecommunications",
+            1
+          ],
+          [
+            "Law Practice",
+            1
+          ],
+          [
+            "Legal Services",
+            1
+          ],
+          [
+            "Business Consulting and Services",
+            1
+          ],
+          [
+            "Biotechnology Research",
+            1
+          ],
+          [
+            "Medical Practices",
+            1
+          ]
+        ]
+      },
+      "observed_values": {},
+      "numeric_ranges": {},
+      "timestamps": {},
+      "description_and_skills_desc": null,
+      "skills_desc_without_description": null
+    },
+    "skills": {
+      "rows": 35,
+      "top_values": {
+        "skill_abr": [
+          [
+            "ART",
+            1
+          ],
+          [
+            "DSGN",
+            1
+          ],
+          [
+            "ADVR",
+            1
+          ],
+          [
+            "PRDM",
+            1
+          ],
+          [
+            "DIST",
+            1
+          ],
+          [
+            "EDU",
+            1
+          ],
+          [
+            "TRNG",
+            1
+          ],
+          [
+            "PRJM",
+            1
+          ],
+          [
+            "CNSL",
+            1
+          ],
+          [
+            "PRCH",
+            1
+          ],
+          [
+            "SUPL",
+            1
+          ],
+          [
+            "ANLS",
+            1
+          ]
+        ],
+        "skill_name": [
+          [
+            "Art/Creative",
+            1
+          ],
+          [
+            "Design",
+            1
+          ],
+          [
+            "Advertising",
+            1
+          ],
+          [
+            "Product Management",
+            1
+          ],
+          [
+            "Distribution",
+            1
+          ],
+          [
+            "Education",
+            1
+          ],
+          [
+            "Training",
+            1
+          ],
+          [
+            "Project Management",
+            1
+          ],
+          [
+            "Consulting",
+            1
+          ],
+          [
+            "Purchasing",
+            1
+          ],
+          [
+            "Supply Chain",
+            1
+          ],
+          [
+            "Analyst",
+            1
+          ]
+        ]
+      },
+      "observed_values": {
+        "skill_abr": [
+          [
+            "ART",
+            1
+          ],
+          [
+            "DSGN",
+            1
+          ],
+          [
+            "ADVR",
+            1
+          ],
+          [
+            "PRDM",
+            1
+          ],
+          [
+            "DIST",
+            1
+          ],
+          [
+            "EDU",
+            1
+          ],
+          [
+            "TRNG",
+            1
+          ],
+          [
+            "PRJM",
+            1
+          ],
+          [
+            "CNSL",
+            1
+          ],
+          [
+            "PRCH",
+            1
+          ],
+          [
+            "SUPL",
+            1
+          ],
+          [
+            "ANLS",
+            1
+          ],
+          [
+            "HCPR",
+            1
+          ],
+          [
+            "RSCH",
+            1
+          ],
+          [
+            "SCI",
+            1
+          ],
+          [
+            "GENB",
+            1
+          ],
+          [
+            "CUST",
+            1
+          ],
+          [
+            "STRA",
+            1
+          ],
+          [
+            "FIN",
+            1
+          ],
+          [
+            "OTHR",
+            1
+          ],
+          [
+            "LGL",
+            1
+          ],
+          [
+            "ENG",
+            1
+          ],
+          [
+            "QA",
+            1
+          ],
+          [
+            "BD",
+            1
+          ],
+          [
+            "IT",
+            1
+          ],
+          [
+            "ADM",
+            1
+          ],
+          [
+            "PROD",
+            1
+          ],
+          [
+            "MRKT",
+            1
+          ],
+          [
+            "PR",
+            1
+          ],
+          [
+            "WRT",
+            1
+          ],
+          [
+            "ACCT",
+            1
+          ],
+          [
+            "HR",
+            1
+          ],
+          [
+            "MNFC",
+            1
+          ],
+          [
+            "SALE",
+            1
+          ],
+          [
+            "MGMT",
+            1
+          ]
+        ]
+      },
+      "numeric_ranges": {},
+      "timestamps": {},
+      "description_and_skills_desc": null,
+      "skills_desc_without_description": null
+    }
+  },
+  "derived": {
+    "scope": "ALL_RAW_POSTINGS_NOT_VALIDATED_IT",
+    "postings": 123849,
+    "skills_industries_intersection": 120874,
+    "skills_industries_union": 123635,
+    "industry_named_jobs": 122313,
+    "industry_only_missing_names": 100,
+    "company_coverage": {
+      "companies": {
+        "postings_with_company_link": 122131,
+        "denominator": 123849,
+        "percent": 98.612827
+      },
+      "company_industries": {
+        "postings_with_company_link": 121974,
+        "denominator": 123849,
+        "percent": 98.48606
+      },
+      "company_specialities": {
+        "postings_with_company_link": 96006,
+        "denominator": 123849,
+        "percent": 77.518591
+      },
+      "employee_counts": {
+        "postings_with_company_link": 122131,
+        "denominator": 123849,
+        "percent": 98.612827
+      }
+    },
+    "salary_matched_jobs": 36073,
+    "salary_tuple_differences": 0,
+    "salary_tuple_difference_sample": [],
+    "skills_mapping_equals_d05": true
+  },
+  "inventory_all_match": true,
+  "missing_differences_vs_d03": [],
+  "source_unchanged": true,
+  "archive": "C:\\archive",
+  "total_bytes": 556502912,
+  "total_mib": 530.7225341796875,
+  "parser": "Python csv.DictReader(strict=True), UTF-8-sig, newline=''",
+  "python": "3.11.9 (tags/v3.11.9:de54cf5, Apr  2 2024, 10:12:12) [MSC v.1938 64 bit (AMD64)]",
+  "verified_date": "2026-10-08",
+  "source_version_limit": "Matching counts/headers is not proof of identical Kaggle release; historical audit has no raw SHA-256."
+}

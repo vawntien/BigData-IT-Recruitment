@@ -1,0 +1,29 @@
+{
+  "status": "PASS",
+  "full_predictions": 123849,
+  "decisions": {
+    "REVIEW": 77192,
+    "REJECT": 41555,
+    "ACCEPT": 5102
+  },
+  "actual_source_evidence_checked": 23616,
+  "blind_rows": 160,
+  "manual_fields_all_blank": true,
+  "no_machine_columns_in_blind": true,
+  "sample_matches_full_raw_text": true,
+  "sampling_reproducible_after_input_reverse": true,
+  "strata": {
+    "ACCEPT_MULTIPLE_OR_SUBGROUP": 30,
+    "ACCEPT_SINGLE_GROUP": 50,
+    "REJECT_BY_EXCLUSION": 30,
+    "REJECT_NO_MATCH": 20,
+    "REVIEW_AMBIGUOUS_OR_MISSING": 30
+  },
+  "raw_and_archive_hashes_match": true,
+  "existing_tracked_files_unchanged": true,
+  "initial_taxonomy_and_a02_bytes_unchanged": true,
+  "all_document_links_present": true,
+  "eight_a01_questions_preserved": true,
+  "no_large_unignored_files": true,
+  "no_quality_metrics_computed": true
+}

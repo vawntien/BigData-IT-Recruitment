@@ -1,0 +1,15 @@
+﻿source,excel_row,sample_id,job_id,title,manual_label,manual_primary_group_code,manual_subgroup_code,issue_code,review_note,manual_reason,manual_evidence
+data/analytics/a04_manual_seed42/a04_manual_labels_filled.xlsx,129,A04-128,3884811465,Information Technology Support Technician,CHUA_RO,,,MANUAL_CHUA_RO_INFORMATION_PENDING,"Đã duyệt CHUA_RO ngày 2026-10-13; cần thêm thông tin để chốt CNTT/NGOAI_CNTT. Mô tả chủ yếu vận chuyển thiết bị, cover tech và go-live; chưa xác định cài đặt, xử lý sự cố hay hỗ trợ người dùng. Chốt CHUA_RO; boolean và nhóm phải để trống.","Mô tả chủ yếu vận chuyển thiết bị, cover tech và go-live; chưa xác định cài đặt, xử lý sự cố hay hỗ trợ người dùng. Chốt CHUA_RO; boolean và nhóm phải để trống.","[1] Can transport equipment from one site to next site.
+
+[2] As needed, come in next day before 6AM Go-Live support."
+data/analytics/a04_manual_seed42/a04_manual_labels_filled.xlsx,150,A04-149,3901929980,Graphic Designer and Web Developer,CHUA_RO,,,MANUAL_CHUA_RO_INFORMATION_PENDING,Đã duyệt CHUA_RO ngày 2026-10-13; cần thêm thông tin để chốt CNTT/NGOAI_CNTT. Giữ CHUA_RO: graphic/marketing và WordPress pha trộn; chưa rõ phần phát triển web và nghề chính.,Giữ CHUA_RO: graphic/marketing và WordPress pha trộn; chưa rõ phần phát triển web và nghề chính.,"[1] Design creative and visually appealing graphics for digital and print, including social media graphics, ads, website design, sales collateral, and overall branding for Seek.
+
+[2] Develop and maintain website that is user-friendly and impressive, using WordPress."
+data/analytics/a04_manual_seed42/a04_manual_labels_filled.xlsx,90,A04-089,3904090413,Entry Level General Posting,CHUA_RO,,,MANUAL_CHUA_RO_INFORMATION_PENDING,"Đã duyệt CHUA_RO ngày 2026-10-13; cần thêm thông tin để chốt CNTT/NGOAI_CNTT. Giữ CHUA_RO: tuyển nhiều chức năng, không chỉ định nghề của người được tuyển.","Giữ CHUA_RO: tuyển nhiều chức năng, không chỉ định nghề của người được tuyển.","[1] Not sure where in our business you might best fit? We will still consider you.
+
+[2] Example roles/functions you could become part of:Sales and Business DevelopmentMarketingProductEngineering"
+data/analytics/a04_manual_seed42/a04_manual_labels_filled.xlsx,154,A04-153,3905824874,"Junior IT Project Manager (DIN-03HF) // 100% Onsite Bethesda, MD",CHUA_RO,,,MANUAL_CHUA_RO_INFORMATION_PENDING,"Đã duyệt CHUA_RO ngày 2026-10-13; cần thêm thông tin để chốt CNTT/NGOAI_CNTT. Vai trò gồm đào tạo kỹ thuật và hành chính, chưa xác định nhiệm vụ delivery dự án IT đủ rõ. Chốt CHUA_RO, không giữ IT_MANAGEMENT chỉ từ chức danh.","Vai trò gồm đào tạo kỹ thuật và hành chính, chưa xác định nhiệm vụ delivery dự án IT đủ rõ. Chốt CHUA_RO, không giữ IT_MANAGEMENT chỉ từ chức danh.","[1] This role will be 60% technical growth and 40% office administration.
+
+[2] The first four months will consist of paid on-the-job training.
+
+[3] Support the Dantech project manager in preparing statuses, presentations, or other deliverables"

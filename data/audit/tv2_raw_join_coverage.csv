@@ -1,0 +1,11 @@
+parent,child,parent_key,child_key,child_rows,child_null_rows,child_distinct_keys,matched_keys,orphan_keys,orphan_rows,child_key_coverage_percent,parent_keys,parent_keys_with_child,parent_keys_without_child,parent_coverage_percent,comparison
+companies,postings,company_id,company_id,123849,1717,24474,24473,1,1,99.995914,24473,24473,0,100.0,NUMERIC_CANONICAL
+postings,job_skills,job_id,job_id,213768,0,126807,122096,4711,7990,96.284905,123849,122096,1753,98.584567,NUMERIC_CANONICAL
+postings,job_industries,job_id,job_id,164808,0,127125,122413,4712,5845,96.293412,123849,122413,1436,98.840524,NUMERIC_CANONICAL
+postings,benefits,job_id,job_id,67943,0,30023,28735,1288,2550,95.709956,123849,28735,95114,23.201641,NUMERIC_CANONICAL
+postings,salaries,job_id,job_id,40785,0,40785,36073,4712,4712,88.446733,123849,36073,87776,29.126598,NUMERIC_CANONICAL
+skills,job_skills,skill_abr,skill_abr,213768,0,35,35,0,0,100.0,35,35,0,100.0,TRIM_TEXT
+industries,job_industries,industry_id,industry_id,164808,0,422,422,0,0,100.0,422,422,0,100.0,NUMERIC_CANONICAL
+companies,company_industries,company_id,company_id,24375,0,24365,24365,0,0,100.0,24473,24365,108,99.558697,NUMERIC_CANONICAL
+companies,company_specialities,company_id,company_id,169387,0,17780,17780,0,0,100.0,24473,17780,6693,72.651493,NUMERIC_CANONICAL
+companies,employee_counts,company_id,company_id,35787,0,24473,24473,0,0,100.0,24473,24473,0,100.0,NUMERIC_CANONICAL

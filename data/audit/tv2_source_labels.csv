@@ -1,0 +1,36 @@
+skill_abr,skill_name,postings_with_label
+ACCT,Accounting/Auditing,4999
+ADM,Administrative,4787
+ADVR,Advertising,652
+ANLS,Analyst,3775
+ART,Art/Creative,1637
+BD,Business Development,13304
+CNSL,Consulting,2241
+CUST,Customer Service,4167
+DIST,Distribution,409
+DSGN,Design,2207
+EDU,Education,2217
+ENG,Engineering,12530
+FIN,Finance,8011
+GENB,General Business,1929
+HCPR,Health Care Provider,16675
+HR,Human Resources,2608
+IT,Information Technology,25256
+LGL,Legal,2229
+MGMT,Management,20385
+MNFC,Manufacturing,17728
+MRKT,Marketing,5400
+OTHR,Other,12314
+PR,Public Relations,1258
+PRCH,Purchasing,599
+PRDM,Product Management,1313
+PRJM,Project Management,3825
+PROD,Production,753
+QA,Quality Assurance,1752
+RSCH,Research,2928
+SALE,Sales,21193
+SCI,Science,782
+STRA,Strategy/Planning,1158
+SUPL,Supply Chain,1167
+TRNG,Training,2164
+WRT,Writing/Editing,1426
