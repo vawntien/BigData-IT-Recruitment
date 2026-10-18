@@ -1,0 +1,389 @@
+{
+  "verdict": "PASS",
+  "started_utc": "2026-10-18T11:02:06.956871+00:00",
+  "git_branch": "feat/tv1-d06-parity",
+  "git_head": "457f90ae4c8074a468ec6ac8f410dd31bbbb4a6b",
+  "output": "D:\\Learning\\Bigdata\\BigData-IT-Recruitment\\tmp\\d06_parity\\20261018T110206Z_637eede4",
+  "full_dataset_classification": false,
+  "a04_acceptance": "PENDING GROUP REVIEW",
+  "integrity": {
+    "zip_sha256": "11cccd285cabc6dbc430598e8275becb26b68dc989d424786f4577ae52db7123",
+    "files": 44,
+    "crc": "PASS",
+    "safe_paths": "PASS",
+    "hashes": [
+      {
+        "path": "run_manifest.json",
+        "expected": "4d4aac5d52c1f98e656b0a2fb376712aabc580cbdb75bedf6d4c34df4ca3d3e8",
+        "actual": "4d4aac5d52c1f98e656b0a2fb376712aabc580cbdb75bedf6d4c34df4ca3d3e8",
+        "status": "MATCH"
+      },
+      {
+        "path": "all_predictions.jsonl",
+        "expected": "1c4c8b8d3ab00238e908e834ca615ba4188b6d03858cb5e38648f1565d03266d",
+        "actual": "1c4c8b8d3ab00238e908e834ca615ba4188b6d03858cb5e38648f1565d03266d",
+        "status": "MATCH"
+      },
+      {
+        "path": "baseline/source_rows.json",
+        "expected": "4fa5a35a5e06f1bb676833ba698cb6b2a96c5f2ff6a49b99f2e3214e216b0c14",
+        "actual": "4fa5a35a5e06f1bb676833ba698cb6b2a96c5f2ff6a49b99f2e3214e216b0c14",
+        "status": "MATCH"
+      },
+      {
+        "path": "all_predictions.jsonl",
+        "expected": "1c4c8b8d3ab00238e908e834ca615ba4188b6d03858cb5e38648f1565d03266d",
+        "actual": "1c4c8b8d3ab00238e908e834ca615ba4188b6d03858cb5e38648f1565d03266d",
+        "status": "MATCH"
+      },
+      {
+        "path": "comparison_summary.json",
+        "expected": "dac226da9cd492e56ee61c8f8e88dc6f8c7e2441287189b47af04379fea1feea",
+        "actual": "dac226da9cd492e56ee61c8f8e88dc6f8c7e2441287189b47af04379fea1feea",
+        "status": "MATCH"
+      },
+      {
+        "path": "git_before.json",
+        "expected": "0627cdd7c40a85ee2bc7f9da049535ebecf966adaebc5f9cf41d54e18de52ce1",
+        "actual": "0627cdd7c40a85ee2bc7f9da049535ebecf966adaebc5f9cf41d54e18de52ce1",
+        "status": "MATCH"
+      },
+      {
+        "path": "independent_verification.json",
+        "expected": "0949b8fa6a0e7578394dcc4cd853b12eedec9f24476033c3120558f16cd8c9e0",
+        "actual": "0949b8fa6a0e7578394dcc4cd853b12eedec9f24476033c3120558f16cd8c9e0",
+        "status": "MATCH"
+      },
+      {
+        "path": "independent_verification.py",
+        "expected": "925265e13cce5e6da2e63841c9a459e38da44410ee49178ec5130841002a2fe0",
+        "actual": "925265e13cce5e6da2e63841c9a459e38da44410ee49178ec5130841002a2fe0",
+        "status": "MATCH"
+      },
+      {
+        "path": "job_comparison.csv",
+        "expected": "b4a568ad563c757b6b25e3d65873c835a23f1c3472f978b0cd6e0fd2b40d816f",
+        "actual": "b4a568ad563c757b6b25e3d65873c835a23f1c3472f978b0cd6e0fd2b40d816f",
+        "status": "MATCH"
+      },
+      {
+        "path": "protected_before.json",
+        "expected": "51fa8fc75dd0039100f90d28536a41dc814484ed469bbdc0de6b96fb4ec26ee4",
+        "actual": "51fa8fc75dd0039100f90d28536a41dc814484ed469bbdc0de6b96fb4ec26ee4",
+        "status": "MATCH"
+      },
+      {
+        "path": "saved_output_verification.json",
+        "expected": "3432c7497f4bc6ab1260d29fa85dbe92acbf2926a01b531d2a31683a549cfcbd",
+        "actual": "3432c7497f4bc6ab1260d29fa85dbe92acbf2926a01b531d2a31683a549cfcbd",
+        "status": "MATCH"
+      },
+      {
+        "path": "seed42_v022_predictions_private.jsonl",
+        "expected": "4350bfcd4b479fee226a450e0ee6fa7456f854b910577cf99ac6cd598b229295",
+        "actual": "4350bfcd4b479fee226a450e0ee6fa7456f854b910577cf99ac6cd598b229295",
+        "status": "MATCH"
+      },
+      {
+        "path": "supplement17_v022_predictions_private.jsonl",
+        "expected": "b4cdb7515a40b9f77eb78ded7b20b7ad6d76778418e3b39ba4925d7a84fe9691",
+        "actual": "b4cdb7515a40b9f77eb78ded7b20b7ad6d76778418e3b39ba4925d7a84fe9691",
+        "status": "MATCH"
+      },
+      {
+        "path": "tests_result.json",
+        "expected": "fba8ea009fa4cf7f043f6ff81f1e9180b2ce496e2c4dd2c140132dd8bf99588e",
+        "actual": "fba8ea009fa4cf7f043f6ff81f1e9180b2ce496e2c4dd2c140132dd8bf99588e",
+        "status": "MATCH"
+      },
+      {
+        "path": "tests_round2.log",
+        "expected": "84d72ffd883c0fc0712570a199022e8dc2da65a2cd856262345f91409c957993",
+        "actual": "84d72ffd883c0fc0712570a199022e8dc2da65a2cd856262345f91409c957993",
+        "status": "MATCH"
+      },
+      {
+        "path": "stages/01_P3_INTEGRATION/config.json",
+        "expected": "a2b9c109f1f15043c3117f031252d5be80952ef36b5daeffe65c6d5812c726dc",
+        "actual": "a2b9c109f1f15043c3117f031252d5be80952ef36b5daeffe65c6d5812c726dc",
+        "status": "MATCH"
+      },
+      {
+        "path": "stages/01_P3_INTEGRATION/controls.json",
+        "expected": "fb73af820c3318eada3ea0d517b07172556edc274827c2a2ad9021ee7776f6d3",
+        "actual": "fb73af820c3318eada3ea0d517b07172556edc274827c2a2ad9021ee7776f6d3",
+        "status": "MATCH"
+      },
+      {
+        "path": "stages/01_P3_INTEGRATION/delta.json",
+        "expected": "7252f31a04f0817f6ffe5565f044b8b499f53ced66270b391e0470da5854948c",
+        "actual": "7252f31a04f0817f6ffe5565f044b8b499f53ced66270b391e0470da5854948c",
+        "status": "MATCH"
+      },
+      {
+        "path": "stages/01_P3_INTEGRATION/predictions.jsonl",
+        "expected": "581c101cf7834ef4a968488369ebf5c40a06e8f31bcf170ce74014538a6e151c",
+        "actual": "581c101cf7834ef4a968488369ebf5c40a06e8f31bcf170ce74014538a6e151c",
+        "status": "MATCH"
+      },
+      {
+        "path": "stages/02_P3_APPLICATION_MAINTENANCE_MIGRATION/config.json",
+        "expected": "c408b3ad532eca766b5a19b6fcff8c90881150911b287d0bc5c2e78b54762e89",
+        "actual": "c408b3ad532eca766b5a19b6fcff8c90881150911b287d0bc5c2e78b54762e89",
+        "status": "MATCH"
+      },
+      {
+        "path": "stages/02_P3_APPLICATION_MAINTENANCE_MIGRATION/controls.json",
+        "expected": "bcf59498f02ef8f9a85bb4283177dd65bdc95385b34acf167f726b003a59f421",
+        "actual": "bcf59498f02ef8f9a85bb4283177dd65bdc95385b34acf167f726b003a59f421",
+        "status": "MATCH"
+      },
+      {
+        "path": "stages/02_P3_APPLICATION_MAINTENANCE_MIGRATION/delta.json",
+        "expected": "c536286bd3f58b482f0fbb7e83634f21e399cdfea1ee0205930fc9d68f431faf",
+        "actual": "c536286bd3f58b482f0fbb7e83634f21e399cdfea1ee0205930fc9d68f431faf",
+        "status": "MATCH"
+      },
+      {
+        "path": "stages/02_P3_APPLICATION_MAINTENANCE_MIGRATION/predictions.jsonl",
+        "expected": "5fb78d607f50194f489fcc644be9d5df151a5c225f16ff0621d51f0cf44a6c7a",
+        "actual": "5fb78d607f50194f489fcc644be9d5df151a5c225f16ff0621d51f0cf44a6c7a",
+        "status": "MATCH"
+      },
+      {
+        "path": "stages/03_P3_IT_DELIVERY/config.json",
+        "expected": "1de2908a4a8da3e7f811c0d87928d05f857f5bd78ec243cc57c07ef9ec933874",
+        "actual": "1de2908a4a8da3e7f811c0d87928d05f857f5bd78ec243cc57c07ef9ec933874",
+        "status": "MATCH"
+      },
+      {
+        "path": "stages/03_P3_IT_DELIVERY/controls.json",
+        "expected": "904684c1d20957cc66d74804df876864738783b7c1a46a9ecde2aff4b1da21a1",
+        "actual": "904684c1d20957cc66d74804df876864738783b7c1a46a9ecde2aff4b1da21a1",
+        "status": "MATCH"
+      },
+      {
+        "path": "stages/03_P3_IT_DELIVERY/delta.json",
+        "expected": "38751aa627f48d6699a1f4ed8b447855bcf283f931af04b01418745370cbc8c0",
+        "actual": "38751aa627f48d6699a1f4ed8b447855bcf283f931af04b01418745370cbc8c0",
+        "status": "MATCH"
+      },
+      {
+        "path": "stages/03_P3_IT_DELIVERY/predictions.jsonl",
+        "expected": "1c4c8b8d3ab00238e908e834ca615ba4188b6d03858cb5e38648f1565d03266d",
+        "actual": "1c4c8b8d3ab00238e908e834ca615ba4188b6d03858cb5e38648f1565d03266d",
+        "status": "MATCH"
+      },
+      {
+        "path": "baseline/manifest.json",
+        "expected": "0762ac242ed0462e1dbd22f931c11f5911539dde81e20a78f87c9d71d8a84f39",
+        "actual": "0762ac242ed0462e1dbd22f931c11f5911539dde81e20a78f87c9d71d8a84f39",
+        "status": "MATCH"
+      },
+      {
+        "path": "src/it_taxonomy.py",
+        "expected": "841231033c546cc2bedf141386038104c0a0f1cf9f5a01b80535457c8b42312f",
+        "actual": "841231033c546cc2bedf141386038104c0a0f1cf9f5a01b80535457c8b42312f",
+        "status": "MATCH"
+      },
+      {
+        "path": "src/description_processing.py",
+        "expected": "ad579397753f2de115faad3bf9ff4d1c8dfebf5ce76eb898f3368ca02a6fec78",
+        "actual": "ad579397753f2de115faad3bf9ff4d1c8dfebf5ce76eb898f3368ca02a6fec78",
+        "status": "MATCH"
+      },
+      {
+        "path": "src/it_taxonomy_v010.py",
+        "expected": "453bb6bcd22d4cdf866c670f3634b8f1e42a233eb086b650e579b4b1d429dc86",
+        "actual": "453bb6bcd22d4cdf866c670f3634b8f1e42a233eb086b650e579b4b1d429dc86",
+        "status": "MATCH"
+      },
+      {
+        "path": "src/tv2_csv.py",
+        "expected": "7839763017c281c36126b8ece9c2015da41b54cccdfca0f365ac4feb48beb903",
+        "actual": "7839763017c281c36126b8ece9c2015da41b54cccdfca0f365ac4feb48beb903",
+        "status": "MATCH"
+      },
+      {
+        "path": "config/versions/it_taxonomy_v0.2.2.json",
+        "expected": "1de2908a4a8da3e7f811c0d87928d05f857f5bd78ec243cc57c07ef9ec933874",
+        "actual": "1de2908a4a8da3e7f811c0d87928d05f857f5bd78ec243cc57c07ef9ec933874",
+        "status": "MATCH"
+      }
+    ],
+    "main_manual_workbook_received": false,
+    "tv2_commit": "e437dcc11dda61f847673b9cc8c5801886c1996d"
+  },
+  "python": {
+    "status": "PASS",
+    "exact_matches": 176,
+    "field_mismatches": 0
+  },
+  "determinism": {
+    "status": "PASS",
+    "exact_matches": 176,
+    "field_mismatches": 0
+  },
+  "decisions": {
+    "REVIEW": 33,
+    "REJECT": 57,
+    "ACCEPT": 86
+  },
+  "environment": {
+    "python": "3.11.0 (main, Oct 24 2022, 18:26:48) [MSC v.1933 64 bit (AMD64)]",
+    "python_executable": "D:\\Learning\\Bigdata\\BigData-IT-Recruitment\\.venv\\Scripts\\python.exe",
+    "spark": "4.2.0",
+    "java": "21.0.12.1",
+    "java_home": "C:\\Program Files\\Eclipse Adoptium\\jdk-21.0.12.101-hotspot",
+    "master": "local[*]"
+  },
+  "spark": {
+    "status": "PASS",
+    "exact_matches": 176,
+    "field_mismatches": 0,
+    "rows": 176,
+    "unique_job_id": 176,
+    "null_keys": 0,
+    "duplicate_keys": 0,
+    "partitions": 4,
+    "workers": 4,
+    "classifier_instances": 4
+  },
+  "canonical": {
+    "status": "PASS",
+    "found": 176,
+    "missing": 0,
+    "text_hash_matches": 176,
+    "text_hash_mismatch_jobs": 0
+  },
+  "roundtrip": {
+    "status": "PASS",
+    "exact_matches": 176,
+    "field_mismatches": 0,
+    "schema_types_unchanged": true,
+    "parquet_nullable_relaxation": true,
+    "review_nulls": 33
+  },
+  "preservation": {
+    "protected_files": 131,
+    "changed": [],
+    "hash_size_mtime_unchanged": true
+  },
+  "finished_utc": "2026-10-18T11:02:47.308484+00:00",
+  "scope": "PHASE_1_FROZEN_176_ONLY",
+  "candidate_version": "0.2.2",
+  "active_promoted": false,
+  "d06_code_sha256": {
+    "src\\d06_taxonomy_adapter.py": "d79ee515ada7c2cdb96764244fa35e4c9c90b093480d8940dee5326f29019f49",
+    "src\\d06_parity_validation.py": "b10e3a785fa3ddf33e2c401f7b41c84368c467acb277ac82d770bec40352c40f",
+    "src\\test_d06_parity.py": "0a3b4486d97db0ec854ce236d7686e0c9b0a78a2a6c5d9e959733a46de5db1c4"
+  },
+  "tests": {
+    "command": ".\\.venv\\Scripts\\python.exe -B -m unittest discover -s src -p test_d06_parity.py -v",
+    "executed": 17,
+    "passed": 17,
+    "failed": 0,
+    "seconds": 42.567,
+    "live_integration": true
+  },
+  "schema": {
+    "top_level_fields": 22,
+    "prediction_fields": 18,
+    "struct_key_presence": "_d06_present at every struct",
+    "worker_metadata_fields": 3,
+    "parquet_nullability": "readback relaxes physical nullability; data constraints checked",
+    "unobserved_empty_array_types": "parser_issues and removed_source_ranges from pinned description_processing.py, separately unit-tested",
+    "deployment_scope": "Windows local[*], shared verified snapshot paths; not remote cluster readiness"
+  },
+  "earlier_attempts": [
+    {
+      "output": "tmp/d06_parity/20261018T110011Z_537215fc",
+      "result": "JAVA_GATEWAY_EXITED under sandbox; no Spark predictions; not a prediction mismatch; raw historical summary labels FAIL"
+    },
+    {
+      "output": "tmp/d06_parity/20261018T110029Z_7415ba5c",
+      "result": "PASS actual Python/Spark/Parquet; prior to final integration test run"
+    }
+  ],
+  "release_verification": {
+    "scope": "RELEASE_REVIEW_PHASE1_ONLY",
+    "started_utc": "2026-10-18T12:37:30.942418+00:00",
+    "finished_utc": "2026-10-18T12:38:11.859494+00:00",
+    "output": "D:\\Learning\\Bigdata\\BigData-IT-Recruitment\\tmp\\d06_parity\\20261018T123730Z_f2932437",
+    "git_head_before_commit": "457f90ae4c8074a468ec6ac8f410dd31bbbb4a6b",
+    "d05_base": "457f90ae4c8074a468ec6ac8f410dd31bbbb4a6b",
+    "guard_fix": "Accept D06 descendants of D05; reject changes to D05 tracked paths in working tree/index/committed tree.",
+    "d06_code_sha256": {
+      "src\\d06_taxonomy_adapter.py": "d79ee515ada7c2cdb96764244fa35e4c9c90b093480d8940dee5326f29019f49",
+      "src\\d06_parity_validation.py": "ae40f941152ab55a6da927e827231a535446a17dcb9a63fd82686a5adeae5f5c",
+      "src\\test_d06_parity.py": "ec6f42fcf61608481fd11bc5b213b8b305d05de290dcbde38b507cbc12b84ed1"
+    },
+    "tests": {
+      "executed": 17,
+      "passed": 17,
+      "failed": 0,
+      "skipped": 0,
+      "seconds": 43.105,
+      "live_spark": true
+    },
+    "integrity": {
+      "checks": 33,
+      "status": "MATCH",
+      "zip_crc": "PASS",
+      "extracted_files_original_bytes": 44
+    },
+    "python": {
+      "status": "PASS",
+      "exact_matches": 176,
+      "field_mismatches": 0
+    },
+    "determinism": {
+      "status": "PASS",
+      "exact_matches": 176,
+      "field_mismatches": 0
+    },
+    "spark": {
+      "status": "PASS",
+      "exact_matches": 176,
+      "field_mismatches": 0,
+      "rows": 176,
+      "unique_job_id": 176,
+      "null_keys": 0,
+      "duplicate_keys": 0,
+      "partitions": 4,
+      "workers": 4,
+      "classifier_instances": 4
+    },
+    "canonical": {
+      "status": "PASS",
+      "found": 176,
+      "missing": 0,
+      "text_hash_matches": 176,
+      "text_hash_mismatch_jobs": 0
+    },
+    "roundtrip": {
+      "status": "PASS",
+      "exact_matches": 176,
+      "field_mismatches": 0,
+      "schema_types_unchanged": true,
+      "parquet_nullable_relaxation": true,
+      "review_nulls": 33
+    },
+    "preservation": {
+      "protected_files": 131,
+      "changed": [],
+      "hash_size_mtime_unchanged": true
+    },
+    "environment": {
+      "python": "3.11.0 (main, Oct 24 2022, 18:26:48) [MSC v.1933 64 bit (AMD64)]",
+      "python_executable": "D:\\Learning\\Bigdata\\BigData-IT-Recruitment\\.venv\\Scripts\\python.exe",
+      "spark": "4.2.0",
+      "java": "21.0.12.1",
+      "java_home": "C:\\Program Files\\Eclipse Adoptium\\jdk-21.0.12.101-hotspot",
+      "master": "local[*]"
+    },
+    "verdict": "PASS",
+    "original_evidence_preserved": true,
+    "full_dataset_classification": false
+  }
+}
