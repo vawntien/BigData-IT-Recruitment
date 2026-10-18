@@ -1,0 +1,17 @@
+{
+  "run_utc": "2026-10-15T12:33:59.660114+00:00",
+  "branch": "feat/tv1-d05-official",
+  "git_head": "fbfcb59cff2cb93daa2ff087b42d0bf73f14fec9",
+  "a03_commit": "e437dcc11dda61f847673b9cc8c5801886c1996d",
+  "a03_sha256": "371662d8c8ff06a9d3ce89bfc1427ddca96ec9b3dda19d51b8f26e913034f2e9",
+  "python": "3.11.0",
+  "spark": "4.2.0",
+  "java": "21.0.12.1",
+  "timezone": "UTC",
+  "output": "data\\processed\\canonical\\jobs",
+  "output_rows": 123849,
+  "validation_checks": 72,
+  "elapsed_seconds": 124.359,
+  "raw_clean_unchanged": true,
+  "a04_parity": "NOT_EXECUTED_REFERENCE_MISSING"
+}

@@ -1,0 +1,6 @@
+table,entity_key,entities,max_values,multi_value_entities
+job_skills,job_id,126807,3,71658
+job_industries,job_id,127125,3,24406
+benefits,job_id,30023,12,16101
+company_industries,company_id,24365,2,10
+company_specialities,company_id,17780,84,16970

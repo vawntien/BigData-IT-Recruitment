@@ -1,0 +1,12 @@
+table,rows,columns,keys,key_nulls,duplicate_keys
+postings,123849,35,job_id,0,0
+companies,24473,10,company_id,0,0
+company_industries,24375,2,company_id+industry,0,0
+company_specialities,169367,2,company_id+speciality,0,0
+employee_counts,35665,5,company_id+time_recorded,0,0
+benefits,67943,3,job_id+type,0,0
+job_industries,164808,2,job_id+industry_id,0,0
+job_skills,213768,2,job_id+skill_abr,0,0
+salaries,40785,8,salary_id,0,0
+industries,422,2,industry_id,0,0
+skills,35,2,skill_abr,0,0
