@@ -215,7 +215,13 @@ def verify_d05_base(root: Path, branch: str, head: str):
     D05 must remain an ancestor and every path tracked at D05 must be unchanged
     in both the committed tree and working tree/index. D06-only additions are OK.
     """
-    if branch != "feat/tv1-d06-parity" or subprocess.run(
+    allowed = branch == "feat/tv1-d06-parity"
+    if branch == "feat/tv1-d06-pilot":
+        allowed = subprocess.run(
+            ["git", "merge-base", "--is-ancestor", "1c365741f0e3dcad9064473ae2c0c6b9f507ae25", head],
+            cwd=root, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL,
+        ).returncode == 0
+    if not allowed or subprocess.run(
         ["git", "merge-base", "--is-ancestor", D05_HEAD, head], cwd=root,
         stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL,
     ).returncode != 0:

@@ -1,0 +1,299 @@
+{
+  "status": "PASS",
+  "mode": "pilot",
+  "full_dataset_executed": false,
+  "branch": "feat/tv1-d06-pilot",
+  "head": "1c365741f0e3dcad9064473ae2c0c6b9f507ae25",
+  "started_utc": "2026-10-18T13:55:35.399972+00:00",
+  "output": "D:\\Learning\\Bigdata\\BigData-IT-Recruitment\\tmp\\d06_pilot\\pilot_20261018_03",
+  "package": {
+    "path": "D:\\Learning\\Bigdata\\BigData-IT-Recruitment\\tmp\\d06_pilot_packages\\d06_runtime_09e7ee9c1ee2126338a6f20accaf8d38a5bbc0d97a69c905e973745d90025d59.zip",
+    "sha256": "09e7ee9c1ee2126338a6f20accaf8d38a5bbc0d97a69c905e973745d90025d59",
+    "manifest": {
+      "tv2_commit": "e437dcc11dda61f847673b9cc8c5801886c1996d",
+      "version": "0.2.2",
+      "config_sha256": "1de2908a4a8da3e7f811c0d87928d05f857f5bd78ec243cc57c07ef9ec933874",
+      "files": {
+        "d06_pilot_runtime.py": "48a7732b5763c6d7e0f2d7df344cb316b40e01e24dbaddaa94a51a7dde0fbfd4",
+        "d06_taxonomy_adapter.py": "d79ee515ada7c2cdb96764244fa35e4c9c90b093480d8940dee5326f29019f49",
+        "description_processing.py": "ad579397753f2de115faad3bf9ff4d1c8dfebf5ce76eb898f3368ca02a6fec78",
+        "it_taxonomy.py": "841231033c546cc2bedf141386038104c0a0f1cf9f5a01b80535457c8b42312f",
+        "it_taxonomy_v0.2.2.json": "1de2908a4a8da3e7f811c0d87928d05f857f5bd78ec243cc57c07ef9ec933874",
+        "it_taxonomy_v010.py": "453bb6bcd22d4cdf866c670f3634b8f1e42a233eb086b650e579b4b1d429dc86",
+        "parity_schema.json": "83c04c144d3d2b516d8e4fe5338fab250136e5179c85c96441b43b24e3594b2a",
+        "tv2_csv.py": "7839763017c281c36126b8ece9c2015da41b54cccdfca0f365ac4feb48beb903"
+      }
+    },
+    "transport": "Spark broadcast exact ZIP bytes; verified per worker"
+  },
+  "taxonomy_config_argument": "git:e437dcc11dda61f847673b9cc8c5801886c1996d:config/versions/it_taxonomy_v0.2.2.json",
+  "a04_acceptance": "PENDING GROUP REVIEW",
+  "environment": {
+    "python": "3.11.0 (main, Oct 24 2022, 18:26:48) [MSC v.1933 64 bit (AMD64)]",
+    "spark": "4.2.0",
+    "java": "21.0.12.1",
+    "master": "local[*]",
+    "java_home": "C:\\Program Files\\Eclipse Adoptium\\jdk-21.0.12.101-hotspot"
+  },
+  "selection": {
+    "canonical": {
+      "rows": 123849,
+      "unique": 123849,
+      "nulls": 0
+    },
+    "input": {
+      "rows": 1084,
+      "unique": 1084,
+      "nulls": 0
+    },
+    "base_size": 1000,
+    "policy": "xxhash64(job_id,42) ascending + job_id tie-break; capped edges; dedup job_id; no accuracy claim",
+    "selection_reason_counts_overlap": {
+      "unicode": 10,
+      "function_CUST": 1,
+      "html_entities": 10,
+      "empty_description": 7,
+      "function_FIN": 1,
+      "hash42_base": 1000,
+      "known_phase1_review": 33,
+      "longest_description": 10,
+      "function_MNFC": 1,
+      "function_ENG": 1,
+      "function_ART": 1,
+      "function_MGMT": 1,
+      "function_LGL": 1,
+      "function_IT": 1,
+      "function_DSGN": 1,
+      "function_ADM": 1,
+      "function_EDU": 1,
+      "function_GENB": 1,
+      "function_HR": 1,
+      "function_BD": 1,
+      "function_ADVR": 1,
+      "function_HCPR": 1,
+      "function_CNSL": 1,
+      "function_ANLS": 1,
+      "function_DIST": 1,
+      "function_ACCT": 1
+    },
+    "canonical_edge_availability": {
+      "empty_title": 0,
+      "empty_description": 7,
+      "html_entities": 298,
+      "unicode": 89265
+    }
+  },
+  "selection_seconds": 12.607041100040078,
+  "jvm_before_classification": {
+    "heap_used_bytes": 1064418168,
+    "heap_committed_bytes": 1342177280,
+    "heap_max_bytes": 3221225472,
+    "gc": {
+      "G1 Young Generation": {
+        "count": 47,
+        "time_ms": 175
+      },
+      "G1 Concurrent GC": {
+        "count": 30,
+        "time_ms": 77
+      },
+      "G1 Old Generation": {
+        "count": 0,
+        "time_ms": 0
+      }
+    }
+  },
+  "jvm_after_classification": {
+    "heap_used_bytes": 1048983720,
+    "heap_committed_bytes": 1342177280,
+    "heap_max_bytes": 3221225472,
+    "gc": {
+      "G1 Young Generation": {
+        "count": 50,
+        "time_ms": 191
+      },
+      "G1 Concurrent GC": {
+        "count": 32,
+        "time_ms": 94
+      },
+      "G1 Old Generation": {
+        "count": 0,
+        "time_ms": 0
+      }
+    }
+  },
+  "validation": {
+    "rows": 1084,
+    "unique": 1084,
+    "nulls": 0,
+    "missing": 0,
+    "extra": 0,
+    "errors": 0,
+    "nested_roundtrip_checked": 1084,
+    "all_present": true,
+    "decision_counts": {
+      "REVIEW": 522,
+      "ACCEPT": 49,
+      "REJECT": 513
+    }
+  },
+  "performance": {
+    "classification_write_seconds": 5.542926300026011,
+    "jobs_per_second": 195.56457028752362,
+    "partitions_requested": 4,
+    "materialization": "actual predictions Parquet write completion",
+    "workers": 4,
+    "classifier_instances": 4,
+    "max_observed_worker_rss_bytes": 59244544,
+    "min_observed_worker_rss_bytes": 51089408,
+    "max_description_chars": 23201,
+    "classify_ns_p50_p95_p99": [
+      2705500,
+      6418500,
+      13032700
+    ]
+  },
+  "long_description_observation": [
+    {
+      "length_bucket": "ge_10000",
+      "jobs": 15,
+      "mean_classify_ns": 13733453.333333334,
+      "max_classify_ns": 24012200
+    },
+    {
+      "length_bucket": "lt_10000",
+      "jobs": 1069,
+      "mean_classify_ns": 2964599.5322731524,
+      "max_classify_ns": 16710700
+    }
+  ],
+  "determinism": {
+    "rows": 32,
+    "partitions": 2,
+    "mismatches": 0
+  },
+  "output_parquet_bytes": 5973763,
+  "preservation": {
+    "protected_files": 131,
+    "changed": []
+  },
+  "elapsed_total_seconds": 36.52752100001089,
+  "finished_utc": "2026-10-18T13:56:11.928059+00:00",
+  "pilot_implementation": "PASS",
+  "pilot_runtime": "PASS",
+  "parity_regression": {
+    "status": "PASS",
+    "tests": 17,
+    "seconds": 39.786,
+    "output": "tmp/d06_parity/20261018T134516Z_0945209d",
+    "python_exact": 176,
+    "spark_exact": 176,
+    "field_mismatches": 0
+  },
+  "pilot_tests": {
+    "status": "PASS",
+    "tests": 17,
+    "seconds": 47.19,
+    "output": "tmp/d06_pilot/test_8fd77797a055",
+    "real_jobs": 92,
+    "determinism_jobs": 32,
+    "determinism_partitions": 3,
+    "negative_worker_failure_expected": true,
+    "oom_test": "simulated MemoryError only; no real OOM induced"
+  },
+  "full_dataset_readiness": "BLOCKED",
+  "remaining_dependencies": [
+    "A04 business acceptance pending group review",
+    "Explicit full-run authorization and new full runner path; current full mode hard-locked",
+    "Review fixed pilot schema boolean presence + field-key metadata contract",
+    "Reviewed Git integration/artifact-build strategy for pinned TV2 code/config, no auto merge",
+    "Remote executor smoke test if cluster deployment; larger authorized memory/partition/retry benchmarks"
+  ],
+  "code_sha256": {
+    "src/d06_classification_runner.py": "6b9fc12345b2832198e960ec60475a91c8939bae98704bedcc79a809a44e7e54",
+    "src/d06_pilot_packaging.py": "9e7336c613a2f4b65cc0d75157bdfd412dc2ccbd358579371837ad0cbd9838e4",
+    "src/d06_pilot_runtime.py": "48a7732b5763c6d7e0f2d7df344cb316b40e01e24dbaddaa94a51a7dde0fbfd4",
+    "src/test_d06_pilot.py": "1512c17209b0660c0ca6435f3ece71d84053a61f63ea0a22c28487f05013a117",
+    "src/d06_parity_validation.py": "c7585c375889c4a0f3050d94a4e79ef3ad12162a985b99817fd385599960f8d4"
+  },
+  "older_attempts": [
+    {
+      "output": "tmp/d06_pilot/pilot_20261018_01",
+      "status": "FAIL before any classification",
+      "reason": "addPyFile/addFile invokes Hadoop chmod; winutils unavailable; replaced by explicit verified broadcast ZIP transport"
+    },
+    {
+      "output": "tmp/d06_pilot/pilot_20261018_02",
+      "status": "PASS 1084 real jobs",
+      "note": "Prior worker error categorization; all old output preserved"
+    },
+    {
+      "output": "tmp/d06_pilot/test_a08251a49e46",
+      "status": "16 tests PASS, 92 real jobs",
+      "seconds": 129.724,
+      "note": "Earlier test suite before explicit OOM simulation control"
+    }
+  ],
+  "observations_policy": {
+    "rss": "GetProcessMemoryInfo.WorkingSetSize sampled AFTER each classified row; not process peak or total system RAM",
+    "jvm": "MXBeans local driver/executor JVM snapshots before/after classification write; no continuous peak monitoring",
+    "performance": "Warm local run after earlier tests; not cold benchmark or full-data extrapolation",
+    "errors": "0 invalid successful pilot outputs; deliberate worker-failure unit control is separate; internal Spark retries are not independently counted",
+    "total_timer": "Timed block after package build/protected-before snapshot; includes session/selection/classification/readback/determinism/stop/protected-after; not entire CLI startup"
+  },
+  "release_review": {
+    "date_client": "2026-10-19",
+    "started_utc": "2026-10-18T17:28:06.783230+00:00",
+    "output": "D:\\Learning\\Bigdata\\BigData-IT-Recruitment\\tmp\\d06_pilot_release\\20261019_9708b3cef0",
+    "code_hashes_verified": true,
+    "tests": [
+      {
+        "pattern": "test_d06_parity.py",
+        "run": 17,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0,
+        "success": true
+      },
+      {
+        "pattern": "test_d06_pilot.py",
+        "run": 17,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0,
+        "success": true
+      }
+    ],
+    "status": "PASS",
+    "existing_pilot_validation": {
+      "rows": 1084,
+      "unique": 1084,
+      "nulls": 0,
+      "missing": 0,
+      "extra": 0,
+      "errors": 0,
+      "nested_roundtrip_checked": 1084,
+      "all_present": true,
+      "decision_counts": {
+        "REVIEW": 522,
+        "REJECT": 513,
+        "ACCEPT": 49
+      }
+    },
+    "existing_parquet_bytes": 5973763,
+    "package_sha256": "09e7ee9c1ee2126338a6f20accaf8d38a5bbc0d97a69c905e973745d90025d59",
+    "existing_pilot_readonly": true,
+    "preservation": {
+      "protected_files": 131,
+      "changed": []
+    },
+    "finished_utc": "2026-10-18T17:29:34.783000+00:00",
+    "test_seconds": {
+      "parity": 42.003,
+      "pilot": 38.476
+    },
+    "original_evidence_preserved": true,
+    "full_dataset_executed": false,
+    "stacked_base": "feat/tv1-d06-parity"
+  }
+}

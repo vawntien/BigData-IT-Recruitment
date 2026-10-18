@@ -1,0 +1,651 @@
+{
+  "type": "struct",
+  "fields": [
+    {
+      "name": "candidate_group_codes",
+      "type": {
+        "type": "array",
+        "elementType": "string",
+        "containsNull": false
+      },
+      "nullable": false,
+      "metadata": {}
+    },
+    {
+      "name": "description",
+      "type": "string",
+      "nullable": false,
+      "metadata": {}
+    },
+    {
+      "name": "description_processing",
+      "type": {
+        "type": "struct",
+        "fields": [
+          {
+            "name": "derived_sha256",
+            "type": "string",
+            "nullable": false,
+            "metadata": {}
+          },
+          {
+            "name": "dropped_oversize_units",
+            "type": "long",
+            "nullable": false,
+            "metadata": {}
+          },
+          {
+            "name": "incomplete",
+            "type": "boolean",
+            "nullable": false,
+            "metadata": {}
+          },
+          {
+            "name": "legacy_oversize_units_processed",
+            "type": "long",
+            "nullable": false,
+            "metadata": {}
+          },
+          {
+            "name": "legacy_oversize_units_total",
+            "type": "long",
+            "nullable": false,
+            "metadata": {}
+          },
+          {
+            "name": "legacy_oversize_units_unresolved",
+            "type": "long",
+            "nullable": false,
+            "metadata": {}
+          },
+          {
+            "name": "parser",
+            "type": "string",
+            "nullable": false,
+            "metadata": {}
+          },
+          {
+            "name": "parser_issues",
+            "type": {
+              "type": "array",
+              "elementType": "string",
+              "containsNull": false
+            },
+            "nullable": false,
+            "metadata": {}
+          },
+          {
+            "name": "raw_offset_unit",
+            "type": "string",
+            "nullable": false,
+            "metadata": {}
+          },
+          {
+            "name": "removed_source_ranges",
+            "type": {
+              "type": "array",
+              "elementType": {
+                "type": "struct",
+                "fields": [
+                  {
+                    "name": "start",
+                    "type": "long",
+                    "nullable": true,
+                    "metadata": {}
+                  },
+                  {
+                    "name": "end",
+                    "type": "long",
+                    "nullable": true,
+                    "metadata": {}
+                  },
+                  {
+                    "name": "reason",
+                    "type": "string",
+                    "nullable": true,
+                    "metadata": {}
+                  },
+                  {
+                    "name": "_d06_field_keys",
+                    "type": {
+                      "type": "array",
+                      "elementType": "string",
+                      "containsNull": false
+                    },
+                    "nullable": false,
+                    "metadata": {}
+                  }
+                ]
+              },
+              "containsNull": false
+            },
+            "nullable": false,
+            "metadata": {}
+          },
+          {
+            "name": "retained_long_units",
+            "type": "long",
+            "nullable": false,
+            "metadata": {}
+          },
+          {
+            "name": "source_mapping_available",
+            "type": "boolean",
+            "nullable": false,
+            "metadata": {}
+          },
+          {
+            "name": "source_sha256",
+            "type": "string",
+            "nullable": false,
+            "metadata": {}
+          },
+          {
+            "name": "units",
+            "type": "long",
+            "nullable": false,
+            "metadata": {}
+          },
+          {
+            "name": "unresolved_units",
+            "type": "long",
+            "nullable": false,
+            "metadata": {}
+          },
+          {
+            "name": "version",
+            "type": "string",
+            "nullable": false,
+            "metadata": {}
+          },
+          {
+            "name": "_d06_field_keys",
+            "type": {
+              "type": "array",
+              "elementType": "string",
+              "containsNull": false
+            },
+            "nullable": false,
+            "metadata": {}
+          }
+        ]
+      },
+      "nullable": false,
+      "metadata": {}
+    },
+    {
+      "name": "description_segments",
+      "type": {
+        "type": "array",
+        "elementType": {
+          "type": "struct",
+          "fields": [
+            {
+              "name": "actor",
+              "type": "string",
+              "nullable": false,
+              "metadata": {}
+            },
+            {
+              "name": "blocked_reasons",
+              "type": {
+                "type": "array",
+                "elementType": "string",
+                "containsNull": false
+              },
+              "nullable": false,
+              "metadata": {}
+            },
+            {
+              "name": "derived_end",
+              "type": "long",
+              "nullable": false,
+              "metadata": {}
+            },
+            {
+              "name": "derived_start",
+              "type": "long",
+              "nullable": false,
+              "metadata": {}
+            },
+            {
+              "name": "explicit_self",
+              "type": "boolean",
+              "nullable": false,
+              "metadata": {}
+            },
+            {
+              "name": "index",
+              "type": "long",
+              "nullable": false,
+              "metadata": {}
+            },
+            {
+              "name": "kind",
+              "type": "string",
+              "nullable": false,
+              "metadata": {}
+            },
+            {
+              "name": "long",
+              "type": "boolean",
+              "nullable": false,
+              "metadata": {}
+            },
+            {
+              "name": "mapping_available",
+              "type": "boolean",
+              "nullable": false,
+              "metadata": {}
+            },
+            {
+              "name": "normalized_characters",
+              "type": "long",
+              "nullable": false,
+              "metadata": {}
+            },
+            {
+              "name": "raw_ranges",
+              "type": {
+                "type": "array",
+                "elementType": {
+                  "type": "array",
+                  "elementType": "long",
+                  "containsNull": false
+                },
+                "containsNull": false
+              },
+              "nullable": false,
+              "metadata": {}
+            },
+            {
+              "name": "section",
+              "type": "string",
+              "nullable": false,
+              "metadata": {}
+            },
+            {
+              "name": "status",
+              "type": "string",
+              "nullable": false,
+              "metadata": {}
+            },
+            {
+              "name": "text",
+              "type": "string",
+              "nullable": false,
+              "metadata": {}
+            },
+            {
+              "name": "window_diagnostics",
+              "type": {
+                "type": "array",
+                "elementType": {
+                  "type": "struct",
+                  "fields": [
+                    {
+                      "name": "blocked_reason",
+                      "type": "string",
+                      "nullable": true,
+                      "metadata": {}
+                    },
+                    {
+                      "name": "normalized_end",
+                      "type": "long",
+                      "nullable": false,
+                      "metadata": {}
+                    },
+                    {
+                      "name": "normalized_start",
+                      "type": "long",
+                      "nullable": false,
+                      "metadata": {}
+                    },
+                    {
+                      "name": "term_sets",
+                      "type": {
+                        "type": "array",
+                        "elementType": "string",
+                        "containsNull": false
+                      },
+                      "nullable": false,
+                      "metadata": {}
+                    },
+                    {
+                      "name": "_d06_field_keys",
+                      "type": {
+                        "type": "array",
+                        "elementType": "string",
+                        "containsNull": false
+                      },
+                      "nullable": false,
+                      "metadata": {}
+                    }
+                  ]
+                },
+                "containsNull": false
+              },
+              "nullable": true,
+              "metadata": {}
+            },
+            {
+              "name": "_d06_field_keys",
+              "type": {
+                "type": "array",
+                "elementType": "string",
+                "containsNull": false
+              },
+              "nullable": false,
+              "metadata": {}
+            }
+          ]
+        },
+        "containsNull": false
+      },
+      "nullable": false,
+      "metadata": {}
+    },
+    {
+      "name": "is_it",
+      "type": "boolean",
+      "nullable": true,
+      "metadata": {}
+    },
+    {
+      "name": "it_decision",
+      "type": "string",
+      "nullable": false,
+      "metadata": {}
+    },
+    {
+      "name": "job_id",
+      "type": "long",
+      "nullable": false,
+      "metadata": {}
+    },
+    {
+      "name": "match_evidence",
+      "type": {
+        "type": "array",
+        "elementType": {
+          "type": "struct",
+          "fields": [
+            {
+              "name": "actor",
+              "type": "string",
+              "nullable": true,
+              "metadata": {}
+            },
+            {
+              "name": "derived_coordinate_space",
+              "type": "string",
+              "nullable": true,
+              "metadata": {}
+            },
+            {
+              "name": "derived_end",
+              "type": "long",
+              "nullable": true,
+              "metadata": {}
+            },
+            {
+              "name": "derived_matched_text",
+              "type": "string",
+              "nullable": true,
+              "metadata": {}
+            },
+            {
+              "name": "derived_start",
+              "type": "long",
+              "nullable": true,
+              "metadata": {}
+            },
+            {
+              "name": "excerpt",
+              "type": "string",
+              "nullable": false,
+              "metadata": {}
+            },
+            {
+              "name": "excerpt_covers_all_match_ranges",
+              "type": "boolean",
+              "nullable": false,
+              "metadata": {}
+            },
+            {
+              "name": "field",
+              "type": "string",
+              "nullable": false,
+              "metadata": {}
+            },
+            {
+              "name": "mapping_status",
+              "type": "string",
+              "nullable": false,
+              "metadata": {}
+            },
+            {
+              "name": "matched_alias",
+              "type": "string",
+              "nullable": false,
+              "metadata": {}
+            },
+            {
+              "name": "normalized_coordinate_space",
+              "type": "string",
+              "nullable": false,
+              "metadata": {}
+            },
+            {
+              "name": "normalized_end",
+              "type": "long",
+              "nullable": false,
+              "metadata": {}
+            },
+            {
+              "name": "normalized_start",
+              "type": "long",
+              "nullable": false,
+              "metadata": {}
+            },
+            {
+              "name": "raw_excerpt_end",
+              "type": "long",
+              "nullable": false,
+              "metadata": {}
+            },
+            {
+              "name": "raw_excerpt_start",
+              "type": "long",
+              "nullable": false,
+              "metadata": {}
+            },
+            {
+              "name": "raw_match_ranges",
+              "type": {
+                "type": "array",
+                "elementType": {
+                  "type": "array",
+                  "elementType": "long",
+                  "containsNull": false
+                },
+                "containsNull": false
+              },
+              "nullable": false,
+              "metadata": {}
+            },
+            {
+              "name": "raw_offset_unit",
+              "type": "string",
+              "nullable": false,
+              "metadata": {}
+            },
+            {
+              "name": "rule_id",
+              "type": "string",
+              "nullable": false,
+              "metadata": {}
+            },
+            {
+              "name": "section",
+              "type": "string",
+              "nullable": true,
+              "metadata": {}
+            },
+            {
+              "name": "segment_index",
+              "type": "long",
+              "nullable": true,
+              "metadata": {}
+            },
+            {
+              "name": "term_set_id",
+              "type": "string",
+              "nullable": false,
+              "metadata": {}
+            },
+            {
+              "name": "_d06_field_keys",
+              "type": {
+                "type": "array",
+                "elementType": "string",
+                "containsNull": false
+              },
+              "nullable": false,
+              "metadata": {}
+            }
+          ]
+        },
+        "containsNull": false
+      },
+      "nullable": false,
+      "metadata": {}
+    },
+    {
+      "name": "matched_rule_ids",
+      "type": {
+        "type": "array",
+        "elementType": "string",
+        "containsNull": false
+      },
+      "nullable": false,
+      "metadata": {}
+    },
+    {
+      "name": "primary_group_code",
+      "type": "string",
+      "nullable": true,
+      "metadata": {}
+    },
+    {
+      "name": "reason_codes",
+      "type": {
+        "type": "array",
+        "elementType": "string",
+        "containsNull": false
+      },
+      "nullable": false,
+      "metadata": {}
+    },
+    {
+      "name": "selected_rule_id",
+      "type": "string",
+      "nullable": true,
+      "metadata": {}
+    },
+    {
+      "name": "source_description_sha256",
+      "type": "string",
+      "nullable": false,
+      "metadata": {}
+    },
+    {
+      "name": "source_title_sha256",
+      "type": "string",
+      "nullable": false,
+      "metadata": {}
+    },
+    {
+      "name": "subgroup_code",
+      "type": "string",
+      "nullable": true,
+      "metadata": {}
+    },
+    {
+      "name": "taxonomy_sha256",
+      "type": "string",
+      "nullable": false,
+      "metadata": {}
+    },
+    {
+      "name": "taxonomy_version",
+      "type": "string",
+      "nullable": false,
+      "metadata": {}
+    },
+    {
+      "name": "title",
+      "type": "string",
+      "nullable": false,
+      "metadata": {}
+    },
+    {
+      "name": "_d06_field_keys",
+      "type": {
+        "type": "array",
+        "elementType": "string",
+        "containsNull": false
+      },
+      "nullable": false,
+      "metadata": {}
+    },
+    {
+      "name": "_d06_partition_id",
+      "type": "long",
+      "nullable": false,
+      "metadata": {}
+    },
+    {
+      "name": "_d06_worker_pid",
+      "type": "long",
+      "nullable": false,
+      "metadata": {}
+    },
+    {
+      "name": "_d06_classifier_instance",
+      "type": "string",
+      "nullable": false,
+      "metadata": {}
+    },
+    {
+      "name": "_d06_present",
+      "type": "boolean",
+      "nullable": false,
+      "metadata": {}
+    },
+    {
+      "name": "_d06_classify_ns",
+      "type": "long",
+      "nullable": false,
+      "metadata": {}
+    },
+    {
+      "name": "_d06_description_chars",
+      "type": "long",
+      "nullable": false,
+      "metadata": {}
+    },
+    {
+      "name": "_d06_prediction_sha256",
+      "type": "string",
+      "nullable": false,
+      "metadata": {}
+    },
+    {
+      "name": "_d06_python_rss_bytes",
+      "type": "long",
+      "nullable": true,
+      "metadata": {}
+    }
+  ]
+}
