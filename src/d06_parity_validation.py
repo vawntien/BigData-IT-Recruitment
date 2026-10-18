@@ -221,6 +221,11 @@ def verify_d05_base(root: Path, branch: str, head: str):
             ["git", "merge-base", "--is-ancestor", "1c365741f0e3dcad9064473ae2c0c6b9f507ae25", head],
             cwd=root, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL,
         ).returncode == 0
+    if branch == "feat/tv1-d06-official-runner":
+        allowed = subprocess.run(
+            ["git", "merge-base", "--is-ancestor", "0ca38ab90a05acfac1f191da45dba7511ab094be", head],
+            cwd=root, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL,
+        ).returncode == 0
     if not allowed or subprocess.run(
         ["git", "merge-base", "--is-ancestor", D05_HEAD, head], cwd=root,
         stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL,

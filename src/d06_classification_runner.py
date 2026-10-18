@@ -167,7 +167,7 @@ def run_pilot(sample_size=1000, partitions=4, output=None, taxonomy_config=CONFI
     output = validate_options(mode, sample_size, partitions, output, root)
     branch = subprocess.check_output(["git", "branch", "--show-current"], cwd=root).decode().strip()
     head = subprocess.check_output(["git", "rev-parse", "HEAD"], cwd=root).decode().strip()
-    if branch != "feat/tv1-d06-pilot":
+    if branch not in ("feat/tv1-d06-pilot", "feat/tv1-d06-official-runner"):
         raise PilotDataError("Run only on the Pilot branch")
     verify_d05_base(root, branch, head)
     # Integrity validation occurs BEFORE any classifier/Spark execution.
@@ -276,6 +276,12 @@ def run_pilot(sample_size=1000, partitions=4, output=None, taxonomy_config=CONFI
 
 
 def main():
+    selector = argparse.ArgumentParser(add_help=False)
+    selector.add_argument("--mode", default="pilot", choices=["pilot", "preflight", "full"])
+    selected, _ = selector.parse_known_args()
+    if selected.mode != "pilot":
+        from d06_official_runner import main as official_main
+        return official_main()
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--mode", default="pilot", choices=["pilot"])
     parser.add_argument("--sample-size", type=int, default=1000)

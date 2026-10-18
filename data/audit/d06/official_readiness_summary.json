@@ -1,0 +1,114 @@
+{
+  "task": "D06 Phase 3 production readiness and full runner implementation",
+  "verification_date_local": "2026-10-19",
+  "timezone": "Asia/Bangkok",
+  "branch": "feat/tv1-d06-official-runner",
+  "head": "0ca38ab90a05acfac1f191da45dba7511ab094be",
+  "main": "fbfcb59cff2cb93daa2ff087b42d0bf73f14fec9",
+  "verdict": {
+    "d06_parity": "PASS",
+    "d06_pilot": "PASS",
+    "d06_official_runner": "PASS_IMPLEMENTATION_ONLY",
+    "d06_preflight": "PASS",
+    "a04_acceptance": "PENDING",
+    "d06_full_dataset": "NOT_EXECUTED",
+    "d06_official_acceptance": "NOT_GRANTED"
+  },
+  "preflight": {
+    "evidence": "tmp/d06_official_preflight/readiness_20261019_01.json",
+    "status": "PASS",
+    "rows": 123849,
+    "unique_job_ids": 123849,
+    "null_keys": 0,
+    "duplicate_keys": 0,
+    "input_columns": 50,
+    "source_hash_validation": "PASS",
+    "parquet_files": 4,
+    "input_bytes": 397164694,
+    "input_fingerprint": "729db5102bda622eef2f6d3cc0d88b851516ad01f6050f3d0f75debb99e17270",
+    "worker_probes": 4,
+    "classified_jobs": 0,
+    "production_destination_created": false
+  },
+  "tests": {
+    "latest_official": {
+      "evidence": "tmp/d06_official_tests/final_394e49aa07/summary.json",
+      "tests": 16,
+      "failures": 0,
+      "errors": 0,
+      "skips": 0,
+      "seconds": 45.854094100010116
+    },
+    "regression": {
+      "evidence": "tmp/d06_official_tests/suite_e667f5d1a2/summary.json",
+      "parity": {
+        "tests": 17,
+        "failures": 0,
+        "errors": 0,
+        "seconds": 32.6501363000134
+      },
+      "pilot": {
+        "tests": 17,
+        "failures": 0,
+        "errors": 0,
+        "seconds": 38.55962569999974
+      }
+    },
+    "total_latest_and_regression": 50,
+    "small_engine_records": 3,
+    "small_engine_decisions": [
+      "ACCEPT",
+      "REJECT",
+      "REVIEW"
+    ],
+    "test_namespace": "tmp/d06_official_tests",
+    "test_hard_cap": 32,
+    "positive_authorized_full_executions": 0,
+    "approved_records_created": 0,
+    "initial_fixture_correction": "Initial guessed retail decision differed from classifier REVIEW. Fixture replaced with real frozen coverage inputs; classifier and old evidence unchanged."
+  },
+  "contract": {
+    "taxonomy_version": "0.2.2",
+    "active_taxonomy": "0.2.0_UNCHANGED",
+    "tv2_commit": "e437dcc11dda61f847673b9cc8c5801886c1996d",
+    "taxonomy_sha256": "1de2908a4a8da3e7f811c0d87928d05f857f5bd78ec243cc57c07ef9ec933874",
+    "package_sha256": "09e7ee9c1ee2126338a6f20accaf8d38a5bbc0d97a69c905e973745d90025d59",
+    "schema_version": "d06-official-v1",
+    "schema_sha256": "44ee9bcc29f5ace90161b6bea67d6543ced30925944761f56e28c7df76a67a68",
+    "schema_fields": 27,
+    "schema_changes_from_pilot": false,
+    "full_output_namespace": "data/processed/d06/v0.2.2/<run_id>"
+  },
+  "source_sha256": {
+    "src/d06_classification_runner.py": "0f70b5ec42aed9949cbe841c49b9079c7e8f950ba9163fc4e490ff17d00042ad",
+    "src/d06_parity_validation.py": "91f57d88badc952fe3c868bc9d49f3b1eba7aa6044c54a4f3537b0a1af319bde",
+    "src/d06_pilot_packaging.py": "b481d15dd9af510cf7b1a5d247b6bb612b5c23d3fee5226630fa130f4ee85d2e",
+    "src/d06_official_contract.py": "29865b0c86681f0dabfd666a67c095bcf2384c43e31167c6e0ea8934a5f8adb9",
+    "src/d06_official_state.py": "897241d145babf6ee720f8e6bdc5f8c9a2174ccd507f1c7608349dea735bb8d3",
+    "src/d06_official_runner.py": "a74bee589256e7b0de2fdaae9f79cfbb48e860680369eac96d1e42361213714d",
+    "src/test_d06_official_runner.py": "6d44e3fee168a9b3824b1fd57b659b1705bff6c01028ac9fd9ed717a7e8e3fd5"
+  },
+  "safety": {
+    "protected_snapshot_baseline": "tmp/d06_pilot/pilot_20261018_03/protected_before.json",
+    "protected_files": 131,
+    "protected_snapshot_equal": true,
+    "production_d06_directory_exists": false,
+    "d01_d05_changed": false,
+    "tv2_classifier_changed": false,
+    "staged_files": 0,
+    "commits": 0,
+    "pushes": 0,
+    "merges": 0,
+    "full_classifications": 0,
+    "full_output_validations": 0
+  },
+  "remaining_blockers": [
+    "Human A04 business acceptance and main reviewed workbook with exact SHA",
+    "Human schema approval for d06-official-v1 and pinned schema SHA",
+    "Explicit human full-run authorization bound to run/input/package/output/approval hashes",
+    "Production-scale latency/memory/skew/disk and fault recovery unverified",
+    "Remote executor/shared filesystem deployment unverified",
+    "Positive externally approved FULL entrypoint intentionally not executed; no synthetic approved records"
+  ],
+  "approval_trust_boundary": "External JSON and exact SHA are consistency checks, not digital identity or organizational authority verification."
+}

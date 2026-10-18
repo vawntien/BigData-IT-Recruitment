@@ -30,7 +30,7 @@ def validate_config(data):
         raise PilotIntegrityError("Candidate config exact-byte hash mismatch")
 
 
-def build_package(root: Path, config_arg=CONFIG_REF):
+def build_package(root: Path, config_arg=CONFIG_REF, artifact_dir=None, code_ref=None):
     files = {}
     for name, expected in CODE_HASHES.items():
         data = subprocess.check_output(["git", "show", f"{TV2_COMMIT}:src/{name}"], cwd=root)
@@ -45,8 +45,11 @@ def build_package(root: Path, config_arg=CONFIG_REF):
         raise PilotIntegrityError("Config differs from pinned commit")
     files[CONFIG_NAME] = data
     for name in ("d06_taxonomy_adapter.py", "d06_pilot_runtime.py"):
-        files[name] = (root / "src" / name).read_bytes()
-    files["parity_schema.json"] = (root / "data/audit/d06/spark_schema.json").read_bytes()
+        files[name] = (subprocess.check_output(["git", "show", f"{code_ref}:src/{name}"], cwd=root)
+                       if code_ref else (root / "src" / name).read_bytes())
+    files["parity_schema.json"] = (subprocess.check_output(
+        ["git", "show", f"{code_ref}:data/audit/d06/spark_schema.json"], cwd=root)
+        if code_ref else (root / "data/audit/d06/spark_schema.json").read_bytes())
     manifest = {"tv2_commit": TV2_COMMIT, "version": "0.2.2", "config_sha256": CONFIG_HASH,
                 "files": {name: sha(data) for name, data in sorted(files.items())}}
     files["runtime_manifest.json"] = json.dumps(manifest, sort_keys=True, indent=2).encode("utf8")
@@ -59,7 +62,7 @@ def build_package(root: Path, config_arg=CONFIG_REF):
             z.writestr(info, content)
     content = buffer.getvalue()
     checksum = sha(content)
-    target = root / "tmp/d06_pilot_packages" / f"d06_runtime_{checksum}.zip"
+    target = (Path(artifact_dir) if artifact_dir else root / "tmp/d06_pilot_packages") / f"d06_runtime_{checksum}.zip"
     target.parent.mkdir(parents=True, exist_ok=True)
     if target.exists():
         if target.read_bytes() != content:
@@ -139,6 +142,25 @@ def worker_runner(package_broadcast, expected_hash, operation="classify"):
             yield from classify_partition(rows, directory, schema)
         elif operation == "verify":
             yield from verify_roundtrip_partition(rows)
+        elif operation == "probe":
+            from d06_taxonomy_adapter import load_model
+            from pyspark import TaskContext
+            model = load_model(directory)  # constructor only; zero classify calls
+            yield {"partition": TaskContext.get().partitionId(), "pid": os.getpid(),
+                   "version": model.version, "config_sha256": model.sha256,
+                   "package_sha256": expected_hash, "classified_jobs": 0}
         else:
             raise RuntimeError("Unsupported worker operation")
     return run
+
+
+if __name__ == "__main__":
+    import argparse
+    parser = argparse.ArgumentParser(description="Build immutable D06 runtime artifact from pinned Git blobs; no classification")
+    parser.add_argument("--output-dir", required=True)
+    args = parser.parse_args()
+    root = Path(__file__).resolve().parent.parent
+    path, checksum, _ = build_package(root, artifact_dir=args.output_dir,
+        code_ref="0ca38ab90a05acfac1f191da45dba7511ab094be")
+    print(path)
+    print("SHA256", checksum)
