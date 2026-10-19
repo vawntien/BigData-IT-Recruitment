@@ -1,0 +1,16 @@
+{
+  "version": "d07-salary-v1",
+  "scope": "ALL_JOBS_NORMALIZATION_STAGING_NOT_OFFICIAL_IT",
+  "annualization": {
+    "hours_per_week": 40,
+    "weeks_per_year": 52,
+    "months_per_year": 12,
+    "weeks_per_biweekly_period": 2
+  },
+  "currencies": ["USD", "EUR", "CAD", "AUD", "GBP", "BBD"],
+  "compensation_types": ["BASE_SALARY"],
+  "source_resolution": "WHOLE_SOURCE_NO_COALESCE_CONFLICT_ABSTAIN",
+  "nonpositive_values": "INVALID",
+  "fx_conversion": "NONE",
+  "output_decimal": "decimal(38,4)"
+}

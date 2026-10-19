@@ -1,0 +1,36 @@
+{
+  "status": "PASS",
+  "tests": 19,
+  "failures": 0,
+  "errors": 0,
+  "skips": 0,
+  "seconds": 170.89407049998408,
+  "evidence": "tmp/d07_tests/suite_b1dcb07531/summary.json",
+  "pipeline_sha256": "80d1b30764980777581e3ce84a0b32582aba0de28aee2e00d66dce6b16d66571",
+  "test_sha256": "080e5facc77e2bcbbc6f76bbbc2b1f68d51d9f93784dff3cc86a5e3bfe6bd681",
+  "fixture_scope": "SYNTHETIC_SALARY_AND_CLASSIFICATION_CONTRACT_ONLY",
+  "d06_classifications": 0,
+  "official_it_salary_executed": false,
+  "release_verification": {
+    "status": "PASS",
+    "tests": 19,
+    "failures": 0,
+    "errors": 0,
+    "skips": 0,
+    "seconds": 183.55361840000842,
+    "evidence": "tmp/d07_tests/release_bd46bd40d1/summary.json",
+    "pipeline_sha256": "80d1b30764980777581e3ce84a0b32582aba0de28aee2e00d66dce6b16d66571",
+    "test_sha256": "080e5facc77e2bcbbc6f76bbbc2b1f68d51d9f93784dff3cc86a5e3bfe6bd681",
+    "d06_classifications": 0,
+    "staging_rerun": false,
+    "scope": "D07_RELEASE_TESTS_ONLY"
+  },
+  "prior_attempt": {
+    "evidence": "tmp/d07_tests/suite_ed49400069/summary.json",
+    "tests": 19,
+    "failures": 0,
+    "errors": 1,
+    "status": "FAIL",
+    "cause": "Spark Column.isin tuple passed as a single literal; fixed using splat arguments. No data/policy override."
+  }
+}

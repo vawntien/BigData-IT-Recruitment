@@ -1,0 +1,86 @@
+{
+  "branch": "feat/tv1-d07-salary",
+  "d06_full_executed": false,
+  "environment": {
+    "ansi_enabled": true,
+    "java": "21.0.12.1",
+    "master": "local[4]",
+    "partitions": 4,
+    "python": "3.11.0 (main, Oct 24 2022, 18:26:48) [MSC v.1933 64 bit (AMD64)]",
+    "spark": "4.2.0"
+  },
+  "git_head": "5fda1789b84494a856743c087d10fc511d013d93",
+  "input_inventory": {
+    "bytes": 397164694,
+    "files": [
+      {
+        "bytes": 106429075,
+        "path": "part-00000-aa2ea6ea-1536-4b08-95fe-0d515a780603-c000.snappy.parquet",
+        "sha256": "ba5ac532c16e390ad1c0667735f4f36851c2fe37835b6ed4e797cc0f2490ff7c"
+      },
+      {
+        "bytes": 93292805,
+        "path": "part-00001-aa2ea6ea-1536-4b08-95fe-0d515a780603-c000.snappy.parquet",
+        "sha256": "0bafd55861113f08de4a5e714a16e26f3aa6b30cc93fbf10e95f575565398a49"
+      },
+      {
+        "bytes": 103589879,
+        "path": "part-00002-aa2ea6ea-1536-4b08-95fe-0d515a780603-c000.snappy.parquet",
+        "sha256": "71e935e2ff2a29afcc2480bc6a40cf69f6863a5212cf7eee8400c4a0d5a68420"
+      },
+      {
+        "bytes": 93852935,
+        "path": "part-00003-aa2ea6ea-1536-4b08-95fe-0d515a780603-c000.snappy.parquet",
+        "sha256": "0a5fca3885193beec1ec1603de4e2e9ef3d4b4b65e75ca512b836dbb92f9d46a"
+      }
+    ],
+    "fingerprint": "729db5102bda622eef2f6d3cc0d88b851516ad01f6050f3d0f75debb99e17270"
+  },
+  "input_path": "D:\\Learning\\Bigdata\\BigData-IT-Recruitment\\data\\processed\\canonical\\jobs",
+  "input_stats": {
+    "duplicates": 0,
+    "nulls": 0,
+    "rows": 123849,
+    "unique": 123849
+  },
+  "official_it_salary_executed": false,
+  "output_path": "D:\\Learning\\Bigdata\\BigData-IT-Recruitment\\data\\processed\\d07\\staging\\d07_20261019_01\\salaries.parquet",
+  "policy": {
+    "annualization": {
+      "hours_per_week": 40,
+      "months_per_year": 12,
+      "weeks_per_biweekly_period": 2,
+      "weeks_per_year": 52
+    },
+    "compensation_types": [
+      "BASE_SALARY"
+    ],
+    "currencies": [
+      "USD",
+      "EUR",
+      "CAD",
+      "AUD",
+      "GBP",
+      "BBD"
+    ],
+    "fx_conversion": "NONE",
+    "nonpositive_values": "INVALID",
+    "output_decimal": "decimal(38,4)",
+    "period_factors": {
+      "BIWEEKLY": 26,
+      "HOURLY": 2080,
+      "MONTHLY": 12,
+      "WEEKLY": 52,
+      "YEARLY": 1
+    },
+    "scope": "ALL_JOBS_NORMALIZATION_STAGING_NOT_OFFICIAL_IT",
+    "sha256": "3c0e0a9b2c59bddff828d9d423d6659e19a3ceafae480c1cd3e50aa54221382b",
+    "source_resolution": "WHOLE_SOURCE_NO_COALESCE_CONFLICT_ABSTAIN",
+    "version": "d07-salary-v1"
+  },
+  "run_id": "d07_20261019_01",
+  "scope": "ALL_JOBS_NORMALIZATION_STAGING_NOT_OFFICIAL_IT",
+  "source_sha256": "80d1b30764980777581e3ce84a0b32582aba0de28aee2e00d66dce6b16d66571",
+  "started_utc": "2026-10-19T11:36:52.287018+00:00",
+  "status": "RUNNING"
+}

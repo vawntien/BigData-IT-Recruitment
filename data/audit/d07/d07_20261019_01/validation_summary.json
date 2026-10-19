@@ -1,0 +1,102 @@
+{
+  "fx_conversions": 0,
+  "input": {
+    "duplicates": 0,
+    "nulls": 0,
+    "rows": 123849,
+    "unique": 123849
+  },
+  "invalid_period_annualized": 0,
+  "numeric_overflow": 0,
+  "output": {
+    "duplicates": 0,
+    "nulls": 0,
+    "rows": 123849,
+    "unique": 123849
+  },
+  "parquet_roundtrip_all_fields": "PASS",
+  "raw_values_and_nulls_preserved": true,
+  "reason_counts_overlapping": {
+    "NONPOSITIVE_SALARY": 14,
+    "NO_SALARY_AMOUNT": 87776
+  },
+  "source_conflicts": 0,
+  "source_counts": {
+    "BOTH_AGREE": 36073,
+    "NONE": 87776
+  },
+  "status": "PASS",
+  "status_counts": {
+    "INVALID": 14,
+    "MISSING": 87776,
+    "USABLE": 36059
+  },
+  "usable_currency_period_counts": [
+    {
+      "canonical_pay_period": "YEARLY",
+      "conversion_factor": "1",
+      "count": 2,
+      "normalized_currency": "AUD"
+    },
+    {
+      "canonical_pay_period": "YEARLY",
+      "conversion_factor": "1",
+      "count": 2,
+      "normalized_currency": "BBD"
+    },
+    {
+      "canonical_pay_period": "HOURLY",
+      "conversion_factor": "2080",
+      "count": 1,
+      "normalized_currency": "CAD"
+    },
+    {
+      "canonical_pay_period": "YEARLY",
+      "conversion_factor": "1",
+      "count": 2,
+      "normalized_currency": "CAD"
+    },
+    {
+      "canonical_pay_period": "YEARLY",
+      "conversion_factor": "1",
+      "count": 6,
+      "normalized_currency": "EUR"
+    },
+    {
+      "canonical_pay_period": "HOURLY",
+      "conversion_factor": "2080",
+      "count": 2,
+      "normalized_currency": "GBP"
+    },
+    {
+      "canonical_pay_period": "BIWEEKLY",
+      "conversion_factor": "26",
+      "count": 9,
+      "normalized_currency": "USD"
+    },
+    {
+      "canonical_pay_period": "HOURLY",
+      "conversion_factor": "2080",
+      "count": 14738,
+      "normalized_currency": "USD"
+    },
+    {
+      "canonical_pay_period": "MONTHLY",
+      "conversion_factor": "12",
+      "count": 518,
+      "normalized_currency": "USD"
+    },
+    {
+      "canonical_pay_period": "WEEKLY",
+      "conversion_factor": "52",
+      "count": 177,
+      "normalized_currency": "USD"
+    },
+    {
+      "canonical_pay_period": "YEARLY",
+      "conversion_factor": "1",
+      "count": 20602,
+      "normalized_currency": "USD"
+    }
+  ]
+}

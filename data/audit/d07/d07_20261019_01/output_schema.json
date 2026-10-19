@@ -1,0 +1,303 @@
+{
+  "fields": [
+    {
+      "metadata": {},
+      "name": "job_id",
+      "nullable": true,
+      "type": "long"
+    },
+    {
+      "metadata": {},
+      "name": "raw_postings",
+      "nullable": true,
+      "type": {
+        "fields": [
+          {
+            "metadata": {},
+            "name": "min_salary",
+            "nullable": true,
+            "type": "decimal(20,4)"
+          },
+          {
+            "metadata": {},
+            "name": "med_salary",
+            "nullable": true,
+            "type": "decimal(20,4)"
+          },
+          {
+            "metadata": {},
+            "name": "max_salary",
+            "nullable": true,
+            "type": "decimal(20,4)"
+          },
+          {
+            "metadata": {},
+            "name": "currency",
+            "nullable": true,
+            "type": "string"
+          },
+          {
+            "metadata": {},
+            "name": "pay_period",
+            "nullable": true,
+            "type": "string"
+          },
+          {
+            "metadata": {},
+            "name": "compensation_type",
+            "nullable": true,
+            "type": "string"
+          }
+        ],
+        "type": "struct"
+      }
+    },
+    {
+      "metadata": {},
+      "name": "raw_postings_normalized_salary",
+      "nullable": true,
+      "type": "decimal(20,4)"
+    },
+    {
+      "metadata": {},
+      "name": "raw_salary_record",
+      "nullable": true,
+      "type": {
+        "fields": [
+          {
+            "metadata": {},
+            "name": "salary_id",
+            "nullable": true,
+            "type": "long"
+          },
+          {
+            "metadata": {},
+            "name": "max_salary",
+            "nullable": true,
+            "type": "decimal(20,4)"
+          },
+          {
+            "metadata": {},
+            "name": "med_salary",
+            "nullable": true,
+            "type": "decimal(20,4)"
+          },
+          {
+            "metadata": {},
+            "name": "min_salary",
+            "nullable": true,
+            "type": "decimal(20,4)"
+          },
+          {
+            "metadata": {},
+            "name": "pay_period",
+            "nullable": true,
+            "type": "string"
+          },
+          {
+            "metadata": {},
+            "name": "currency",
+            "nullable": true,
+            "type": "string"
+          },
+          {
+            "metadata": {},
+            "name": "compensation_type",
+            "nullable": true,
+            "type": "string"
+          }
+        ],
+        "type": "struct"
+      }
+    },
+    {
+      "metadata": {},
+      "name": "source_text_file",
+      "nullable": true,
+      "type": "string"
+    },
+    {
+      "metadata": {},
+      "name": "canonical_schema_version",
+      "nullable": true,
+      "type": "string"
+    },
+    {
+      "metadata": {},
+      "name": "postings_has_amount",
+      "nullable": true,
+      "type": "boolean"
+    },
+    {
+      "metadata": {},
+      "name": "salaries_has_amount",
+      "nullable": true,
+      "type": "boolean"
+    },
+    {
+      "metadata": {},
+      "name": "source_conflict",
+      "nullable": true,
+      "type": "boolean"
+    },
+    {
+      "metadata": {},
+      "name": "salary_source",
+      "nullable": true,
+      "type": "string"
+    },
+    {
+      "metadata": {},
+      "name": "selected_salary",
+      "nullable": true,
+      "type": {
+        "fields": [
+          {
+            "metadata": {},
+            "name": "min_salary",
+            "nullable": true,
+            "type": "decimal(20,4)"
+          },
+          {
+            "metadata": {},
+            "name": "med_salary",
+            "nullable": true,
+            "type": "decimal(20,4)"
+          },
+          {
+            "metadata": {},
+            "name": "max_salary",
+            "nullable": true,
+            "type": "decimal(20,4)"
+          },
+          {
+            "metadata": {},
+            "name": "currency",
+            "nullable": true,
+            "type": "string"
+          },
+          {
+            "metadata": {},
+            "name": "pay_period",
+            "nullable": true,
+            "type": "string"
+          },
+          {
+            "metadata": {},
+            "name": "compensation_type",
+            "nullable": true,
+            "type": "string"
+          }
+        ],
+        "type": "struct"
+      }
+    },
+    {
+      "metadata": {},
+      "name": "source_currency",
+      "nullable": true,
+      "type": "string"
+    },
+    {
+      "metadata": {},
+      "name": "canonical_currency",
+      "nullable": true,
+      "type": "string"
+    },
+    {
+      "metadata": {},
+      "name": "source_pay_period",
+      "nullable": true,
+      "type": "string"
+    },
+    {
+      "metadata": {},
+      "name": "canonical_pay_period",
+      "nullable": true,
+      "type": "string"
+    },
+    {
+      "metadata": {},
+      "name": "source_compensation_type",
+      "nullable": true,
+      "type": "string"
+    },
+    {
+      "metadata": {},
+      "name": "canonical_compensation_type",
+      "nullable": true,
+      "type": "string"
+    },
+    {
+      "metadata": {},
+      "name": "reason_codes",
+      "nullable": true,
+      "type": {
+        "containsNull": true,
+        "elementType": "string",
+        "type": "array"
+      }
+    },
+    {
+      "metadata": {},
+      "name": "normalization_status",
+      "nullable": true,
+      "type": "string"
+    },
+    {
+      "metadata": {},
+      "name": "conversion_factor",
+      "nullable": true,
+      "type": "decimal(10,0)"
+    },
+    {
+      "metadata": {},
+      "name": "normalized_currency",
+      "nullable": true,
+      "type": "string"
+    },
+    {
+      "metadata": {},
+      "name": "normalized_unit",
+      "nullable": true,
+      "type": "string"
+    },
+    {
+      "metadata": {},
+      "name": "normalized_min_salary",
+      "nullable": true,
+      "type": "decimal(38,4)"
+    },
+    {
+      "metadata": {},
+      "name": "normalized_med_salary",
+      "nullable": true,
+      "type": "decimal(38,4)"
+    },
+    {
+      "metadata": {},
+      "name": "normalized_max_salary",
+      "nullable": true,
+      "type": "decimal(38,4)"
+    },
+    {
+      "metadata": {},
+      "name": "conversion_policy_version",
+      "nullable": true,
+      "type": "string"
+    },
+    {
+      "metadata": {},
+      "name": "conversion_policy_sha256",
+      "nullable": true,
+      "type": "string"
+    },
+    {
+      "metadata": {},
+      "name": "population_scope",
+      "nullable": true,
+      "type": "string"
+    }
+  ],
+  "type": "struct"
+}

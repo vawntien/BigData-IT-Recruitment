@@ -1,0 +1,177 @@
+{
+  "denominator_all_jobs": 123849,
+  "postings": {
+    "coverage_and_ranges": {
+      "compensation_type_non_null": 36073,
+      "currency_non_null": 36073,
+      "max_salary_max": "120000000.0000",
+      "max_salary_min": "1.0000",
+      "max_salary_non_null": 29793,
+      "med_salary_max": "750000.0000",
+      "med_salary_min": "0.0000",
+      "med_salary_non_null": 6280,
+      "min_salary_max": "85000000.0000",
+      "min_salary_min": "1.0000",
+      "min_salary_non_null": 29793,
+      "pay_period_non_null": 36073
+    },
+    "distributions": {
+      "compensation_type": [
+        {
+          "compensation_type": null,
+          "count": 87776
+        },
+        {
+          "compensation_type": "BASE_SALARY",
+          "count": 36073
+        }
+      ],
+      "currency": [
+        {
+          "count": 87776,
+          "currency": null
+        },
+        {
+          "count": 36058,
+          "currency": "USD"
+        },
+        {
+          "count": 6,
+          "currency": "EUR"
+        },
+        {
+          "count": 3,
+          "currency": "CAD"
+        },
+        {
+          "count": 2,
+          "currency": "AUD"
+        },
+        {
+          "count": 2,
+          "currency": "BBD"
+        },
+        {
+          "count": 2,
+          "currency": "GBP"
+        }
+      ],
+      "pay_period": [
+        {
+          "count": 87776,
+          "pay_period": null
+        },
+        {
+          "count": 20628,
+          "pay_period": "YEARLY"
+        },
+        {
+          "count": 14741,
+          "pay_period": "HOURLY"
+        },
+        {
+          "count": 518,
+          "pay_period": "MONTHLY"
+        },
+        {
+          "count": 177,
+          "pay_period": "WEEKLY"
+        },
+        {
+          "count": 9,
+          "pay_period": "BIWEEKLY"
+        }
+      ]
+    }
+  },
+  "salaries": {
+    "coverage_and_ranges": {
+      "compensation_type_non_null": 36073,
+      "currency_non_null": 36073,
+      "max_salary_max": "120000000.0000",
+      "max_salary_min": "1.0000",
+      "max_salary_non_null": 29793,
+      "med_salary_max": "750000.0000",
+      "med_salary_min": "0.0000",
+      "med_salary_non_null": 6280,
+      "min_salary_max": "85000000.0000",
+      "min_salary_min": "1.0000",
+      "min_salary_non_null": 29793,
+      "pay_period_non_null": 36073
+    },
+    "distributions": {
+      "compensation_type": [
+        {
+          "compensation_type": null,
+          "count": 87776
+        },
+        {
+          "compensation_type": "BASE_SALARY",
+          "count": 36073
+        }
+      ],
+      "currency": [
+        {
+          "count": 87776,
+          "currency": null
+        },
+        {
+          "count": 36058,
+          "currency": "USD"
+        },
+        {
+          "count": 6,
+          "currency": "EUR"
+        },
+        {
+          "count": 3,
+          "currency": "CAD"
+        },
+        {
+          "count": 2,
+          "currency": "AUD"
+        },
+        {
+          "count": 2,
+          "currency": "BBD"
+        },
+        {
+          "count": 2,
+          "currency": "GBP"
+        }
+      ],
+      "pay_period": [
+        {
+          "count": 87776,
+          "pay_period": null
+        },
+        {
+          "count": 20628,
+          "pay_period": "YEARLY"
+        },
+        {
+          "count": 14741,
+          "pay_period": "HOURLY"
+        },
+        {
+          "count": 518,
+          "pay_period": "MONTHLY"
+        },
+        {
+          "count": 177,
+          "pay_period": "WEEKLY"
+        },
+        {
+          "count": 9,
+          "pay_period": "BIWEEKLY"
+        }
+      ]
+    }
+  },
+  "salary_record_rows": 36073,
+  "upstream_normalized_salary": {
+    "max": "535600000.0000",
+    "min": "0.0000",
+    "non_null": 36073
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "d06_full_executed": false,
+  "finished_utc": "2026-10-19T11:37:14.636974+00:00",
+  "manifest_sha256": "f5f15089d020c907209ef9dd80f223fef0ef580a80e3bae6ba33aded4c1e4c1f",
+  "official_it_salary_executed": false,
+  "output_fingerprint": "c43c79ea9113773ae6c5d66b64dc884775efd344888971ecf882c96803318bbd",
+  "output_inventory_sha256": "78ba8cb5366cc3307673f1a52f44e5155df19c6a5532686fb7207b9ef6e4c229",
+  "rows": 123849,
+  "run_id": "d07_20261019_01",
+  "scope": "ALL_JOBS_NORMALIZATION_STAGING_NOT_OFFICIAL_IT",
+  "status": "SUCCEEDED",
+  "total_seconds": 22.349439599958714,
+  "validation_sha256": "56facf23e813c2e11b75756b130dee6e09774da402ed4b016315d9ec59e75086",
+  "write_seconds": 3.4441215000115335
+}
