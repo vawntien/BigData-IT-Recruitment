@@ -1,0 +1,5 @@
+# Preserve exact bytes referenced by the D09 validation receipts only.
+/src/d09_validate_available.py -text
+/src/test_d09_validate_available.py -text
+/docs/d09_available_validation_report.md -text
+/data/audit/d09/d09_20261020_01/* -text

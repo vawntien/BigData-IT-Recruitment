@@ -1,0 +1,13 @@
+{
+  "verification_date_local": "2026-10-20",
+  "timezone": "Asia/Bangkok",
+  "method": "git ls-remote origin with four explicit branch refs; command exit code 0",
+  "status": "PASS",
+  "refs": {
+    "refs/heads/feat/tv1-d05-official": "457f90ae4c8074a468ec6ac8f410dd31bbbb4a6b",
+    "refs/heads/feat/tv1-d06-official-runner": "5fda1789b84494a856743c087d10fc511d013d93",
+    "refs/heads/feat/tv1-d07-salary": "479d3d83ff3194a5556ce29884c92478c90a969c",
+    "refs/heads/feat/tv1-d08-benchmark": "ff721bcf7988841a2b80e3f263f3ef8a69188278"
+  },
+  "note": "Supplementary remote observation for GIT_RELEASES, not four extra data checks. No fetch/push/commit/merge in D09."
+}

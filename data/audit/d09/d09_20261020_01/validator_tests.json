@@ -1,0 +1,11 @@
+{
+  "errors": 0,
+  "failures": 0,
+  "log": "test_all_four_states_are_counted (test_d09_validate_available.ValidationTests.test_all_four_states_are_counted) ... ok\ntest_archive_paths_no_traversal (test_d09_validate_available.ValidationTests.test_archive_paths_no_traversal) ... ok\ntest_failed_check_is_not_pass (test_d09_validate_available.ValidationTests.test_failed_check_is_not_pass) ... ok\ntest_measured_only_statistics (test_d09_validate_available.ValidationTests.test_measured_only_statistics) ... ok\ntest_missing_duplicate_repeat_rejected (test_d09_validate_available.ValidationTests.test_missing_duplicate_repeat_rejected) ... ok\ntest_nan_and_cross_config_result_rejected (test_d09_validate_available.ValidationTests.test_nan_and_cross_config_result_rejected) ... ok\ntest_wrong_median_and_speedup_rejected (test_d09_validate_available.ValidationTests.test_wrong_median_and_speedup_rejected) ... ok\n\n----------------------------------------------------------------------\nRan 7 tests in 0.002s\n\nOK\n",
+  "scope": "D09_VALIDATOR_SYNTHETIC_UNIT_TESTS_NOT_REAL_DATA_CHECK_COUNTS",
+  "skips": 0,
+  "source_sha256": "a02bf2120f5097366cec68bd1ee6892b8fb19ead06ba9d9d035d183833afcc91",
+  "status": "PASS",
+  "test_sha256": "d2a7c7279ca30f2d8b421c2e47f7e9445876a5d25599eb55d3c5894ded84aa99",
+  "tests": 7
+}

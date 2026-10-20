@@ -1,0 +1,18 @@
+{
+  "protected_before.json": {
+    "bytes": 30241,
+    "sha256": "a44cebf0b1859c823b52b35f87aaff76da17db319bc2bb09b903c81ca0f1fad0"
+  },
+  "validation_results.csv": {
+    "bytes": 67730,
+    "sha256": "840fb5ddc771a88fe55ccb9cd72bf9f3db5556ed9094345e528ad5b9a0a695a2"
+  },
+  "validation_results.json": {
+    "bytes": 88673,
+    "sha256": "aaf43dc5bb7d0bb3041fed690bad7e75939c8c8b2ba26d6eb5479ebfd909145a"
+  },
+  "validation_summary.json": {
+    "bytes": 2970,
+    "sha256": "12828b3d96946917e1d1c11947561d4d222703d61e0b2271cdbd608bb8eb4f85"
+  }
+}

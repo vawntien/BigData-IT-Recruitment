@@ -1,0 +1,65 @@
+{
+  "HEAD": "ff721bcf7988841a2b80e3f263f3ef8a69188278",
+  "artifacts": {
+    "data/audit/d09/d09_20261020_01/evidence_inventory.json": {
+      "bytes": 547,
+      "sha256": "700e8ceb6b8c0bc4031f8ee84cdca6d6dee566a64d13228d6a06aa3d56e10312"
+    },
+    "data/audit/d09/d09_20261020_01/protected_before.json": {
+      "bytes": 30241,
+      "sha256": "a44cebf0b1859c823b52b35f87aaff76da17db319bc2bb09b903c81ca0f1fad0"
+    },
+    "data/audit/d09/d09_20261020_01/release_refs.json": {
+      "bytes": 669,
+      "sha256": "8cd5266877474d1b8f84978003919cad2fe580d0fc38ee9f3ada9f65807880eb"
+    },
+    "data/audit/d09/d09_20261020_01/validation_results.csv": {
+      "bytes": 67730,
+      "sha256": "840fb5ddc771a88fe55ccb9cd72bf9f3db5556ed9094345e528ad5b9a0a695a2"
+    },
+    "data/audit/d09/d09_20261020_01/validation_results.json": {
+      "bytes": 88673,
+      "sha256": "aaf43dc5bb7d0bb3041fed690bad7e75939c8c8b2ba26d6eb5479ebfd909145a"
+    },
+    "data/audit/d09/d09_20261020_01/validation_summary.json": {
+      "bytes": 2970,
+      "sha256": "12828b3d96946917e1d1c11947561d4d222703d61e0b2271cdbd608bb8eb4f85"
+    },
+    "data/audit/d09/d09_20261020_01/validator_tests.json": {
+      "bytes": 1315,
+      "sha256": "ffd3f4862f4c6a3c199b3573db4d7c47e34711d34589eb6df9fce0e73db82ce4"
+    },
+    "docs/d09_available_validation_report.md": {
+      "bytes": 12861,
+      "sha256": "b90366f856ba1e4606f14e632d53b2ecd4515540685ae1a8624c04ed83128915"
+    },
+    "src/d09_validate_available.py": {
+      "bytes": 24909,
+      "sha256": "a02bf2120f5097366cec68bd1ee6892b8fb19ead06ba9d9d035d183833afcc91"
+    },
+    "src/test_d09_validate_available.py": {
+      "bytes": 3204,
+      "sha256": "d2a7c7279ca30f2d8b421c2e47f7e9445876a5d25599eb55d3c5894ded84aa99"
+    }
+  },
+  "branch": "feat/tv1-d09-validation",
+  "commits_created": 0,
+  "counts": {
+    "BLOCKED": 9,
+    "FAIL": 0,
+    "NOT APPLICABLE": 2,
+    "PASS": 22,
+    "TOTAL": 33
+  },
+  "d06_full": "NOT_EXECUTED",
+  "full_pipeline": "BLOCKED_D06_FULL",
+  "protected_files_unchanged": 184,
+  "pushes": 0,
+  "scope": "D09_FINAL_RECEIPT_NOT_BUSINESS_APPROVAL",
+  "self_hash_excluded": true,
+  "staged_files": 0,
+  "status": "PASS",
+  "tracked_changes": 0,
+  "validator_unit_tests": 7,
+  "verified_utc": "2026-10-20T06:14:37.089021+00:00"
+}
