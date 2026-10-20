@@ -1,0 +1,58 @@
+{
+  "cross_config_results_exact": true,
+  "d06_full_executed": false,
+  "every_observation_correct": true,
+  "measured_observations": 45,
+  "preflight_per_config": [
+    {
+      "duplicate_keys": 0,
+      "industry_groups": 421,
+      "industry_memberships": 158963,
+      "key_sets_equal": true,
+      "null_keys": 0,
+      "rows": 123849,
+      "statuses": {
+        "AMBIGUOUS": 0,
+        "EXCLUDED": 0,
+        "INVALID": 14,
+        "MISSING": 87776,
+        "USABLE": 36059
+      }
+    },
+    {
+      "duplicate_keys": 0,
+      "industry_groups": 421,
+      "industry_memberships": 158963,
+      "key_sets_equal": true,
+      "null_keys": 0,
+      "rows": 123849,
+      "statuses": {
+        "AMBIGUOUS": 0,
+        "EXCLUDED": 0,
+        "INVALID": 14,
+        "MISSING": 87776,
+        "USABLE": 36059
+      }
+    },
+    {
+      "duplicate_keys": 0,
+      "industry_groups": 421,
+      "industry_memberships": 158963,
+      "key_sets_equal": true,
+      "null_keys": 0,
+      "rows": 123849,
+      "statuses": {
+        "AMBIGUOUS": 0,
+        "EXCLUDED": 0,
+        "INVALID": 14,
+        "MISSING": 87776,
+        "USABLE": 36059
+      }
+    }
+  ],
+  "protected_inputs_and_baseline_code_unchanged": true,
+  "status": "PASS",
+  "task_metric_groups": 60,
+  "timings_materialized": true,
+  "warmup_observations": 15
+}

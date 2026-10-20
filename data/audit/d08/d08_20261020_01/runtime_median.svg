@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1100" height="480" viewBox="0 0 1100 480">
+<rect width="100%" height="100%" fill="white"/>
+<text x="30" y="28" font-size="21" font-family="sans-serif">D08: median wall-clock seconds (lower is better)</text>
+<text x="30" y="48" font-size="12" font-family="sans-serif">D05/D07 real data; median of3; Spark uncached; OS cache uncontrolled; single-machine local mode</text>
+<line x1="80" y1="385.0" x2="1070" y2="385.0" stroke="#ddd"/>
+<text x="8" y="389.0" font-size="12" font-family="sans-serif">0.00</text>
+<line x1="80" y1="325.0" x2="1070" y2="325.0" stroke="#ddd"/>
+<text x="8" y="329.0" font-size="12" font-family="sans-serif">0.19</text>
+<line x1="80" y1="265.0" x2="1070" y2="265.0" stroke="#ddd"/>
+<text x="8" y="269.0" font-size="12" font-family="sans-serif">0.37</text>
+<line x1="80" y1="205.0" x2="1070" y2="205.0" stroke="#ddd"/>
+<text x="8" y="209.0" font-size="12" font-family="sans-serif">0.56</text>
+<line x1="80" y1="145.00000000000003" x2="1070" y2="145.00000000000003" stroke="#ddd"/>
+<text x="8" y="149.00000000000003" font-size="12" font-family="sans-serif">0.75</text>
+<line x1="80" y1="85.0" x2="1070" y2="85.0" stroke="#ddd"/>
+<text x="8" y="89.0" font-size="12" font-family="sans-serif">0.93</text>
+<rect x="88" y="274.209480615771" width="40" height="110.790519384229" fill="#2563eb"/>
+<text x="88" y="267.209480615771" font-size="11" font-family="sans-serif">0.345</text>
+<rect x="136" y="311.5853267913443" width="40" height="73.41467320865567" fill="#ea580c"/>
+<text x="136" y="304.5853267913443" font-size="11" font-family="sans-serif">0.229</text>
+<rect x="184" y="308.7470430971405" width="40" height="76.25295690285954" fill="#0d9488"/>
+<text x="184" y="301.7470430971405" font-size="11" font-family="sans-serif">0.237</text>
+<text x="135" y="410" font-size="15" font-family="sans-serif">W1</text>
+<rect x="283" y="135.0" width="40" height="250.0" fill="#2563eb"/>
+<text x="283" y="128.0" font-size="11" font-family="sans-serif">0.779</text>
+<rect x="331" y="242.8597894021308" width="40" height="142.1402105978692" fill="#ea580c"/>
+<text x="331" y="235.8597894021308" font-size="11" font-family="sans-serif">0.443</text>
+<rect x="379" y="262.29739750666016" width="40" height="122.70260249333985" fill="#0d9488"/>
+<text x="379" y="255.29739750666016" font-size="11" font-family="sans-serif">0.382</text>
+<text x="330" y="410" font-size="15" font-family="sans-serif">W2</text>
+<rect x="478" y="186.15865784264057" width="40" height="198.84134215735943" fill="#2563eb"/>
+<text x="478" y="179.15865784264057" font-size="11" font-family="sans-serif">0.619</text>
+<rect x="526" y="235.9432730949481" width="40" height="149.0567269050519" fill="#ea580c"/>
+<text x="526" y="228.9432730949481" font-size="11" font-family="sans-serif">0.464</text>
+<rect x="574" y="250.61895074929254" width="40" height="134.38104925070746" fill="#0d9488"/>
+<text x="574" y="243.61895074929254" font-size="11" font-family="sans-serif">0.418</text>
+<text x="525" y="410" font-size="15" font-family="sans-serif">W3</text>
+<rect x="673" y="225.80016023742874" width="40" height="159.19983976257126" fill="#2563eb"/>
+<text x="673" y="218.80016023742874" font-size="11" font-family="sans-serif">0.496</text>
+<rect x="721" y="276.6055378024746" width="40" height="108.39446219752539" fill="#ea580c"/>
+<text x="721" y="269.6055378024746" font-size="11" font-family="sans-serif">0.338</text>
+<rect x="769" y="245.87111684475755" width="40" height="139.12888315524245" fill="#0d9488"/>
+<text x="769" y="238.87111684475755" font-size="11" font-family="sans-serif">0.433</text>
+<text x="720" y="410" font-size="15" font-family="sans-serif">W4</text>
+<rect x="868" y="175.00261763165466" width="40" height="209.99738236834534" fill="#2563eb"/>
+<text x="868" y="168.00261763165466" font-size="11" font-family="sans-serif">0.654</text>
+<rect x="916" y="246.2444341090465" width="40" height="138.7555658909535" fill="#ea580c"/>
+<text x="916" y="239.2444341090465" font-size="11" font-family="sans-serif">0.432</text>
+<rect x="964" y="255.9715226997523" width="40" height="129.0284773002477" fill="#0d9488"/>
+<text x="964" y="248.9715226997523" font-size="11" font-family="sans-serif">0.402</text>
+<text x="915" y="410" font-size="15" font-family="sans-serif">W5</text>
+<rect x="220" y="440" width="20" height="15" fill="#2563eb"/>
+<text x="248" y="453" font-size="14" font-family="sans-serif">local[1]</text>
+<rect x="450" y="440" width="20" height="15" fill="#ea580c"/>
+<text x="478" y="453" font-size="14" font-family="sans-serif">local[2]</text>
+<rect x="680" y="440" width="20" height="15" fill="#0d9488"/>
+<text x="708" y="453" font-size="14" font-family="sans-serif">local[4]</text>
+</svg>

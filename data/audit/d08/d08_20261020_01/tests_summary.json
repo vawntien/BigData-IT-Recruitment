@@ -1,0 +1,13 @@
+{
+  "status": "PASS",
+  "tests": 11,
+  "failures": 0,
+  "errors": 0,
+  "skips": 0,
+  "seconds": 146.14561289997073,
+  "source_sha256": "55da8a2166659d319067868e84fc366d50732c56f514c51ca9746818ce809b3e",
+  "tests_sha256": "1d9dfa26c22a56a12ed1d9d382bdcba7a10ce385054fcc9f64575dd9bc4e4716",
+  "evidence": "tmp/d08_tests/suite_1140f96aa2/summary.json",
+  "scope": "SYNTHETIC_UNIT_INTEGRATION_NOT_OFFICIAL_BENCHMARK",
+  "official_benchmark_uses_only_real_d05_d07": true
+}

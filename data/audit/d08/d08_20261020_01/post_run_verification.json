@@ -1,0 +1,44 @@
+{
+  "artifacts": {
+    "benchmark_manifest.json": {
+      "bytes": 79986,
+      "sha256": "70a65da509a4b7a6290e1b254852a6cd2ce94bc1a1e09b06fc5f47faeba1dede"
+    },
+    "benchmark_results.csv": {
+      "bytes": 20768,
+      "sha256": "dd0dc295771e929925d9d498de58635fcb5176935df57bb3758e39ba367c8494"
+    },
+    "benchmark_summary.csv": {
+      "bytes": 1365,
+      "sha256": "32c97a4ddb7b722ac744f91913853fae711b5c2d708258afe9d98d2aa8e50c11"
+    },
+    "benchmark_validation.json": {
+      "bytes": 1326,
+      "sha256": "06159119b9847029ca521bc16ca284e9043e209d714dccb729b8c1a5d9145752"
+    },
+    "runtime_median.svg": {
+      "bytes": 4790,
+      "sha256": "c8f54f08214d2ef4e07b8534fa9cf9c83665ffa72e724927bb8ee669f3aa07da"
+    },
+    "speedup.svg": {
+      "bytes": 4800,
+      "sha256": "772eb09abac8fdd712bdb016251b7938cebf89cf59f8a01a05b8e03f5c47ce1e"
+    },
+    "tests_summary.json": {
+      "bytes": 468,
+      "sha256": "5d91bbecaca712a41d63d6e3bbffb229e03d32e3216ec822f661c5f02da82f90"
+    }
+  },
+  "csv_observations": 60,
+  "d06_full_executed": false,
+  "event_logs_and_metrics_reparsed": "PASS",
+  "measured": 45,
+  "metric_groups": 60,
+  "protected_files_unchanged": 172,
+  "source_and_tests_hash_match": true,
+  "statistics_recomputed": "PASS",
+  "status": "PASS",
+  "summary_rows": 15,
+  "svg_xml_and_bar_counts": "PASS",
+  "warmups": 15
+}
