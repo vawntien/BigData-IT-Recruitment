@@ -57,3 +57,27 @@ derby.log
 *.log
 tmp/
 temp/
+
+# Private TV1 handoff datasets and archives
+/data/handoff/
+
+# Local archives, columnar datasets and private review workbooks
+*.zip
+*.parquet
+*.parquet/
+/docs/a04_remaining93_chot.xlsx
+/docs/a04_review_decisions_chot.xlsx
+/TV2_A05_A11_next/
+/data/audit/*_before.json
+
+# Credentials and local tool caches
+.env
+.env.*
+!.env.example
+.aws/
+.codex/
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+*.pem
+*.key

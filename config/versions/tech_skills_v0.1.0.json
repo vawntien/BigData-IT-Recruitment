@@ -1,0 +1,868 @@
+{
+  "dictionary_id": "a05_technical_skills",
+  "version": "0.1.0",
+  "schema_version": 1,
+  "status": "development_candidate_not_independently_evaluated",
+  "source_fields": [
+    "postings.description"
+  ],
+  "source_function_labels_policy": "Keep jobs/job_skills function labels separate; never convert them to technology skills.",
+  "normalization": {
+    "unicode_form": "NFC",
+    "case": "lower",
+    "strip_diacritics": false,
+    "whitespace": "collapse",
+    "preserve_punctuation": true,
+    "missing_tokens": [
+      "",
+      "null",
+      "n/a",
+      "na"
+    ]
+  },
+  "matching": {
+    "boundary": "unicode_word_plus_hash",
+    "overlap": "longest_alias_first_no_implied_parent_skill",
+    "context_radius_codepoints": 100,
+    "technology_list_separator_regex": "^\\s*(?:[,/&|+]\\s*|(?:and|or|và|hoặc)\\s*)+$"
+  },
+  "parser": {
+    "decode_entities": true,
+    "block_tags": [
+      "p",
+      "div",
+      "br",
+      "li",
+      "ul",
+      "ol",
+      "h1",
+      "h2",
+      "h3",
+      "h4",
+      "h5",
+      "h6",
+      "section",
+      "article",
+      "table",
+      "tr",
+      "td",
+      "th"
+    ],
+    "remove_content_tags": [
+      "script",
+      "style"
+    ],
+    "protected_regexes": [
+      "(?:https?://|www\\.)[^\\s<>]+",
+      "(?<!\\w)\\.net\\b",
+      "\\bnode\\.js\\b",
+      "\\basp\\.net\\b",
+      "\\breact\\.js\\b",
+      "\\bangular\\.js\\b",
+      "\\bv?\\d+(?:\\.\\d+)+\\b",
+      "\\b(?:e\\.g\\.|i\\.e\\.|U\\.S\\.|U\\.K\\.|Ph\\.D\\.|B\\.S\\.|M\\.S\\.|Inc\\.|Ltd\\.|etc\\.)"
+    ],
+    "sentence_boundary_regex": "[.!?;](?=\\s|$|[A-Z])",
+    "structural_regex": "\\r\\n|[\\r\\n\\u2028\\u2029]|[•·●▪◦‣⁃]|(?m:^[ \\t]*(?:[-*]|\\d+[.)])(?=[ \\t]))",
+    "adversative_regex": "\\b(?:but|however|yet|nevertheless)\\b",
+    "long_description_policy": "retain_all_units_no_500_character_cutoff"
+  },
+  "sections": {
+    "REQUIREMENTS": [
+      "qualifications",
+      "required qualifications",
+      "basic qualifications",
+      "minimum qualifications",
+      "requirements",
+      "required skills",
+      "required skills & experience",
+      "skills",
+      "skills and qualifications",
+      "skills and experience",
+      "qualifications and education requirements",
+      "education and experience",
+      "technical skills",
+      "yêu cầu",
+      "yêu cầu ứng viên"
+    ],
+    "PREFERRED": [
+      "preferred qualifications",
+      "preferred skills",
+      "preferred experience",
+      "desired qualifications",
+      "desired skills",
+      "desired skills & experience",
+      "nice to have",
+      "bonus points",
+      "ưu tiên"
+    ],
+    "TASK": [
+      "responsibilities",
+      "key responsibilities",
+      "job responsibilities",
+      "essential duties and responsibilities",
+      "job duties and responsibilities",
+      "essential functions",
+      "duties",
+      "job duties",
+      "what you will do",
+      "what you'll do",
+      "what you’ll do",
+      "your responsibilities",
+      "daily responsibilities",
+      "nhiệm vụ",
+      "trách nhiệm"
+    ],
+    "ROLE": [
+      "role description",
+      "job description",
+      "position summary",
+      "role overview",
+      "about the role",
+      "the role",
+      "position overview"
+    ],
+    "COMPANY": [
+      "about us",
+      "about the company",
+      "company overview",
+      "company description",
+      "who we are",
+      "our company",
+      "the company"
+    ],
+    "BENEFITS": [
+      "benefits",
+      "what we offer",
+      "what we have to offer",
+      "description of benefits",
+      "compensation & benefits details",
+      "perks",
+      "our benefits",
+      "compensation",
+      "salary",
+      "pay range"
+    ],
+    "EEO": [
+      "equal opportunity",
+      "equal opportunity employer",
+      "eeo",
+      "diversity and inclusion"
+    ]
+  },
+  "position_cue_regex": "\\b(?:you will|you'll|this (?:role|position)|the (?:role|position|candidate)|successful candidate|we (?:are (?:seeking|hiring)|are looking for|need you)|must have)\\b",
+  "company_cue_regex": "\\b(?:our (?:company|customers|clients|platform|team)|the company|company overview|we are (?:a|an|the|one)|we (?:use|provide|deliver|serve|offer))\\b",
+  "requirement_regex": "\\b(?:required|requirements?|must|experience|knowledge|proficien(?:cy|t)|familiar(?:ity)?|expertise|qualification|skilled|skills|ability|competenc(?:e|y)|background)\\b|\\b(?:yêu cầu|kinh nghiệm|thành thạo|hiểu biết)\\b",
+  "preferred_regex": "\\b(?:preferred|desired|nice to have|bonus|a plus|advantage|ideally|optional)\\b|\\bưu tiên\\b",
+  "task_regex": "\\b(?:develop|developing|build|building|implement|implementing|maintain|maintaining|configure|configuring|deploy|deploying|write|writing|code|coding|design|designing|use|using|work with|migrate|migration|manage|managing|administer|monitor|support|supporting|analyze|analysing|analyzing)\\b",
+  "accepted_mention_types": [
+    "REQUIRED",
+    "PREFERRED",
+    "TASK"
+  ],
+  "skills": [
+    {
+      "code": "PYTHON",
+      "name": "Python",
+      "group": "LANGUAGE",
+      "aliases": [
+        {
+          "text": "Python"
+        }
+      ]
+    },
+    {
+      "code": "JAVA",
+      "name": "Java",
+      "group": "LANGUAGE",
+      "aliases": [
+        {
+          "text": "Java"
+        }
+      ]
+    },
+    {
+      "code": "JAVASCRIPT",
+      "name": "JavaScript",
+      "group": "LANGUAGE",
+      "aliases": [
+        {
+          "text": "JavaScript"
+        },
+        {
+          "text": "Java Script"
+        }
+      ]
+    },
+    {
+      "code": "TYPESCRIPT",
+      "name": "TypeScript",
+      "group": "LANGUAGE",
+      "aliases": [
+        {
+          "text": "TypeScript"
+        }
+      ]
+    },
+    {
+      "code": "C",
+      "name": "C",
+      "group": "LANGUAGE",
+      "aliases": [
+        {
+          "text": "C",
+          "context": "C_LANGUAGE"
+        }
+      ]
+    },
+    {
+      "code": "CPP",
+      "name": "C++",
+      "group": "LANGUAGE",
+      "aliases": [
+        {
+          "text": "C++"
+        }
+      ]
+    },
+    {
+      "code": "CSHARP",
+      "name": "C#",
+      "group": "LANGUAGE",
+      "aliases": [
+        {
+          "text": "C#"
+        },
+        {
+          "text": "C Sharp"
+        },
+        {
+          "text": "CSharp"
+        }
+      ]
+    },
+    {
+      "code": "GO",
+      "name": "Go",
+      "group": "LANGUAGE",
+      "aliases": [
+        {
+          "text": "Golang"
+        },
+        {
+          "text": "Go",
+          "context": "GO_LANGUAGE"
+        }
+      ]
+    },
+    {
+      "code": "R",
+      "name": "R",
+      "group": "LANGUAGE",
+      "aliases": [
+        {
+          "text": "R",
+          "context": "R_LANGUAGE"
+        }
+      ]
+    },
+    {
+      "code": "RUBY",
+      "name": "Ruby",
+      "group": "LANGUAGE",
+      "aliases": [
+        {
+          "text": "Ruby"
+        }
+      ]
+    },
+    {
+      "code": "PHP",
+      "name": "PHP",
+      "group": "LANGUAGE",
+      "aliases": [
+        {
+          "text": "PHP"
+        }
+      ]
+    },
+    {
+      "code": "SCALA",
+      "name": "Scala",
+      "group": "LANGUAGE",
+      "aliases": [
+        {
+          "text": "Scala"
+        }
+      ]
+    },
+    {
+      "code": "SWIFT",
+      "name": "Swift",
+      "group": "LANGUAGE",
+      "aliases": [
+        {
+          "text": "Swift",
+          "context": "SWIFT_LANGUAGE"
+        }
+      ]
+    },
+    {
+      "code": "KOTLIN",
+      "name": "Kotlin",
+      "group": "LANGUAGE",
+      "aliases": [
+        {
+          "text": "Kotlin"
+        }
+      ]
+    },
+    {
+      "code": "SQL",
+      "name": "SQL",
+      "group": "DATABASE",
+      "aliases": [
+        {
+          "text": "SQL"
+        }
+      ]
+    },
+    {
+      "code": "SQL_SERVER",
+      "name": "Microsoft SQL Server",
+      "group": "DATABASE",
+      "aliases": [
+        {
+          "text": "Microsoft SQL Server"
+        },
+        {
+          "text": "SQL Server"
+        },
+        {
+          "text": "MSSQL"
+        },
+        {
+          "text": "MS SQL"
+        }
+      ]
+    },
+    {
+      "code": "POSTGRESQL",
+      "name": "PostgreSQL",
+      "group": "DATABASE",
+      "aliases": [
+        {
+          "text": "PostgreSQL"
+        },
+        {
+          "text": "Postgres"
+        }
+      ]
+    },
+    {
+      "code": "MYSQL",
+      "name": "MySQL",
+      "group": "DATABASE",
+      "aliases": [
+        {
+          "text": "MySQL"
+        }
+      ]
+    },
+    {
+      "code": "ORACLE_DB",
+      "name": "Oracle Database",
+      "group": "DATABASE",
+      "aliases": [
+        {
+          "text": "Oracle Database"
+        },
+        {
+          "text": "Oracle",
+          "context": "DATABASE"
+        }
+      ]
+    },
+    {
+      "code": "MONGODB",
+      "name": "MongoDB",
+      "group": "DATABASE",
+      "aliases": [
+        {
+          "text": "MongoDB"
+        },
+        {
+          "text": "Mongo DB"
+        }
+      ]
+    },
+    {
+      "code": "DOTNET",
+      "name": ".NET",
+      "group": "FRAMEWORK_RUNTIME",
+      "aliases": [
+        {
+          "text": ".NET Core"
+        },
+        {
+          "text": ".NET"
+        },
+        {
+          "text": "DotNet"
+        },
+        {
+          "text": "Dot Net"
+        }
+      ]
+    },
+    {
+      "code": "NODEJS",
+      "name": "Node.js",
+      "group": "FRAMEWORK_RUNTIME",
+      "aliases": [
+        {
+          "text": "Node.js"
+        },
+        {
+          "text": "NodeJS"
+        },
+        {
+          "text": "Node JS"
+        }
+      ]
+    },
+    {
+      "code": "REACT",
+      "name": "React",
+      "group": "FRAMEWORK_RUNTIME",
+      "aliases": [
+        {
+          "text": "React.js"
+        },
+        {
+          "text": "ReactJS"
+        },
+        {
+          "text": "React",
+          "context": "REACT_FRAMEWORK"
+        }
+      ]
+    },
+    {
+      "code": "ANGULAR",
+      "name": "Angular",
+      "group": "FRAMEWORK_RUNTIME",
+      "aliases": [
+        {
+          "text": "AngularJS"
+        },
+        {
+          "text": "Angular.js"
+        },
+        {
+          "text": "Angular",
+          "context": "ANGULAR_FRAMEWORK"
+        }
+      ]
+    },
+    {
+      "code": "DJANGO",
+      "name": "Django",
+      "group": "FRAMEWORK_RUNTIME",
+      "aliases": [
+        {
+          "text": "Django"
+        }
+      ]
+    },
+    {
+      "code": "SPRING",
+      "name": "Spring",
+      "group": "FRAMEWORK_RUNTIME",
+      "aliases": [
+        {
+          "text": "Spring Boot"
+        },
+        {
+          "text": "Spring Framework"
+        },
+        {
+          "text": "Spring",
+          "context": "SPRING_FRAMEWORK"
+        }
+      ]
+    },
+    {
+      "code": "ASPNET",
+      "name": "ASP.NET",
+      "group": "FRAMEWORK_RUNTIME",
+      "aliases": [
+        {
+          "text": "ASP.NET Core"
+        },
+        {
+          "text": "ASP.NET"
+        },
+        {
+          "text": "ASP Net"
+        }
+      ]
+    },
+    {
+      "code": "AWS",
+      "name": "Amazon Web Services",
+      "group": "CLOUD",
+      "aliases": [
+        {
+          "text": "Amazon Web Services"
+        },
+        {
+          "text": "AWS"
+        }
+      ]
+    },
+    {
+      "code": "AZURE",
+      "name": "Microsoft Azure",
+      "group": "CLOUD",
+      "aliases": [
+        {
+          "text": "Microsoft Azure"
+        },
+        {
+          "text": "Azure"
+        }
+      ]
+    },
+    {
+      "code": "GCP",
+      "name": "Google Cloud",
+      "group": "CLOUD",
+      "aliases": [
+        {
+          "text": "Google Cloud Platform"
+        },
+        {
+          "text": "Google Cloud"
+        },
+        {
+          "text": "GCP"
+        }
+      ]
+    },
+    {
+      "code": "DOCKER",
+      "name": "Docker",
+      "group": "DEVOPS",
+      "aliases": [
+        {
+          "text": "Docker"
+        }
+      ]
+    },
+    {
+      "code": "KUBERNETES",
+      "name": "Kubernetes",
+      "group": "DEVOPS",
+      "aliases": [
+        {
+          "text": "Kubernetes"
+        },
+        {
+          "text": "K8s"
+        }
+      ]
+    },
+    {
+      "code": "TERRAFORM",
+      "name": "Terraform",
+      "group": "DEVOPS",
+      "aliases": [
+        {
+          "text": "Terraform"
+        }
+      ]
+    },
+    {
+      "code": "JENKINS",
+      "name": "Jenkins",
+      "group": "DEVOPS",
+      "aliases": [
+        {
+          "text": "Jenkins"
+        }
+      ]
+    },
+    {
+      "code": "GIT",
+      "name": "Git",
+      "group": "DEVOPS",
+      "aliases": [
+        {
+          "text": "Git"
+        }
+      ]
+    },
+    {
+      "code": "GITHUB",
+      "name": "GitHub",
+      "group": "DEVOPS",
+      "aliases": [
+        {
+          "text": "GitHub"
+        }
+      ]
+    },
+    {
+      "code": "GITLAB",
+      "name": "GitLab",
+      "group": "DEVOPS",
+      "aliases": [
+        {
+          "text": "GitLab"
+        }
+      ]
+    },
+    {
+      "code": "LINUX",
+      "name": "Linux",
+      "group": "DEVOPS",
+      "aliases": [
+        {
+          "text": "Linux"
+        }
+      ]
+    },
+    {
+      "code": "POWERSHELL",
+      "name": "PowerShell",
+      "group": "DEVOPS",
+      "aliases": [
+        {
+          "text": "PowerShell"
+        },
+        {
+          "text": "Power Shell"
+        }
+      ]
+    },
+    {
+      "code": "SPARK",
+      "name": "Apache Spark",
+      "group": "DATA_TOOL",
+      "aliases": [
+        {
+          "text": "Apache Spark"
+        },
+        {
+          "text": "PySpark"
+        },
+        {
+          "text": "Spark",
+          "context": "SPARK_ENGINE"
+        }
+      ]
+    },
+    {
+      "code": "HADOOP",
+      "name": "Apache Hadoop",
+      "group": "DATA_TOOL",
+      "aliases": [
+        {
+          "text": "Apache Hadoop"
+        },
+        {
+          "text": "Hadoop"
+        }
+      ]
+    },
+    {
+      "code": "KAFKA",
+      "name": "Apache Kafka",
+      "group": "DATA_TOOL",
+      "aliases": [
+        {
+          "text": "Apache Kafka"
+        },
+        {
+          "text": "Kafka"
+        }
+      ]
+    },
+    {
+      "code": "SNOWFLAKE",
+      "name": "Snowflake",
+      "group": "DATA_TOOL",
+      "aliases": [
+        {
+          "text": "Snowflake"
+        }
+      ]
+    },
+    {
+      "code": "DATABRICKS",
+      "name": "Databricks",
+      "group": "DATA_TOOL",
+      "aliases": [
+        {
+          "text": "Databricks"
+        }
+      ]
+    },
+    {
+      "code": "TABLEAU",
+      "name": "Tableau",
+      "group": "DATA_TOOL",
+      "aliases": [
+        {
+          "text": "Tableau"
+        }
+      ]
+    },
+    {
+      "code": "POWER_BI",
+      "name": "Microsoft Power BI",
+      "group": "DATA_TOOL",
+      "aliases": [
+        {
+          "text": "Microsoft Power BI"
+        },
+        {
+          "text": "Power BI"
+        },
+        {
+          "text": "PowerBI"
+        }
+      ]
+    }
+  ],
+  "contexts": {
+    "C_LANGUAGE": {
+      "patterns": [
+        "\\bc\\s+(?:programming|language|code|compiler)\\b",
+        "\\b(?:programming|coding|written|write|code|languages?)\\s+(?:(?:in|using|with)\\s+)?c\\b",
+        "\\b(?:embedded|ansi|iso)\\s+c\\b"
+      ],
+      "excluded_patterns": [
+        "\\bc[- ](?:suite|level)\\b",
+        "\\b(?:vitamin|grade|plan|schedule|appendix|category)\\s+c\\b",
+        "\\bobjective[- ]c\\b"
+      ],
+      "allow_technology_list": true
+    },
+    "GO_LANGUAGE": {
+      "patterns": [
+        "\\bgo\\s+(?:programming|language|code|compiler)\\b",
+        "\\b(?:programming|coding|written|languages?)\\s+(?:(?:in|using|with)\\s+)?go\\b"
+      ],
+      "excluded_patterns": [
+        "\\bgo\\s+(?:to|beyond|ahead|live|the|home)\\b",
+        "\\bon the go\\b"
+      ],
+      "allow_technology_list": true
+    },
+    "R_LANGUAGE": {
+      "patterns": [
+        "\\br\\s+(?:programming|language|code|scripts?)\\b",
+        "\\b(?:programming|coding|written|languages?|statistical analysis)\\s+(?:(?:in|using|with)\\s+)?r\\b"
+      ],
+      "nearby_terms": [
+        "rstudio",
+        "ggplot",
+        "tidyverse",
+        "statistical computing"
+      ],
+      "excluded_patterns": [
+        "\\br\\s*&\\s*d\\b",
+        "\\b(?:grade|rating|category)\\s+r\\b"
+      ],
+      "allow_technology_list": true
+    },
+    "SWIFT_LANGUAGE": {
+      "patterns": [
+        "\\bswift\\s+(?:programming|language|code)\\b"
+      ],
+      "nearby_terms": [
+        "ios",
+        "apple",
+        "xcode",
+        "swiftui",
+        "objective-c"
+      ],
+      "allow_technology_list": true
+    },
+    "DATABASE": {
+      "nearby_terms": [
+        "database",
+        "databases",
+        "sql",
+        "pl/sql",
+        "rdbms",
+        "jdbc",
+        "queries",
+        "query"
+      ],
+      "allow_technology_list": true
+    },
+    "REACT_FRAMEWORK": {
+      "nearby_terms": [
+        "javascript",
+        "typescript",
+        "frontend",
+        "front-end",
+        "framework",
+        "components",
+        "react native"
+      ],
+      "excluded_patterns": [
+        "\\breact\\s+(?:to|quickly|appropriately|positively|negatively)\\b"
+      ],
+      "allow_technology_list": true
+    },
+    "ANGULAR_FRAMEWORK": {
+      "nearby_terms": [
+        "javascript",
+        "typescript",
+        "frontend",
+        "front-end",
+        "framework",
+        "components"
+      ],
+      "excluded_patterns": [
+        "\\bangular\\s+(?:velocity|momentum|measurement)\\b"
+      ],
+      "allow_technology_list": true
+    },
+    "SPRING_FRAMEWORK": {
+      "nearby_terms": [
+        "java",
+        "framework",
+        "boot",
+        "dependency injection",
+        "microservices"
+      ],
+      "excluded_patterns": [
+        "\\bspring\\s+(?:season|semester|break|20\\d\\d)\\b",
+        "\\bin (?:the )?spring\\b"
+      ],
+      "allow_technology_list": true
+    },
+    "SPARK_ENGINE": {
+      "nearby_terms": [
+        "apache",
+        "pyspark",
+        "dataframe",
+        "dataframes",
+        "distributed computing",
+        "hadoop",
+        "scala",
+        "etl",
+        "big data"
+      ],
+      "excluded_patterns": [
+        "\\bspark\\s+(?:plug|joy|interest|conversation|innovation)\\b"
+      ],
+      "allow_technology_list": true
+    }
+  }
+}

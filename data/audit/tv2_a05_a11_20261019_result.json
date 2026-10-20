@@ -1,0 +1,60 @@
+{
+  "date": "2026-10-19",
+  "status": "BLOCKED_DEPENDENCY",
+  "candidate_preparation": "COMPLETE_FOR_AVAILABLE_INPUTS_NOT_OFFICIAL_ACCEPTANCE",
+  "branch": "feat/tv2-analysis",
+  "head": "e437dcc11dda61f847673b9cc8c5801886c1996d",
+  "protected_files_checked": 153,
+  "preserved_existing_file_bytes_hashes_and_mtimes": true,
+  "preserved_initial_gitattributes_change": true,
+  "raw_workbooks_evidence_and_A01_A04_unchanged": true,
+  "dictionary_version": "0.1.2",
+  "skill_decisions_applied": false,
+  "skill_workbook_status": {
+    "status": "NOT_FOUND",
+    "reviewer_empty_verified": false,
+    "approval_date_empty_verified": false,
+    "expected_role": "QUYET_DINH_DE_NGHI",
+    "decisions_applied": false,
+    "note": "Cannot verify blank reviewer/date without the actual workbook; package README alone is not evidence of approval."
+  },
+  "tests": {
+    "total": 57,
+    "passed": 50,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 7,
+    "skip_reasons": [
+      "SKIP: no TV1-confirmed D06 contract/runtime; never substitute 105 development jobs",
+      "SKIP: PySpark absent; Java 21 / Spark runtime required",
+      "SKIP: PySpark absent; Java 21 / Spark runtime required",
+      "SKIP: PySpark absent; Java 21 / Spark runtime required",
+      "SKIP: PySpark absent; Java 21 / Spark runtime required",
+      "SKIP: PySpark absent; Java 21 / Spark runtime required",
+      "SKIP: PySpark absent; Java 21 / Spark runtime required"
+    ],
+    "spark_parity": "SKIP",
+    "real_d06": "SKIP"
+  },
+  "slides": 10,
+  "speaker_notes": 10,
+  "method_diagrams": 5,
+  "market_results_published": false,
+  "spark_parity": "SKIP_NO_RUNTIME",
+  "official_d06_real_test": "SKIP_NO_CONFIRMED_INPUT",
+  "parquet_outputs_created": 0,
+  "taxonomy_executed": false,
+  "etl_executed": false,
+  "generated_files_ignored": 12,
+  "delivery_manifest_sha256": "69dcf4a8946e64adf6c6c07e65e155efcb53346fb11b766ad04bd94be79b841b",
+  "new_source_files": {
+    "src/a06_a08_spark_analysis.py": "9980d03efd3cb8b871f1e71e51ae9677dc956d0fdc7d99e49f9f1af62d720913",
+    "src/render_tv2_analysis.py": "6f29b4426ce34c5d06ff7a3ab26f693e1670485ab10ebcba21a013ae065e02f7",
+    "src/prepare_tv2_a05_a11.py": "f08b53ba1dbfcdda0e90061b63a63d20909efdeaaafbb7a781f422d477659c07",
+    "src/test_a05_a11_integration.py": "3549b5a19e28971b0882f5ece54511b59804c3ba843d680e7dda2acfaef550cd",
+    "config/tv2_analysis_inputs.example.json": "0968ab16640d0e21db73cc1c348b9a4b7fdd4927a39979a419c4f420f5cc0996",
+    "docs/tv2_a05_a11_status_20261019.md": "71206879f2653529aa578e17c20746efd05b41dc860c470adcde2dd39ff67b0f"
+  },
+  "assignment_workbook_unchanged": true,
+  "no_commit_push_merge": true
+}

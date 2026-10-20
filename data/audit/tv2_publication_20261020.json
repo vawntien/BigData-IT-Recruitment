@@ -1,0 +1,641 @@
+{
+  "date": "2026-10-20",
+  "branch": "feat/tv2-analysis",
+  "remote": "origin",
+  "base_commit": "e437dcc11dda61f847673b9cc8c5801886c1996d",
+  "scope": "SOURCE_CONFIG_TESTS_DOCS_SMALL_AUDITS_ONLY",
+  "file_count": 63,
+  "files": [
+    ".gitattributes",
+    ".gitignore",
+    "config/a05_release_v0.1.2.json",
+    "config/d06_handoff_contract.example.json",
+    "config/q07_salary_contract_v2.json",
+    "config/tech_skills.json",
+    "config/tv2_analysis_inputs.example.json",
+    "config/tv2_analysis_output_schema.json",
+    "config/versions/tech_skills_v0.1.0.json",
+    "config/versions/tech_skills_v0.1.1.json",
+    "config/versions/tech_skills_v0.1.2.json",
+    "data/audit/tv2_a04_lineage_for_a05_20261019.json",
+    "data/audit/tv2_a05_a11_20261019_result.json",
+    "data/audit/tv2_a05_a11_followup01_result.json",
+    "data/audit/tv2_a05_spark_parity_20261019.json",
+    "data/audit/tv2_a05_validation_20261014.json",
+    "data/audit/tv2_d05_d07_integration_20261020.json",
+    "data/audit/tv2_d05_final_457f90ae.json",
+    "data/audit/tv2_d05_receipt_457f90ae.json",
+    "data/audit/tv2_d05_receipt_preservation_457f90ae.json",
+    "data/audit/tv2_q07_contract_v2_20261020.json",
+    "data/audit/tv2_readiness_acceptance_20261019.json",
+    "docs/a05_dashboard_v03_tv2_review.md",
+    "docs/a05_evidence_recommendations_20261019.md",
+    "docs/a05_official_readiness_20261019.md",
+    "docs/a05_skill_extraction.md",
+    "docs/a05_spark_parity_20261019.md",
+    "docs/d06_full_receiving_checklist_tv2.md",
+    "docs/tv2_a05_a11_followup01.md",
+    "docs/tv2_a05_a11_status_20261019.md",
+    "docs/tv2_current_handoff.md",
+    "docs/tv2_d05_d07_integration_20261020.md",
+    "docs/tv2_d05_receipt_457f90ae.md",
+    "docs/tv2_q01_q08_publication_plan.md",
+    "docs/tv2_readiness_acceptance_20261019.md",
+    "src/a05_recommendation_candidate.py",
+    "src/a05_spark.py",
+    "src/a06_a08_spark_analysis.py",
+    "src/audit_a05_review.py",
+    "src/build_a05_recommendations.py",
+    "src/d05_job_functions_adapter.py",
+    "src/d06_handoff_validation.py",
+    "src/prepare_a05.py",
+    "src/prepare_a05_acceptance.py",
+    "src/prepare_a05_final_workbook.py",
+    "src/prepare_tv2_a05_a11.py",
+    "src/q07_salary.py",
+    "src/receive_d06_handoff.py",
+    "src/render_tv2_analysis.py",
+    "src/run_a05_official.py",
+    "src/run_a05_official_local.ps1",
+    "src/tech_skill_extractor.py",
+    "src/test_a05_a11_integration.py",
+    "src/test_a05_dependency_modes.py",
+    "src/test_a05_official_readiness.py",
+    "src/test_a05_projection_runtime.py",
+    "src/test_a05_recommendation_candidate.py",
+    "src/test_a05_review_audit.py",
+    "src/test_a05_skills.py",
+    "src/test_q07_salary.py",
+    "src/test_tv2_readiness.py",
+    "src/verify_a05_spark_parity.py",
+    "data/audit/tv2_publication_20261020.json"
+  ],
+  "excluded_initial_changes": [
+    {
+      "path": "TV2_A05_A11_next/TV2_A05_A11_next/README.md",
+      "reason": "External template package superseded by integrated src/docs"
+    },
+    {
+      "path": "TV2_A05_A11_next/TV2_A05_A11_next/docs/A09_insights_template.md",
+      "reason": "External template package superseded by integrated src/docs"
+    },
+    {
+      "path": "TV2_A05_A11_next/TV2_A05_A11_next/docs/A10_report_template.md",
+      "reason": "External template package superseded by integrated src/docs"
+    },
+    {
+      "path": "TV2_A05_A11_next/TV2_A05_A11_next/docs/A11_slide_storyboard.md",
+      "reason": "External template package superseded by integrated src/docs"
+    },
+    {
+      "path": "TV2_A05_A11_next/TV2_A05_A11_next/docs/CODEX_PROMPT.txt",
+      "reason": "External template package superseded by integrated src/docs"
+    },
+    {
+      "path": "TV2_A05_A11_next/TV2_A05_A11_next/src/a06_a08_spark_analysis.py",
+      "reason": "External template package superseded by integrated src/docs"
+    },
+    {
+      "path": "data/audit/tv2_a05_a11_20261019_before.json",
+      "reason": "Contains machine paths/status snapshots; excluded"
+    },
+    {
+      "path": "data/audit/tv2_a05_a11_followup01_before.json",
+      "reason": "Contains machine paths/status snapshots; excluded"
+    },
+    {
+      "path": "docs/a04_remaining93_chot.xlsx",
+      "reason": "Private workbook or dataset/archive; excluded"
+    },
+    {
+      "path": "docs/a04_review_decisions_chot.xlsx",
+      "reason": "Private workbook or dataset/archive; excluded"
+    }
+  ],
+  "file_groups": {
+    "A05-A08 code and supporting review/report tools": [
+      "src/a05_recommendation_candidate.py",
+      "src/a05_spark.py",
+      "src/a06_a08_spark_analysis.py",
+      "src/audit_a05_review.py",
+      "src/build_a05_recommendations.py",
+      "src/d05_job_functions_adapter.py",
+      "src/d06_handoff_validation.py",
+      "src/prepare_a05.py",
+      "src/prepare_a05_acceptance.py",
+      "src/prepare_a05_final_workbook.py",
+      "src/prepare_tv2_a05_a11.py",
+      "src/q07_salary.py",
+      "src/receive_d06_handoff.py",
+      "src/render_tv2_analysis.py",
+      "src/run_a05_official.py",
+      "src/run_a05_official_local.ps1",
+      "src/tech_skill_extractor.py",
+      "src/verify_a05_spark_parity.py"
+    ],
+    "Config / dictionary / contract; no taxonomy promotion": [
+      "config/a05_release_v0.1.2.json",
+      "config/d06_handoff_contract.example.json",
+      "config/q07_salary_contract_v2.json",
+      "config/tech_skills.json",
+      "config/tv2_analysis_inputs.example.json",
+      "config/tv2_analysis_output_schema.json",
+      "config/versions/tech_skills_v0.1.0.json",
+      "config/versions/tech_skills_v0.1.1.json",
+      "config/versions/tech_skills_v0.1.2.json"
+    ],
+    "Documentation / reports / contract review": [
+      "docs/a05_dashboard_v03_tv2_review.md",
+      "docs/a05_evidence_recommendations_20261019.md",
+      "docs/a05_official_readiness_20261019.md",
+      "docs/a05_skill_extraction.md",
+      "docs/a05_spark_parity_20261019.md",
+      "docs/d06_full_receiving_checklist_tv2.md",
+      "docs/tv2_a05_a11_followup01.md",
+      "docs/tv2_a05_a11_status_20261019.md",
+      "docs/tv2_current_handoff.md",
+      "docs/tv2_d05_d07_integration_20261020.md",
+      "docs/tv2_d05_receipt_457f90ae.md",
+      "docs/tv2_q01_q08_publication_plan.md",
+      "docs/tv2_readiness_acceptance_20261019.md"
+    ],
+    "Git data protection / exact-byte rules": [
+      ".gitattributes",
+      ".gitignore"
+    ],
+    "Small validation / provenance evidence": [
+      "data/audit/tv2_a04_lineage_for_a05_20261019.json",
+      "data/audit/tv2_a05_a11_20261019_result.json",
+      "data/audit/tv2_a05_a11_followup01_result.json",
+      "data/audit/tv2_a05_spark_parity_20261019.json",
+      "data/audit/tv2_a05_validation_20261014.json",
+      "data/audit/tv2_d05_d07_integration_20261020.json",
+      "data/audit/tv2_d05_final_457f90ae.json",
+      "data/audit/tv2_d05_receipt_457f90ae.json",
+      "data/audit/tv2_d05_receipt_preservation_457f90ae.json",
+      "data/audit/tv2_q07_contract_v2_20261020.json",
+      "data/audit/tv2_readiness_acceptance_20261019.json",
+      "data/audit/tv2_publication_20261020.json"
+    ],
+    "Unit / regression tests": [
+      "src/test_a05_a11_integration.py",
+      "src/test_a05_dependency_modes.py",
+      "src/test_a05_official_readiness.py",
+      "src/test_a05_projection_runtime.py",
+      "src/test_a05_recommendation_candidate.py",
+      "src/test_a05_review_audit.py",
+      "src/test_a05_skills.py",
+      "src/test_q07_salary.py",
+      "src/test_tv2_readiness.py"
+    ]
+  },
+  "protected_ignored_roots": [
+    "data/raw/",
+    "data/handoff/",
+    "data/processed/",
+    "data/analytics/",
+    "tmp/",
+    ".venv/",
+    ".aws/",
+    ".codex/"
+  ],
+  "sensitive_scan": "PASS_NO_MATCHES_IN_SELECTED_INDEX_BLOBS",
+  "tests": {
+    "final_distinct_counts": {
+      "PASS": 102,
+      "SKIP": 1,
+      "FAIL": 0,
+      "ERROR": 0
+    },
+    "records": [
+      {
+        "test": "test_alias_can_cross_inline_markup_with_disjoint_ranges (test_a05_skills.SkillExtractionTests.test_alias_can_cross_inline_markup_with_disjoint_ranges)",
+        "status": "PASS"
+      },
+      {
+        "test": "test_ambiguous_words_do_not_validate_each_other (test_a05_skills.SkillExtractionTests.test_ambiguous_words_do_not_validate_each_other)",
+        "status": "PASS"
+      },
+      {
+        "test": "test_business_requirements_are_not_candidate_requirements (test_a05_skills.SkillExtractionTests.test_business_requirements_are_not_candidate_requirements)",
+        "status": "PASS"
+      },
+      {
+        "test": "test_c_variants_and_runtimes_are_distinct (test_a05_skills.SkillExtractionTests.test_c_variants_and_runtimes_are_distinct)",
+        "status": "PASS"
+      },
+      {
+        "test": "test_candidate_prefix_in_task_section_remains_requirement (test_a05_skills.SkillExtractionTests.test_candidate_prefix_in_task_section_remains_requirement)",
+        "status": "PASS"
+      },
+      {
+        "test": "test_company_only_mentions_are_preserved_but_not_counted (test_a05_skills.SkillExtractionTests.test_company_only_mentions_are_preserved_but_not_counted)",
+        "status": "PASS"
+      },
+      {
+        "test": "test_company_reference_later_in_owned_task_does_not_block_skills (test_a05_skills.SkillExtractionTests.test_company_reference_later_in_owned_task_does_not_block_skills)",
+        "status": "PASS"
+      },
+      {
+        "test": "test_company_subject_without_heading (test_a05_skills.SkillExtractionTests.test_company_subject_without_heading)",
+        "status": "PASS"
+      },
+      {
+        "test": "test_development_outputs_preserve_grain_states_and_refuse_overwrite (test_a05_skills.SkillExtractionTests.test_development_outputs_preserve_grain_states_and_refuse_overwrite)",
+        "status": "PASS"
+      },
+      {
+        "test": "test_explicit_what_you_need_resets_company_to_requirements (test_a05_skills.SkillExtractionTests.test_explicit_what_you_need_resets_company_to_requirements)",
+        "status": "PASS"
+      },
+      {
+        "test": "test_go_r_c_need_technical_context (test_a05_skills.SkillExtractionTests.test_go_r_c_need_technical_context)",
+        "status": "PASS"
+      },
+      {
+        "test": "test_html_entities_inline_tags_unicode_and_exact_mapping (test_a05_skills.SkillExtractionTests.test_html_entities_inline_tags_unicode_and_exact_mapping)",
+        "status": "PASS"
+      },
+      {
+        "test": "test_invalid_dictionary_fails_closed (test_a05_skills.SkillExtractionTests.test_invalid_dictionary_fails_closed)",
+        "status": "PASS"
+      },
+      {
+        "test": "test_java_is_not_javascript (test_a05_skills.SkillExtractionTests.test_java_is_not_javascript)",
+        "status": "PASS"
+      },
+      {
+        "test": "test_line_endings_and_numbered_bullets (test_a05_skills.SkillExtractionTests.test_line_endings_and_numbered_bullets)",
+        "status": "PASS"
+      },
+      {
+        "test": "test_long_descriptions_do_not_drop_tail_skills (test_a05_skills.SkillExtractionTests.test_long_descriptions_do_not_drop_tail_skills)",
+        "status": "PASS"
+      },
+      {
+        "test": "test_longest_database_alias_without_inferred_sql (test_a05_skills.SkillExtractionTests.test_longest_database_alias_without_inferred_sql)",
+        "status": "PASS"
+      },
+      {
+        "test": "test_longest_framework_alias (test_a05_skills.SkillExtractionTests.test_longest_framework_alias)",
+        "status": "PASS"
+      },
+      {
+        "test": "test_missing_failed_and_no_match_are_distinct (test_a05_skills.SkillExtractionTests.test_missing_failed_and_no_match_are_distinct)",
+        "status": "PASS"
+      },
+      {
+        "test": "test_mixed_long_task_and_qualification_unit_requires_review (test_a05_skills.SkillExtractionTests.test_mixed_long_task_and_qualification_unit_requires_review)",
+        "status": "PASS"
+      },
+      {
+        "test": "test_negated_requirement_does_not_become_skill (test_a05_skills.SkillExtractionTests.test_negated_requirement_does_not_become_skill)",
+        "status": "PASS"
+      },
+      {
+        "test": "test_negated_use_and_vietnamese_requirement (test_a05_skills.SkillExtractionTests.test_negated_use_and_vietnamese_requirement)",
+        "status": "PASS"
+      },
+      {
+        "test": "test_no_identifier_or_employer_whitelist (test_a05_skills.SkillExtractionTests.test_no_identifier_or_employer_whitelist)",
+        "status": "PASS"
+      },
+      {
+        "test": "test_not_only_and_no_less_than_are_not_negation (test_a05_skills.SkillExtractionTests.test_not_only_and_no_less_than_are_not_negation)",
+        "status": "PASS"
+      },
+      {
+        "test": "test_objective_c_with_spaces_is_not_c (test_a05_skills.SkillExtractionTests.test_objective_c_with_spaces_is_not_c)",
+        "status": "PASS"
+      },
+      {
+        "test": "test_other_developers_experience_does_not_turn_task_into_requirement (test_a05_skills.SkillExtractionTests.test_other_developers_experience_does_not_turn_task_into_requirement)",
+        "status": "PASS"
+      },
+      {
+        "test": "test_preferred_suffix_does_not_propagate_across_long_content (test_a05_skills.SkillExtractionTests.test_preferred_suffix_does_not_propagate_across_long_content)",
+        "status": "PASS"
+      },
+      {
+        "test": "test_qualifications_are_eligible (test_a05_skills.SkillExtractionTests.test_qualifications_are_eligible)",
+        "status": "PASS"
+      },
+      {
+        "test": "test_raw_subset_selection_checks_full_text_and_duplicate_keys (test_a05_skills.SkillExtractionTests.test_raw_subset_selection_checks_full_text_and_duplicate_keys)",
+        "status": "PASS"
+      },
+      {
+        "test": "test_repeated_hits_and_aliases_produce_one_job_skill (test_a05_skills.SkillExtractionTests.test_repeated_hits_and_aliases_produce_one_job_skill)",
+        "status": "PASS"
+      },
+      {
+        "test": "test_required_preferred_and_tasks_are_separate (test_a05_skills.SkillExtractionTests.test_required_preferred_and_tasks_are_separate)",
+        "status": "PASS"
+      },
+      {
+        "test": "test_script_and_style_content_not_matched (test_a05_skills.SkillExtractionTests.test_script_and_style_content_not_matched)",
+        "status": "PASS"
+      },
+      {
+        "test": "test_spark_react_spring_and_swift_context (test_a05_skills.SkillExtractionTests.test_spark_react_spring_and_swift_context)",
+        "status": "PASS"
+      },
+      {
+        "test": "test_spark_record_conversion_without_claiming_spark_execution (test_a05_skills.SkillExtractionTests.test_spark_record_conversion_without_claiming_spark_execution)",
+        "status": "PASS"
+      },
+      {
+        "test": "test_unclosed_suppressed_html_is_partial_not_zero_hit (test_a05_skills.SkillExtractionTests.test_unclosed_suppressed_html_is_partial_not_zero_hit)",
+        "status": "PASS"
+      },
+      {
+        "test": "test_unknown_scope_is_review_not_requirement (test_a05_skills.SkillExtractionTests.test_unknown_scope_is_review_not_requirement)",
+        "status": "PASS"
+      },
+      {
+        "test": "test_what_you_need_inside_company_sentence_is_not_a_heading (test_a05_skills.SkillExtractionTests.test_what_you_need_inside_company_sentence_is_not_a_heading)",
+        "status": "PASS"
+      },
+      {
+        "test": "test_shared_environment_refuses_remote_master (test_a05_dependency_modes.DependencyModeTests.test_shared_environment_refuses_remote_master)",
+        "status": "PASS"
+      },
+      {
+        "test": "test_standard_distribution_includes_adapter_module (test_a05_dependency_modes.DependencyModeTests.test_standard_distribution_includes_adapter_module)",
+        "status": "PASS"
+      },
+      {
+        "test": "test_unknown_mode_fails_closed (test_a05_dependency_modes.DependencyModeTests.test_unknown_mode_fails_closed)",
+        "status": "PASS"
+      },
+      {
+        "test": "test_azure_products (test_a05_recommendation_candidate.RecommendationTests.test_azure_products)",
+        "status": "PASS"
+      },
+      {
+        "test": "test_business_requirements_are_task_context (test_a05_recommendation_candidate.RecommendationTests.test_business_requirements_are_task_context)",
+        "status": "PASS"
+      },
+      {
+        "test": "test_company_and_benefits_stay_excluded (test_a05_recommendation_candidate.RecommendationTests.test_company_and_benefits_stay_excluded)",
+        "status": "PASS"
+      },
+      {
+        "test": "test_comparison_not_requirement (test_a05_recommendation_candidate.RecommendationTests.test_comparison_not_requirement)",
+        "status": "PASS"
+      },
+      {
+        "test": "test_direct_react_retained (test_a05_recommendation_candidate.RecommendationTests.test_direct_react_retained)",
+        "status": "PASS"
+      },
+      {
+        "test": "test_expertise_in_task_section_is_requirement (test_a05_recommendation_candidate.RecommendationTests.test_expertise_in_task_section_is_requirement)",
+        "status": "PASS"
+      },
+      {
+        "test": "test_heading_after_hit_not_applied (test_a05_recommendation_candidate.RecommendationTests.test_heading_after_hit_not_applied)",
+        "status": "PASS"
+      },
+      {
+        "test": "test_intro_not_task (test_a05_recommendation_candidate.RecommendationTests.test_intro_not_task)",
+        "status": "PASS"
+      },
+      {
+        "test": "test_local_optional_over_required (test_a05_recommendation_candidate.RecommendationTests.test_local_optional_over_required)",
+        "status": "PASS"
+      },
+      {
+        "test": "test_missing_alias_context_not_cured (test_a05_recommendation_candidate.RecommendationTests.test_missing_alias_context_not_cured)",
+        "status": "PASS"
+      },
+      {
+        "test": "test_native_not_react (test_a05_recommendation_candidate.RecommendationTests.test_native_not_react)",
+        "status": "PASS"
+      },
+      {
+        "test": "test_negation_kept (test_a05_recommendation_candidate.RecommendationTests.test_negation_kept)",
+        "status": "PASS"
+      },
+      {
+        "test": "test_nosql_not_sql (test_a05_recommendation_candidate.RecommendationTests.test_nosql_not_sql)",
+        "status": "PASS"
+      },
+      {
+        "test": "test_optional_heading (test_a05_recommendation_candidate.RecommendationTests.test_optional_heading)",
+        "status": "PASS"
+      },
+      {
+        "test": "test_oracle_product (test_a05_recommendation_candidate.RecommendationTests.test_oracle_product)",
+        "status": "PASS"
+      },
+      {
+        "test": "test_packages_not_parent (test_a05_recommendation_candidate.RecommendationTests.test_packages_not_parent)",
+        "status": "PASS"
+      },
+      {
+        "test": "test_real_task (test_a05_recommendation_candidate.RecommendationTests.test_real_task)",
+        "status": "PASS"
+      },
+      {
+        "test": "test_title_not_task (test_a05_recommendation_candidate.RecommendationTests.test_title_not_task)",
+        "status": "PASS"
+      },
+      {
+        "test": "test_duplicate_workbook_id_rejected (test_a05_review_audit.ReviewAuditTests.test_duplicate_workbook_id_rejected)",
+        "status": "PASS"
+      },
+      {
+        "test": "test_missing_source_ids_are_exposed (test_a05_review_audit.ReviewAuditTests.test_missing_source_ids_are_exposed)",
+        "status": "PASS"
+      },
+      {
+        "test": "test_pending_workbook_matches_source_without_applying (test_a05_review_audit.ReviewAuditTests.test_pending_workbook_matches_source_without_applying)",
+        "status": "PASS"
+      },
+      {
+        "test": "test_signatures_never_auto_apply_proposals (test_a05_review_audit.ReviewAuditTests.test_signatures_never_auto_apply_proposals)",
+        "status": "PASS"
+      },
+      {
+        "test": "test_source_change_is_reported (test_a05_review_audit.ReviewAuditTests.test_source_change_is_reported)",
+        "status": "PASS"
+      },
+      {
+        "test": "test_a05_source_namespace_matches_existing_contract (test_a05_a11_integration.ContractTests.test_a05_source_namespace_matches_existing_contract)",
+        "status": "PASS"
+      },
+      {
+        "test": "test_artifact_digest_changes_when_content_changes (test_a05_a11_integration.ContractTests.test_artifact_digest_changes_when_content_changes)",
+        "status": "PASS"
+      },
+      {
+        "test": "test_d07_boolean_does_not_enable_salary (test_a05_a11_integration.ContractTests.test_d07_boolean_does_not_enable_salary)",
+        "status": "PASS"
+      },
+      {
+        "test": "test_dictionary_version_and_bytes_unchanged (test_a05_a11_integration.ContractTests.test_dictionary_version_and_bytes_unchanged)",
+        "status": "PASS"
+      },
+      {
+        "test": "test_empty_contract_is_blocked_for_every_query (test_a05_a11_integration.ContractTests.test_empty_contract_is_blocked_for_every_query)",
+        "status": "PASS"
+      },
+      {
+        "test": "test_missing_paths_are_not_ready_even_with_reviewer (test_a05_a11_integration.ContractTests.test_missing_paths_are_not_ready_even_with_reviewer)",
+        "status": "PASS"
+      },
+      {
+        "test": "test_new_output_guard_and_persisted_blocked_manifest (test_a05_a11_integration.ContractTests.test_new_output_guard_and_persisted_blocked_manifest)",
+        "status": "PASS"
+      },
+      {
+        "test": "test_pending_approval_is_not_confirmation (test_a05_a11_integration.ContractTests.test_pending_approval_is_not_confirmation)",
+        "status": "PASS"
+      },
+      {
+        "test": "test_blocked_report_has_ten_slides_notes_and_no_results (test_a05_a11_integration.ReportTests.test_blocked_report_has_ten_slides_notes_and_no_results)",
+        "status": "PASS"
+      },
+      {
+        "test": "test_modified_csv_blocks_official_publication (test_a05_a11_integration.ReportTests.test_modified_csv_blocks_official_publication)",
+        "status": "PASS"
+      },
+      {
+        "test": "test_partial_success_is_not_final_report_success (test_a05_a11_integration.ReportTests.test_partial_success_is_not_final_report_success)",
+        "status": "PASS"
+      },
+      {
+        "test": "test_synthetic_success_does_not_authorize_market_results (test_a05_a11_integration.ReportTests.test_synthetic_success_does_not_authorize_market_results)",
+        "status": "PASS"
+      },
+      {
+        "test": "test_waiting_insights_do_not_use_supplied_fake_counts (test_a05_a11_integration.ReportTests.test_waiting_insights_do_not_use_supplied_fake_counts)",
+        "status": "PASS"
+      },
+      {
+        "test": "test_confirmed_d06_end_to_end (test_a05_a11_integration.SparkRealTests.test_confirmed_d06_end_to_end)",
+        "status": "SKIP",
+        "reason": "SKIP: no TV1-confirmed D06 contract/runtime; never substitute 105 development jobs"
+      },
+      {
+        "test": "test_a05_distributed_parity_with_existing_extractor (test_a05_a11_integration.SparkSyntheticTests.test_a05_distributed_parity_with_existing_extractor)",
+        "status": "PASS"
+      },
+      {
+        "test": "test_a05_synthetic_parquet_readback (test_a05_a11_integration.SparkSyntheticTests.test_a05_synthetic_parquet_readback)",
+        "status": "PASS"
+      },
+      {
+        "test": "test_duplicate_grain_rejected (test_a05_a11_integration.SparkSyntheticTests.test_duplicate_grain_rejected)",
+        "status": "PASS"
+      },
+      {
+        "test": "test_q05_multilabel_does_not_multiply_base (test_a05_a11_integration.SparkSyntheticTests.test_q05_multilabel_does_not_multiply_base)",
+        "status": "PASS"
+      },
+      {
+        "test": "test_q06_denominator_includes_successful_zero_hit (test_a05_a11_integration.SparkSyntheticTests.test_q06_denominator_includes_successful_zero_hit)",
+        "status": "PASS"
+      },
+      {
+        "test": "test_salary_currency_period_source_are_separate (test_a05_a11_integration.SparkSyntheticTests.test_salary_currency_period_source_are_separate)",
+        "status": "PASS"
+      },
+      {
+        "test": "test_analyzer_native_schema_and_approval_gate (test_q07_salary.IntegrationTests.test_analyzer_native_schema_and_approval_gate)",
+        "status": "PASS"
+      },
+      {
+        "test": "test_fail_closed_duplicate_missing_record_and_invalid_usable (test_q07_salary.SalaryTests.test_fail_closed_duplicate_missing_record_and_invalid_usable)",
+        "status": "PASS"
+      },
+      {
+        "test": "test_independent_samples_quantiles_and_coverage (test_q07_salary.SalaryTests.test_independent_samples_quantiles_and_coverage)",
+        "status": "PASS"
+      },
+      {
+        "test": "test_min_only_max_only_med_only_and_missing_context (test_q07_salary.SalaryTests.test_min_only_max_only_med_only_and_missing_context)",
+        "status": "PASS"
+      },
+      {
+        "test": "test_real_d07_and_d05_schema_grain (test_q07_salary.SalaryTests.test_real_d07_and_d05_schema_grain)",
+        "status": "PASS"
+      },
+      {
+        "test": "test_missing_label_null_links_duplicates_and_conflicts (test_a05_projection_runtime.D05ProjectionTests.test_missing_label_null_links_duplicates_and_conflicts)",
+        "status": "PASS"
+      },
+      {
+        "test": "test_real_d05_declared_schema_and_development_source_projection (test_a05_projection_runtime.D05ProjectionTests.test_real_d05_declared_schema_and_development_source_projection)",
+        "status": "PASS"
+      },
+      {
+        "test": "test_hash_and_timezone_fail_closed (test_tv2_readiness.ReceiptTests.test_hash_and_timezone_fail_closed)",
+        "status": "PASS"
+      },
+      {
+        "test": "test_non_string_hash_is_reported_without_crashing (test_tv2_readiness.ReceiptTests.test_non_string_hash_is_reported_without_crashing)",
+        "status": "PASS"
+      },
+      {
+        "test": "test_required_schema_separates_source_and_membership (test_tv2_readiness.ReceiptTests.test_required_schema_separates_source_and_membership)",
+        "status": "PASS"
+      },
+      {
+        "test": "test_template_is_pending_never_approved (test_tv2_readiness.ReceiptTests.test_template_is_pending_never_approved)",
+        "status": "PASS"
+      },
+      {
+        "test": "test_blank_taxonomy_and_implicit_join_cast_are_rejected (test_tv2_readiness.SparkReadinessTests.test_blank_taxonomy_and_implicit_join_cast_are_rejected)",
+        "status": "PASS"
+      },
+      {
+        "test": "test_source_hash_and_orphan_membership_are_rejected (test_tv2_readiness.SparkReadinessTests.test_source_hash_and_orphan_membership_are_rejected)",
+        "status": "PASS"
+      },
+      {
+        "test": "test_source_projection_is_explicit_readonly_and_rejects_wrong_binding (test_tv2_readiness.SparkReadinessTests.test_source_projection_is_explicit_readonly_and_rejects_wrong_binding)",
+        "status": "PASS"
+      },
+      {
+        "test": "test_changed_source_hash_rejected (test_a05_official_readiness.OutputValidationTests.test_changed_source_hash_rejected)",
+        "status": "PASS"
+      },
+      {
+        "test": "test_duplicate_pair_rejected (test_a05_official_readiness.OutputValidationTests.test_duplicate_pair_rejected)",
+        "status": "PASS"
+      },
+      {
+        "test": "test_evidence_fk_rejected (test_a05_official_readiness.OutputValidationTests.test_evidence_fk_rejected)",
+        "status": "PASS"
+      },
+      {
+        "test": "test_zero_hit_missing_and_denominator (test_a05_official_readiness.OutputValidationTests.test_zero_hit_missing_and_denominator)",
+        "status": "PASS"
+      },
+      {
+        "test": "test_a05_not_blocked_by_q05 (test_a05_official_readiness.ReceiptPurposeTests.test_a05_not_blocked_by_q05)",
+        "status": "PASS"
+      },
+      {
+        "test": "test_a05_still_requires_real_input_and_approval (test_a05_official_readiness.ReceiptPurposeTests.test_a05_still_requires_real_input_and_approval)",
+        "status": "PASS"
+      }
+    ],
+    "runtime": "Java21/PySpark4.2; shared_local_pythonpath; existing local FS adapter initialized through get_spark_session",
+    "fixture_correction": "Updated readiness negative test to native Q07 v2 fixture and explicit synthetic scope, preserving bigint rejection. Targeted rerun PASS.",
+    "initial_runtime_error": "Initial Windows adapter classpath error on synthetic Parquet readback; reran failed and unfinished tests after initializing existing local FS adapter. Completed passing tests retained; no application changes for the retry."
+  },
+  "a05_stable_version": "0.1.2",
+  "a05_pinned_hash_checks": {
+    "src/tech_skill_extractor.py": true,
+    "src/a05_spark.py": true,
+    "src/description_processing.py": true,
+    "config/versions/tech_skills_v0.1.2.json": true
+  },
+  "q07_status": "IMPLEMENTED_CANDIDATE_PENDING_TV1_TV3_SIGNOFF_AND_D06",
+  "d06_full_available": false,
+  "a05_official_executed": false,
+  "a06_a08_production_executed": false,
+  "business_signoff_granted": false
+}

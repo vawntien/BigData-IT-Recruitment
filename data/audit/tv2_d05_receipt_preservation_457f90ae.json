@@ -1,0 +1,15 @@
+{
+  "protected_this_turn": 138,
+  "all_unchanged": true,
+  "historical_protected_files": 172,
+  "historical_unchanged": true,
+  "branch": "feat/tv2-analysis",
+  "staged_changes": false,
+  "A04_classification_executed": false,
+  "ETL_executed": false,
+  "A05_official_executed": false,
+  "canonical_parts": 4,
+  "archive_found": false,
+  "runtime_jdk_zip_sha256": "f9d6e191ab098c0d416e7d588a24420a8621cd2f4720dab2459b8b7b2d2d8b4e",
+  "handoff_zip_sha256": "fca12523b95feb16eeb0f47eee579499ad4016deb057f34a5db9a1b1cbf9bbee"
+}

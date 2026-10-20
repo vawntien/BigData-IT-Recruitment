@@ -1,0 +1,104 @@
+{
+  "schema_version": 1,
+  "status": "CANDIDATE_NOT_SPARK_VALIDATED",
+  "input_contract": "config/tv2_analysis_inputs.example.json",
+  "implementation": "src/a06_a08_spark_analysis.py",
+  "integer_types": "Spark int/long; job_id input must be bigint; counts countDistinct are bigint",
+  "tables": {
+    "q01_role_groups, q02_experience, q03_location, q04_work_type": {
+      "grain": "one category, including NULL missing bucket",
+      "columns": [
+        "category:string?",
+        "job_count:integer",
+        "denominator_all_it:integer",
+        "denominator_known:integer",
+        "share_all_it:double?",
+        "share_known:double?"
+      ],
+      "note": "Q03 uses known locations as primary denominator; report all-IT coverage separately"
+    },
+    "q04_remote_flag": {
+      "grain": "one true/false/NULL flag",
+      "columns": [
+        "remote_allowed:boolean?",
+        "job_count:integer",
+        "denominator_all_it:integer",
+        "share_all_it:double?"
+      ]
+    },
+    "q04_work_type_crosscheck": {
+      "grain": "formatted_work_type/work_type",
+      "columns": [
+        "formatted_work_type:string?",
+        "work_type:string?",
+        "job_count:integer"
+      ]
+    },
+    "q05_functional_labels": {
+      "grain": "skill_abr/skill_name source labels",
+      "columns": [
+        "skill_abr:string",
+        "skill_name:string",
+        "job_count:integer",
+        "labeled_n:integer",
+        "share_of_labeled_jobs:double?"
+      ]
+    },
+    "q05_unmapped_labels": {
+      "grain": "source label code lacking valid mapping",
+      "columns": [
+        "skill_abr:string?",
+        "job_count:integer"
+      ]
+    },
+    "q06_skills_global": {
+      "grain": "technical skill_code/skill_name",
+      "columns": [
+        "skill_code:string",
+        "skill_name:string",
+        "job_count:integer",
+        "processed_n:integer",
+        "share_of_processed:double?"
+      ]
+    },
+    "q06_skills_by_group, q06_skills_by_experience": {
+      "grain": "dimension/skill_code/skill_name",
+      "dimension": "a02_group or formatted_experience_level:string?",
+      "columns": [
+        "skill_code:string",
+        "skill_name:string",
+        "job_count:integer",
+        "processed_n:integer",
+        "share_of_processed_group:double?"
+      ],
+      "denominator": "all successfully processed jobs in dimension, including PROCESSED_NO_MATCH"
+    },
+    "q07_salary_separate_units": {
+      "contract": "config/q07_salary_contract_v2.json",
+      "version": 2,
+      "note": "Native D07 selected_salary; independent n_min/n_max, explicit scalar quantiles/IQR and B_g; paired salary_n removed"
+    },
+    "q08_original_month, q08_original_week_start_utc, q08_listed_month, q08_listed_week_start_utc": {
+      "grain": "period for one timestamp, never mixed",
+      "columns": [
+        "period:string",
+        "job_count:integer",
+        "valid_timestamp_n:integer",
+        "share_of_valid:double?"
+      ],
+      "timezone": "UTC"
+    },
+    "q07_population_summary": {
+      "contract": "config/q07_salary_contract_v2.json"
+    },
+    "q07_quality_status": {
+      "contract": "config/q07_salary_contract_v2.json"
+    }
+  },
+  "manifest": {
+    "status": "BLOCKED_DEPENDENCY | BLOCKED_ENVIRONMENT | PARTIAL_SUCCESS | SUCCESS | FAILED",
+    "query_status": "per Q01-Q08; denominator and coverage NULL if blocked",
+    "provenance": "input confirmations/digests, source code SHA, dictionary SHA, taxonomy version/hash, Spark/runtime, UTC, output hashes"
+  },
+  "a05_existing_schema": "src/a05_spark.py::output_schemas; source_status and source_field=postings.description; frozen dictionary v0.1.2"
+}

@@ -1,0 +1,18 @@
+{
+  "schema_version": 1,
+  "run_kind": "OFFICIAL",
+  "it_jobs": null,
+  "d06_confirmation": null,
+  "group_column": "primary_group_code",
+  "job_skills": null,
+  "skill_map": null,
+  "d05_confirmation": null,
+  "a05_run_directory": null,
+  "a05_confirmation": null,
+  "salary_clean": null,
+  "d07_approval": null,
+  "minimum_salary_group_n": null,
+  "note": "CANDIDATE: paths/schema must be confirmed by TV1. Confirmation objects require approved_by, approved_on, input_sha256. D05 confirmation uses job_skills_sha256 and skill_map_sha256; A05 uses run_manifest_sha256. D07 also requires policy=posted_min_max_separate_currency_period_source. No approval has been filled by TV2.",
+  "q07_scope_id": null,
+  "q07_contract": "config/q07_salary_contract_v2.json"
+}

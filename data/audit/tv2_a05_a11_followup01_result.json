@@ -1,0 +1,41 @@
+{
+  "date": "2026-10-19",
+  "status": "CANDIDATE_PREPARATION_OFFICIAL_BLOCKED_DEPENDENCY",
+  "protected_existing_files": 172,
+  "all_existing_files_unchanged": true,
+  "reviewer_and_date_empty_verified": true,
+  "workbook_sha256": "04a03198af3c8130e5e38347c22330348e162bd7bd8cfdfe3b1a20de137d0dea",
+  "evidence_rows_reconciled": 661,
+  "source_mismatches": 0,
+  "additional_proposals_source_verified": 5,
+  "proposals_applied": false,
+  "dictionary_version": "0.1.2",
+  "tests": {
+    "total": 62,
+    "passed": 55,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 7,
+    "skip_reasons": [
+      "SKIP: no TV1-confirmed D06 contract/runtime; never substitute 105 development jobs",
+      "SKIP: PySpark absent; Java 21 / Spark runtime required",
+      "SKIP: PySpark absent; Java 21 / Spark runtime required",
+      "SKIP: PySpark absent; Java 21 / Spark runtime required",
+      "SKIP: PySpark absent; Java 21 / Spark runtime required",
+      "SKIP: PySpark absent; Java 21 / Spark runtime required",
+      "SKIP: PySpark absent; Java 21 / Spark runtime required"
+    ],
+    "spark_parity": "SKIP",
+    "real_d06": "SKIP"
+  },
+  "spark_executed": false,
+  "official_parquet_created": false,
+  "taxonomy_executed": false,
+  "review_audit_sha256": "8b741c7eebc1ad0eb468611a3b4be5ebe2ce290a259cb8025502b970cbc2872e",
+  "files": {
+    "src/audit_a05_review.py": "c591fec44c2b0aac486b65e390a36c16136164709f687fb5d6301119a49489a7",
+    "src/test_a05_review_audit.py": "abc650cdc1f75680aba263735f2d8d00d11903b06f838486c8e4773ffe860d83",
+    "config/tv2_analysis_output_schema.json": "65ef96ddaece5cfb1e8e885b997f3f9a362f6d215f1d85279873287c93b25bfc",
+    "docs/tv2_a05_a11_followup01.md": "f3318f355a3312ac2a9c8e3e8c455f57a727eb10ad6693c72b1254447094c42a"
+  }
+}

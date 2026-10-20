@@ -1,0 +1,82 @@
+{
+  "contract_version": 2,
+  "status": "IMPLEMENTED_CANDIDATE_PENDING_TV1_TV3_SIGNOFF_AND_D06",
+  "implementation": "src/q07_salary.py",
+  "salary_basis": "POSTED_NATIVE",
+  "input_mapping": {
+    "job_id": "job_id:bigint",
+    "min_salary": "selected_salary.min_salary:decimal(20,4)",
+    "max_salary": "selected_salary.max_salary:decimal(20,4)",
+    "source_med_not_a_statistic": "selected_salary.med_salary:decimal(20,4)",
+    "currency": "canonical_currency:string",
+    "pay_period": "canonical_pay_period:string",
+    "compensation_type": "canonical_compensation_type:string",
+    "salary_source": "salary_source:string",
+    "quality": "normalization_status:string",
+    "quality_reasons": "reason_codes:array<string>"
+  },
+  "raw_provenance": ["raw_postings", "raw_salary_record", "raw_postings_normalized_salary"],
+  "normalized_separate_basis_not_used_by_q07": {
+    "amounts": "normalized_min_salary/normalized_med_salary/normalized_max_salary:decimal(38,4)",
+    "currency": "normalized_currency:string",
+    "unit": "normalized_unit:string=ANNUAL_EQUIVALENT",
+    "conversion_factor": "decimal(10,0)",
+    "policy": "conversion_policy_version/conversion_policy_sha256",
+    "note": "D07 annual factors are policy assumptions; no FX. Upstream raw_postings_normalized_salary has unknown policy and is never a fallback."
+  },
+  "eligibility": "D07_USABLE_WHOLE_SELECTED_BUNDLE",
+  "outlier_policy": "NO_ADDITIONAL_FILTER candidate; requires explicit approval before official use",
+  "quantile_method": "exact_continuous_linear_interpolation_double",
+  "precision": "Input decimals retained until Spark percentile; scalar output double. No monetary rounding; floating tolerance requires signoff. Not percentile_approx; no approximate rank tolerance.",
+  "tables": {
+    "q07_salary_separate_units": {
+      "logical_alias": "Q07_SALARY_QUANTILES",
+      "key": ["scope_id", "salary_basis", "a02_group", "formatted_experience_level", "currency", "pay_period", "compensation_type", "salary_source"],
+      "fields": {
+        "scope_id": "string", "salary_basis": "string",
+        "a02_group": "string?", "formatted_experience_level": "string?",
+        "currency": "string", "pay_period": "string", "compensation_type": "string", "salary_source": "string",
+        "population_n": "bigint", "eligible_bundle_n": "bigint", "n_min": "bigint", "n_max": "bigint",
+        "min_salary_q1": "double?", "min_salary_median": "double?", "min_salary_q3": "double?", "min_salary_iqr": "double?",
+        "max_salary_q1": "double?", "max_salary_median": "double?", "max_salary_q3": "double?", "max_salary_iqr": "double?",
+        "coverage_min": "double", "coverage_max": "double", "eligible_coverage": "double",
+        "adequate_min": "boolean?", "adequate_max": "boolean?"
+      },
+      "n_min": "Distinct jobs in this eligible cell with non-null posted min_salary; max is not required",
+      "n_max": "Distinct jobs in this eligible cell with non-null posted max_salary; min is not required",
+      "eligible_bundle_n": "Distinct D07 USABLE jobs in cell, including med-only",
+      "population_n": "B_g: all supplied population jobs in category/experience before salary/unit/source filters",
+      "coverage": "n_min/B_g, n_max/B_g, eligible_bundle_n/B_g; fractions 0..1; UI percent=100*fraction once",
+      "iqr": "P75-P25 independently for each endpoint; never max_salary-min_salary",
+      "zero_samples": "n=0 gives NULL quantiles and IQR; do not impute. Context with no eligible bundle has summary rows only.",
+      "small_n": "No default threshold; adequate_* NULL without explicit minimum_n. Values retained; suppression requires separate approved policy."
+    },
+    "q07_population_summary": {
+      "logical_alias": "SALARY_POPULATION_COVERAGE_SUMMARY",
+      "key": ["scope_id", "salary_basis", "a02_group", "formatted_experience_level"],
+      "fields": {"scope_id":"string", "salary_basis":"string", "a02_group":"string?", "formatted_experience_level":"string?", "population_n":"bigint", "eligible_bundle_n":"bigint", "eligible_coverage":"double"},
+      "note": "Includes no-salary groups. This is the authoritative B_g, not SUM of repeated detail denominators."
+    },
+    "q07_quality_status": {
+      "key": ["scope_id", "salary_basis", "a02_group", "formatted_experience_level", "normalization_status"],
+      "fields": {"scope_id":"string", "salary_basis":"string", "a02_group":"string?", "formatted_experience_level":"string?", "normalization_status":"string", "job_count":"bigint"},
+      "reconciliation": "Status counts partition population_n; missing D07 records fail rather than becoming MISSING status. Reason codes overlap and must not be summed as a partition."
+    }
+  },
+  "official_d07_approval_requirements": {
+    "identity": "approved_by, approved_on, input_sha256 matching salary_clean artifact digest",
+    "policy": "posted_min_max_separate_currency_period_source",
+    "q07_contract_version": 2,
+    "quantile_method": "exact_continuous_linear_interpolation_double",
+    "eligibility": "D07_USABLE_WHOLE_SELECTED_BUNDLE",
+    "source_grain": "salary_source",
+    "outlier_policy": "NO_ADDITIONAL_FILTER",
+    "minimum_salary_group_n": "Explicit null or positive integer, equal to input config; no approval supplied by this contract"
+  },
+  "capabilities": {
+    "category_experience": "Compare existing cells only; NULL context keys join null-safe; NULL is not ALL",
+    "units": "One currency/pay_period/compensation_type and salary_source per comparison",
+    "all_pooled_multiselect": "UNSUPPORTED without recomputation from job-level eligible values; no median-of-medians or summed B_g",
+    "production": "Requires D06 Full validated population, D07 approval bound to input digest and explicit contract v2 decisions. No approval is supplied here."
+  }
+}

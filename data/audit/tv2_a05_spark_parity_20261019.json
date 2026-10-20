@@ -1,0 +1,204 @@
+{
+  "date": "2026-10-19",
+  "branch": "feat/tv2-analysis",
+  "parity": {
+    "status": "PASS_DEVELOPMENT_LOCAL_WORKER_PARITY",
+    "scope": "DEVELOPMENT_105_NOT_D06_NOT_MARKET_STATISTICS",
+    "input_jobs": 105,
+    "production_executed": false,
+    "classification_executed": false,
+    "dictionary_version": "0.1.2",
+    "dictionary_sha256": "f571ff4525cf629041a6c4791646eebff4f88ca7fa91a978379741f393afa7aa",
+    "source_snapshot_sha256": "4fa5a35a5e06f1bb676833ba698cb6b2a96c5f2ff6a49b99f2e3214e216b0c14",
+    "input_manifest_sha256": "cd948d2da23ba6299b8aa875a3a45bdad86bb86efec25caa0918e0f749298fea",
+    "environment": {
+      "python": "3.11.9 (tags/v3.11.9:de54cf5, Apr  2 2024, 10:12:12) [MSC v.1938 64 bit (AMD64)]",
+      "executable": "C:\\Users\\dongv\\BigData-IT-Recruitment\\.venv\\Scripts\\python.exe",
+      "platform": "Windows-10-10.0.26200-SP0",
+      "spark": "4.2.0",
+      "java": "21.0.12.1",
+      "hadoop": "3.5.0",
+      "master": "local[*]",
+      "pythonpath": "C:\\Users\\dongv\\BigData-IT-Recruitment\\src"
+    },
+    "dependencies": {
+      "mode": "shared_local_pythonpath",
+      "expected": {
+        "tech_skill_extractor": {
+          "path": "C:\\Users\\dongv\\BigData-IT-Recruitment\\src\\tech_skill_extractor.py",
+          "sha256": "462b8216981d3e2447f4131d75d378682cff1bd51faabb33be3c7cc23128f52e"
+        },
+        "description_processing": {
+          "path": "C:\\Users\\dongv\\BigData-IT-Recruitment\\src\\description_processing.py",
+          "sha256": "ad579397753f2de115faad3bf9ff4d1c8dfebf5ce76eb898f3368ca02a6fec78"
+        },
+        "tv2_csv": {
+          "path": "C:\\Users\\dongv\\BigData-IT-Recruitment\\src\\tv2_csv.py",
+          "sha256": "7839763017c281c36126b8ece9c2015da41b54cccdfca0f365ac4feb48beb903"
+        },
+        "a05_spark": {
+          "path": "C:\\Users\\dongv\\BigData-IT-Recruitment\\src\\a05_spark.py",
+          "sha256": "d010566568f13e391efcd64430ddd45e6175747998f15981eacea3fe80bc22da"
+        }
+      },
+      "workers": [
+        {
+          "pid": 20036,
+          "python": "C:\\Users\\dongv\\BigData-IT-Recruitment\\.venv\\Scripts\\python.exe",
+          "modules": {
+            "tech_skill_extractor": {
+              "path": "C:\\Users\\dongv\\BigData-IT-Recruitment\\src\\tech_skill_extractor.py",
+              "sha256": "462b8216981d3e2447f4131d75d378682cff1bd51faabb33be3c7cc23128f52e"
+            },
+            "description_processing": {
+              "path": "C:\\Users\\dongv\\BigData-IT-Recruitment\\src\\description_processing.py",
+              "sha256": "ad579397753f2de115faad3bf9ff4d1c8dfebf5ce76eb898f3368ca02a6fec78"
+            },
+            "tv2_csv": {
+              "path": "C:\\Users\\dongv\\BigData-IT-Recruitment\\src\\tv2_csv.py",
+              "sha256": "7839763017c281c36126b8ece9c2015da41b54cccdfca0f365ac4feb48beb903"
+            },
+            "a05_spark": {
+              "path": "C:\\Users\\dongv\\BigData-IT-Recruitment\\src\\a05_spark.py",
+              "sha256": "d010566568f13e391efcd64430ddd45e6175747998f15981eacea3fe80bc22da"
+            }
+          }
+        },
+        {
+          "pid": 26236,
+          "python": "C:\\Users\\dongv\\BigData-IT-Recruitment\\.venv\\Scripts\\python.exe",
+          "modules": {
+            "tech_skill_extractor": {
+              "path": "C:\\Users\\dongv\\BigData-IT-Recruitment\\src\\tech_skill_extractor.py",
+              "sha256": "462b8216981d3e2447f4131d75d378682cff1bd51faabb33be3c7cc23128f52e"
+            },
+            "description_processing": {
+              "path": "C:\\Users\\dongv\\BigData-IT-Recruitment\\src\\description_processing.py",
+              "sha256": "ad579397753f2de115faad3bf9ff4d1c8dfebf5ce76eb898f3368ca02a6fec78"
+            },
+            "tv2_csv": {
+              "path": "C:\\Users\\dongv\\BigData-IT-Recruitment\\src\\tv2_csv.py",
+              "sha256": "7839763017c281c36126b8ece9c2015da41b54cccdfca0f365ac4feb48beb903"
+            },
+            "a05_spark": {
+              "path": "C:\\Users\\dongv\\BigData-IT-Recruitment\\src\\a05_spark.py",
+              "sha256": "d010566568f13e391efcd64430ddd45e6175747998f15981eacea3fe80bc22da"
+            }
+          }
+        }
+      ],
+      "scope": "SINGLE_HOST_LOCAL_ONLY"
+    },
+    "tables": {
+      "job_skill_technical": {
+        "rows": 355,
+        "full_record_parity": true,
+        "parquet_readback": true
+      },
+      "technical_skill_evidence": {
+        "rows": 661,
+        "full_record_parity": true,
+        "parquet_readback": true
+      },
+      "skill_source_processing": {
+        "rows": 105,
+        "full_record_parity": true,
+        "parquet_readback": true
+      }
+    },
+    "synthetic_controls": [
+      {
+        "job_id": 900000000000000001,
+        "source_status": "SOURCE_MISSING"
+      },
+      {
+        "job_id": 900000000000000002,
+        "source_status": "PROCESSED_NO_MATCH"
+      }
+    ],
+    "development_source_status_counts": {
+      "PROCESSED_WITH_MATCH": 78,
+      "PROCESSED_NO_MATCH": 27
+    }
+  },
+  "regression": {
+    "testsRun": 64,
+    "passed": 63,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 1,
+    "skip_reasons": [
+      "SKIP: no TV1-confirmed D06 contract/runtime; never substitute 105 development jobs"
+    ]
+  },
+  "authorized_source_changes": {
+    "src/a05_spark.py": {
+      "before": "089ea059efca76f8a61311d1e493b88b8f9ccf37213b4d1ac716cf46b8fc5784",
+      "after": "d010566568f13e391efcd64430ddd45e6175747998f15981eacea3fe80bc22da"
+    },
+    "src/render_tv2_analysis.py": {
+      "before": "6f29b4426ce34c5d06ff7a3ab26f693e1670485ab10ebcba21a013ae065e02f7",
+      "after": "d0f28eec9e31487879fdac185bc300c406405d2719546c8260a78bb836c53412"
+    }
+  },
+  "protected_files_checked": 141,
+  "historical_protected_unexpected_changes": [],
+  "dictionary_and_extractor_unchanged": true,
+  "A01_A04_unchanged": true,
+  "D05_unchanged": true,
+  "production_executed": false,
+  "official_status": "BLOCKED_D06_D07_AND_HUMAN_SKILL_REVIEW",
+  "shared_local_dependency_scope": "SINGLE_HOST_ONLY; DEFAULT_ADD_PYFILE_WINDOWS_STILL_UNVERIFIED",
+  "existing_D05_filesystem_adapter_reused_unchanged": true,
+  "no_new_chmod_or_winutils_shim": true,
+  "wsl_returncode": 1,
+  "wsl_stdout": "",
+  "wsl_stderr": "The Windows Subsystem for Linux is not installed. You can install by running 'wsl.exe --install'.\r\r\nFor more information please visit https://aka.ms/wslinstall\r\r\n",
+  "files": {
+    "data\\analytics\\a05_spark_parity_20261019\\a05_spark_before.py": "089ea059efca76f8a61311d1e493b88b8f9ccf37213b4d1ac716cf46b8fc5784",
+    "data\\analytics\\a05_spark_parity_20261019\\protected_before.json": "d104ea6dcf1297f1ba631b08c6a50b42fa40fb10b83e27115489e0edd3f2c2a6",
+    "data\\analytics\\a05_spark_parity_20261019\\runtime_diagnostics.json": "f16c0c6ab814436d74cab2673ccad033cece3e3bfd6e0780f164437d11c4a1c8",
+    "data\\analytics\\a05_spark_parity_20261019\\regression01\\tests.json": "2e399f7f8733c86b792bbdcabab7faa70b7276800a3b079a3aa0afe1cdd54b62",
+    "data\\analytics\\a05_spark_parity_20261019\\regression01\\tests.txt": "f0f9879f2e87644362fa76cee6c7ce111ccf9bfdfd01b5c6c8535616ed5fc3f7",
+    "data\\analytics\\a05_spark_parity_20261019\\run01\\job_skill_technical.jsonl": "43d74889dd83422cc240cdd7a22dab5ce23c575e400bef4a08b1ce77d48c488e",
+    "data\\analytics\\a05_spark_parity_20261019\\run01\\parity_manifest.json": "cbd2f229a2367a5bd5018acf4a099223254f7e689a367df6b2bb3b302aa0ade9",
+    "data\\analytics\\a05_spark_parity_20261019\\run01\\skill_source_processing.jsonl": "b1539172cdce9a8288bf8867cd1178270e2524775bae59b86abf6c3e96292ab7",
+    "data\\analytics\\a05_spark_parity_20261019\\run01\\technical_skill_evidence.jsonl": "ff26a5751f0f71fcf54a9bdac2ad189c43ac2de9e5eb8c356f38aa89f4f1ac29",
+    "data\\analytics\\a05_spark_parity_20261019\\run01\\job_skill_technical.parquet\\part-00000-fac5f950-a1ec-4638-8d77-87051f92ae43-c000.snappy.parquet": "96115c2f28260d3f39a7df1fe2ade126021d22999a8bd7042ecff52db200d104",
+    "data\\analytics\\a05_spark_parity_20261019\\run01\\job_skill_technical.parquet\\part-00001-fac5f950-a1ec-4638-8d77-87051f92ae43-c000.snappy.parquet": "948c7afabcba5644a040b445fcdce70c0af2ea9e3f4bf0f21979813747e0c287",
+    "data\\analytics\\a05_spark_parity_20261019\\run01\\job_skill_technical.parquet\\_SUCCESS": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "data\\analytics\\a05_spark_parity_20261019\\run01\\skill_source_processing.parquet\\part-00000-151a19ee-90b4-46bd-8ef1-bdf6388b91fa-c000.snappy.parquet": "99c2fa1c740716ef0b8097531488ca8a37a3849e849c1cb15a8b67a01573a5df",
+    "data\\analytics\\a05_spark_parity_20261019\\run01\\skill_source_processing.parquet\\part-00001-151a19ee-90b4-46bd-8ef1-bdf6388b91fa-c000.snappy.parquet": "ad65d85006ce2b96e93c5d99f15e0494a408a3f0a59fcbbf97d02629fec8f9d4",
+    "data\\analytics\\a05_spark_parity_20261019\\run01\\skill_source_processing.parquet\\_SUCCESS": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "data\\analytics\\a05_spark_parity_20261019\\run01\\technical_skill_evidence.parquet\\part-00000-1c1e1e30-1c4d-4b34-8bd7-e395d3b79ae6-c000.snappy.parquet": "d58761e345821ecc9209946bb453e6cd46159023c0f8d583488e04479e52ca90",
+    "data\\analytics\\a05_spark_parity_20261019\\run01\\technical_skill_evidence.parquet\\part-00001-1c1e1e30-1c4d-4b34-8bd7-e395d3b79ae6-c000.snappy.parquet": "9aeee87baf2c9c2108fa8f1c21a49d623e42a918ee9797c6b85568ee57a5730e",
+    "data\\analytics\\a05_spark_parity_20261019\\run01\\technical_skill_evidence.parquet\\_SUCCESS": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "data\\analytics\\a05_spark_parity_20261019\\run02\\job_skill_technical.jsonl": "43d74889dd83422cc240cdd7a22dab5ce23c575e400bef4a08b1ce77d48c488e",
+    "data\\analytics\\a05_spark_parity_20261019\\run02\\parity_manifest.json": "639ae302ee045aa87b1b610a7f41c25526ca6586bc1e9724b4b22bc2ef6abe81",
+    "data\\analytics\\a05_spark_parity_20261019\\run02\\skill_source_processing.jsonl": "b1539172cdce9a8288bf8867cd1178270e2524775bae59b86abf6c3e96292ab7",
+    "data\\analytics\\a05_spark_parity_20261019\\run02\\technical_skill_evidence.jsonl": "ff26a5751f0f71fcf54a9bdac2ad189c43ac2de9e5eb8c356f38aa89f4f1ac29",
+    "data\\analytics\\a05_spark_parity_20261019\\run02\\job_skill_technical.parquet\\part-00000-4717f60f-6f93-4077-9154-4ee97563dc63-c000.snappy.parquet": "5c84b77779424a1f094381d1e57c9d7d7b4b10dc89362eff5a79ee8d9d8ed70b",
+    "data\\analytics\\a05_spark_parity_20261019\\run02\\job_skill_technical.parquet\\part-00001-4717f60f-6f93-4077-9154-4ee97563dc63-c000.snappy.parquet": "c625f4cfb67bbc837a22b4624f02a84b017664037ce088918bf138e010ca3e22",
+    "data\\analytics\\a05_spark_parity_20261019\\run02\\job_skill_technical.parquet\\_SUCCESS": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "data\\analytics\\a05_spark_parity_20261019\\run02\\skill_source_processing.parquet\\part-00000-d5660d15-9abd-46ba-9b5b-e78ad513052d-c000.snappy.parquet": "2c702fdd752f8f1f624d04b827337e4817977e1f743ac6c570cee1db185841e0",
+    "data\\analytics\\a05_spark_parity_20261019\\run02\\skill_source_processing.parquet\\part-00001-d5660d15-9abd-46ba-9b5b-e78ad513052d-c000.snappy.parquet": "fb0a9508354d1a6f97830e38a639a54fc0147cb55037270356fc252e080b50d6",
+    "data\\analytics\\a05_spark_parity_20261019\\run02\\skill_source_processing.parquet\\_SUCCESS": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "data\\analytics\\a05_spark_parity_20261019\\run02\\technical_skill_evidence.parquet\\part-00000-bfcf8258-3e26-4c6c-ac5e-cb4c26e3f7da-c000.snappy.parquet": "90d1c302b16a773905d3eabe9d5195cad585b5be20e71c1e5463c67188126a5b",
+    "data\\analytics\\a05_spark_parity_20261019\\run02\\technical_skill_evidence.parquet\\part-00001-bfcf8258-3e26-4c6c-ac5e-cb4c26e3f7da-c000.snappy.parquet": "7d76fecba252c96a67103870bd331d866aec996d142a681691009a3639dc8c84",
+    "data\\analytics\\a05_spark_parity_20261019\\run02\\technical_skill_evidence.parquet\\_SUCCESS": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "data\\analytics\\tv2_a06_a11_prepared_20261019\\manifest.json": "077c2aa05c9ab7ba23b1e4b742e4d57a61a9ff2bc2c098c2de0ff5cbc6625b1f",
+    "data\\analytics\\tv2_a06_a11_prepared_20261019\\reports\\a09_insights.md": "fb10116d527af65ed7f18b2f9cf4d09f14058b824f2ba7f327f9c3f3592dde2f",
+    "data\\analytics\\tv2_a06_a11_prepared_20261019\\reports\\a10_analysis_report.md": "6e26fbffeee17518752df0b5f1c44beb5df9689d639051c83ab227ca7206368f",
+    "data\\analytics\\tv2_a06_a11_prepared_20261019\\reports\\a11_slides.html": "add32dcba85be055b2e0bae8535de0d949c4db03d4210e213f0013c5888d84f2",
+    "data\\analytics\\tv2_a06_a11_prepared_20261019\\reports\\a11_slide_content.md": "6a3dbd74664cf28efa95e19c147a8e2b43e09d5d467e96a7dac3dac5d42bb6f8",
+    "data\\analytics\\tv2_a06_a11_prepared_20261019\\reports\\publication_manifest.json": "ced406d9ab7842a885a98394558951a44d86e34c465b73c425b1ecf7ea7f2140"
+  },
+  "source_hashes": {
+    "src/a05_spark.py": "d010566568f13e391efcd64430ddd45e6175747998f15981eacea3fe80bc22da",
+    "src/verify_a05_spark_parity.py": "557cfb8197ab705e7e919acc6df195dcfc92b8f2673221337403f2bf22caaab0",
+    "src/d05_job_functions_adapter.py": "7ef749c9321158a8688b0c1d4da5524b3b7887d5b21a08d2e26f496995ace8fa",
+    "src/render_tv2_analysis.py": "d0f28eec9e31487879fdac185bc300c406405d2719546c8260a78bb836c53412",
+    "src/test_a05_dependency_modes.py": "48bcbe9b825fbd00facb7d6811cf76756029e33486ce0a96fee9f9907a728fdc",
+    "src/test_a05_projection_runtime.py": "ab9deb1f559c2019fa0533d446686defd8e97ea1d43dc84a4629eb5ca85f0e34"
+  }
+}

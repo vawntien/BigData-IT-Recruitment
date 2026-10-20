@@ -1,0 +1,18 @@
+{
+  "version": "0.1.2",
+  "status": "STABLE_BASELINE_NOT_CANDIDATE_PROMOTION",
+  "scope": "SINGLE_HOST_LOCAL_SPARK_VERIFIED",
+  "pinned_files": {
+    "src/tech_skill_extractor.py": "462b8216981d3e2447f4131d75d378682cff1bd51faabb33be3c7cc23128f52e",
+    "src/a05_spark.py": "d010566568f13e391efcd64430ddd45e6175747998f15981eacea3fe80bc22da",
+    "src/description_processing.py": "ad579397753f2de115faad3bf9ff4d1c8dfebf5ce76eb898f3368ca02a6fec78",
+    "config/versions/tech_skills_v0.1.2.json": "f571ff4525cf629041a6c4791646eebff4f88ca7fa91a978379741f393afa7aa"
+  },
+  "known_limitations": [
+    "React Native/package and Azure DevOps mapping can be over-broad.",
+    "ROLE-only can become TASK without actual action.",
+    "Candidate context recommendations are not integrated or Spark-validated."
+  ],
+  "parity_manifest": "data/analytics/a05_spark_parity_20261019/run02/parity_manifest.json",
+  "parity_manifest_sha256": "639ae302ee045aa87b1b610a7f41c25526ca6586bc1e9724b4b22bc2ef6abe81"
+}

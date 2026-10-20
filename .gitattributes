@@ -26,3 +26,11 @@ src/test_tv2_a04.py -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,
 src/tv2_csv.py -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
 src/tv2_verify_raw.py -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
 src/validate_a04_v020.py -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+# A05 dictionary and development code also use exact-byte provenance.
+config/tech_skills.json -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+config/versions/tech_skills_v*.json -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+docs/a05_*.md -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+src/tech_skill_extractor.py -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+src/prepare_a05.py -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+src/a05_spark.py -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+src/test_a05_skills.py -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol

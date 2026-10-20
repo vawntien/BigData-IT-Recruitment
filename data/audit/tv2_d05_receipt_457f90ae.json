@@ -1,0 +1,208 @@
+{
+  "status": "PASS",
+  "input": "C:\\Users\\dongv\\BigData-IT-Recruitment\\data\\processed\\jobs",
+  "archive_sha256": null,
+  "expected_commit": "457f90ae4c8074a468ec6ac8f410dd31bbbb4a6b",
+  "input_files": {
+    "_SUCCESS": {
+      "size": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "part-00000-aa2ea6ea-1536-4b08-95fe-0d515a780603-c000.snappy.parquet": {
+      "size": 106429075,
+      "sha256": "ba5ac532c16e390ad1c0667735f4f36851c2fe37835b6ed4e797cc0f2490ff7c"
+    },
+    "part-00001-aa2ea6ea-1536-4b08-95fe-0d515a780603-c000.snappy.parquet": {
+      "size": 93292805,
+      "sha256": "0bafd55861113f08de4a5e714a16e26f3aa6b30cc93fbf10e95f575565398a49"
+    },
+    "part-00002-aa2ea6ea-1536-4b08-95fe-0d515a780603-c000.snappy.parquet": {
+      "size": 103589879,
+      "sha256": "71e935e2ff2a29afcc2480bc6a40cf69f6863a5212cf7eee8400c4a0d5a68420"
+    },
+    "part-00003-aa2ea6ea-1536-4b08-95fe-0d515a780603-c000.snappy.parquet": {
+      "size": 93852935,
+      "sha256": "0a5fca3885193beec1ec1603de4e2e9ef3d4b4b65e75ca512b836dbb92f9d46a"
+    }
+  },
+  "taxonomy_executed": false,
+  "etl_executed": false,
+  "artifact_bytes_linked_to_tv1_manifest": false,
+  "provenance_limit": "TV1 manifest contains no Parquet file hashes; schema/content checks do not prove exact bytes of TV1 run.",
+  "schema_match": true,
+  "columns": 50,
+  "rows": 123849,
+  "unique_job_ids": 123849,
+  "null_job_ids": 0,
+  "source_hash_mismatches": 0,
+  "schema_versions": [
+    "d05-v1"
+  ],
+  "spark_version": "4.2.0",
+  "published_to": "data\\processed\\canonical\\jobs",
+  "published_files_verified": true,
+  "input_files_unchanged": true,
+  "schema_compatibility": {
+    "schema_columns": 50,
+    "required_base_types": {
+      "job_id": {
+        "expected": "long",
+        "actual": "long",
+        "match": true
+      },
+      "description": {
+        "expected": "string",
+        "actual": "string",
+        "match": true
+      },
+      "source_description": {
+        "expected": "string",
+        "actual": "string",
+        "match": true
+      },
+      "source_description_sha256": {
+        "expected": "string",
+        "actual": "string",
+        "match": true
+      },
+      "remote_allowed": {
+        "expected": "boolean",
+        "actual": "boolean",
+        "match": true
+      },
+      "formatted_experience_level": {
+        "expected": "string",
+        "actual": "string",
+        "match": true
+      },
+      "location": {
+        "expected": "string",
+        "actual": "string",
+        "match": true
+      },
+      "formatted_work_type": {
+        "expected": "string",
+        "actual": "string",
+        "match": true
+      },
+      "work_type": {
+        "expected": "string",
+        "actual": "string",
+        "match": true
+      },
+      "original_listed_time": {
+        "expected": "timestamp",
+        "actual": "timestamp",
+        "match": true
+      },
+      "listed_time": {
+        "expected": "timestamp",
+        "actual": "timestamp",
+        "match": true
+      },
+      "company_id": {
+        "expected": "long",
+        "actual": "long",
+        "match": true
+      }
+    },
+    "tv1_validation_rows": 72,
+    "tv1_validation_statuses": {
+      "PASS": 72
+    },
+    "local_readback": "PENDING",
+    "D06": "NOT_FULL_RUN_PER_USER; code absent at pinned D05 tree",
+    "D07": "NO_OFFICIAL_OUTPUT_PER_USER",
+    "A05_source_contract": "Existing A05 reads D06.description as postings.description; require D06.description == D05.source_description and matching source hash, or explicit reviewed adapter change. Never silently use D04-clean description for raw evidence offsets.",
+    "Q05_contract": "Current analyzer expects separate job_skills(job_id,skill_abr) + skills(skill_abr,skill_name). D05 instead embeds job_functions array structs at canonical job grain. D06 receipt must specify approved embedded-array projection or provide clean bridges with hashes. No raw fallback.",
+    "missing_D06_fields": [
+      "it_decision",
+      "is_it",
+      "taxonomy_version",
+      "taxonomy_sha256",
+      "primary_group_code"
+    ],
+    "salary": "D05 decimal postings/salary_record are source fields, not approved D07 salary_clean; Q07 remains blocked."
+  },
+  "a04_handoff": {
+    "status": "SOURCE_LABELS_AND_SIGNED_DECISIONS_MATCH",
+    "primary_rows": 160,
+    "supplement_rows": 17,
+    "unique_jobs": 176,
+    "signed_decisions": 176,
+    "label_counts": {
+      "NGOAI_CNTT": 67,
+      "CNTT": 105,
+      "CHUA_RO": 4
+    },
+    "classification_executed": false,
+    "decisions_applied": false,
+    "candidate_promoted": false,
+    "a04_formal_acceptance": "NOT_ASSERTED_BY_THIS_PACKAGING_CHECK",
+    "scope": "Development/review samples only; not official D06 IT population or independent evaluation.",
+    "files": {
+      "data/analytics/a04_manual_seed42/a04_manual_labels_filled.xlsx": "bbe53db071a75478705c8be3b692356c896018bd20dfac40aebc489d97d305a2",
+      "data/analytics/a04_taxonomy_v0_2_0_20261008/accept_downgrades_for_review_blind.xlsx": "7951c40d59271b58e1ca8d33e0e97c8f83a29c069be39cc6813826e6897cfe09",
+      "docs/a04_review_decisions_chot.xlsx": "caafb2694ba92013546357838b85691954215323d50579fec7d5ca5431f99eab",
+      "docs/a04_remaining93_chot.xlsx": "71835c141d577010cf64a496b22745379310ac2497232b6e8ad1614d5de5100d",
+      "docs/a04_handoff_tv1.md": "13588744f77862b67eec0f8d04f1950a572a5b54bf0c429afe8719907fb42972",
+      "docs/a04_final_report.md": "b04b1221a8a024ea246716ef30bd05db530f3bec28c8db36073d2faec812c01c",
+      "config/versions/it_taxonomy_v0.2.2.json": "1de2908a4a8da3e7f811c0d87928d05f857f5bd78ec243cc57c07ef9ec933874",
+      "src/it_taxonomy.py": "841231033c546cc2bedf141386038104c0a0f1cf9f5a01b80535457c8b42312f",
+      "src/description_processing.py": "ad579397753f2de115faad3bf9ff4d1c8dfebf5ce76eb898f3368ca02a6fec78",
+      "src/it_taxonomy_v010.py": "453bb6bcd22d4cdf866c670f3634b8f1e42a233eb086b650e579b4b1d429dc86",
+      "src/tv2_csv.py": "7839763017c281c36126b8ece9c2015da41b54cccdfca0f365ac4feb48beb903",
+      "data/analytics/a04_taxonomy_v0_2_2_20261014/all_predictions.jsonl": "1c4c8b8d3ab00238e908e834ca615ba4188b6d03858cb5e38648f1565d03266d",
+      "data/analytics/a04_taxonomy_v0_2_2_20261014/seed42_v022_predictions_private.jsonl": "4350bfcd4b479fee226a450e0ee6fa7456f854b910577cf99ac6cd598b229295",
+      "data/analytics/a04_taxonomy_v0_2_2_20261014/supplement17_v022_predictions_private.jsonl": "b4cdb7515a40b9f77eb78ded7b20b7ad6d76778418e3b39ba4925d7a84fe9691",
+      "data/analytics/a04_taxonomy_v0_2_2_20261014/baseline/source_rows.json": "4fa5a35a5e06f1bb676833ba698cb6b2a96c5f2ff6a49b99f2e3214e216b0c14",
+      "data/analytics/a04_taxonomy_v0_2_2_20261014/baseline/manifest.json": "0762ac242ed0462e1dbd22f931c11f5911539dde81e20a78f87c9d71d8a84f39",
+      "data/analytics/a04_taxonomy_v0_2_2_20261014/run_manifest.json": "4d4aac5d52c1f98e656b0a2fb376712aabc580cbdb75bedf6d4c34df4ca3d3e8",
+      "data/analytics/a04_taxonomy_v0_2_2_20261014/comparison_summary.json": "dac226da9cd492e56ee61c8f8e88dc6f8c7e2441287189b47af04379fea1feea",
+      "data/analytics/a04_taxonomy_v0_2_2_20261014/job_comparison.csv": "b4a568ad563c757b6b25e3d65873c835a23f1c3472f978b0cd6e0fd2b40d816f",
+      "data/analytics/a04_taxonomy_v0_2_2_20261014/stages/01_P3_INTEGRATION/config.json": "a2b9c109f1f15043c3117f031252d5be80952ef36b5daeffe65c6d5812c726dc",
+      "data/analytics/a04_taxonomy_v0_2_2_20261014/stages/01_P3_INTEGRATION/controls.json": "fb73af820c3318eada3ea0d517b07172556edc274827c2a2ad9021ee7776f6d3",
+      "data/analytics/a04_taxonomy_v0_2_2_20261014/stages/01_P3_INTEGRATION/delta.json": "7252f31a04f0817f6ffe5565f044b8b499f53ced66270b391e0470da5854948c",
+      "data/analytics/a04_taxonomy_v0_2_2_20261014/stages/01_P3_INTEGRATION/predictions.jsonl": "581c101cf7834ef4a968488369ebf5c40a06e8f31bcf170ce74014538a6e151c",
+      "data/analytics/a04_taxonomy_v0_2_2_20261014/stages/02_P3_APPLICATION_MAINTENANCE_MIGRATION/config.json": "c408b3ad532eca766b5a19b6fcff8c90881150911b287d0bc5c2e78b54762e89",
+      "data/analytics/a04_taxonomy_v0_2_2_20261014/stages/02_P3_APPLICATION_MAINTENANCE_MIGRATION/controls.json": "bcf59498f02ef8f9a85bb4283177dd65bdc95385b34acf167f726b003a59f421",
+      "data/analytics/a04_taxonomy_v0_2_2_20261014/stages/02_P3_APPLICATION_MAINTENANCE_MIGRATION/delta.json": "c536286bd3f58b482f0fbb7e83634f21e399cdfea1ee0205930fc9d68f431faf",
+      "data/analytics/a04_taxonomy_v0_2_2_20261014/stages/02_P3_APPLICATION_MAINTENANCE_MIGRATION/predictions.jsonl": "5fb78d607f50194f489fcc644be9d5df151a5c225f16ff0621d51f0cf44a6c7a",
+      "data/analytics/a04_taxonomy_v0_2_2_20261014/stages/03_P3_IT_DELIVERY/config.json": "1de2908a4a8da3e7f811c0d87928d05f857f5bd78ec243cc57c07ef9ec933874",
+      "data/analytics/a04_taxonomy_v0_2_2_20261014/stages/03_P3_IT_DELIVERY/controls.json": "904684c1d20957cc66d74804df876864738783b7c1a46a9ecde2aff4b1da21a1",
+      "data/analytics/a04_taxonomy_v0_2_2_20261014/stages/03_P3_IT_DELIVERY/delta.json": "38751aa627f48d6699a1f4ed8b447855bcf283f931af04b01418745370cbc8c0",
+      "data/analytics/a04_taxonomy_v0_2_2_20261014/stages/03_P3_IT_DELIVERY/predictions.jsonl": "1c4c8b8d3ab00238e908e834ca615ba4188b6d03858cb5e38648f1565d03266d"
+    }
+  },
+  "git_branch": "feat/tv2-analysis",
+  "tv1_snapshot": {
+    "commit": "457f90ae4c8074a468ec6ac8f410dd31bbbb4a6b",
+    "files": {
+      "tv1_snapshot\\requirements.txt": "be46e21a4780ef73a73c2deef5699f44ae162ca3b620b09173bf6d417244ca47",
+      "tv1_snapshot\\data\\audit\\d05_canonical_schema.json": "afbe88517c543b9a594dedada911da89d96a9ee3389427ae3332c20c25f5fe22",
+      "tv1_snapshot\\data\\audit\\d05_official_bridge_cardinality.csv": "e25dbe1c18f09e8ec38bc78301d3717dce390033f9331bcb956793bb6e9c44e0",
+      "tv1_snapshot\\data\\audit\\d05_official_input_inventory.csv": "e1ceb9007262bcd4152a0dd668ca0a9f9b6151836bc8b67145437dfd6af0eed2",
+      "tv1_snapshot\\data\\audit\\d05_official_join_reconciliation.csv": "b7514b4e0980d32fca4d9203e48b706c3113401ce025ac447e44b4a99aa8690e",
+      "tv1_snapshot\\data\\audit\\d05_official_referential_coverage.csv": "4ceebc7406a87c97f38aba5d1fd329a3091f4c62dccf493b2073d78db3178649",
+      "tv1_snapshot\\data\\audit\\d05_official_regression_tests.csv": "484e9218a7494ab9e9f4f44bce0455e750c33475e5bc80ab3444756e6eaa0983",
+      "tv1_snapshot\\data\\audit\\d05_official_run_manifest.json": "d867f2c0f00e2387c0c5f6a0529eeb2c6821455d0c7193616b04857609a0ad43",
+      "tv1_snapshot\\data\\audit\\d05_official_validation.csv": "18a8fbf2c9adf663564d88a4e753add8988f25b21699309192e3d3a844d39696",
+      "tv1_snapshot\\data\\audit\\d05_precheck_cardinality.csv": "ad220804aae08a18c4e320e38bded05ae0386d7260ac89686413eecc51a525b7",
+      "tv1_snapshot\\data\\audit\\d05_precheck_join_coverage.csv": "8827bb46ded7d3559748505cef7170508d33e51b9cf825d66c86b02fe5428552",
+      "tv1_snapshot\\data\\audit\\d05_precheck_skills.csv": "07d4126fd92df28abdc508a2907d515e2503f5670d5916c1c2e00fcb94b0b3e2",
+      "tv1_snapshot\\data\\audit\\d05_time_coverage.csv": "93700f4225fd3fd31fc0c0ca8a17ab757abbe5dd3ac7fcd5adacec4ad3048ccb",
+      "tv1_snapshot\\docs\\d05_a03_readiness_review.md": "f43a65be9592213047bc552bbecd0eeee5ab805aafe0edb4a6eb1f461477275f",
+      "tv1_snapshot\\docs\\d05_implementation_scaffold.md": "2d992fb605791fd69b9f8d5e872c232006353c102061d0004d25140f5898911d",
+      "tv1_snapshot\\docs\\d05_official_report.md": "09e76bab3643177c296b03dd397c510a0cdb2e2b52c1b61498604198ce6025a9",
+      "tv1_snapshot\\docs\\d05_precheck.md": "c9cac9f6c1ad35ab32146f65b0056922b3c1d31a03e8b34a9f9ae639f20f32df",
+      "tv1_snapshot\\src\\build_canonical_jobs.py": "4c3b21d6cf12c25842b10c15a0713be00a5196c40d8602011316998316477dd1",
+      "tv1_snapshot\\src\\d05_prejoin_validation.py": "5865ffbe91cd7f5fbd28fc3d97a43c5b0a9922b4c9bc1d62eff2ed4e94a17e4c",
+      "tv1_snapshot\\src\\d05_utils.py": "262aac46513932b97de5617e4196ac12285d1fad2e69f0aafeaf598502efce35",
+      "tv1_snapshot\\src\\test_d05_official.py": "f42f7d866b20b2807f22a66fbd2f0aec8d42f9600ee29649834cc2872d9b4425",
+      "tv1_snapshot\\src\\test_d05_scaffold.py": "a8ae6243f678aa525df326548bf32cc43446b8d0e8971a0c96778bbd7da47aa3",
+      "tv1_snapshot\\src\\windows\\NoPermissionLocalFileSystem.java": "0fa04a8c34e0c3d9c4aea508fd0cdcf8068af2b6e8da7dacf5687e091b9a7e8a"
+    }
+  },
+  "user_handoff_confirmation": "User reports official D05 handoff branch feat/tv1-d05-official commit 457f90ae; repository report still PENDING GROUP REVIEW.",
+  "zip_receipt": "jobs.zip not found in workspace; validated existing extracted files data/processed/jobs instead; original ZIP CRC/hash not verified."
+}

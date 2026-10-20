@@ -1,0 +1,62 @@
+{
+  "date": "2026-10-20",
+  "scope": "SYNTHETIC_AND_ALL_JOBS_STAGING_NOT_IT_PRODUCTION",
+  "final_distinct_tests_passed": 18,
+  "final_failures": 0,
+  "initial_results": {
+    "run": 17,
+    "passed": 16,
+    "failures": 1,
+    "errors": 0,
+    "skipped": 0
+  },
+  "retry_and_new_integration": {
+    "run": 6,
+    "passed": 6,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "initial_failure": "Report assertion encoding changed during test edit; restored encoding; full ReportTests rerun PASS",
+  "test_evidence": {
+    "tests.txt": {
+      "sha256": "5a9e26d13227712b0df78e9b053af005aa6f54812afd20f33c017b8726ca65f6",
+      "content": "test_fail_closed_duplicate_missing_record_and_invalid_usable (test_q07_salary.SalaryTests.test_fail_closed_duplicate_missing_record_and_invalid_usable) ... ok\ntest_independent_samples_quantiles_and_coverage (test_q07_salary.SalaryTests.test_independent_samples_quantiles_and_coverage) ... ok\ntest_min_only_max_only_med_only_and_missing_context (test_q07_salary.SalaryTests.test_min_only_max_only_med_only_and_missing_context) ... ok\ntest_real_d07_and_d05_schema_grain (test_q07_salary.SalaryTests.test_real_d07_and_d05_schema_grain) ... ok\ntest_a05_source_namespace_matches_existing_contract (test_a05_a11_integration.ContractTests.test_a05_source_namespace_matches_existing_contract) ... ok\ntest_artifact_digest_changes_when_content_changes (test_a05_a11_integration.ContractTests.test_artifact_digest_changes_when_content_changes) ... ok\ntest_d07_boolean_does_not_enable_salary (test_a05_a11_integration.ContractTests.test_d07_boolean_does_not_enable_salary) ... ok\ntest_dictionary_version_and_bytes_unchanged (test_a05_a11_integration.ContractTests.test_dictionary_version_and_bytes_unchanged) ... ok\ntest_empty_contract_is_blocked_for_every_query (test_a05_a11_integration.ContractTests.test_empty_contract_is_blocked_for_every_query) ... ok\ntest_missing_paths_are_not_ready_even_with_reviewer (test_a05_a11_integration.ContractTests.test_missing_paths_are_not_ready_even_with_reviewer) ... ok\ntest_new_output_guard_and_persisted_blocked_manifest (test_a05_a11_integration.ContractTests.test_new_output_guard_and_persisted_blocked_manifest) ... ok\ntest_pending_approval_is_not_confirmation (test_a05_a11_integration.ContractTests.test_pending_approval_is_not_confirmation) ... ok\ntest_blocked_report_has_ten_slides_notes_and_no_results (test_a05_a11_integration.ReportTests.test_blocked_report_has_ten_slides_notes_and_no_results) ... FAIL\ntest_modified_csv_blocks_official_publication (test_a05_a11_integration.ReportTests.test_modified_csv_blocks_official_publication) ... ok\ntest_partial_success_is_not_final_report_success (test_a05_a11_integration.ReportTests.test_partial_success_is_not_final_report_success) ... ok\ntest_synthetic_success_does_not_authorize_market_results (test_a05_a11_integration.ReportTests.test_synthetic_success_does_not_authorize_market_results) ... ok\ntest_waiting_insights_do_not_use_supplied_fake_counts (test_a05_a11_integration.ReportTests.test_waiting_insights_do_not_use_supplied_fake_counts) ... ok\n\n======================================================================\nFAIL: test_blocked_report_has_ten_slides_notes_and_no_results (test_a05_a11_integration.ReportTests.test_blocked_report_has_ten_slides_notes_and_no_results)\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"C:\\Users\\dongv\\BigData-IT-Recruitment\\src\\test_a05_a11_integration.py\", line 89, in test_blocked_report_has_ten_slides_notes_and_no_results\n    self.assertIn(\"CHá»œ INPUT\",(out/\"a09_insights.md\").read_text(encoding=\"utf-8\"))\nAssertionError: 'CHá»œ INPUT' not found in '# A09 — Nhận xét có kiểm soát nguồn\\n\\nCandidate — CHỜ OFFICIAL SUCCESS\\n\\nNguồn: `C:\\\\Users\\\\dongv\\\\BigData-IT-Recruitment\\\\tmp\\\\tmp_thfrpmp\\\\manifest.json`; SHA-256 `1b3eefe3539fc6c826180cea818bc6cdc83548d099827af23b50428adf8be868`.\\n\\n1. Q01 — CHỜ INPUT: chưa có run OFFICIAL SUCCESS; chưa xác định tử số/mẫu số chính thức. Phụ thuộc taxonomy D06; không suy nghề từ ngành doanh nghiệp.\\n\\n2. Q02 — CHỜ INPUT: chưa có run OFFICIAL SUCCESS; chưa xác định tử số/mẫu số chính thức. Nhãn cấp bậc không tương đương số năm kinh nghiệm.\\n\\n3. Q03 — CHỜ INPUT: chưa có run OFFICIAL SUCCESS; chưa xác định tử số/mẫu số chính thức. Giữ chuỗi location; chưa suy quốc gia/địa điểm làm việc thực tế.\\n\\n4. Q04 — CHỜ INPUT: chưa có run OFFICIAL SUCCESS; chưa xác định tử số/mẫu số chính thức. NULL remote không phải false; không suy ba loại remote/hybrid/onsite.\\n\\n5. Q05 — CHỜ INPUT: chưa có run OFFICIAL SUCCESS; chưa xác định tử số/mẫu số chính thức. Nhãn đa giá trị, tổng tỷ lệ có thể vượt 100%; không phải Python/SQL.\\n\\n6. Q06 — CHỜ INPUT: chưa có run OFFICIAL SUCCESS; chưa xác định tử số/mẫu số chính thức. Mẫu số gồm PROCESSED_NO_MATCH; missing/failed/partial không phải zero-hit; mention không đồng nghĩa bắt buộc.\\n\\n7. Q07 — CHỜ INPUT: chưa có run OFFICIAL SUCCESS; chưa xác định tử số/mẫu số chính thức. Không gộp currency/pay_period/compensation_type/salary_source; quantile của min và max riêng, không tự quy đổi.\\n\\n8. Q08 — CHỜ INPUT: chưa có run OFFICIAL SUCCESS; chưa xác định tử số/mẫu số chính thức. Hai timestamp riêng; kỳ biên/thưa không chứng minh xu hướng toàn thị trường.\\n\\nChưa có run chính thức thì các dòng trên là nội dung chờ input, không phải 8 nhận xét kết quả đã nghiệm thu. Không dùng 105 tin phát triển làm tổng thể; không suy đại diện thị trường Việt Nam hoặc quan hệ nhân quả.\\n'\n\n----------------------------------------------------------------------\nRan 17 tests in 371.678s\n\nFAILED (failures=1)\n"
+    },
+    "integration_tests.txt": {
+      "sha256": "7f0a775170ebf6308b0f4fd5bddc17b778c5c75148a5f40d15a80b78ded85dc8",
+      "content": "test_analyzer_native_schema_and_approval_gate (test_q07_salary.IntegrationTests.test_analyzer_native_schema_and_approval_gate) ... ok\ntest_blocked_report_has_ten_slides_notes_and_no_results (test_a05_a11_integration.ReportTests.test_blocked_report_has_ten_slides_notes_and_no_results) ... ok\ntest_modified_csv_blocks_official_publication (test_a05_a11_integration.ReportTests.test_modified_csv_blocks_official_publication) ... ok\ntest_partial_success_is_not_final_report_success (test_a05_a11_integration.ReportTests.test_partial_success_is_not_final_report_success) ... ok\ntest_synthetic_success_does_not_authorize_market_results (test_a05_a11_integration.ReportTests.test_synthetic_success_does_not_authorize_market_results) ... ok\ntest_waiting_insights_do_not_use_supplied_fake_counts (test_a05_a11_integration.ReportTests.test_waiting_insights_do_not_use_supplied_fake_counts) ... ok\n\n----------------------------------------------------------------------\nRan 6 tests in 103.677s\n\nOK\n"
+    }
+  },
+  "implementation_sha256": {
+    "src/q07_salary.py": "03c1930d9d03bfa53183090611f7426ecae516531468fd261096e7689a6c6dcd",
+    "src/test_q07_salary.py": "b05332715f7d5b1f8e7f5a64d215a97a4748b6a23588af95b192c8e31b573773",
+    "src/a06_a08_spark_analysis.py": "58ae37b667b3b31b91739e31357af25a68f434a81eb6adf556b0e9dc9911dc89",
+    "src/render_tv2_analysis.py": "02089e7812ef8c5949525d3e09ceca78bcba2ab684d7af05679ca3138f9650ba",
+    "src/test_a05_a11_integration.py": "960611445abbb6750392b14b948fadd63d3cddfb303c7013c38e637d3dd194ac",
+    "config/q07_salary_contract_v2.json": "0944fa6b186b6fa8aaf2f2eb63358cdd1b69ca34df43317b3733851224d2528a",
+    "config/tv2_analysis_inputs.example.json": "31cae5ded467d6eeb3ce051541a701271eb91c2f359845867fcec531ee59f391",
+    "config/tv2_analysis_output_schema.json": "cf35a7330d829cdb18a358f88491371b539868d1636dbea345be54b8b1686034"
+  },
+  "a05_pinned_unchanged": {
+    "src/tech_skill_extractor.py": true,
+    "src/a05_spark.py": true,
+    "src/description_processing.py": true,
+    "config/versions/tech_skills_v0.1.2.json": true
+  },
+  "source_payload_checksum_pass": true,
+  "real_d07_checks": [
+    "D07 key/grain, required native schema, population coverage",
+    "sum n_min=29793,n_max=29793,eligible_bundle_n=36059 ALL JOBS",
+    "quantile order and IQR identities",
+    "normalized min/med/max equals selected native amount times D07 factor",
+    "D05 Q05 embedded projection grain/orphans",
+    "D05 Q08 timestamp types and monthly conservation"
+  ],
+  "source_code_tv1_reviewed": false,
+  "source_code_limitation": "Exact TV1 D07 release object/code absent from handoff/local; network retrieval unsuccessful. Policy/report/schema and data invariants reviewed; source code/hash requested.",
+  "d06_full_available": false,
+  "a05_official_executed": false,
+  "production_outputs_written": false,
+  "official_signoff": false
+}

@@ -1,0 +1,29 @@
+{
+  "scope": "ALL_JOBS_STAGING_VALIDATION_NOT_IT_PUBLICATION",
+  "data_checks_pass": true,
+  "manifest_pass": true,
+  "completion_seal": {
+    "manifest_sha256": true,
+    "output_inventory_sha256": true,
+    "validation_sha256": true,
+    "completion_succeeded": true
+  },
+  "regression": {
+    "passed_distinct": 26,
+    "skipped_real_d06": 1,
+    "initial_setup_errors": 1,
+    "retry": {
+      "run": 6,
+      "passed": 6,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "mode": "shared_local_pythonpath"
+    },
+    "default_addPyFile_windows_limitation_unresolved": true
+  },
+  "stable_files_unchanged_since_inventory": true,
+  "d06_full_available": false,
+  "official_a05_executed": false,
+  "report": "docs/tv2_d05_d07_integration_20261020.md"
+}

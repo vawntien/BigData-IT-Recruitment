@@ -1,0 +1,52 @@
+{
+  "user_confirmed_input_directory": "C:\\Users\\dongv\\BigData-IT-Recruitment\\data\\processed\\jobs",
+  "input_form": "EXTRACTED_PARQUET_DIRECTORY_CONFIRMED_BY_USER",
+  "archive_crc": "NOT_APPLICABLE_TO_CONFIRMED_DIRECTORY",
+  "D05_readback": "PASS",
+  "rows": 123849,
+  "unique_job_ids": 123849,
+  "columns": 50,
+  "canonical_destination": "data/processed/canonical/jobs",
+  "source_and_destination_hashes_match": true,
+  "existing_inputs_unchanged": 138,
+  "A04_signed_decisions": 176,
+  "A04_classifier_rerun": false,
+  "A05_unit_suite": {
+    "successful_test_cases": 55,
+    "unittest_testsRun": 56,
+    "suite_setup_errors": 1,
+    "skipped_real_D06": 1,
+    "synthetic_methods_not_executed": 6,
+    "root_cause": "SparkContext.addPyFile -> FileUtil.chmod -> missing HADOOP_HOME/winutils.exe on Windows. D05 filesystem adapter alone does not cover this Spark path.",
+    "A05_distributed_parity": "BLOCKED_RUNTIME",
+    "A05_real_D06": "BLOCKED_DEPENDENCY",
+    "code_changed": false,
+    "log": "tmp/tv2_d05_receipt_457f90ae/a05_tests03/tests.txt",
+    "note": "setUpClass error is not a counted test case; do not subtract it from successful tests."
+  },
+  "independent_spark_query_cases_passed": 4,
+  "A05_empty_parquet_schema_smoke": "PASS_AFTER_TEST_NULLABILITY_EXPECTATION_CORRECTION",
+  "first_independent_run": {
+    "tests": 5,
+    "failures": 1,
+    "errors": 0,
+    "skipped": 0,
+    "scope": "Synthetic analysis fixtures and empty A05 schema Parquet smoke only; no IT statistics or extractor parity"
+  },
+  "targeted_schema_rerun": {
+    "tests": 1,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "scope": "Synthetic analysis fixtures and empty A05 schema Parquet smoke only; no IT statistics or extractor parity"
+  },
+  "A05_official": "BLOCKED_D06_AND_RUNTIME",
+  "A06_A11_official": "BLOCKED_D06_D07_A05_AND_Q05_CONTRACT",
+  "business_source_code_modified": false,
+  "commit_push_merge": false,
+  "test_logs": {
+    "tmp\\tv2_d05_receipt_457f90ae\\a05_tests03\\tests.txt": "b512699c5c96e633b9c48f46bfb4e75c2626b1fb0cbfb65f321724923117b773",
+    "tmp\\tv2_d05_receipt_457f90ae\\data_only_tests01\\tests.txt": "faf49046c47453a508d12c6bda78a3ac663070323e45968aaffde493d61d4e77",
+    "tmp\\tv2_d05_receipt_457f90ae\\schema_only_tests02\\tests.txt": "7feb3d4783ead5c6d9c38d2102eac3915fcd153e1b04a84c73610e6ed53099f0"
+  }
+}

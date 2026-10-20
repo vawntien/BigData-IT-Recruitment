@@ -1,0 +1,98 @@
+{
+  "date": "2026-10-19",
+  "branch": "feat/tv2-analysis",
+  "source_changes": {
+    "src/a06_a08_spark_analysis.py": {
+      "before": "9980d03efd3cb8b871f1e71e51ae9677dc956d0fdc7d99e49f9f1af62d720913",
+      "after": "531898d274e72f1aa265f87d4c4cfab54b89d062c4cd754bac0a7c22b5c7aa62"
+    },
+    "src/render_tv2_analysis.py": {
+      "before": "d0f28eec9e31487879fdac185bc300c406405d2719546c8260a78bb836c53412",
+      "after": "811af5b8cd765d884e7fd50155bcdfa663828cc512fe30f90187531055a12ee5"
+    }
+  },
+  "protected_before_count": 191,
+  "unexpected_changes": [],
+  "A01_A04_unchanged": true,
+  "A05_dictionary_extractor_adapter_and_parity_artifacts_unchanged": true,
+  "D05_unchanged": true,
+  "A04_rerun": false,
+  "A05_105_parity_rerun": false,
+  "D06_or_D07_production_run": false,
+  "human_review_metadata_filled": false,
+  "A05_review_status": "PROPOSED_NOT_APPROVED",
+  "A05_requested_workbook_filename_present": false,
+  "A05_actual_workbook": "C:\\Users\\dongv\\BigData-IT-Recruitment\\data\\analytics\\a05_review\\A05_Review_661_Evidence.xlsx",
+  "A05_evidence_reconciled": 661,
+  "A05_additional_proposals_checked": 5,
+  "CHUA_RO_rows": 19,
+  "CHUA_RO_jobs": 9,
+  "priority_changes_including_CHUA_RO": 182,
+  "unit_and_spark_suite": {
+    "testsRun": 28,
+    "passed": 27,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 1,
+    "skip_reasons": [
+      "SKIP: no TV1-confirmed D06 contract/runtime; never substitute 105 development jobs"
+    ]
+  },
+  "receipt_followup_unit_tests": {
+    "tests": 4,
+    "passed": 4,
+    "failures": 0,
+    "errors": 0
+  },
+  "static_validation": {
+    "manual_approval_columns_blank": true,
+    "source_reconciliation": true,
+    "unclear_rows": 19,
+    "unclear_jobs": 9,
+    "priority_changes_rows_including_unclear": 182,
+    "all_evidence_proposals_pending": 661,
+    "additional_mentions_pending": 5,
+    "chart_registry_questions": 8,
+    "slides": 10,
+    "source_footers": 10,
+    "official_statistics_published": false,
+    "D06_receiving": "BLOCKED_DEPENDENCY"
+  },
+  "official_status": "BLOCKED_D06_FULL_TEXT_BINDING_Q05_CONTRACT_D07_APPROVAL_AND_HUMAN_SKILL_REVIEW",
+  "code_hashes": {
+    "src/prepare_a05_acceptance.py": "59577e3c946f58b9b9c0c80897ee7df0d63ada2f490c3a74dd338213cd698735",
+    "src/d06_handoff_validation.py": "ca425b7098690458155323e3380c82e42f10e46287f82627168f06b066e18fff",
+    "src/receive_d06_handoff.py": "e32f823f5c3f6c8505303e2ed34f9a6ddd795b2651a495320a5f893701b042e6",
+    "src/test_tv2_readiness.py": "9235f814df4d325cb18052f97e681e08cde0033ec96df7e76a22c054bc7c5707",
+    "src/a06_a08_spark_analysis.py": "531898d274e72f1aa265f87d4c4cfab54b89d062c4cd754bac0a7c22b5c7aa62",
+    "src/render_tv2_analysis.py": "811af5b8cd765d884e7fd50155bcdfa663828cc512fe30f90187531055a12ee5"
+  },
+  "output_hashes": {
+    "data/analytics/tv2_readiness_20261019/protected_before.json": "d84000d0faa7bf5e7ebdae70174d1e6b919195931a5bbd58c0ce128d8d6a6e37",
+    "data/analytics/tv2_readiness_20261019/static_validation.json": "a140101375a4b0e6622c3e129d198fd43a161af339c82b4cd55cbba62dd4d959",
+    "data/analytics/tv2_readiness_20261019/a05_acceptance/acceptance_manifest.json": "b7c09c02a0536d94933e5f374abe2300a3e9f944f596098d7b6447ac6a7f692e",
+    "data/analytics/tv2_readiness_20261019/a05_acceptance/acceptance_summary.csv": "0571e92a9db89522d75e29f30cc6a3adb6af9951a9b661ba5c303f650e763466",
+    "data/analytics/tv2_readiness_20261019/a05_acceptance/acceptance_summary.md": "0ce0e987e7e9c6065ea57012cb030ba24b012d7401f334d5b483b3096f1c288b",
+    "data/analytics/tv2_readiness_20261019/a05_acceptance/additional_mentions_pending.csv": "261afc23c17b4de6199cd54e1edea6cccae1e29eb46410530b6eefffe3b32a35",
+    "data/analytics/tv2_readiness_20261019/a05_acceptance/additional_proposal_checks.csv": "41e92bc283bd5b98194086278bd8227269001a2f4a428a5aea0f0b5eb115098d",
+    "data/analytics/tv2_readiness_20261019/a05_acceptance/changes_requiring_confirmation.csv": "4145a695f5b7049249631e4127974c4454b450656cbd643b30596c8783492543",
+    "data/analytics/tv2_readiness_20261019/a05_acceptance/chua_ro.csv": "c590a612405982fc6cb46ed55bf8682939eb08678a84cf3f0debc34a2d75ff4a",
+    "data/analytics/tv2_readiness_20261019/a05_acceptance/existing_review_queue.csv": "ca979348de1e3bbac44340e8066c5a43b3a9a910717c38cb0764931ff6920697",
+    "data/analytics/tv2_readiness_20261019/a05_acceptance/manual_acceptance_queue.csv": "c3458e44f4b872efe410ba716148cdb2b41f375da4102c3b518e50013f3c0a81",
+    "data/analytics/tv2_readiness_20261019/a05_acceptance/review_audit.json": "8b741c7eebc1ad0eb468611a3b4be5ebe2ce290a259cb8025502b970cbc2872e",
+    "data/analytics/tv2_readiness_20261019/d06_receiving_preflight/receiving_validation.json": "a4b353e9ded3f67a3db900fc160ca065e42111233171f324db750792d04d6418",
+    "data/analytics/tv2_readiness_20261019/report_package/manifest.json": "6ac33c730a91aa553826677fa9c39cc84cd07669c453490b8c5872ec481ea714",
+    "data/analytics/tv2_readiness_20261019/report_package/reports/a09_insights.md": "6b76dd43465c6a7ef63d209e270dcc0511bfdbc55d1f1f11ccc3f03e6d26e87e",
+    "data/analytics/tv2_readiness_20261019/report_package/reports/a10_analysis_report.md": "dae04e62588529fbf98519ee479c95d51d0091c38006e8502e3debb3f1deb7ae",
+    "data/analytics/tv2_readiness_20261019/report_package/reports/a11_slides.html": "9073956a0e68a4189f6336d56b42d9bc85dd99e65f4b56b8cb9e1491fcb71788",
+    "data/analytics/tv2_readiness_20261019/report_package/reports/a11_slide_content.md": "01453b7d989c0d6e377b41a12f958f393fd6c9b772237ebaad5ddf101f4cd77c",
+    "data/analytics/tv2_readiness_20261019/report_package/reports/chart_sources.json": "8d96b5517ec3e82097c31fc99d49a40bf8392f7f787b4258cc1f0bd0e041a684",
+    "data/analytics/tv2_readiness_20261019/report_package/reports/chart_sources.md": "ec239bf7bea9fcb4952ea9526820b7fe7902b1e78032ad8c759038f45b0b42f4",
+    "data/analytics/tv2_readiness_20261019/report_package/reports/publication_manifest.json": "17f907e50f7a1edafca1d967a542ef548e190b2b98e2f91dfe3840605deafacd",
+    "data/analytics/tv2_readiness_20261019/tests/receipt_unit_followup.json": "e61dbde357ab5573691824f4b385ab38edab83c7d71a01b79ecedffa22821850",
+    "data/analytics/tv2_readiness_20261019/tests/receipt_unit_followup.txt": "64c6d71185609be48f62c0ee9c9d76219aab1f022dae23f4f3a1d78dcf3febba",
+    "data/analytics/tv2_readiness_20261019/tests/tests.json": "75131e38b3447ef68e707d18456dd953694e3304271e7b1da112371cfa8597cf",
+    "data/analytics/tv2_readiness_20261019/tests/tests.txt": "afd8331f0efb8cb03a1c2b266880f42afc5d9af21962fc315f921f04a9e2cb8c"
+  },
+  "commit_push_merge": false
+}

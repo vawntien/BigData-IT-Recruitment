@@ -1,0 +1,137 @@
+{
+  "date": "2026-10-19",
+  "operation": "READ_ONLY_LINEAGE_CHECK_NO_CLASSIFICATION",
+  "versions": {
+    "0.2.1": {
+      "date": "2026-10-14",
+      "source_rows": 177,
+      "unique_jobs": 176,
+      "manifest_output_hashes_checked": 30,
+      "output_hash_mismatches": [],
+      "decisions_on_development_union": {
+        "REJECT": 60,
+        "ACCEPT": 83,
+        "REVIEW": 33
+      },
+      "full_dataset_classification": false,
+      "config_sha256": "efedfeeeb090808923f3ad47a27988f90436153f6e5f70610d48ff19c14773b9"
+    },
+    "0.2.2": {
+      "date": "2026-10-14",
+      "source_rows": 177,
+      "unique_jobs": 176,
+      "manifest_output_hashes_checked": 24,
+      "output_hash_mismatches": [],
+      "decisions_on_development_union": {
+        "REJECT": 57,
+        "ACCEPT": 86,
+        "REVIEW": 33
+      },
+      "full_dataset_classification": false,
+      "config_sha256": "1de2908a4a8da3e7f811c0d87928d05f857f5bd78ec243cc57c07ef9ec933874"
+    }
+  },
+  "label_sources": [
+    {
+      "path": "data/analytics/a04_manual_seed42/a04_manual_labels_filled.xlsx",
+      "rows": 160,
+      "sha256": "bbe53db071a75478705c8be3b692356c896018bd20dfac40aebc489d97d305a2",
+      "label_counts": {
+        "NGOAI_CNTT": 66,
+        "CNTT": 90,
+        "CHUA_RO": 4
+      },
+      "snapshot_equal": true
+    },
+    {
+      "path": "data/analytics/a04_taxonomy_v0_2_0_20261008/accept_downgrades_for_review_blind.xlsx",
+      "rows": 17,
+      "sha256": "7951c40d59271b58e1ca8d33e0e97c8f83a29c069be39cc6813826e6897cfe09",
+      "label_counts": {
+        "CNTT": 16,
+        "NGOAI_CNTT": 1
+      },
+      "snapshot_equal": true
+    }
+  ],
+  "unique_development_jobs": 176,
+  "union_labels": {
+    "NGOAI_CNTT": 67,
+    "CNTT": 105,
+    "CHUA_RO": 4
+  },
+  "active_taxonomy_version": "0.2.0",
+  "active_sha256": "086b0d938c7557091cb4c31f25cdfec2a746fd6853d91156087104d0f60e0d9d",
+  "candidate_handoff": "0.2.2; not promoted or accepted by TV1",
+  "a05_selection_equals_approved_it_labels": true,
+  "a05_development_jobs": 105,
+  "a05_review_status": "PROPOSED_NOT_APPROVED",
+  "a05_skill_decisions_applied": false,
+  "official_parquet_paths_found": [],
+  "classification_executed": false,
+  "metrics_recomputed": false,
+  "etl_executed": false,
+  "protected_files": {
+    "config\\versions\\it_taxonomy_v0.2.1.json": "efedfeeeb090808923f3ad47a27988f90436153f6e5f70610d48ff19c14773b9",
+    "data\\analytics\\a04_taxonomy_v0_2_2_20261014\\supplement17_v022_predictions_private.jsonl": "b4cdb7515a40b9f77eb78ded7b20b7ad6d76778418e3b39ba4925d7a84fe9691",
+    "data\\analytics\\a04_taxonomy_v0_2_1_20261014\\stages\\02_P2_ETL\\delta.json": "12f273f42b7c7b8d46791ffd548b2206dc2e0b0d01b23432d99faae266cf1382",
+    "data\\analytics\\a04_taxonomy_v0_2_1_20261014\\stages\\02_P2_ETL\\fixture_results.json": "21e94eadd2c44dfa6e17c64dd9b531fb366de3b5a1c93d4af142181b5b6131e2",
+    "data\\analytics\\a04_taxonomy_v0_2_1_20261014\\all_predictions.jsonl": "b9b80afa75a3a90bb496affb96b26e7a443091a4c5ace76b6267227d09a47eeb",
+    "data\\analytics\\a04_taxonomy_v0_2_1_20261014\\stages\\02_P2_ETL\\predictions.jsonl": "9d1280e32d9171ffd09bd4c2fec5fb27fa7ed7e19b98d73c342a44fdb33537f3",
+    "data\\analytics\\a04_taxonomy_v0_2_1_20261014\\stages\\05_P2_DATABASE\\delta.json": "069ff239d22aadc91111c7b0d57f92b254293679007dc76e074743564f4d3199",
+    "data\\analytics\\a04_taxonomy_v0_2_1_20261014\\stages\\05_P2_DATABASE\\fixture_results.json": "cca2c08d4d8b42195b0bd0c4c887cf39a2f75bb9dffcd0c8cfffc30170a51ecf",
+    "data\\analytics\\a04_taxonomy_v0_2_2_20261014\\stages\\03_P3_IT_DELIVERY\\delta.json": "38751aa627f48d6699a1f4ed8b447855bcf283f931af04b01418745370cbc8c0",
+    "data\\analytics\\a04_taxonomy_v0_2_1_20261014\\protected_before.json": "4f3a9e9505d205f9bc7ad57dcfa418bd49ca315321d1ad5deab3a4ac32d00f92",
+    "data\\analytics\\a04_taxonomy_v0_2_2_20261014\\stages\\02_P3_APPLICATION_MAINTENANCE_MIGRATION\\controls.json": "bcf59498f02ef8f9a85bb4283177dd65bdc95385b34acf167f726b003a59f421",
+    "data\\analytics\\a04_taxonomy_v0_2_2_20261014\\stages\\01_P3_INTEGRATION\\delta.json": "7252f31a04f0817f6ffe5565f044b8b499f53ced66270b391e0470da5854948c",
+    "data\\analytics\\a04_taxonomy_v0_2_1_20261014\\stages\\05_P2_DATABASE\\predictions.jsonl": "b9b80afa75a3a90bb496affb96b26e7a443091a4c5ace76b6267227d09a47eeb",
+    "data\\analytics\\a04_taxonomy_v0_2_2_20261014\\stages\\01_P3_INTEGRATION\\predictions.jsonl": "581c101cf7834ef4a968488369ebf5c40a06e8f31bcf170ce74014538a6e151c",
+    "data\\analytics\\a04_taxonomy_v0_2_2_20261014\\stages\\03_P3_IT_DELIVERY\\predictions.jsonl": "1c4c8b8d3ab00238e908e834ca615ba4188b6d03858cb5e38648f1565d03266d",
+    "data\\analytics\\a04_taxonomy_v0_2_2_20261014\\run_manifest.json": "4d4aac5d52c1f98e656b0a2fb376712aabc580cbdb75bedf6d4c34df4ca3d3e8",
+    "data\\analytics\\a04_taxonomy_v0_2_2_20261014\\independent_verification.py": "925265e13cce5e6da2e63841c9a459e38da44410ee49178ec5130841002a2fe0",
+    "config\\it_taxonomy.json": "086b0d938c7557091cb4c31f25cdfec2a746fd6853d91156087104d0f60e0d9d",
+    "data\\analytics\\a04_taxonomy_v0_2_1_20261014\\job_comparison.csv": "358cfb63b4dd462a9eae24ead35d605937595c7861422f2a7dbf19e38552c4d4",
+    "config\\versions\\it_taxonomy_v0.2.2.json": "1de2908a4a8da3e7f811c0d87928d05f857f5bd78ec243cc57c07ef9ec933874",
+    "data\\analytics\\a04_taxonomy_v0_2_1_20261014\\independent_verification.json": "d2eba53ca912f08f66bdf3ddf7d574534b7b37864197f4c79b029c65487e6a0e",
+    "data\\analytics\\a04_taxonomy_v0_2_1_20261014\\stages\\04_P2_SOFTWARE_TITLE\\config.json": "ecddc73d7d8ee7e5dd508f82b7f55749887a03d22e49155fd08366d78afaad9a",
+    "data\\analytics\\a04_taxonomy_v0_2_0_20261008\\accept_downgrades_for_review_blind.xlsx": "7951c40d59271b58e1ca8d33e0e97c8f83a29c069be39cc6813826e6897cfe09",
+    "data\\analytics\\a04_taxonomy_v0_2_2_20261014\\stages\\01_P3_INTEGRATION\\controls.json": "fb73af820c3318eada3ea0d517b07172556edc274827c2a2ad9021ee7776f6d3",
+    "data\\analytics\\a04_taxonomy_v0_2_2_20261014\\stages\\03_P3_IT_DELIVERY\\controls.json": "904684c1d20957cc66d74804df876864738783b7c1a46a9ecde2aff4b1da21a1",
+    "data\\analytics\\a04_taxonomy_v0_2_2_20261014\\stages\\02_P3_APPLICATION_MAINTENANCE_MIGRATION\\config.json": "c408b3ad532eca766b5a19b6fcff8c90881150911b287d0bc5c2e78b54762e89",
+    "data\\analytics\\a04_taxonomy_v0_2_1_20261014\\comparison_summary.json": "67601d66550f00034c66499b6eb2ae8916f05f18425a1e6982de58294dbc5b3d",
+    "data\\analytics\\a04_taxonomy_v0_2_2_20261014\\protected_before.json": "51fa8fc75dd0039100f90d28536a41dc814484ed469bbdc0de6b96fb4ec26ee4",
+    "data\\analytics\\a04_taxonomy_v0_2_2_20261014\\all_predictions.jsonl": "1c4c8b8d3ab00238e908e834ca615ba4188b6d03858cb5e38648f1565d03266d",
+    "data\\analytics\\a04_taxonomy_v0_2_1_20261014\\tests_round1.log": "32b8a57ac1f2a12d546e9ba7a8dfc9fe0a74a8a88dc17966cbd84e19dbc2bfb0",
+    "data\\analytics\\a04_taxonomy_v0_2_1_20261014\\stages\\02_P2_ETL\\config.json": "97c0a84687ec8aabe98bea72518c835f6fd675ea36b5b8d9aa65eb1b0279a7cd",
+    "data\\analytics\\a04_taxonomy_v0_2_1_20261014\\stages\\05_P2_DATABASE\\config.json": "efedfeeeb090808923f3ad47a27988f90436153f6e5f70610d48ff19c14773b9",
+    "data\\analytics\\a04_taxonomy_v0_2_2_20261014\\stages\\03_P3_IT_DELIVERY\\config.json": "1de2908a4a8da3e7f811c0d87928d05f857f5bd78ec243cc57c07ef9ec933874",
+    "data\\analytics\\a04_manual_seed42\\a04_manual_labels_filled.xlsx": "bbe53db071a75478705c8be3b692356c896018bd20dfac40aebc489d97d305a2",
+    "data\\analytics\\a04_taxonomy_v0_2_1_20261014\\stages\\03_P2_CYBER\\delta.json": "19f2ad0e6a6a51f886a1c35eae12cbf7947d218d625f92b1f57a1a3da1121d3a",
+    "data\\analytics\\a04_taxonomy_v0_2_1_20261014\\stages\\03_P2_CYBER\\fixture_results.json": "63c7c00d948414c1a3598c7ec11ece5e1c5a4ac5648baa517c9da18a4ad66297",
+    "data\\analytics\\a04_taxonomy_v0_2_2_20261014\\job_comparison.csv": "b4a568ad563c757b6b25e3d65873c835a23f1c3472f978b0cd6e0fd2b40d816f",
+    "data\\analytics\\a04_taxonomy_v0_2_2_20261014\\tests_round2.log": "84d72ffd883c0fc0712570a199022e8dc2da65a2cd856262345f91409c957993",
+    "data\\analytics\\a04_taxonomy_v0_2_2_20261014\\stages\\01_P3_INTEGRATION\\config.json": "a2b9c109f1f15043c3117f031252d5be80952ef36b5daeffe65c6d5812c726dc",
+    "data\\analytics\\a04_taxonomy_v0_2_1_20261014\\stages\\01_P1a\\fixture_results.json": "095c9775a3d837332134b14da20283e5a0d6db822218116f50eb6396fc3b6583",
+    "data\\analytics\\a04_taxonomy_v0_2_1_20261014\\tests_result.json": "3d7166bf5a6babc7561b28fc87577800618fffed941de9236b3c7aa520e7265d",
+    "data\\analytics\\a04_taxonomy_v0_2_2_20261014\\seed42_v022_predictions_private.jsonl": "4350bfcd4b479fee226a450e0ee6fa7456f854b910577cf99ac6cd598b229295",
+    "data\\analytics\\a04_taxonomy_v0_2_1_20261014\\stages\\03_P2_CYBER\\predictions.jsonl": "5d95f63d4a633b73f21cd4c06a554489f08842870d9622972f06ece168ad04dd",
+    "data\\analytics\\a04_taxonomy_v0_2_2_20261014\\independent_verification.json": "0949b8fa6a0e7578394dcc4cd853b12eedec9f24476033c3120558f16cd8c9e0",
+    "data\\analytics\\a04_taxonomy_v0_2_1_20261014\\stages\\01_P1a\\delta.json": "a0059e5983d32a128b991c8a1e8b20ca430e9884bebe9547fb8d25f6d6777377",
+    "data\\analytics\\a04_taxonomy_v0_2_1_20261014\\stages\\01_P1a\\predictions.jsonl": "d4fd0605dd616675d9d7fa323d8d40c46ec449da4770622484581583c006e6bf",
+    "data\\analytics\\a04_taxonomy_v0_2_2_20261014\\comparison_summary.json": "dac226da9cd492e56ee61c8f8e88dc6f8c7e2441287189b47af04379fea1feea",
+    "data\\analytics\\a04_taxonomy_v0_2_1_20261014\\git_before.json": "08c6e28352ec3438d01cfa4c1ec59eb4169a05fa5e74edfb07c7ca75fb632777",
+    "data\\analytics\\a04_taxonomy_v0_2_1_20261014\\seed42_v021_predictions_private.jsonl": "1f7e58c9445b991b6e6eebc8ef8cfc2d8f4b21022ede8a2a4ad73d68553b2e27",
+    "data\\analytics\\a04_taxonomy_v0_2_1_20261014\\run_manifest.json": "269c6af8e8e4f362ee6aba7c1bc3be80a79539ba64cef744b78cd3a1a99f5c5e",
+    "data\\analytics\\a04_taxonomy_v0_2_2_20261014\\tests_result.json": "fba8ea009fa4cf7f043f6ff81f1e9180b2ce496e2c4dd2c140132dd8bf99588e",
+    "data\\analytics\\a04_taxonomy_v0_2_2_20261014\\stages\\02_P3_APPLICATION_MAINTENANCE_MIGRATION\\predictions.jsonl": "5fb78d607f50194f489fcc644be9d5df151a5c225f16ff0621d51f0cf44a6c7a",
+    "data\\analytics\\a04_taxonomy_v0_2_1_20261014\\stages\\03_P2_CYBER\\config.json": "425364366809c27df941e1ddff4168be9276250ea2218ed832b207813ea19f4c",
+    "data\\analytics\\a04_taxonomy_v0_2_1_20261014\\stages\\04_P2_SOFTWARE_TITLE\\delta.json": "e91260f97b83deb0e73b933ae6fa88fc498d6b108cf6d069b2b64bbdd080930e",
+    "data\\analytics\\a04_taxonomy_v0_2_1_20261014\\stages\\04_P2_SOFTWARE_TITLE\\fixture_results.json": "d1a2234470715cff9037484d351218649ef00b4b1c31d3e3757e85cd28cc7197",
+    "data\\analytics\\a04_taxonomy_v0_2_2_20261014\\saved_output_verification.json": "3432c7497f4bc6ab1260d29fa85dbe92acbf2926a01b531d2a31683a549cfcbd",
+    "data\\analytics\\a04_taxonomy_v0_2_1_20261014\\supplement17_v021_predictions_private.jsonl": "b5b23910bc32a6b3a91ceef785af9340da5ff3f46641cb4efa3256efb4fded7c",
+    "data\\analytics\\a04_taxonomy_v0_2_2_20261014\\stages\\02_P3_APPLICATION_MAINTENANCE_MIGRATION\\delta.json": "c536286bd3f58b482f0fbb7e83634f21e399cdfea1ee0205930fc9d68f431faf",
+    "data\\analytics\\a04_taxonomy_v0_2_1_20261014\\stages\\04_P2_SOFTWARE_TITLE\\predictions.jsonl": "a1de2ae62b1be38fd31caa50a53eccb40d9b27efc9b918f8bae6b74ccfb864f7",
+    "data\\analytics\\a04_taxonomy_v0_2_1_20261014\\stages\\01_P1a\\config.json": "b4d5ca992e38633619553e049aaa707638d22d5f91b43db9213641d5a370fd6c",
+    "data\\analytics\\a04_taxonomy_v0_2_2_20261014\\git_before.json": "0627cdd7c40a85ee2bc7f9da049535ebecf966adaebc5f9cf41d54e18de52ce1"
+  }
+}
