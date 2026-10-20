@@ -4,6 +4,8 @@ from __future__ import annotations
 
 import sys
 from pathlib import Path
+from tempfile import TemporaryDirectory
+from unittest.mock import patch
 
 # Setup paths
 DASHBOARD_DIR = Path(__file__).resolve().parent.parent
@@ -29,33 +31,29 @@ def test_sample_mode_enabled():
     df_ov, status_ov, _ = load_overview_data(enable_sample_mode=True)
     assert df_ov is not None, "Overview dataframe should not be None in sample mode"
     assert not df_ov.empty, "Overview sample should not be empty"
-    assert status_ov in (STATUS_SAMPLE, STATUS_PRODUCTION)
+    assert status_ov == STATUS_SAMPLE
 
     df_sk, status_sk, _ = load_skills_data(enable_sample_mode=True)
     assert df_sk is not None, "Skills dataframe should not be None in sample mode"
     assert not df_sk.empty, "Skills sample should not be empty"
-    assert status_sk in (STATUS_SAMPLE, STATUS_PRODUCTION)
+    assert status_sk == STATUS_SAMPLE
 
     df_sq, status_sq, _ = load_salary_quality_data(enable_sample_mode=True)
     assert df_sq is not None, "Salary/Quality dataframe should not be None in sample mode"
     assert not df_sq.empty, "Salary/Quality sample should not be empty"
-    assert status_sq in (STATUS_SAMPLE, STATUS_PRODUCTION)
+    assert status_sq == STATUS_SAMPLE
     print("  [PASS] test_sample_mode_enabled passed.")
 
 
 def test_missing_data_behavior():
     """Verify data loader cleanly returns MISSING status without crashing when sample_mode is False."""
-    # When no production file exists in data/analytics/
-    has_prod_overview = (ANALYTICS_DIR / "overview_analytics.parquet").exists() or (ANALYTICS_DIR / "overview_analytics.csv").exists()
-
-    if not has_prod_overview:
+    from components import data_loader
+    with TemporaryDirectory() as folder, patch.object(data_loader, "ANALYTICS_DIR", Path(folder)):
         df, status, msg = load_overview_data(enable_sample_mode=False)
         assert df is None, "Dataframe should be None when production data missing and sample_mode False"
         assert status == STATUS_MISSING, f"Expected STATUS_MISSING, got {status}"
         assert "not available yet" in msg.lower(), "Message should explain that data is not available yet"
         print("  [PASS] test_missing_data_behavior passed.")
-    else:
-        print("  [SKIP] Production overview data exists; skipping missing-data check.")
 
 
 def test_no_raw_data_access():

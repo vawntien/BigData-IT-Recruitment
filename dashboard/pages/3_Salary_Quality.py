@@ -14,7 +14,7 @@ if str(DASHBOARD_DIR) not in sys.path:
 
 import streamlit as st
 import pandas as pd
-from components.data_loader import load_salary_quality_data, STATUS_MISSING
+from components.data_loader import load_salary_quality_data, STATUS_SAMPLE, STATUS_INVALID
 from components.contract_validator import validate_salary_quality_schema
 from components.ui_helpers import render_header, render_data_status_banner, render_todo_placeholder
 from components.filters import render_sidebar_controls
@@ -42,15 +42,14 @@ with tab_salary:
     """)
 
     df, status, message = load_salary_quality_data(enable_sample_mode=sample_mode)
-    render_data_status_banner(status, message)
-
-    if status != STATUS_MISSING and df is not None:
+    if status == STATUS_SAMPLE and df is not None:
         is_valid, missing_cols, extra_cols, schema_msg = validate_salary_quality_schema(df)
         if not is_valid:
-            st.error(f"⚠️ **Lỗi hợp đồng dữ liệu lương (Schema Mismatch):** {schema_msg}")
+            render_data_status_banner(STATUS_INVALID, schema_msg)
             if missing_cols:
                 st.markdown(f"Các cột còn thiếu: `{missing_cols}`")
         else:
+            render_data_status_banner(status, message)
             col_pay1, col_pay2 = st.columns([1, 1])
 
             # Yearly salary view
@@ -82,12 +81,14 @@ with tab_salary:
                 requirement_desc="Cần phân phối phân vị lương (P25, Median, P75) từ task A08/D07.",
             )
     else:
+        render_data_status_banner(status, message)
         st.warning("Dữ liệu phân tích lương chưa sẵn sàng.")
 
 # ==============================================================================
 # TAB 2: DATA QUALITY & PIPELINE HEALTH
 # ==============================================================================
 with tab_quality:
+    st.info("HISTORICAL RAW/CLEAN AUDIT — số liệu cố định từ D03/D04 và D05 pre-check; không đọc từ Salary đang chọn, không phải accepted IT production quality.")
     st.subheader("📊 Hồ sơ Chất lượng Dữ liệu Thực tế (Audit & Clean Pipeline)")
 
     q_col1, q_col2, q_col3, q_col4 = st.columns(4)

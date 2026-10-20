@@ -14,8 +14,8 @@ def render_sample_control() -> bool:
     # Development mode toggle
     return st.sidebar.checkbox(
         "Enable Development Sample Mode",
-        value=True,
-        help="When enabled, loads small synthetic mockup data if production analytics tables are not found.",
+        value=False,
+        help="Explicitly select bundled synthetic demo data. Real analytics remain blocked pending acceptance.",
     )
 
 

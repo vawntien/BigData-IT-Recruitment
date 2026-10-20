@@ -29,6 +29,10 @@ class OverviewPageTests(unittest.TestCase):
         app = self.load_page()
         self.assertEqual(len(app.exception), 0)
         self.assertEqual(len(app.checkbox), 1)
+        self.assertFalse(app.checkbox[0].value)
+        self.assertEqual(len(app.metric), 0)
+        app.checkbox[0].set_value(True).run(timeout=20)
+        self.assertEqual(len(app.exception), 0)
         self.assertTrue(app.checkbox[0].value)
         self.assertTrue(any("SYNTHETIC MOCKUP DATA" in warning.value for warning in app.warning))
         self.assertEqual(len(app.metric), 4)
@@ -42,6 +46,7 @@ class OverviewPageTests(unittest.TestCase):
 
     def test_sample_off_shows_missing_without_exception(self):
         app = self.load_page()
+        app.checkbox[0].set_value(True).run(timeout=20)
         app.checkbox[0].set_value(False).run(timeout=20)
         self.assertEqual(len(app.exception), 0)
         self.assertEqual(len(app.checkbox), 1)

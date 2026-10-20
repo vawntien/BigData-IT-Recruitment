@@ -14,7 +14,7 @@ if str(DASHBOARD_DIR) not in sys.path:
 
 import streamlit as st
 import pandas as pd
-from components.data_loader import load_skills_data, STATUS_MISSING
+from components.data_loader import load_skills_data, STATUS_SAMPLE, STATUS_INVALID
 from components.contract_validator import validate_skills_schema
 from components.ui_helpers import render_header, render_data_status_banner, render_todo_placeholder
 from components.filters import render_sidebar_controls
@@ -40,18 +40,19 @@ sample_mode = controls["sample_mode"]
 
 # Load data
 df, status, message = load_skills_data(enable_sample_mode=sample_mode)
-render_data_status_banner(status, message)
-
-if status == STATUS_MISSING or df is None:
+if status != STATUS_SAMPLE or df is None:
+    render_data_status_banner(status, message)
     st.stop()
 
 # Schema contract validation
 is_valid, missing_cols, extra_cols, schema_msg = validate_skills_schema(df)
 if not is_valid:
-    st.error(f"⚠️ **Lỗi hợp đồng dữ liệu (Schema Mismatch):** {schema_msg}")
+    render_data_status_banner(STATUS_INVALID, schema_msg)
     if missing_cols:
         st.markdown(f"Các cột còn thiếu: `{missing_cols}`")
     st.stop()
+
+render_data_status_banner(status, message)
 
 # Category filter
 categories = sorted(df["category"].dropna().unique().tolist()) if "category" in df.columns else []

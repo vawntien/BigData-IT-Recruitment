@@ -14,7 +14,7 @@ if str(DASHBOARD_DIR) not in sys.path:
 
 import streamlit as st
 import pandas as pd
-from components.data_loader import load_overview_data, STATUS_MISSING
+from components.data_loader import load_overview_data, STATUS_SAMPLE, STATUS_INVALID
 from components.contract_validator import validate_overview_schema
 from components.ui_helpers import render_header, render_data_status_banner, render_todo_placeholder
 from components.filters import render_sample_control, render_data_filters
@@ -31,18 +31,19 @@ sample_mode = render_sample_control()
 
 # Load data
 df, status, message = load_overview_data(enable_sample_mode=sample_mode)
-render_data_status_banner(status, message)
-
-if status == STATUS_MISSING or df is None:
+if status != STATUS_SAMPLE or df is None:
+    render_data_status_banner(status, message)
     st.stop()
 
 # Schema contract validation
 is_valid, missing_cols, extra_cols, schema_msg = validate_overview_schema(df)
 if not is_valid:
-    st.error(f"⚠️ **Lỗi hợp đồng dữ liệu (Schema Mismatch):** {schema_msg}")
+    render_data_status_banner(STATUS_INVALID, schema_msg)
     if missing_cols:
         st.markdown(f"Các cột còn thiếu: `{missing_cols}`")
     st.stop()
+
+render_data_status_banner(status, message)
 
 # Populate filters with validated dataframe
 controls = render_data_filters(df)
@@ -80,7 +81,7 @@ top_loc = top_loc_series.idxmax() if not top_loc_series.empty else "N/A"
 kpi3.metric("Địa điểm nhiều nhất", str(top_loc))
 
 # Actual audited salary coverage baseline
-kpi4.metric("Độ phủ thông tin lương", "29.13%", help="Đo lường từ dữ liệu sạch thực tế tại D03/D04")
+kpi4.metric("Độ phủ lương (audit raw lịch sử)", "29.13%", help="D03/D04 raw audit; không phải chỉ số IT production hoặc kết quả theo bộ lọc demo.")
 
 st.markdown("---")
 

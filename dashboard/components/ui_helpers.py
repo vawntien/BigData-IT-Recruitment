@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import streamlit as st
+from .artifact_gate import STATUS_BLOCKED, STATUS_INVALID, STATUS_MISSING, STATUS_SAMPLE
 
 
 def render_header(title: str, subtitle: str = "") -> None:
@@ -14,21 +15,25 @@ def render_header(title: str, subtitle: str = "") -> None:
 
 
 def render_data_status_banner(status: str, message: str) -> None:
-    """Render a prominent banner indicating whether production or synthetic data is displayed."""
-    if status == "PRODUCTION":
-        st.success(f"🟢 **PRODUCTION DATA ACTIVE**: {message}")
-    elif status == "SAMPLE":
+    """Render consumer status; no current status authorizes production display."""
+    if status == STATUS_SAMPLE:
         st.warning(
             "⚠️ **DEVELOPMENT SAMPLE MODE ACTIVE**\n\n"
-            "Currently displaying **SYNTHETIC MOCKUP DATA** (`dashboard/sample_data/`).\n"
+            "Currently displaying **SYNTHETIC MOCKUP DATA / SYNTHETIC_SAMPLE** (`dashboard/sample_data/`).\n"
             "This data is solely for UI development and layout testing. "
             "**DO NOT** use these numbers for project reporting or conclusions!"
         )
-    elif status == "MISSING":
+    elif status == STATUS_MISSING:
         st.error(
             f"❌ **DATA UNAVAILABLE**\n\n{message}\n\n"
             "Tip: You can enable 'Sample Development Mode' in the sidebar to preview the dashboard UI."
         )
+    elif status == STATUS_INVALID:
+        st.error(f"❌ **INVALID DATA**\n\n{message}")
+    elif status in (STATUS_BLOCKED, "UNVERIFIED_ARTIFACT"):
+        st.warning(f"⛔ **DATA BLOCKED — UNVERIFIED_ARTIFACT**\n\n{message}")
+    else:
+        st.error("⛔ **DATA BLOCKED**: This status cannot authorize production display.")
 
 
 def render_todo_placeholder(section_name: str, requirement_desc: str) -> None:
