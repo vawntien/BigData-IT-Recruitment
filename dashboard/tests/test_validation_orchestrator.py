@@ -407,6 +407,236 @@ class OrchestratorTests(unittest.TestCase):
         self.assertEqual(r.check_results[-1].status, "BLOCKED")
         self.assertEqual(r.overall_status, "FAIL")
 
+    # Hardening additions: retain the published 50 tests above unchanged.
+    def _h_fixture(self, relational=False):
+        class Description(str):
+            pass
+
+        frame = pd.DataFrame({
+            "key": ["DEMO_B", "DEMO_A"], "ctx": ["RUN_DEMO"] * 2,
+            "n": [Decimal("2"), Decimal("2")], "d": [4, 4],
+            "rate": [Decimal("0.5"), Decimal("0.5")],
+            "description": [Description("SENSITIVE_DESCRIPTION_B"),
+                            Description("SENSITIVE_DESCRIPTION_A")],
+            "origin": [STATUS_SAMPLE] * 2,
+        }, index=pd.Index([29, 7], name="SENSITIVE_INDEX"), dtype=object)
+        frame["d"] = frame["d"].astype("Int64")
+        binding = self.binding("A", frame)
+        binding = replace(binding, schema_spec=replace(binding.schema_spec,
+                          unique_key=("key",), count_fields=("n", "d")))
+        if relational:
+            return (binding, replace(binding, dataset_id="B", dataframe=frame.copy(deep=True)))
+        return (binding,)
+
+    def _h_snapshots(self, bindings):
+        return tuple((b.dataframe, b.dataframe.copy(deep=True),
+                      tuple((i, j, b.dataframe.iat[i, j])
+                            for j, dtype in enumerate(b.dataframe.dtypes) if dtype == object
+                            for i in range(len(b.dataframe)))) for b in bindings)
+
+    def _h_assert_preserved(self, snapshots):
+        for frame, before, identities in snapshots:
+            assert_frame_equal(frame, before, check_exact=True, check_dtype=True,
+                               check_index_type=True, check_column_type=True, check_like=False)
+            for i, j, original in identities:
+                self.assertIs(frame.iat[i, j], original)
+
+    def _h_assert_outcome(self, result, overall, states, issues=()):
+        self.assertEqual(result.overall_status, overall)
+        self.assertIs(result.passed, overall == "SYNTHETIC_VALIDATION_PASS")
+        self.assertEqual(tuple((c.check_id, c.status, c.executed) for c in result.check_results), states)
+        self.assertEqual(result.executed_check_ids, tuple(i for i, _, ran in states if ran))
+        self.assertEqual(result.blocked_check_ids, tuple(i for i, status, _ in states if status == "BLOCKED"))
+        self.assertEqual(result.successful_check_ids, tuple(i for i, status, _ in states if status == "PASS"))
+        if overall == "INVALID_PLAN":
+            self.assertEqual(result.safe_issues, (o.SafeIssue("", "INVALID_PLAN"),))
+        else:
+            self.assertEqual(result.safe_issues, tuple(issue for c in result.check_results for issue in c.issues))
+        for check_id, code in issues:
+            self.assertTrue(any(issue.check_id == check_id and issue.code == code
+                                for issue in result.safe_issues))
+            check = next(c for c in result.check_results if c.check_id == check_id)
+            self.assertTrue(any(issue.check_id == check_id and issue.code == code for issue in check.issues))
+        self.assertNotIn("SENSITIVE", repr(result))
+
+    def _h_hostile_id(self, dataset_id):
+        hooks = []
+
+        class HostileId(str):
+            def forbidden(self, *args):
+                hooks.append("called")
+                raise RuntimeError("SENSITIVE_ID")
+
+            __str__ = __repr__ = __hash__ = __eq__ = forbidden
+
+        binding = self.binding()
+        schema = o.ValidationCheck("Schema_A", "SCHEMA", ("A",), binding.schema_spec, True)
+        plan = o.ValidationPlan((schema,))
+        positive = o.run_synthetic_validation_plan((binding,), plan, True)
+        self.assertTrue(positive.passed)
+        self.assertEqual(positive.overall_status, "SCHEMA_ONLY_VALIDATION")
+        self.assertEqual(tuple((c.check_id, c.status, c.executed) for c in positive.check_results),
+                         (("Schema_A", "PASS", True),))
+        self.assertEqual(positive.executed_check_ids, ("Schema_A",))
+        self.assertEqual(positive.successful_check_ids, ("Schema_A",))
+        self.assertEqual(positive.blocked_check_ids, ())
+        self.assertEqual(positive.safe_issues, ())
+        # Keep the underlying ID identical to the positive control: only its
+        # unsupported subclass changes, not references or uniqueness.
+        hostile = HostileId("A" if dataset_id else "Schema_A")
+        self.assertIs(type(hostile), HostileId)
+        if dataset_id:
+            bindings = (replace(binding, dataset_id=hostile),)
+            self.assertIs(bindings[0].dataset_id, hostile)
+        else:
+            bindings = (binding,)
+            plan = o.ValidationPlan((replace(schema, check_id=hostile),))
+            self.assertIs(plan.checks[0].check_id, hostile)
+        # Observe the actual identifier guard without replacing its behavior.
+        with patch.object(o, "_identifier", wraps=o._identifier) as identifier, \
+                patch.object(o, "build_synthetic_consumer_envelope") as builder, \
+                patch.object(o, "validate_metric_contract") as metric, \
+                patch.object(o, "validate_cross_table_contract") as same, \
+                patch.object(o, "validate_partition_summary_contract") as partition:
+            result = o.run_synthetic_validation_plan(bindings, plan, True)
+        self.assertTrue(any(call.args[0] is hostile for call in identifier.call_args_list))
+        for dependency in (builder, metric, same, partition):
+            dependency.assert_not_called()
+        self.assertEqual(hooks, [])
+        self._h_assert_outcome(result, "INVALID_PLAN", ())
+        self.assertFalse(result.schema_scope_completed)
+        self.assertEqual(result.safe_issues, (o.SafeIssue("", "INVALID_PLAN"),))
+        self.assertEqual(result.category_statuses, tuple((c, "NOT_REQUESTED") for c in
+                         ("SCHEMA", "METRIC", "SAME_GRAIN", "PARTITION_SUMMARY")))
+
+    def test_t51_hostile_dataset_string_id_reaches_binding_guard(self):
+        self._h_hostile_id(dataset_id=True)
+
+    def test_t52_hostile_check_string_id_reaches_check_guard(self):
+        self._h_hostile_id(dataset_id=False)
+
+    def test_t53_schema_failure_preserves_inputs_and_blocks_dependencies(self):
+        bindings = self._h_fixture(relational=True)
+        bindings[0].dataframe.at[29, "n"] = "SENSITIVE_BAD_COUNT"
+        snapshots = self._h_snapshots(bindings)
+        with patch.object(o, "validate_metric_contract") as metric, \
+                patch.object(o, "validate_cross_table_contract") as same, \
+                patch.object(o, "build_synthetic_consumer_envelope",
+                             wraps=o.build_synthetic_consumer_envelope) as builder:
+            result = self.run_plan(bindings, (self.check(name="Metric"),
+                self.check("SAME_GRAIN", ("A", "B"), name="Same")))
+        self.assertEqual(builder.call_count, 2)
+        metric.assert_not_called()
+        same.assert_not_called()
+        self._h_assert_outcome(result, "FAIL", (("Schema_A", "FAIL", True),
+            ("Schema_B", "PASS", True), ("Metric", "BLOCKED", False), ("Same", "BLOCKED", False)),
+            (("Schema_A", "TYPE_MISMATCH"), ("Schema_A", "INVALID_COUNT"),
+             ("Metric", "DEPENDENCY_BLOCKED"), ("Same", "DEPENDENCY_BLOCKED")))
+        self._h_assert_preserved(snapshots)
+
+    @staticmethod
+    def _h_context_state():
+        context = getcontext()
+        return (context.prec, context.rounding, context.Emin, context.Emax,
+                context.capitals, context.clamp, dict(context.traps), dict(context.flags))
+
+    @staticmethod
+    def _h_raise_after_context_change(*args):
+        from decimal import ROUND_UP
+        context = getcontext()
+        context.prec = 7
+        context.rounding = ROUND_UP
+        context.Emin, context.Emax = -100, 100
+        context.capitals, context.clamp = 0, 1
+        for signal in context.traps:
+            context.traps[signal] = not context.traps[signal]
+        for signal in context.flags:
+            context.flags[signal] = not context.flags[signal]
+        raise RuntimeError("SENSITIVE_EXCEPTION_RECORD")
+
+    def _h_exception_case(self, category):
+        from decimal import Inexact, ROUND_FLOOR, Rounded, localcontext
+        from components import consumer_adapter
+
+        relational = category == "SAME_GRAIN"
+        bindings = self._h_fixture(relational=relational)
+        snapshots = self._h_snapshots(bindings)
+        check = self.check("SAME_GRAIN", ("A", "B"), name="Same") if relational else self.check(name="Metric")
+        owner, attribute = ((consumer_adapter, "validate_dataset_contract") if category == "SCHEMA" else
+                            (o, "validate_cross_table_contract" if relational else "validate_metric_contract"))
+        ambient = self._h_context_state()
+        with localcontext() as context:
+            context.prec, context.rounding = 31, ROUND_FLOOR
+            context.Emin, context.Emax = -999, 999
+            context.capitals, context.clamp = 1, 0
+            context.clear_flags()
+            context.flags[Rounded] = True
+            context.traps[Inexact] = True
+            before = self._h_context_state()
+            with patch.object(owner, attribute, side_effect=self._h_raise_after_context_change) as validator:
+                if category == "SCHEMA":
+                    with patch.object(o, "validate_metric_contract") as dependent:
+                        result = self.run_plan(bindings, (check,))
+                    dependent.assert_not_called()
+                else:
+                    result = self.run_plan(bindings, (check,))
+            validator.assert_called_once()
+            self.assertIs(validator.call_args.args[0], bindings[0].dataframe)
+            self.assertEqual(self._h_context_state(), before)
+        self.assertEqual(self._h_context_state(), ambient)
+        if category == "SCHEMA":
+            states = (("Schema_A", "FAIL", True), ("Metric", "BLOCKED", False))
+            issues = (("Schema_A", "SCHEMA_VALIDATOR_EXCEPTION"), ("Metric", "DEPENDENCY_BLOCKED"))
+        elif relational:
+            states = (("Schema_A", "PASS", True), ("Schema_B", "PASS", True), ("Same", "FAIL", True))
+            issues = (("Same", "VALIDATOR_EXCEPTION"),)
+            self.assertIs(validator.call_args.args[1], bindings[1].dataframe)
+        else:
+            states = (("Schema_A", "PASS", True), ("Metric", "FAIL", True))
+            issues = (("Metric", "VALIDATOR_EXCEPTION"),)
+        self._h_assert_outcome(result, "FAIL", states, issues)
+        self._h_assert_preserved(snapshots)
+
+    def test_t54_schema_exception_preserves_input_and_complete_decimal_context(self):
+        self._h_exception_case("SCHEMA")
+
+    def test_t55_metric_exception_preserves_input_and_complete_decimal_context(self):
+        self._h_exception_case("METRIC")
+
+    def test_t56_same_grain_exception_preserves_both_inputs_and_decimal_context(self):
+        self._h_exception_case("SAME_GRAIN")
+
+    def _h_normal_context_case(self, failure):
+        from decimal import Inexact, ROUND_CEILING, Rounded, localcontext
+        bindings = self._h_fixture()
+        if failure:
+            bindings[0].dataframe.at[29, "rate"] = Decimal("0.75")
+        snapshots = self._h_snapshots(bindings)
+        ambient = self._h_context_state()
+        with localcontext() as context:
+            context.prec, context.rounding = 33, ROUND_CEILING
+            context.Emin, context.Emax = -888, 888
+            context.capitals, context.clamp = 0, 1
+            context.clear_flags()
+            context.flags[Rounded] = True
+            context.traps[Inexact] = True
+            before = self._h_context_state()
+            result = self.run_plan(bindings, (self.check(name="Metric"),))
+            self.assertEqual(self._h_context_state(), before)
+        self.assertEqual(self._h_context_state(), ambient)
+        self._h_assert_outcome(result, "FAIL" if failure else "SYNTHETIC_VALIDATION_PASS",
+            (("Schema_A", "PASS", True), ("Metric", "FAIL" if failure else "PASS", True)),
+            (("Metric", "RATE_INCONSISTENT"),) if failure else ())
+        if not failure:
+            self.assertEqual(result.safe_issues, ())
+        self._h_assert_preserved(snapshots)
+
+    def test_t57_success_preserves_input_and_complete_decimal_context(self):
+        self._h_normal_context_case(failure=False)
+
+    def test_t58_controlled_failure_preserves_input_and_complete_decimal_context(self):
+        self._h_normal_context_case(failure=True)
+
 
 if __name__ == "__main__":
     unittest.main(verbosity=2)
