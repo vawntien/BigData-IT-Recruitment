@@ -1,0 +1,803 @@
+{
+  "status": "PASS",
+  "run_id": "tv2_q01_q04_q08_official_20261022_01",
+  "checks": {
+    "confirmed_input_digest": {
+      "pass": true,
+      "detail": null
+    },
+    "input_metadata_seal": {
+      "pass": true,
+      "detail": null
+    },
+    "source_artifact_receipt_verification": {
+      "pass": true,
+      "detail": null
+    },
+    "correct_technical_receipt_identity": {
+      "pass": true,
+      "detail": null
+    },
+    "official_run_manifest": {
+      "pass": true,
+      "detail": null
+    },
+    "manifest_input_code_taxonomy_provenance": {
+      "pass": true,
+      "detail": null
+    },
+    "input_39_fields_physical_schema": {
+      "pass": true,
+      "detail": null
+    },
+    "input_population_unique_nonnull": {
+      "pass": true,
+      "detail": null
+    },
+    "input_accept_and_taxonomy": {
+      "pass": true,
+      "detail": null
+    },
+    "exact_d06_accept_population": {
+      "pass": true,
+      "detail": {
+        "missing": 0,
+        "extra": 0
+      }
+    },
+    "primary_category_and_provenance_unchanged": {
+      "pass": true,
+      "detail": null
+    },
+    "exact_expected_outputs": {
+      "pass": true,
+      "detail": null
+    },
+    "q01_role_groups_hashes": {
+      "pass": true,
+      "detail": null
+    },
+    "q01_role_groups_physical_columns": {
+      "pass": true,
+      "detail": null
+    },
+    "q01_role_groups_rowcount_and_unique_grain": {
+      "pass": true,
+      "detail": 10
+    },
+    "q01_role_groups_csv_header": {
+      "pass": true,
+      "detail": null
+    },
+    "q01_role_groups_csv_parquet_readback": {
+      "pass": true,
+      "detail": null
+    },
+    "q01_role_groups_physical_types": {
+      "pass": true,
+      "detail": null
+    },
+    "q01_role_groups_independent_counts_denominators_shares": {
+      "pass": true,
+      "detail": null
+    },
+    "q01_role_groups_conservation": {
+      "pass": true,
+      "detail": null
+    },
+    "Q01_manifest_metadata": {
+      "pass": true,
+      "detail": null
+    },
+    "q02_experience_hashes": {
+      "pass": true,
+      "detail": null
+    },
+    "q02_experience_physical_columns": {
+      "pass": true,
+      "detail": null
+    },
+    "q02_experience_rowcount_and_unique_grain": {
+      "pass": true,
+      "detail": 7
+    },
+    "q02_experience_csv_header": {
+      "pass": true,
+      "detail": null
+    },
+    "q02_experience_csv_parquet_readback": {
+      "pass": true,
+      "detail": null
+    },
+    "q02_experience_physical_types": {
+      "pass": true,
+      "detail": null
+    },
+    "q02_experience_independent_counts_denominators_shares": {
+      "pass": true,
+      "detail": null
+    },
+    "q02_experience_conservation": {
+      "pass": true,
+      "detail": null
+    },
+    "Q02_manifest_metadata": {
+      "pass": true,
+      "detail": null
+    },
+    "q03_location_hashes": {
+      "pass": true,
+      "detail": null
+    },
+    "q03_location_physical_columns": {
+      "pass": true,
+      "detail": null
+    },
+    "q03_location_rowcount_and_unique_grain": {
+      "pass": true,
+      "detail": 845
+    },
+    "q03_location_csv_header": {
+      "pass": true,
+      "detail": null
+    },
+    "q03_location_csv_parquet_readback": {
+      "pass": true,
+      "detail": null
+    },
+    "q03_location_physical_types": {
+      "pass": true,
+      "detail": null
+    },
+    "q03_location_independent_counts_denominators_shares": {
+      "pass": true,
+      "detail": null
+    },
+    "q03_location_conservation": {
+      "pass": true,
+      "detail": null
+    },
+    "Q03_manifest_metadata": {
+      "pass": true,
+      "detail": null
+    },
+    "q04_work_type_hashes": {
+      "pass": true,
+      "detail": null
+    },
+    "q04_work_type_physical_columns": {
+      "pass": true,
+      "detail": null
+    },
+    "q04_work_type_rowcount_and_unique_grain": {
+      "pass": true,
+      "detail": 7
+    },
+    "q04_work_type_csv_header": {
+      "pass": true,
+      "detail": null
+    },
+    "q04_work_type_csv_parquet_readback": {
+      "pass": true,
+      "detail": null
+    },
+    "q04_work_type_physical_types": {
+      "pass": true,
+      "detail": null
+    },
+    "q04_work_type_independent_counts_denominators_shares": {
+      "pass": true,
+      "detail": null
+    },
+    "q04_work_type_conservation": {
+      "pass": true,
+      "detail": null
+    },
+    "Q04_manifest_metadata": {
+      "pass": true,
+      "detail": null
+    },
+    "q01_it_other_known_policy": {
+      "pass": true,
+      "detail": null
+    },
+    "q01_codes_in_approved_taxonomy": {
+      "pass": true,
+      "detail": null
+    },
+    "q04_remote_flag_hashes": {
+      "pass": true,
+      "detail": null
+    },
+    "q04_remote_flag_physical_columns": {
+      "pass": true,
+      "detail": null
+    },
+    "q04_remote_flag_rowcount_and_unique_grain": {
+      "pass": true,
+      "detail": 2
+    },
+    "q04_remote_flag_csv_header": {
+      "pass": true,
+      "detail": null
+    },
+    "q04_remote_flag_csv_parquet_readback": {
+      "pass": true,
+      "detail": null
+    },
+    "q04_remote_independent_values": {
+      "pass": true,
+      "detail": null
+    },
+    "q04_work_type_crosscheck_hashes": {
+      "pass": true,
+      "detail": null
+    },
+    "q04_work_type_crosscheck_physical_columns": {
+      "pass": true,
+      "detail": null
+    },
+    "q04_work_type_crosscheck_rowcount_and_unique_grain": {
+      "pass": true,
+      "detail": 7
+    },
+    "q04_work_type_crosscheck_csv_header": {
+      "pass": true,
+      "detail": null
+    },
+    "q04_work_type_crosscheck_csv_parquet_readback": {
+      "pass": true,
+      "detail": null
+    },
+    "q04_crosscheck_independent_values": {
+      "pass": true,
+      "detail": null
+    },
+    "q08_original_month_hashes": {
+      "pass": true,
+      "detail": null
+    },
+    "q08_original_month_physical_columns": {
+      "pass": true,
+      "detail": null
+    },
+    "q08_original_month_rowcount_and_unique_grain": {
+      "pass": true,
+      "detail": 3
+    },
+    "q08_original_month_csv_header": {
+      "pass": true,
+      "detail": null
+    },
+    "q08_original_month_csv_parquet_readback": {
+      "pass": true,
+      "detail": null
+    },
+    "q08_original_month_independent_utc_counts_and_shares": {
+      "pass": true,
+      "detail": null
+    },
+    "q08_original_week_start_utc_hashes": {
+      "pass": true,
+      "detail": null
+    },
+    "q08_original_week_start_utc_physical_columns": {
+      "pass": true,
+      "detail": null
+    },
+    "q08_original_week_start_utc_rowcount_and_unique_grain": {
+      "pass": true,
+      "detail": 9
+    },
+    "q08_original_week_start_utc_csv_header": {
+      "pass": true,
+      "detail": null
+    },
+    "q08_original_week_start_utc_csv_parquet_readback": {
+      "pass": true,
+      "detail": null
+    },
+    "q08_original_week_start_utc_independent_utc_counts_and_shares": {
+      "pass": true,
+      "detail": null
+    },
+    "original_listed_time_manifest_coverage": {
+      "pass": true,
+      "detail": null
+    },
+    "q08_listed_month_hashes": {
+      "pass": true,
+      "detail": null
+    },
+    "q08_listed_month_physical_columns": {
+      "pass": true,
+      "detail": null
+    },
+    "q08_listed_month_rowcount_and_unique_grain": {
+      "pass": true,
+      "detail": 1
+    },
+    "q08_listed_month_csv_header": {
+      "pass": true,
+      "detail": null
+    },
+    "q08_listed_month_csv_parquet_readback": {
+      "pass": true,
+      "detail": null
+    },
+    "q08_listed_month_independent_utc_counts_and_shares": {
+      "pass": true,
+      "detail": null
+    },
+    "q08_listed_week_start_utc_hashes": {
+      "pass": true,
+      "detail": null
+    },
+    "q08_listed_week_start_utc_physical_columns": {
+      "pass": true,
+      "detail": null
+    },
+    "q08_listed_week_start_utc_rowcount_and_unique_grain": {
+      "pass": true,
+      "detail": 3
+    },
+    "q08_listed_week_start_utc_csv_header": {
+      "pass": true,
+      "detail": null
+    },
+    "q08_listed_week_start_utc_csv_parquet_readback": {
+      "pass": true,
+      "detail": null
+    },
+    "q08_listed_week_start_utc_independent_utc_counts_and_shares": {
+      "pass": true,
+      "detail": null
+    },
+    "listed_time_manifest_coverage": {
+      "pass": true,
+      "detail": null
+    },
+    "q08_manifest_success": {
+      "pass": true,
+      "detail": null
+    },
+    "Q05_blocked_no_fake_outputs": {
+      "pass": true,
+      "detail": null
+    },
+    "Q06_blocked_no_fake_outputs": {
+      "pass": true,
+      "detail": null
+    },
+    "Q07_blocked_no_fake_outputs": {
+      "pass": true,
+      "detail": null
+    },
+    "runner_exit_expected_partial": {
+      "pass": true,
+      "detail": null
+    },
+    "input_and_runner_manifest_unchanged_after_validation": {
+      "pass": true,
+      "detail": null
+    }
+  },
+  "queries": {
+    "Q01": {
+      "status": "VALIDATED",
+      "N": 5206,
+      "K": 5206,
+      "missing": 0,
+      "tables": [
+        "q01_role_groups"
+      ],
+      "accepted": false
+    },
+    "Q02": {
+      "status": "VALIDATED",
+      "N": 5206,
+      "K": 3722,
+      "missing": 1484,
+      "tables": [
+        "q02_experience"
+      ],
+      "accepted": false
+    },
+    "Q03": {
+      "status": "VALIDATED",
+      "N": 5206,
+      "K": 5206,
+      "missing": 0,
+      "tables": [
+        "q03_location"
+      ],
+      "accepted": false
+    },
+    "Q04": {
+      "status": "VALIDATED",
+      "N": 5206,
+      "K": 5206,
+      "missing": 0,
+      "tables": [
+        "q04_work_type",
+        "q04_remote_flag",
+        "q04_work_type_crosscheck"
+      ],
+      "accepted": false
+    },
+    "Q08": {
+      "status": "VALIDATED",
+      "N": 5206,
+      "tables": [
+        "q08_original_month",
+        "q08_original_week_start_utc",
+        "q08_listed_month",
+        "q08_listed_week_start_utc"
+      ],
+      "timestamp_coverage": {
+        "original_listed_time": {
+          "valid": 5206,
+          "missing": 0
+        },
+        "listed_time": {
+          "valid": 5206,
+          "missing": 0
+        }
+      },
+      "accepted": false
+    },
+    "Q05": {
+      "status": "BLOCKED",
+      "missing": "D05",
+      "business_approval": null,
+      "tables": []
+    },
+    "Q06": {
+      "status": "BLOCKED",
+      "missing": "A05",
+      "business_approval": null,
+      "tables": []
+    },
+    "Q07": {
+      "status": "BLOCKED",
+      "missing": "D07",
+      "business_approval": "PENDING",
+      "tables": []
+    }
+  },
+  "started_utc": "2026-10-22T07:34:16.498728+00:00",
+  "business_accepted": false,
+  "validator_sha256": "3064fc323b48dc57e8f5c8eb2ef89e77f68fc592f60965de4e21f5db59b8ffee",
+  "branch": "feat/tv2-analysis",
+  "commit": "3c7c6285a59af8ae9eebfdc2d3667f3fcff92180",
+  "runner_manifest_sha256": "5665057f408e279d09c2130d7cb7e59a564d093f1516ddd1e0cf2576931450ac",
+  "input_digest": "17ae5383e848f7323b99800bd3d79a72e84e2bca62844f66dd00aaa06e80a9b2",
+  "manifest_date_note": {
+    "literal_date": "2026-10-19",
+    "created_utc": "2026-10-22T07:31:02.494793+00:00",
+    "note": "Runner date field is hardcoded historical metadata; actual execution is created_utc and runner exit evidence, not literal date."
+  },
+  "taxonomy_groups": [
+    {
+      "code": "SECURITY",
+      "name_vi": "An to\u00e0n th\u00f4ng tin v\u00e0 an ninh m\u1ea1ng",
+      "priority": 10,
+      "definition": "B\u1ea3o v\u1ec7 ph\u1ea7n m\u1ec1m, m\u1ea1ng v\u00e0 h\u1ea1 t\u1ea7ng s\u1ed1; \u0111i\u1ec1u tra s\u1ef1 c\u1ed1, ki\u1ec3m th\u1eed x\u00e2m nh\u1eadp.",
+      "scope": "Kh\u00f4ng g\u1ed3m b\u1ea3o v\u1ec7 v\u1eadt l\u00fd; security chung c\u1ea7n ng\u1eef c\u1ea3nh.",
+      "search_fields": [
+        "title",
+        "description"
+      ],
+      "alias_term_sets": [
+        "security_titles",
+        "security_hints"
+      ],
+      "task_term_set": "security_tasks",
+      "context_term_set": "security_context"
+    },
+    {
+      "code": "DATA_AI",
+      "name_vi": "D\u1eef li\u1ec7u, AI v\u00e0 c\u01a1 s\u1edf d\u1eef li\u1ec7u",
+      "priority": 20,
+      "definition": "X\u00e2y d\u1ef1ng pipeline/kho d\u1eef li\u1ec7u, qu\u1ea3n tr\u1ecb CSDL, BI k\u1ef9 thu\u1eadt, m\u00f4 h\u00ecnh ML/AI.",
+      "scope": "Data/BI analyst ch\u1ec9 nh\u1eadn khi c\u00f3 nhi\u1ec7m v\u1ee5 k\u1ef9 thu\u1eadt; ph\u00e2n t\u00edch t\u00e0i ch\u00ednh/marketing ho\u1eb7c d\u00f9ng Excel/SQL \u0111\u01a1n thu\u1ea7n ch\u01b0a \u0111\u1ee7.",
+      "search_fields": [
+        "title",
+        "description"
+      ],
+      "alias_term_sets": [
+        "data_titles",
+        "data_hints"
+      ],
+      "task_term_set": "data_tasks",
+      "context_term_set": "data_context"
+    },
+    {
+      "code": "DEVOPS_CLOUD",
+      "name_vi": "DevOps, Cloud v\u00e0 \u0111\u1ed9 tin c\u1eady d\u1ecbch v\u1ee5",
+      "priority": 30,
+      "definition": "T\u1ef1 \u0111\u1ed9ng h\u00f3a tri\u1ec3n khai, v\u1eadn h\u00e0nh cloud, SRE v\u00e0 n\u1ec1n t\u1ea3ng d\u1ecbch v\u1ee5 ph\u1ea7n m\u1ec1m.",
+      "scope": "Platform/infrastructure engineer chung c\u1ea7n ng\u1eef c\u1ea3nh; kh\u00f4ng g\u1ed3m b\u00e1n d\u1ecbch v\u1ee5 cloud.",
+      "search_fields": [
+        "title",
+        "description"
+      ],
+      "alias_term_sets": [
+        "devops_titles",
+        "devops_hints"
+      ],
+      "task_term_set": "devops_tasks",
+      "context_term_set": "devops_context"
+    },
+    {
+      "code": "QA_TESTING",
+      "name_vi": "Ki\u1ec3m th\u1eed v\u00e0 ch\u1ea5t l\u01b0\u1ee3ng ph\u1ea7n m\u1ec1m",
+      "priority": 40,
+      "definition": "Ki\u1ec3m th\u1eed th\u1ee7 c\u00f4ng/t\u1ef1 \u0111\u1ed9ng, thi\u1ebft k\u1ebf test ph\u1ea7n m\u1ec1m/API.",
+      "scope": "QA/quality assurance c\u1ee7a s\u1ea3n xu\u1ea5t, th\u1ef1c ph\u1ea9m, d\u01b0\u1ee3c kh\u00f4ng thu\u1ed9c nh\u00f3m.",
+      "search_fields": [
+        "title",
+        "description"
+      ],
+      "alias_term_sets": [
+        "qa_titles",
+        "qa_hints"
+      ],
+      "task_term_set": "qa_tasks",
+      "context_term_set": "qa_context"
+    },
+    {
+      "code": "NETWORK_SYSTEMS",
+      "name_vi": "M\u1ea1ng m\u00e1y t\u00ednh v\u00e0 qu\u1ea3n tr\u1ecb h\u1ec7 th\u1ed1ng",
+      "priority": 50,
+      "definition": "Qu\u1ea3n tr\u1ecb m\u1ea1ng, m\u00e1y ch\u1ee7, h\u1ec7 \u0111i\u1ec1u h\u00e0nh v\u00e0 trung t\u00e2m d\u1eef li\u1ec7u.",
+      "scope": "Kh\u00f4ng g\u1ed3m k\u1ef9 thu\u1eadt c\u01a1 kh\u00ed/\u0111i\u1ec7n/h\u1ec7 th\u1ed1ng v\u1eadt l\u00fd; database chuy\u00ean bi\u1ec7t thu\u1ed9c DATA_AI.",
+      "search_fields": [
+        "title",
+        "description"
+      ],
+      "alias_term_sets": [
+        "network_titles",
+        "network_hints"
+      ],
+      "task_term_set": "network_tasks",
+      "context_term_set": "network_context"
+    },
+    {
+      "code": "SOFTWARE",
+      "name_vi": "Ph\u00e1t tri\u1ec3n ph\u1ea7n m\u1ec1m",
+      "priority": 60,
+      "definition": "Thi\u1ebft k\u1ebf, l\u1eadp tr\u00ecnh v\u00e0 b\u1ea3o tr\u00ec ph\u1ea7n m\u1ec1m, g\u1ed3m Web, Mobile, \u1ee9ng d\u1ee5ng v\u00e0 firmware/embedded software.",
+      "scope": "Mobile v\u00e0 Web ch\u1ec9 l\u00e0 ph\u00e2n nh\u00f3m; hardware design, thi\u1ebft k\u1ebf UI/UX thu\u1ea7n v\u00e0 b\u00e1n h\u00e0ng kh\u00f4ng t\u1ef1 thu\u1ed9c nh\u00f3m.",
+      "search_fields": [
+        "title",
+        "description"
+      ],
+      "alias_term_sets": [
+        "software_titles",
+        "software_hints"
+      ],
+      "task_term_set": "software_tasks",
+      "context_term_set": "software_context"
+    },
+    {
+      "code": "IT_SUPPORT",
+      "name_vi": "H\u1ed7 tr\u1ee3 k\u1ef9 thu\u1eadt CNTT",
+      "priority": 70,
+      "definition": "Kh\u1eafc ph\u1ee5c s\u1ef1 c\u1ed1 m\u00e1y t\u00ednh/ph\u1ea7n m\u1ec1m v\u00e0 h\u1ed7 tr\u1ee3 ng\u01b0\u1eddi d\u00f9ng h\u1ec7 th\u1ed1ng CNTT.",
+      "scope": "Support/customer service kh\u00f4ng k\u00e8m nhi\u1ec7m v\u1ee5 CNTT ch\u01b0a \u0111\u1ee7.",
+      "search_fields": [
+        "title",
+        "description"
+      ],
+      "alias_term_sets": [
+        "support_titles",
+        "support_hints"
+      ],
+      "task_term_set": "support_tasks",
+      "context_term_set": "support_context"
+    },
+    {
+      "code": "IT_BUSINESS",
+      "name_vi": "Nghi\u1ec7p v\u1ee5, s\u1ea3n ph\u1ea9m v\u00e0 d\u1ef1 \u00e1n ph\u1ea7n m\u1ec1m",
+      "priority": 80,
+      "definition": "Ph\u00e2n t\u00edch y\u00eau c\u1ea7u v\u00e0 \u0111i\u1ec1u ph\u1ed1i s\u1ea3n ph\u1ea9m/d\u1ef1 \u00e1n c\u00f3 \u0111\u1ed1i t\u01b0\u1ee3ng ph\u1ea7n m\u1ec1m/h\u1ec7 th\u1ed1ng th\u00f4ng tin.",
+      "scope": "BA/product/project manager chung c\u1ea7n ng\u1eef c\u1ea3nh; \u0111\u00e2y l\u00e0 ph\u1ea1m vi CNTT m\u1edf r\u1ed9ng \u0111\u1ec1 xu\u1ea5t, c\u1ea7n TV2 x\u00e1c nh\u1eadn.",
+      "search_fields": [
+        "title",
+        "description"
+      ],
+      "alias_term_sets": [
+        "business_titles",
+        "business_hints"
+      ],
+      "task_term_set": "business_tasks",
+      "context_term_set": "business_context"
+    },
+    {
+      "code": "IT_MANAGEMENT",
+      "name_vi": "Qu\u1ea3n l\u00fd v\u00e0 ki\u1ebfn tr\u00fac CNTT",
+      "priority": 90,
+      "definition": "L\u00e3nh \u0111\u1ea1o ch\u1ee9c n\u0103ng CNTT, \u0111\u1ed9i ph\u1ea7n m\u1ec1m v\u00e0 ki\u1ebfn tr\u00fac gi\u1ea3i ph\u00e1p doanh nghi\u1ec7p.",
+      "scope": "Manager/architect/CTO chung c\u1ea7n ng\u1eef c\u1ea3nh; \u01b0u ti\u00ean ngh\u1ec1 chuy\u00ean m\u00f4n c\u1ee5 th\u1ec3 khi c\u00f9ng t\u1ea7ng b\u1eb1ng ch\u1ee9ng.",
+      "search_fields": [
+        "title",
+        "description"
+      ],
+      "alias_term_sets": [
+        "management_titles",
+        "management_hints"
+      ],
+      "task_term_set": "management_tasks",
+      "context_term_set": "management_context"
+    },
+    {
+      "code": "IT_OTHER",
+      "name_vi": "CNTT \u0111\u00e3 nh\u1eadn di\u1ec7n, ch\u01b0a ph\u00e2n nh\u00f3m",
+      "priority": 999,
+      "definition": "Ch\u1ec9 g\u00e1n khi c\u00f3 ngh\u1ec1 CNTT r\u00f5 trong title nh\u01b0ng kh\u00f4ng c\u00f3 nh\u00f3m chuy\u00ean m\u00f4n n\u00e0o kh\u1edbp.",
+      "scope": "Nh\u00f3m d\u1ef1 ph\u00f2ng c\u00f3 membership CNTT \u0111\u00e3 x\u00e1c \u0111\u1ecbnh; kh\u00f4ng d\u00f9ng cho REVIEW ho\u1eb7c tin kh\u00f4ng c\u00f3 b\u1eb1ng ch\u1ee9ng.",
+      "search_fields": [
+        "title"
+      ],
+      "alias_term_sets": [
+        "general_it_titles"
+      ],
+      "fallback_only": true
+    }
+  ],
+  "q01": {
+    "status": "VALIDATED",
+    "accepted": false,
+    "N": 5206,
+    "K": 5206,
+    "missing": 0,
+    "sum_job_count": 5206,
+    "sum_known_job_count": 5206,
+    "sum_share_all_it": 1.0,
+    "sum_share_known": 1.0,
+    "distribution": [
+      {
+        "category": "SOFTWARE",
+        "job_count": 2393,
+        "denominator_all_it": 5206,
+        "denominator_known": 5206,
+        "share_all_it": 0.4596619285439877,
+        "share_known": 0.4596619285439877
+      },
+      {
+        "category": "DATA_AI",
+        "job_count": 1115,
+        "denominator_all_it": 5206,
+        "denominator_known": 5206,
+        "share_all_it": 0.21417595082597005,
+        "share_known": 0.21417595082597005
+      },
+      {
+        "category": "NETWORK_SYSTEMS",
+        "job_count": 556,
+        "denominator_all_it": 5206,
+        "denominator_known": 5206,
+        "share_all_it": 0.10679984633115636,
+        "share_known": 0.10679984633115636
+      },
+      {
+        "category": "DEVOPS_CLOUD",
+        "job_count": 441,
+        "denominator_all_it": 5206,
+        "denominator_known": 5206,
+        "share_all_it": 0.08470995005762581,
+        "share_known": 0.08470995005762581
+      },
+      {
+        "category": "SECURITY",
+        "job_count": 187,
+        "denominator_all_it": 5206,
+        "denominator_known": 5206,
+        "share_all_it": 0.03592009220130619,
+        "share_known": 0.03592009220130619
+      },
+      {
+        "category": "IT_SUPPORT",
+        "job_count": 152,
+        "denominator_all_it": 5206,
+        "denominator_known": 5206,
+        "share_all_it": 0.029197080291970802,
+        "share_known": 0.029197080291970802
+      },
+      {
+        "category": "QA_TESTING",
+        "job_count": 103,
+        "denominator_all_it": 5206,
+        "denominator_known": 5206,
+        "share_all_it": 0.019784863618901267,
+        "share_known": 0.019784863618901267
+      },
+      {
+        "category": "IT_BUSINESS",
+        "job_count": 92,
+        "denominator_all_it": 5206,
+        "denominator_known": 5206,
+        "share_all_it": 0.017671917018824434,
+        "share_known": 0.017671917018824434
+      },
+      {
+        "category": "IT_MANAGEMENT",
+        "job_count": 90,
+        "denominator_all_it": 5206,
+        "denominator_known": 5206,
+        "share_all_it": 0.017287744909719554,
+        "share_known": 0.017287744909719554
+      },
+      {
+        "category": "IT_OTHER",
+        "job_count": 77,
+        "denominator_all_it": 5206,
+        "denominator_known": 5206,
+        "share_all_it": 0.014790626200537841,
+        "share_known": 0.014790626200537841
+      }
+    ],
+    "missing_unknown_policy_observed": {
+      "null_jobs": 0,
+      "blank_jobs": 0,
+      "literal_unknown_jobs": 0,
+      "literal_unknown_values": {},
+      "it_other_jobs": 77
+    },
+    "tolerance": {
+      "rel": 1e-12,
+      "abs": 1e-12
+    },
+    "physical_schema": {
+      "type": "struct",
+      "fields": [
+        {
+          "name": "category",
+          "type": "string",
+          "nullable": true,
+          "metadata": {}
+        },
+        {
+          "name": "job_count",
+          "type": "long",
+          "nullable": true,
+          "metadata": {}
+        },
+        {
+          "name": "denominator_all_it",
+          "type": "integer",
+          "nullable": true,
+          "metadata": {}
+        },
+        {
+          "name": "denominator_known",
+          "type": "integer",
+          "nullable": true,
+          "metadata": {}
+        },
+        {
+          "name": "share_all_it",
+          "type": "double",
+          "nullable": true,
+          "metadata": {}
+        },
+        {
+          "name": "share_known",
+          "type": "double",
+          "nullable": true,
+          "metadata": {}
+        }
+      ]
+    },
+    "taxonomy_version": "0.2.2",
+    "taxonomy_sha256": "1de2908a4a8da3e7f811c0d87928d05f857f5bd78ec243cc57c07ef9ec933874"
+  },
+  "runtime": {
+    "spark": "4.2.0",
+    "java": "21.0.12.1",
+    "timezone": "UTC"
+  },
+  "q01_status": "VALIDATED",
+  "finished_utc": "2026-10-22T07:34:27.184673+00:00"
+}

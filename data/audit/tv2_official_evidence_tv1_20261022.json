@@ -1,0 +1,28 @@
+{
+  "status": "PASS_TECHNICAL_EVIDENCE",
+  "verified_utc": "2026-10-22T13:51:14.924989+00:00",
+  "ZIP": "C:\\Users\\dongv\\BigData-IT-Recruitment\\tmp\\TV2_OFFICIAL_EVIDENCE_TV1_20261022.zip",
+  "bytes": 36847881,
+  "files": 249,
+  "sha256": "00398be4308291fa496f55f39d8c3356d7bec71779c2c54d30e3e7fa692a06c2",
+  "CRC_membership_inventory_extracted_readback": "PASS",
+  "Enriched": "PASS_5206_39_FIELDS_47_ORIGINAL_CHECKS",
+  "Q01": "PASS_N_K_5206_MISSING0_10_GROUPS_94_SHARED_CHECKS",
+  "D06_ACCEPT_reconciliation": "PASS_0_MISSING_0_EXTRA_ALL_27_FIELDS",
+  "D05_lineage": "PASS_EXACT_SNAPSHOT_AND_SELECTED_VALUES",
+  "other_queries": {
+    "Q02": "PASS",
+    "Q03": "PASS",
+    "Q04": "PASS",
+    "Q08": "PASS"
+  },
+  "producer_provenance_limit": "Historical checkout recorded; materializer/validator untracked; exact hashes included; analyzer Git LF / runtime CRLF differentiated",
+  "reports_on_remote": false,
+  "git_sync": "BLOCKED_UNRELATED_WORKTREE",
+  "new_commit": null,
+  "business_accepted": false,
+  "delivery_ZIP": "C:\\Users\\dongv\\Downloads\\TV2_OFFICIAL_EVIDENCE_TV1_20261022\\TV2_OFFICIAL_EVIDENCE_TV1_20261022.zip",
+  "post_copy_checksum": "PASS",
+  "delivery_directory": "C:\\Users\\dongv\\Downloads\\TV2_OFFICIAL_EVIDENCE_TV1_20261022",
+  "local_HEAD_after": "3c7c6285a59af8ae9eebfdc2d3667f3fcff92180"
+}

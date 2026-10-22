@@ -1,0 +1,304 @@
+{
+  "run_id": "tv2_enriched_d06_accept_20261022_01",
+  "status": "PASS",
+  "scope": "INPUT_MATERIALIZATION_ONLY",
+  "started_utc": "2026-10-22T07:19:15.708512+00:00",
+  "checks": {
+    "resources_before_write": {
+      "pass": true,
+      "detail": {
+        "captured_utc": "2026-10-22T07:19:15.709488+00:00",
+        "total_ram_bytes": 16852574208,
+        "available_ram_bytes": 4342640640,
+        "available_commit_bytes": 4829376512,
+        "disk_free_bytes": 197160292352
+      }
+    },
+    "output_git_ignored": {
+      "pass": true,
+      "detail": null
+    },
+    "d06_source_payload": {
+      "pass": true,
+      "detail": null
+    },
+    "approval_source_payload": {
+      "pass": true,
+      "detail": null
+    },
+    "d07_source_payload": {
+      "pass": true,
+      "detail": null
+    },
+    "d05_part_part-00000-aa2ea6ea-1536-4b08-95fe-0d515a780603-c000.snappy.parquet": {
+      "pass": true,
+      "detail": null
+    },
+    "d05_part_part-00001-aa2ea6ea-1536-4b08-95fe-0d515a780603-c000.snappy.parquet": {
+      "pass": true,
+      "detail": null
+    },
+    "d05_part_part-00002-aa2ea6ea-1536-4b08-95fe-0d515a780603-c000.snappy.parquet": {
+      "pass": true,
+      "detail": null
+    },
+    "d05_part_part-00003-aa2ea6ea-1536-4b08-95fe-0d515a780603-c000.snappy.parquet": {
+      "pass": true,
+      "detail": null
+    },
+    "d06_completion_binding": {
+      "pass": true,
+      "detail": null
+    },
+    "approval_binding_A04_BUSINESS": {
+      "pass": true,
+      "detail": null
+    },
+    "approval_binding_D06_SCHEMA": {
+      "pass": true,
+      "detail": null
+    },
+    "approval_binding_D06_FULL_RUN": {
+      "pass": true,
+      "detail": null
+    },
+    "taxonomy_snapshot": {
+      "pass": true,
+      "detail": null
+    },
+    "a05_release_pins": {
+      "pass": true,
+      "detail": null
+    },
+    "classifier_frozen_local_reference": {
+      "pass": true,
+      "detail": null
+    },
+    "d06_schema": {
+      "pass": true,
+      "detail": null
+    },
+    "d05_unique_keys": {
+      "pass": true,
+      "detail": {
+        "rows": 123849,
+        "distinct_job_id": 123849,
+        "null_job_id": 0
+      }
+    },
+    "d06_unique_keys": {
+      "pass": true,
+      "detail": {
+        "rows": 123849,
+        "distinct_job_id": 123849,
+        "null_job_id": 0
+      }
+    },
+    "full_decision_mapping": {
+      "pass": true,
+      "detail": [
+        {
+          "it_decision": "ACCEPT",
+          "is_it": true,
+          "count": 5206
+        },
+        {
+          "it_decision": "REVIEW",
+          "is_it": null,
+          "count": 59690
+        },
+        {
+          "it_decision": "REJECT",
+          "is_it": false,
+          "count": 58953
+        }
+      ]
+    },
+    "full_d05_keyset": {
+      "pass": true,
+      "detail": null
+    },
+    "explicit_projection_fields": {
+      "pass": true,
+      "detail": null
+    },
+    "no_ambiguous_columns": {
+      "pass": true,
+      "detail": null
+    },
+    "prewrite_population": {
+      "pass": true,
+      "detail": {
+        "rows": 5206,
+        "distinct_job_id": 5206,
+        "null_job_id": 0
+      }
+    },
+    "prewrite_exact_accept_keyset": {
+      "pass": true,
+      "detail": {
+        "missing": 0,
+        "extra": 0
+      }
+    },
+    "prewrite_all_d06_fields_preserved": {
+      "pass": true,
+      "detail": 27
+    },
+    "prewrite_single_scalar_primary_group": {
+      "pass": true,
+      "detail": null
+    },
+    "prewrite_taxonomy": {
+      "pass": true,
+      "detail": null
+    },
+    "prewrite_all_d05_values_preserved": {
+      "pass": true,
+      "detail": null
+    },
+    "prewrite_source_hashes": {
+      "pass": true,
+      "detail": null
+    },
+    "prewrite_required_runner_types": {
+      "pass": true,
+      "detail": {
+        "job_id": "bigint",
+        "description": "string",
+        "source_description": "string",
+        "source_description_sha256": "string",
+        "source_title": "string",
+        "source_title_sha256": "string",
+        "it_decision": "string",
+        "is_it": "boolean",
+        "taxonomy_version": "string",
+        "taxonomy_sha256": "string",
+        "primary_group_code": "string",
+        "formatted_experience_level": "string",
+        "location": "string",
+        "formatted_work_type": "string",
+        "work_type": "string",
+        "remote_allowed": "boolean",
+        "original_listed_time": "timestamp",
+        "listed_time": "timestamp"
+      }
+    },
+    "prewrite_analyzer_input_validator": {
+      "pass": true,
+      "detail": null
+    },
+    "prewrite_a05_input_validator_and_raw_view": {
+      "pass": true,
+      "detail": null
+    },
+    "readback_schema": {
+      "pass": true,
+      "detail": null
+    },
+    "readback_all_fields_exact": {
+      "pass": true,
+      "detail": null
+    },
+    "readback_population": {
+      "pass": true,
+      "detail": {
+        "rows": 5206,
+        "distinct_job_id": 5206,
+        "null_job_id": 0
+      }
+    },
+    "readback_exact_accept_keyset": {
+      "pass": true,
+      "detail": {
+        "missing": 0,
+        "extra": 0
+      }
+    },
+    "readback_all_d06_fields_preserved": {
+      "pass": true,
+      "detail": 27
+    },
+    "readback_single_scalar_primary_group": {
+      "pass": true,
+      "detail": null
+    },
+    "readback_taxonomy": {
+      "pass": true,
+      "detail": null
+    },
+    "readback_all_d05_values_preserved": {
+      "pass": true,
+      "detail": null
+    },
+    "readback_source_hashes": {
+      "pass": true,
+      "detail": null
+    },
+    "readback_required_runner_types": {
+      "pass": true,
+      "detail": {
+        "job_id": "bigint",
+        "description": "string",
+        "source_description": "string",
+        "source_description_sha256": "string",
+        "source_title": "string",
+        "source_title_sha256": "string",
+        "it_decision": "string",
+        "is_it": "boolean",
+        "taxonomy_version": "string",
+        "taxonomy_sha256": "string",
+        "primary_group_code": "string",
+        "formatted_experience_level": "string",
+        "location": "string",
+        "formatted_work_type": "string",
+        "work_type": "string",
+        "remote_allowed": "boolean",
+        "original_listed_time": "timestamp",
+        "listed_time": "timestamp"
+      }
+    },
+    "readback_analyzer_input_validator": {
+      "pass": true,
+      "detail": null
+    },
+    "readback_a05_input_validator_and_raw_view": {
+      "pass": true,
+      "detail": null
+    },
+    "output_inventory_digest": {
+      "pass": true,
+      "detail": "17ae5383e848f7323b99800bd3d79a72e84e2bca62844f66dd00aaa06e80a9b2"
+    },
+    "sources_and_implementation_unchanged": {
+      "pass": true,
+      "detail": 60
+    }
+  },
+  "production_analytics_executed": false,
+  "business_approval_claimed": false,
+  "resources_before": {
+    "captured_utc": "2026-10-22T07:19:15.709488+00:00",
+    "total_ram_bytes": 16852574208,
+    "available_ram_bytes": 4342640640,
+    "available_commit_bytes": 4829376512,
+    "disk_free_bytes": 197160292352
+  },
+  "runtime": {
+    "spark": "4.2.0",
+    "java": "21.0.12.1",
+    "python": "3.11.9 (tags/v3.11.9:de54cf5, Apr  2 2024, 10:12:12) [MSC v.1938 64 bit (AMD64)]",
+    "master": "local[2]",
+    "timezone": "UTC",
+    "driver_max_heap_bytes": 2147483648
+  },
+  "resources_after": {
+    "captured_utc": "2026-10-22T07:20:56.506236+00:00",
+    "total_ram_bytes": 16852574208,
+    "available_ram_bytes": 1877098496,
+    "available_commit_bytes": 2001952768,
+    "disk_free_bytes": 196877971456
+  },
+  "input_artifact_sha256": "17ae5383e848f7323b99800bd3d79a72e84e2bca62844f66dd00aaa06e80a9b2",
+  "finished_utc": "2026-10-22T07:20:56.506236+00:00"
+}

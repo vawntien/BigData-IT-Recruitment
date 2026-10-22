@@ -1,0 +1,22 @@
+{
+  "status": "PASS_EXACT_INPUT_BYTES_AND_Q01_LINEAGE",
+  "input_digest": "17ae5383e848f7323b99800bd3d79a72e84e2bca62844f66dd00aaa06e80a9b2",
+  "Q01_run": "tv2_q01_q04_q08_official_20261022_01",
+  "Q01_status": "VALIDATED",
+  "business_accepted": false,
+  "analyzer_read_receipt": "analysis_contract.json:d06_confirmation; separate input_receipt.json/source_binding.json not directly read by analyzer",
+  "tolerance_from_original_code": {
+    "rel_tol": 1e-12,
+    "abs_tol": 1e-12
+  },
+  "data_readback": "PASS",
+  "upstream_d05": "PASS_EXACT_SNAPSHOT_AND_SELECTED_VALUES",
+  "upstream_d06": "PASS_0_MISSING_0_EXTRA_ALL_27_FIELDS",
+  "rows": 5206,
+  "distinct_job_id": 5206,
+  "null_job_id": 0,
+  "physical_fields": 39,
+  "known": 5206,
+  "missing": 0,
+  "scope": "TV2 fresh receiving-only checks; not an original runner receipt or TV3 signoff"
+}
