@@ -13,6 +13,8 @@ from unittest.mock import patch
 import pandas as pd
 import pyarrow as pa
 from streamlit.testing.v1 import AppTest
+from streamlit.runtime.pages_manager import PagesManager
+from streamlit.util import calc_md5
 
 DASHBOARD_DIR = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(DASHBOARD_DIR))
@@ -21,6 +23,12 @@ from components import q01_demo as d, q01_adapter as q, data_loader as legacy
 
 class Q01DemoPageTests(unittest.TestCase):
     def setUp(self):
+        # Streamlit 1.38 AppTest omits the page bytecode cache required by
+        # native st.navigation. Supply bytecode only in this test harness.
+        cache = patch.object(PagesManager, "get_page_script_byte_code",
+                             lambda _, path: compile(Path(path).read_text(encoding="utf-8"), str(path), "exec"))
+        cache.start()
+        self.addCleanup(cache.stop)
         # Fail on any CSV/Parquet reader, including unexpected real/private I/O.
         for name in ("read_csv", "read_parquet"):
             patcher = patch.object(pd, name, side_effect=AssertionError("SENSITIVE_FORBIDDEN_READER"))
@@ -33,14 +41,22 @@ class Q01DemoPageTests(unittest.TestCase):
         patcher.start()
         self.addCleanup(patcher.stop)
 
+    def navigate(self, app, name):
+        # Native pages use URL hashes; AppTest.switch_page in 1.38 still uses
+        # legacy file hashes. Keep the same live session and widget cleanup.
+        routes = {"4_Q01_Synthetic_Demo.py": "Q01_Synthetic_Demo",
+                  "1_Overview.py": "Overview", "2_Skills.py": "Skills"}
+        app._page_hash = calc_md5(routes[name])
+        return app.run(timeout=20)
+
     def page(self):
-        app = AppTest.from_file(str(DASHBOARD_DIR / "pages" / "4_Q01_Synthetic_Demo.py")).run(timeout=20)
+        app = AppTest.from_file(str(DASHBOARD_DIR / "views" / "4_Q01_Synthetic_Demo.py")).run(timeout=20)
         self.assertEqual(len(app.exception), 0)
         return app
 
     def on(self, app=None):
         app = self.page() if app is None else app
-        app.checkbox[0].set_value(True).run(timeout=20)
+        app.toggle[0].set_value(True).run(timeout=20)
         self.assertEqual(len(app.exception), 0)
         return app
 
@@ -56,9 +72,9 @@ class Q01DemoPageTests(unittest.TestCase):
 
     def test_t01_initial_off(self):
         app = self.page()
-        self.assertEqual(len(app.checkbox), 1)
-        self.assertFalse(app.checkbox[0].value)
-        self.assertEqual(app.title[0].value, "Q01 — Synthetic Demo")
+        self.assertEqual(len(app.toggle), 1)
+        self.assertFalse(app.toggle[0].value)
+        self.assertEqual(app.title[0].value, "Q01 · Minh họa")
 
     def test_t02_off_banner_and_disabled_state(self):
         app = self.page()
@@ -76,7 +92,7 @@ class Q01DemoPageTests(unittest.TestCase):
 
     def test_t05_opt_in_runs_synthetic_flow(self):
         app = self.on()
-        self.assertTrue(app.checkbox[0].value)
+        self.assertTrue(app.toggle[0].value)
         self.assertEqual(len(app.error), 0)
         self.assertEqual(len(app.dataframe), 1)
 
@@ -103,7 +119,7 @@ class Q01DemoPageTests(unittest.TestCase):
     def test_t09_declared_denominator(self):
         app = self.on()
         self.assertEqual(len(app.metric), 1)
-        self.assertEqual(app.metric[0].label, "Declared synthetic denominator B")
+        self.assertEqual(app.metric[0].label, "Mẫu số giả lập B")
         self.assertEqual(app.metric[0].value, "10")
 
     def test_t10_unknown_visible(self):
@@ -116,10 +132,10 @@ class Q01DemoPageTests(unittest.TestCase):
         self.assertIn("SYNTHETIC DEMO ONLY", self.text(app))
 
     def test_t12_no_real_findings_claim(self):
-        self.assertIn("No real IT recruitment findings.", self.text(self.on()))
+        self.assertIn("Không phải kết quả tuyển dụng IT thực tế.", self.text(self.on()))
 
     def test_t13_overlap_note(self):
-        self.assertIn("Overlapping groups: shares may sum above 100%", self.text(self.on()))
+        self.assertIn("Nhóm có thể chồng lặp: tổng tỷ lệ có thể vượt 100%", self.text(self.on()))
 
     def test_t14_shares_remain_160_percent(self):
         shares = self.on().dataframe[0].value["Share %"].tolist()
@@ -130,7 +146,7 @@ class Q01DemoPageTests(unittest.TestCase):
         app = self.on()
         self.assertEqual(len(app.dataframe), 1)
         with patch.object(q, "build_q01_synthetic_view_model") as adapter:
-            app.checkbox[0].set_value(False).run(timeout=20)
+            app.toggle[0].set_value(False).run(timeout=20)
         adapter.assert_not_called()
         self.no_findings(app)
 
@@ -142,7 +158,7 @@ class Q01DemoPageTests(unittest.TestCase):
             app.run(timeout=20)
         self.no_findings(app)
         self.assertIn("ORCHESTRATION_FAILED", self.text(app))
-        self.assertNotIn("Synthetic context", self.text(app))
+        self.assertNotIn("Ngữ cảnh giả lập", self.text(app))
 
     def test_t17_malformed_q01_result_no_findings(self):
         with patch.object(q, "build_q01_synthetic_view_model", return_value={"passed": True, "SENSITIVE": 10}):
@@ -197,32 +213,35 @@ class Q01DemoPageTests(unittest.TestCase):
         for page in ("1_Overview.py", "2_Skills.py"):
             with self.subTest(page=page):
                 app = AppTest.from_file(str(DASHBOARD_DIR / "app.py")).run(timeout=20)
-                app.switch_page("pages/4_Q01_Synthetic_Demo.py").run(timeout=20)
+                self.navigate(app, "4_Q01_Synthetic_Demo.py")
                 self.on(app)
-                app.switch_page("pages/" + page).run(timeout=20)
+                self.navigate(app, page)
                 self.assertEqual(len(app.exception), 0)
-                self.assertFalse(app.checkbox[0].value)
+                if page == "1_Overview.py":
+                    self.assertFalse(app.toggle[0].value)
+                else:
+                    self.assertEqual(len(app.toggle), 0)
                 self.assertEqual(len(app.get("arrow_vega_lite_chart")), 0)
 
     def test_t25_fresh_session_and_return_navigation_off(self):
         self.on()
-        self.assertFalse(self.page().checkbox[0].value)
+        self.assertFalse(self.page().toggle[0].value)
         app = AppTest.from_file(str(DASHBOARD_DIR / "app.py")).run(timeout=20)
-        app.switch_page("pages/4_Q01_Synthetic_Demo.py").run(timeout=20)
+        self.navigate(app, "4_Q01_Synthetic_Demo.py")
         self.on(app)
-        app.switch_page("pages/2_Skills.py").run(timeout=20)
-        app.switch_page("pages/4_Q01_Synthetic_Demo.py").run(timeout=20)
-        self.assertFalse(app.checkbox[0].value)
+        self.navigate(app, "2_Skills.py")
+        self.navigate(app, "4_Q01_Synthetic_Demo.py")
+        self.assertFalse(app.toggle[0].value)
         self.no_findings(app)
 
     def test_t26_existing_overview_behavior_preserved(self):
         frame = pd.DataFrame(dict(category=["DEMO_ONLY"], experience_level=["Entry"],
                                   location=["DEMO"], work_type=["Full-time"], job_count=[2],
                                   data_source=["SYNTHETIC_SAMPLE"]))
-        app = AppTest.from_file(str(DASHBOARD_DIR / "pages" / "1_Overview.py")).run(timeout=20)
-        self.assertFalse(app.checkbox[0].value)
+        app = AppTest.from_file(str(DASHBOARD_DIR / "views" / "1_Overview.py")).run(timeout=20)
+        self.assertFalse(app.toggle[0].value)
         with patch.object(legacy, "load_overview_data", return_value=(frame, "SYNTHETIC_SAMPLE", "demo")):
-            app.checkbox[0].set_value(True).run(timeout=20)
+            app.toggle[0].set_value(True).run(timeout=20)
         self.assertEqual(len(app.exception), 0)
         self.assertEqual(len(app.get("arrow_vega_lite_chart")), 4)
         self.assertEqual(len(app.metric), 4)
@@ -253,18 +272,16 @@ class Q01DemoPageTests(unittest.TestCase):
         proto = charts[0].proto
         spec = json.loads(proto.spec)
         self.assertEqual(spec["mark"]["type"], "bar")
-        self.assertEqual(spec["encoding"]["x"]["field"], "Category")
-        self.assertEqual(spec["encoding"]["y"]["field"], "Share %")
-        self.assertEqual(spec["encoding"]["y"]["type"], "quantitative")
-        self.assertNotEqual(spec["encoding"]["y"].get("stack"), "normalize")
+        self.assertEqual(spec["encoding"]["y"]["field"], "Category")
+        self.assertEqual(spec["encoding"]["x"]["field"], "Share %")
+        self.assertEqual(spec["encoding"]["x"]["type"], "quantitative")
+        self.assertNotEqual(spec["encoding"]["x"].get("stack"), "normalize")
         self.assertFalse(spec.get("transform"))
-        name = spec["data"]["name"]
-        self.assertIs(type(name), str)
-        self.assertTrue(name)
-        self.assertEqual(len(proto.datasets), 1)
-        matching = [dataset for dataset in proto.datasets if dataset.name == name]
-        self.assertEqual(len(matching), 1)
-        payload = matching[0].data.data
+        # Direct Vega-Lite uses the primary Arrow payload instead of the
+        # Altair named dataset. Decode the actual emitted data, never a mock.
+        self.assertNotIn("data", spec)
+        self.assertEqual(len(proto.datasets), 0)
+        payload = proto.data.data
         self.assertTrue(payload)
         with pa.ipc.open_stream(pa.BufferReader(payload)) as reader:
             frame = reader.read_all().to_pandas()
@@ -280,7 +297,7 @@ class Q01DemoPageTests(unittest.TestCase):
 
     def _h_assert_success(self, app):
         self.assertEqual(len(app.exception), 0)
-        self.assertIs(app.checkbox[0].value, True)
+        self.assertIs(app.toggle[0].value, True)
         self.assertEqual(len(app.error), 0)
         self.assertEqual(self._h_chart_mapping(app),
                          {"DEMO_A": 80.0, "DEMO_B": 70.0, "DEMO_UNKNOWN": 10.0})
@@ -293,10 +310,10 @@ class Q01DemoPageTests(unittest.TestCase):
             {"Category": "DEMO_UNKNOWN", "Count": 1, "Share %": "10.00"},
         ])
         self.assertEqual(len(app.metric), 1)
-        self.assertEqual(app.metric[0].label, "Declared synthetic denominator B")
+        self.assertEqual(app.metric[0].label, "Mẫu số giả lập B")
         self.assertEqual(app.metric[0].value, "10")
-        self.assertIn("Synthetic context (run / population / filter): DEMO_RUN / DEMO_POP / DEMO_ALL", self.text(app))
-        self.assertIn("Synthetic taxonomy: DEMO_TAXONOMY", self.text(app))
+        self.assertIn("Ngữ cảnh giả lập (run / population / filter): DEMO_RUN / DEMO_POP / DEMO_ALL", self.text(app))
+        self.assertIn("Taxonomy giả lập: DEMO_TAXONOMY", self.text(app))
 
     def test_h01_actual_chart_arrow_payload_and_independent_table(self):
         with patch.object(q, "build_q01_synthetic_view_model", wraps=q.build_q01_synthetic_view_model) as adapter:
@@ -409,14 +426,14 @@ class Q01DemoPageTests(unittest.TestCase):
                 self.assertIn(expected_issue, tuple((issue.check_id, issue.code) for issue in evidence[0].safe_issues))
                 pd.testing.assert_frame_equal(inputs[0][0].dataframe, snapshot, check_exact=True)
 
-        self.assertIs(app.checkbox[0].value, True)
+        self.assertIs(app.toggle[0].value, True)
         self.no_findings(app)
         self.assertEqual(len(app.error), 1)
         self.assertEqual(app.error[0].value, "INVALID: " + expected_code)
         visible = self.text(app)
-        for forbidden in ("HARDENING_CANARY", "Traceback", "Synthetic context (", "Synthetic taxonomy:",
-                          "Declared synthetic denominator B", "DEMO_A", "DEMO_B", "DEMO_UNKNOWN",
-                          "DEMO_RUN", "DEMO_POP", "DEMO_ALL", "DEMO_TAXONOMY", "Overlapping groups:"):
+        for forbidden in ("HARDENING_CANARY", "Traceback", "Ngữ cảnh giả lập (", "Taxonomy giả lập:",
+                          "Mẫu số giả lập B", "DEMO_A", "DEMO_B", "DEMO_UNKNOWN",
+                          "DEMO_RUN", "DEMO_POP", "DEMO_ALL", "DEMO_TAXONOMY", "Nhóm có thể chồng lặp:"):
             self.assertNotIn(forbidden, visible)
         self.assertIn("SYNTHETIC DEMO ONLY", visible)
 

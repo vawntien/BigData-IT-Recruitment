@@ -156,29 +156,37 @@ class PageSafetyTests(unittest.TestCase):
         patcher.start()
         self.addCleanup(patcher.stop)
 
-    def page(self, name):
-        return AppTest.from_file(str(DASHBOARD_DIR / "pages" / name)).run(timeout=20)
+    def page(self, name, enable=False):
+        # Samples moved into the isolated Demo area; exercise the same loaders
+        # and safety assertions through their new presentation entrypoint.
+        target = name if name == "1_Overview.py" else "7_Demo_Analytics.py"
+        app = AppTest.from_file(str(DASHBOARD_DIR / "views" / target)).run(timeout=20)
+        if enable:
+            app.toggle[1 if name == "3_Salary_Quality.py" else 0].set_value(True).run(timeout=20)
+        return app
 
     def test_t11_all_pages_require_explicit_demo_and_still_render(self):
         for name, _ in PAGES:
             with self.subTest(page=name):
                 app = self.page(name)
                 self.assertEqual(len(app.exception), 0)
-                self.assertFalse(app.checkbox[0].value)
+                self.assertFalse(app.toggle[0].value)
                 self.assertEqual(len(app.get("arrow_vega_lite_chart")), 0)
                 self.assertEqual(len(app.success), 0)
-                app.checkbox[0].set_value(True).run(timeout=20)
+                app.toggle[1 if name == "3_Salary_Quality.py" else 0].set_value(True).run(timeout=20)
                 self.assertEqual(len(app.exception), 0)
                 self.assertTrue(any("SYNTHETIC MOCKUP DATA" in w.value for w in app.warning))
                 self.assertGreater(len(app.get("arrow_vega_lite_chart")), 0)
                 self.assertEqual(len(app.success), 0)
                 if name == "3_Salary_Quality.py":
-                    self.assertTrue(any("HISTORICAL RAW/CLEAN AUDIT" in i.value for i in app.info))
+                    # Historical audit now has its own page, never salary findings.
+                    quality = AppTest.from_file(str(DASHBOARD_DIR / "views" / "6_Data_Quality.py")).run(timeout=20)
+                    self.assertIn("HISTORICAL", " ".join(m.value for m in quality.markdown))
 
     def test_unverified_files_never_reach_page_charts(self):
         for name, loader in PAGES:
             with self.subTest(page=name), patch.object(dl, loader, return_value=(fixture(), dl.STATUS_BLOCKED, "unverified")):
-                app = self.page(name)
+                app = self.page(name, enable=True)
                 self.assertEqual(len(app.exception), 0)
                 self.assertEqual(len(app.get("arrow_vega_lite_chart")), 0)
                 self.assertEqual(len(app.success), 0)
@@ -187,7 +195,7 @@ class PageSafetyTests(unittest.TestCase):
     def test_legacy_production_tuple_cannot_bypass_page_gate(self):
         for name, loader in PAGES:
             with self.subTest(page=name), patch.object(dl, loader, return_value=(fixture(), "PRODUCTION", "untrusted")):
-                app = self.page(name)
+                app = self.page(name, enable=True)
                 self.assertEqual(len(app.exception), 0)
                 self.assertEqual(len(app.get("arrow_vega_lite_chart")), 0)
                 self.assertEqual(len(app.success), 0)
@@ -197,7 +205,7 @@ class PageSafetyTests(unittest.TestCase):
         for name, loader in PAGES:
             bad = pd.DataFrame({"wrong_column": [1]})
             with self.subTest(page=name), patch.object(dl, loader, return_value=(bad, dl.STATUS_SAMPLE, "invalid demo")):
-                app = self.page(name)
+                app = self.page(name, enable=True)
                 self.assertEqual(len(app.exception), 0)
                 self.assertEqual(len(app.get("arrow_vega_lite_chart")), 0)
                 self.assertEqual(len(app.success), 0)

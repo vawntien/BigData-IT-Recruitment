@@ -305,7 +305,7 @@ class ReceivingTests(unittest.TestCase):
 
 
 class PreviewPageTests(unittest.TestCase):
-    PAGE = Path(__file__).resolve().parent.parent / "pages" / "5_Q01_Real_Preview.py"
+    PAGE = Path(__file__).resolve().parent.parent / "views" / "5_Q01_Real_Preview.py"
 
     def page(self):
         app = AppTest.from_file(str(self.PAGE)).run(timeout=20)
@@ -347,9 +347,25 @@ class PreviewPageTests(unittest.TestCase):
             self.assertEqual(tuple(app.dataframe[0].value.columns), q.COLUMNS)
             self.assertEqual(len(app.get("arrow_vega_lite_chart")), 1)
             self.assertEqual(len(app.multiselect), 0)
-            text = "\n".join(x.value for name in ("warning", "caption", "info") for x in getattr(app, name))
+            text = "\n".join(x.value for name in ("warning", "caption", "info", "markdown") for x in getattr(app, name))
             for required in ("VALIDATED / NOT ACCEPTED", "Production Gate CLOSED", "key-set", "REVIEW", "1e-12"):
                 self.assertIn(required, text)
+
+    def test_results_precede_form_without_session_result_cache(self):
+        result = q.PreviewResult(True, "", tuple(q.PreviewRow(**r) for r in rows()))
+        with patch.object(q, "load_q01_preview", return_value=result) as reader:
+            app = self.load(self.page())
+            self.assertEqual(len(app.metric), 4)
+            # Render-tree order proves results occupy the reserved earlier area.
+            elements = list(app.main)
+            types = [getattr(element, "type", "") for element in elements]
+            self.assertLess(types.index("metric"), types.index("text_input"))
+            reader.assert_called_once()
+            # A rerun without a new submit must neither reuse results nor read.
+            app.run(timeout=20)
+            self.no_findings(app)
+            self.assertEqual(len(app.exception), 0)
+            reader.assert_called_once()
 
     def test_failure_after_success_clears_findings(self):
         result = q.PreviewResult(True, "", tuple(q.PreviewRow(**r) for r in rows()))
