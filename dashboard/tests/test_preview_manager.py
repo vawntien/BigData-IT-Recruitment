@@ -174,6 +174,15 @@ class ActualSessionTests(unittest.TestCase):
             app._page_hash = calc_md5('Skills'); app.run(timeout=20)
             self.assertTrue(any('NOT BUSINESS ACCEPTED' in x.value for x in app.caption))
             self.assertTrue(any('Production Gate CLOSED' in x.value for x in app.warning))
+            notes = [x for x in app.expander if x.label == 'Nguồn dữ liệu và giới hạn']
+            self.assertEqual(len(notes), 1)
+            self.assertFalse(notes[0].proto.expanded)
+            self.assertFalse(any(x.label == 'Q05 · Nhãn chức năng nguồn' for x in app.expander))
+            self.assertTrue(any('hoạt động độc lập với Q05' in x.value for x in notes[0].caption))
+            self.assertTrue(any('job functions khác Q06 technical skills' in x.value for x in notes[0].info))
+            provenance = next(x for x in app.expander if x.label == 'Nguồn & phạm vi · Q06')
+            self.assertFalse(provenance.proto.expanded)
+            self.assertIn('Manifest SHA-256:', provenance.code[0].value)
         self.assertEqual(artifact_gate.real_artifact_status(exists=True), 'BLOCKED')
 
 
