@@ -1,0 +1,1158 @@
+{
+  "Q02": {
+    "sha256": "96062550912c197026f754f497104786e9d52bf11694253909f912b7cf06124a",
+    "run_id": "tv2_q01_q04_q08_official_20261022_01",
+    "manifest": "run/manifest.json",
+    "members": {
+      "code/analyzer.py": "58ae37b667b3b31b91739e31357af25a68f434a81eb6adf556b0e9dc9911dc89",
+      "code/original_validator.py": "3064fc323b48dc57e8f5c8eb2ef89e77f68fc592f60965de4e21f5db59b8ffee",
+      "config/it_taxonomy_v0.2.2.json": "1de2908a4a8da3e7f811c0d87928d05f857f5bd78ec243cc57c07ef9ec933874",
+      "config/tv2_analysis_output_schema.json": "cf35a7330d829cdb18a358f88491371b539868d1636dbea345be54b8b1686034",
+      "data/q02_experience.csv": "2f9539f80b44f006ebb8851463a0f8b451a55ace7455e0a22cce08c7d83ab381",
+      "data/q02_experience.parquet/_SUCCESS": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "data/q02_experience.parquet/part-00000-edb66004-437c-43d7-b918-562466f73525-c000.snappy.parquet": "71917b50ff087d4ecc58ec12e8c8e9c2840cf6537ca73061191787d6eae0b9c4",
+      "HANDOFF.json": "89b89914b1e9a9ba4617662740f76e6e9bbda935be7d8a7c6e7799fe281aef2f",
+      "input_metadata/analysis_contract.json": "70b0df1fe4e0e6d18cf27dc016c34eceabc9f7df284ba6c58563884bbccdf02c",
+      "input_metadata/completion.json": "50b67cadbb7103d7cafe111c393374885f854fcadddc62ec5c9c4bf2960220e3",
+      "input_metadata/input_receipt.json": "8eef3d1c45736d2a17b3b5a15b4b8fe02b8b5181d6eff406d823c5d5a5a4d810",
+      "input_metadata/lineage.json": "f183ec723e197e9d4667caf8acff9bf6bf93169defc53b6886bad9bc1ae55207",
+      "input_metadata/manifest.json": "2ddfb6c22888a00667c46bde3f95bd32587afa3e4513f47d9aca4bb5a66273e9",
+      "input_metadata/output_inventory.json": "38c6a82f97027b676ce3d5a8d09197e4127f89123b0e274b2aab5daba9674a86",
+      "input_metadata/readiness.json": "3420baf926da76b0a02220b87f67212d5676b9f31ce2b45f878c067df6962850",
+      "input_metadata/receipt_encoding_correction.json": "3bf90e50acfd835bf4ab76a2605165288303071798491ffd043786c8dbf6d60d",
+      "input_metadata/schema.json": "e4e6c2bf979d7a5e3f5700079a523ecdfdd98947d912d012406b3420ef7bab0d",
+      "input_metadata/source_binding.json": "f696b4b9adf6601fa2e9a2fcb5ac5d0b39890e38d62be5ecc3d519eeb7398dd7",
+      "input_metadata/technical_receipt_confirmation.json": "84bd27fb88e1b022e4e37d872d6866ea8e920f38289f07634ca53aec8b168d1b",
+      "input_metadata/validation.json": "08b66e54df2797e252df5d060e3da0394269c13de9969df3ab4deb85e25af9e2",
+      "input_metadata/writer_schema.json": "e4e6c2bf979d7a5e3f5700079a523ecdfdd98947d912d012406b3420ef7bab0d",
+      "README_TV3.md": "0eac3cd9783733ac6749f3bbc1e7b45eb235b12f2796c3a2d92e927424817c1a",
+      "requirements-receiving.txt": "fccef2370ec204113427b1ab714ea356b89d6b29e20d0ca69e2d9c55c78999fc",
+      "run/independent_validation.json": "8cc17d0e08680709679a2c72f95db7aca21b1865baed0e836eab1e8664611409",
+      "run/independent_validation_completion.json": "8cf1ec2557281fe07ec9d3c33ef92e08919f0b3f3ca1159a5825494338a58201",
+      "run/manifest.json": "5665057f408e279d09c2130d7cb7e59a564d093f1516ddd1e0cf2576931450ac",
+      "schema/q02_experience_parquet_writer.json": "5956233c02f83d64563c2443c5da61d28c4e2ff9ef2865f2fef12ee83042635f",
+      "schema/q02_experience_spark_readback.json": "c9e2283ec9db4a5f1ae8feed99b99598b46a53a4b3e4f022f7786e5caa2d0277",
+      "SHA256_INVENTORY.json": "d0d9bdd456e530672bf717e37278e921fdf04e79685062399ebcf0c1e2042d76",
+      "SOURCE_COPIES.json": "8bbaf956c1941c8829c13ef37968fca6e15dd5271d2d29be360c431efddeb1dc",
+      "source_reports/q01_official_validation_20261022.md": "73873d0b24109c6e164f3329e2385356a8850e2f072c4f2311c64da8a1365c8d",
+      "source_reports/tv2_enriched_input_20261022.md": "d914bd55f7b7f76716da3ba0fe4bcf29874062b4fbd24d49050556d73a88a806",
+      "source_reports/tv2_tv1_supplement_verification_20261022.md": "f597c24994c0aaba9c9e3a3e2cd0847e812df10a9ddfe8fc48356d791583669c",
+      "verify_handoff.py": "bd1aea94f439d9f61a2ae8e168904e293ef1db586a4547c293a3941655d3abf5",
+      "WINDOWS_RECEIVING.json": "23f1db8982df031347d42cbaccee1913964cd69dde837139c4322afd643a229c"
+    },
+    "root": "TV2_Q02_VALIDATED_HANDOFF_TV3_20261022/",
+    "tables": {
+      "q02_experience": {
+        "prefix": "data/q02_experience",
+        "rows": 7,
+        "fields": [
+          {
+            "name": "category",
+            "type": "string",
+            "nullable": true
+          },
+          {
+            "name": "job_count",
+            "type": "int64",
+            "nullable": false
+          },
+          {
+            "name": "denominator_all_it",
+            "type": "int32",
+            "nullable": false
+          },
+          {
+            "name": "denominator_known",
+            "type": "int32",
+            "nullable": false
+          },
+          {
+            "name": "share_all_it",
+            "type": "double",
+            "nullable": true
+          },
+          {
+            "name": "share_known",
+            "type": "double",
+            "nullable": true
+          }
+        ],
+        "keys": [
+          "category"
+        ],
+        "writer_schema": {
+          "type": "struct",
+          "fields": [
+            {
+              "name": "category",
+              "type": "string",
+              "nullable": true,
+              "metadata": {}
+            },
+            {
+              "name": "job_count",
+              "type": "long",
+              "nullable": false,
+              "metadata": {}
+            },
+            {
+              "name": "denominator_all_it",
+              "type": "integer",
+              "nullable": false,
+              "metadata": {}
+            },
+            {
+              "name": "denominator_known",
+              "type": "integer",
+              "nullable": false,
+              "metadata": {}
+            },
+            {
+              "name": "share_all_it",
+              "type": "double",
+              "nullable": true,
+              "metadata": {}
+            },
+            {
+              "name": "share_known",
+              "type": "double",
+              "nullable": true,
+              "metadata": {}
+            }
+          ]
+        },
+        "denominator_all_it": 5206,
+        "denominator_known": 3722
+      }
+    },
+    "approval": {
+      "decision_id": "TV2-Q02-BUSINESS-20261022-c3da4e6793bb4e76a15e125341ba3918",
+      "sha256": "3eec726343a797d5878406b44963e2ee9af2170811423958f07262dce258a5ce"
+    }
+  },
+  "Q03": {
+    "sha256": "63bb3a52af4b61be3578032ef6ecc5fb50f13c5fabb242478c8291212962734d",
+    "run_id": "tv2_q01_q04_q08_official_20261022_01",
+    "manifest": "run/manifest.json",
+    "members": {
+      "code/analyzer.py": "58ae37b667b3b31b91739e31357af25a68f434a81eb6adf556b0e9dc9911dc89",
+      "code/original_validator.py": "3064fc323b48dc57e8f5c8eb2ef89e77f68fc592f60965de4e21f5db59b8ffee",
+      "config/it_taxonomy_v0.2.2.json": "1de2908a4a8da3e7f811c0d87928d05f857f5bd78ec243cc57c07ef9ec933874",
+      "config/tv2_analysis_output_schema.json": "cf35a7330d829cdb18a358f88491371b539868d1636dbea345be54b8b1686034",
+      "data/q03_location.csv": "2280d574e6a57bc2cd41c0326f38f4c3201973aa38bafc1c344a14c0dcb28ec4",
+      "data/q03_location.parquet/_SUCCESS": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "data/q03_location.parquet/part-00000-b30f6e8f-dab1-4cad-b45b-7231ca732560-c000.snappy.parquet": "0f4bd7719b891ce8f8e6a49d1007842659dd7c82f1d81c3005d875ec6f2386e2",
+      "HANDOFF.json": "a792f0e7a7513e6c4e1c5a3a16f57b97145b11e9009886354eb37f197233160a",
+      "input_metadata/analysis_contract.json": "70b0df1fe4e0e6d18cf27dc016c34eceabc9f7df284ba6c58563884bbccdf02c",
+      "input_metadata/completion.json": "50b67cadbb7103d7cafe111c393374885f854fcadddc62ec5c9c4bf2960220e3",
+      "input_metadata/input_receipt.json": "8eef3d1c45736d2a17b3b5a15b4b8fe02b8b5181d6eff406d823c5d5a5a4d810",
+      "input_metadata/lineage.json": "f183ec723e197e9d4667caf8acff9bf6bf93169defc53b6886bad9bc1ae55207",
+      "input_metadata/manifest.json": "2ddfb6c22888a00667c46bde3f95bd32587afa3e4513f47d9aca4bb5a66273e9",
+      "input_metadata/output_inventory.json": "38c6a82f97027b676ce3d5a8d09197e4127f89123b0e274b2aab5daba9674a86",
+      "input_metadata/readiness.json": "3420baf926da76b0a02220b87f67212d5676b9f31ce2b45f878c067df6962850",
+      "input_metadata/receipt_encoding_correction.json": "3bf90e50acfd835bf4ab76a2605165288303071798491ffd043786c8dbf6d60d",
+      "input_metadata/schema.json": "e4e6c2bf979d7a5e3f5700079a523ecdfdd98947d912d012406b3420ef7bab0d",
+      "input_metadata/source_binding.json": "f696b4b9adf6601fa2e9a2fcb5ac5d0b39890e38d62be5ecc3d519eeb7398dd7",
+      "input_metadata/technical_receipt_confirmation.json": "84bd27fb88e1b022e4e37d872d6866ea8e920f38289f07634ca53aec8b168d1b",
+      "input_metadata/validation.json": "08b66e54df2797e252df5d060e3da0394269c13de9969df3ab4deb85e25af9e2",
+      "input_metadata/writer_schema.json": "e4e6c2bf979d7a5e3f5700079a523ecdfdd98947d912d012406b3420ef7bab0d",
+      "README_TV3.md": "41f70c33689a3c7847efa56fa66d7c13ca74a71a914c51149d895f73ded364b4",
+      "requirements-receiving.txt": "fccef2370ec204113427b1ab714ea356b89d6b29e20d0ca69e2d9c55c78999fc",
+      "run/independent_validation.json": "8cc17d0e08680709679a2c72f95db7aca21b1865baed0e836eab1e8664611409",
+      "run/independent_validation_completion.json": "8cf1ec2557281fe07ec9d3c33ef92e08919f0b3f3ca1159a5825494338a58201",
+      "run/manifest.json": "5665057f408e279d09c2130d7cb7e59a564d093f1516ddd1e0cf2576931450ac",
+      "schema/q03_location_parquet_writer.json": "5956233c02f83d64563c2443c5da61d28c4e2ff9ef2865f2fef12ee83042635f",
+      "schema/q03_location_spark_readback.json": "c9e2283ec9db4a5f1ae8feed99b99598b46a53a4b3e4f022f7786e5caa2d0277",
+      "SHA256_INVENTORY.json": "c153be7d67c899468eaa609aafc9abe0289966d78e2bad2c2dea0053b1114b5e",
+      "SOURCE_COPIES.json": "b7ad2c3a5c102391d81f5201132e263ad8a1f04f5785e9110f7844c4e83735da",
+      "source_reports/q01_official_validation_20261022.md": "73873d0b24109c6e164f3329e2385356a8850e2f072c4f2311c64da8a1365c8d",
+      "source_reports/tv2_enriched_input_20261022.md": "d914bd55f7b7f76716da3ba0fe4bcf29874062b4fbd24d49050556d73a88a806",
+      "source_reports/tv2_tv1_supplement_verification_20261022.md": "f597c24994c0aaba9c9e3a3e2cd0847e812df10a9ddfe8fc48356d791583669c",
+      "verify_handoff.py": "bd1aea94f439d9f61a2ae8e168904e293ef1db586a4547c293a3941655d3abf5",
+      "WINDOWS_RECEIVING.json": "d93876d3c6c8d0104088c59cddb40e1ba08a3219569eb2cc35b84de3265a8123"
+    },
+    "root": "TV2_Q03_VALIDATED_HANDOFF_TV3_20261022/",
+    "tables": {
+      "q03_location": {
+        "prefix": "data/q03_location",
+        "rows": 845,
+        "fields": [
+          {
+            "name": "category",
+            "type": "string",
+            "nullable": true
+          },
+          {
+            "name": "job_count",
+            "type": "int64",
+            "nullable": false
+          },
+          {
+            "name": "denominator_all_it",
+            "type": "int32",
+            "nullable": false
+          },
+          {
+            "name": "denominator_known",
+            "type": "int32",
+            "nullable": false
+          },
+          {
+            "name": "share_all_it",
+            "type": "double",
+            "nullable": true
+          },
+          {
+            "name": "share_known",
+            "type": "double",
+            "nullable": true
+          }
+        ],
+        "keys": [
+          "category"
+        ],
+        "writer_schema": {
+          "type": "struct",
+          "fields": [
+            {
+              "name": "category",
+              "type": "string",
+              "nullable": true,
+              "metadata": {}
+            },
+            {
+              "name": "job_count",
+              "type": "long",
+              "nullable": false,
+              "metadata": {}
+            },
+            {
+              "name": "denominator_all_it",
+              "type": "integer",
+              "nullable": false,
+              "metadata": {}
+            },
+            {
+              "name": "denominator_known",
+              "type": "integer",
+              "nullable": false,
+              "metadata": {}
+            },
+            {
+              "name": "share_all_it",
+              "type": "double",
+              "nullable": true,
+              "metadata": {}
+            },
+            {
+              "name": "share_known",
+              "type": "double",
+              "nullable": true,
+              "metadata": {}
+            }
+          ]
+        },
+        "denominator_all_it": 5206,
+        "denominator_known": 5206
+      }
+    },
+    "approval": {
+      "decision_id": "TV2-Q03-BUSINESS-20261022-d787736bc09b4312a4930fad1024e0da",
+      "sha256": "06b71989812dab18396bb2f9923b20970db33b0e9bb41de82f90061947efde73"
+    }
+  },
+  "Q04": {
+    "sha256": "5d2fb33bffe6d1477f13dc2a5bc01f51105ec3d9510b79eaa9074f500662a0e8",
+    "run_id": "tv2_q01_q04_q08_official_20261022_01",
+    "manifest": "run/manifest.json",
+    "members": {
+      "code/analyzer.py": "58ae37b667b3b31b91739e31357af25a68f434a81eb6adf556b0e9dc9911dc89",
+      "code/original_validator.py": "3064fc323b48dc57e8f5c8eb2ef89e77f68fc592f60965de4e21f5db59b8ffee",
+      "config/it_taxonomy_v0.2.2.json": "1de2908a4a8da3e7f811c0d87928d05f857f5bd78ec243cc57c07ef9ec933874",
+      "config/tv2_analysis_output_schema.json": "cf35a7330d829cdb18a358f88491371b539868d1636dbea345be54b8b1686034",
+      "data/q04_remote_flag.csv": "3c97fb5a3bbd8c03634d0dbb3f0fe997e42d8db5114e7a0d79273f3d362f70bc",
+      "data/q04_remote_flag.parquet/_SUCCESS": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "data/q04_remote_flag.parquet/part-00000-6983525f-b09e-4cb1-9bd9-87640a99228d-c000.snappy.parquet": "0476ae14995265e03162aaa8c9cede28889a6bdbbfe8af279b31bd59fa50e4b3",
+      "data/q04_work_type.csv": "21e81bd2afdd40dc26f8ca8a62ace1e652624d12534e28fdb8f4fb93d1448cc5",
+      "data/q04_work_type.parquet/_SUCCESS": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "data/q04_work_type.parquet/part-00000-bba86a84-3211-43d7-aed1-0ea6f1fca5c0-c000.snappy.parquet": "0853f2a08aaf86b2aa7f165d3fb58f3dd09111f6a60be00b1b9f5c4bd318f046",
+      "data/q04_work_type_crosscheck.csv": "3985f3d5c3f8c7fed9ca9646fd45a50fd83c3420fc550f9a6f738b44b7b36db3",
+      "data/q04_work_type_crosscheck.parquet/_SUCCESS": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "data/q04_work_type_crosscheck.parquet/part-00000-123b4a7e-af8e-48af-98c6-f2f31ec84d90-c000.snappy.parquet": "35e456dcd572869ae1657f63f959b5048362aab8afdab7ca7c3d19d114ba050e",
+      "HANDOFF.json": "2882985487506ba35f923d7fb171c3c6e692df86162e033bad3b1fd0c08b1745",
+      "input_metadata/analysis_contract.json": "70b0df1fe4e0e6d18cf27dc016c34eceabc9f7df284ba6c58563884bbccdf02c",
+      "input_metadata/completion.json": "50b67cadbb7103d7cafe111c393374885f854fcadddc62ec5c9c4bf2960220e3",
+      "input_metadata/input_receipt.json": "8eef3d1c45736d2a17b3b5a15b4b8fe02b8b5181d6eff406d823c5d5a5a4d810",
+      "input_metadata/lineage.json": "f183ec723e197e9d4667caf8acff9bf6bf93169defc53b6886bad9bc1ae55207",
+      "input_metadata/manifest.json": "2ddfb6c22888a00667c46bde3f95bd32587afa3e4513f47d9aca4bb5a66273e9",
+      "input_metadata/output_inventory.json": "38c6a82f97027b676ce3d5a8d09197e4127f89123b0e274b2aab5daba9674a86",
+      "input_metadata/readiness.json": "3420baf926da76b0a02220b87f67212d5676b9f31ce2b45f878c067df6962850",
+      "input_metadata/receipt_encoding_correction.json": "3bf90e50acfd835bf4ab76a2605165288303071798491ffd043786c8dbf6d60d",
+      "input_metadata/schema.json": "e4e6c2bf979d7a5e3f5700079a523ecdfdd98947d912d012406b3420ef7bab0d",
+      "input_metadata/source_binding.json": "f696b4b9adf6601fa2e9a2fcb5ac5d0b39890e38d62be5ecc3d519eeb7398dd7",
+      "input_metadata/technical_receipt_confirmation.json": "84bd27fb88e1b022e4e37d872d6866ea8e920f38289f07634ca53aec8b168d1b",
+      "input_metadata/validation.json": "08b66e54df2797e252df5d060e3da0394269c13de9969df3ab4deb85e25af9e2",
+      "input_metadata/writer_schema.json": "e4e6c2bf979d7a5e3f5700079a523ecdfdd98947d912d012406b3420ef7bab0d",
+      "README_TV3.md": "8ecc6b5255efb7536e1519db5ff2690d45615487303c8c763d77d211c1c0b7e3",
+      "requirements-receiving.txt": "fccef2370ec204113427b1ab714ea356b89d6b29e20d0ca69e2d9c55c78999fc",
+      "run/independent_validation.json": "8cc17d0e08680709679a2c72f95db7aca21b1865baed0e836eab1e8664611409",
+      "run/independent_validation_completion.json": "8cf1ec2557281fe07ec9d3c33ef92e08919f0b3f3ca1159a5825494338a58201",
+      "run/manifest.json": "5665057f408e279d09c2130d7cb7e59a564d093f1516ddd1e0cf2576931450ac",
+      "schema/q04_remote_flag_parquet_writer.json": "c90b359d1f13441d543583f02fc4c6f0992cad9c2eec474fde0789a393f23ded",
+      "schema/q04_remote_flag_spark_readback.json": "fe870c961f55b553d5df2adebac1255886a92ac9c6d1902c883b7897ef2eedbf",
+      "schema/q04_work_type_crosscheck_parquet_writer.json": "f2177ec35c69188b17d6f93c0317171976bb7543945342ebbd0e1840d1e61379",
+      "schema/q04_work_type_crosscheck_spark_readback.json": "60c70c0976cd8005c72603e0c4c1ec1974e90b5cae1b0bf008d3c4d67693fa6c",
+      "schema/q04_work_type_parquet_writer.json": "5956233c02f83d64563c2443c5da61d28c4e2ff9ef2865f2fef12ee83042635f",
+      "schema/q04_work_type_spark_readback.json": "c9e2283ec9db4a5f1ae8feed99b99598b46a53a4b3e4f022f7786e5caa2d0277",
+      "SHA256_INVENTORY.json": "ee3f82aa1b9d5c91fc80d19b514abf589b67fdd09d17a7af5292adf26ff7ea5c",
+      "SOURCE_COPIES.json": "0ba9febd7557dc3ef51b0eba3cd45d079814efde07cf4aeb7ebead67364849a5",
+      "source_reports/q01_official_validation_20261022.md": "73873d0b24109c6e164f3329e2385356a8850e2f072c4f2311c64da8a1365c8d",
+      "source_reports/tv2_enriched_input_20261022.md": "d914bd55f7b7f76716da3ba0fe4bcf29874062b4fbd24d49050556d73a88a806",
+      "source_reports/tv2_tv1_supplement_verification_20261022.md": "f597c24994c0aaba9c9e3a3e2cd0847e812df10a9ddfe8fc48356d791583669c",
+      "verify_handoff.py": "bd1aea94f439d9f61a2ae8e168904e293ef1db586a4547c293a3941655d3abf5",
+      "WINDOWS_RECEIVING.json": "5bcabc7c44c71279712f7cfb68f137e3b0087f20f2a2b7578d26f4095c146db3"
+    },
+    "root": "TV2_Q04_VALIDATED_HANDOFF_TV3_20261022/",
+    "tables": {
+      "q04_remote_flag": {
+        "prefix": "data/q04_remote_flag",
+        "rows": 2,
+        "fields": [
+          {
+            "name": "remote_allowed",
+            "type": "bool",
+            "nullable": true
+          },
+          {
+            "name": "job_count",
+            "type": "int64",
+            "nullable": false
+          },
+          {
+            "name": "denominator_all_it",
+            "type": "int32",
+            "nullable": false
+          },
+          {
+            "name": "share_all_it",
+            "type": "double",
+            "nullable": true
+          }
+        ],
+        "keys": [
+          "remote_allowed"
+        ],
+        "writer_schema": {
+          "type": "struct",
+          "fields": [
+            {
+              "name": "remote_allowed",
+              "type": "boolean",
+              "nullable": true,
+              "metadata": {}
+            },
+            {
+              "name": "job_count",
+              "type": "long",
+              "nullable": false,
+              "metadata": {}
+            },
+            {
+              "name": "denominator_all_it",
+              "type": "integer",
+              "nullable": false,
+              "metadata": {}
+            },
+            {
+              "name": "share_all_it",
+              "type": "double",
+              "nullable": true,
+              "metadata": {}
+            }
+          ]
+        },
+        "denominator_all_it": 5206
+      },
+      "q04_work_type": {
+        "prefix": "data/q04_work_type",
+        "rows": 7,
+        "fields": [
+          {
+            "name": "category",
+            "type": "string",
+            "nullable": true
+          },
+          {
+            "name": "job_count",
+            "type": "int64",
+            "nullable": false
+          },
+          {
+            "name": "denominator_all_it",
+            "type": "int32",
+            "nullable": false
+          },
+          {
+            "name": "denominator_known",
+            "type": "int32",
+            "nullable": false
+          },
+          {
+            "name": "share_all_it",
+            "type": "double",
+            "nullable": true
+          },
+          {
+            "name": "share_known",
+            "type": "double",
+            "nullable": true
+          }
+        ],
+        "keys": [
+          "category"
+        ],
+        "writer_schema": {
+          "type": "struct",
+          "fields": [
+            {
+              "name": "category",
+              "type": "string",
+              "nullable": true,
+              "metadata": {}
+            },
+            {
+              "name": "job_count",
+              "type": "long",
+              "nullable": false,
+              "metadata": {}
+            },
+            {
+              "name": "denominator_all_it",
+              "type": "integer",
+              "nullable": false,
+              "metadata": {}
+            },
+            {
+              "name": "denominator_known",
+              "type": "integer",
+              "nullable": false,
+              "metadata": {}
+            },
+            {
+              "name": "share_all_it",
+              "type": "double",
+              "nullable": true,
+              "metadata": {}
+            },
+            {
+              "name": "share_known",
+              "type": "double",
+              "nullable": true,
+              "metadata": {}
+            }
+          ]
+        },
+        "denominator_all_it": 5206,
+        "denominator_known": 5206
+      },
+      "q04_work_type_crosscheck": {
+        "prefix": "data/q04_work_type_crosscheck",
+        "rows": 7,
+        "fields": [
+          {
+            "name": "formatted_work_type",
+            "type": "string",
+            "nullable": true
+          },
+          {
+            "name": "work_type",
+            "type": "string",
+            "nullable": true
+          },
+          {
+            "name": "job_count",
+            "type": "int64",
+            "nullable": false
+          }
+        ],
+        "keys": [
+          "formatted_work_type",
+          "work_type"
+        ],
+        "writer_schema": {
+          "type": "struct",
+          "fields": [
+            {
+              "name": "formatted_work_type",
+              "type": "string",
+              "nullable": true,
+              "metadata": {}
+            },
+            {
+              "name": "work_type",
+              "type": "string",
+              "nullable": true,
+              "metadata": {}
+            },
+            {
+              "name": "job_count",
+              "type": "long",
+              "nullable": false,
+              "metadata": {}
+            }
+          ]
+        }
+      }
+    },
+    "approval": {
+      "decision_id": "TV2-Q04-BUSINESS-20261022-3c2d5872416540a9a790fc7ca5c18312",
+      "sha256": "a5834dc981ec6be4b859578a1173c09bc672325fd05815fc0358e3f19acd3483"
+    }
+  },
+  "Q08": {
+    "sha256": "41af3a4794ef927daff5bc47ca568b5e7881cd22139f26b649b08d2ce7e84cac",
+    "run_id": "tv2_q01_q04_q08_official_20261022_01",
+    "manifest": "run/manifest.json",
+    "members": {
+      "code/analyzer.py": "58ae37b667b3b31b91739e31357af25a68f434a81eb6adf556b0e9dc9911dc89",
+      "code/original_validator.py": "3064fc323b48dc57e8f5c8eb2ef89e77f68fc592f60965de4e21f5db59b8ffee",
+      "config/it_taxonomy_v0.2.2.json": "1de2908a4a8da3e7f811c0d87928d05f857f5bd78ec243cc57c07ef9ec933874",
+      "config/tv2_analysis_output_schema.json": "cf35a7330d829cdb18a358f88491371b539868d1636dbea345be54b8b1686034",
+      "data/q08_listed_month.csv": "44e6a6f3aded6db51f5302398511244476267b011abf4179ba87d66b4c3deb73",
+      "data/q08_listed_month.parquet/_SUCCESS": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "data/q08_listed_month.parquet/part-00000-16493b35-eef7-482b-aa71-83b61c3f4474-c000.snappy.parquet": "825a3dec9b5e943b8a7497031b191ec2c5a6addf4084131a1ee8111c95f97312",
+      "data/q08_listed_week_start_utc.csv": "fd63e9f3ecaf2e40d7950d35dbba609cbb8267e5a0a668ff57c8e9a9543ce7c9",
+      "data/q08_listed_week_start_utc.parquet/_SUCCESS": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "data/q08_listed_week_start_utc.parquet/part-00000-c93b5946-b265-443e-89d2-9543b829d22f-c000.snappy.parquet": "f4e09207be46a1296793bcec685c3ff7a1b1d6fdbd2044097b2afcc39a81fc50",
+      "data/q08_original_month.csv": "bcfd5e46b7a8fccfa74d0de9049d63642cf285beca313150d37b5e8e3ab23b80",
+      "data/q08_original_month.parquet/_SUCCESS": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "data/q08_original_month.parquet/part-00000-09f79c63-0068-4d0a-a95c-f370ae813352-c000.snappy.parquet": "25fda823ced3cd3aa92d4822aed3dfe7fd5a0f62ddf963dcfc8f363596b23c51",
+      "data/q08_original_week_start_utc.csv": "8045a86e6ef311846c45f0d8469ffb2a7ac34eab62c06be0f11796e2e750efa7",
+      "data/q08_original_week_start_utc.parquet/_SUCCESS": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "data/q08_original_week_start_utc.parquet/part-00000-868075bf-cd2d-4e4c-b148-5fbe820ce251-c000.snappy.parquet": "28fb9767a1171d0bd9f9d63b4d1fd721ca13ae179fefcf0036cbde7d6d4f9d97",
+      "HANDOFF.json": "3e4dc4d587b60dbe7654d384de576e92c514ed8bae28dd565ccaa9fb2fd714a7",
+      "input_metadata/analysis_contract.json": "70b0df1fe4e0e6d18cf27dc016c34eceabc9f7df284ba6c58563884bbccdf02c",
+      "input_metadata/completion.json": "50b67cadbb7103d7cafe111c393374885f854fcadddc62ec5c9c4bf2960220e3",
+      "input_metadata/input_receipt.json": "8eef3d1c45736d2a17b3b5a15b4b8fe02b8b5181d6eff406d823c5d5a5a4d810",
+      "input_metadata/lineage.json": "f183ec723e197e9d4667caf8acff9bf6bf93169defc53b6886bad9bc1ae55207",
+      "input_metadata/manifest.json": "2ddfb6c22888a00667c46bde3f95bd32587afa3e4513f47d9aca4bb5a66273e9",
+      "input_metadata/output_inventory.json": "38c6a82f97027b676ce3d5a8d09197e4127f89123b0e274b2aab5daba9674a86",
+      "input_metadata/readiness.json": "3420baf926da76b0a02220b87f67212d5676b9f31ce2b45f878c067df6962850",
+      "input_metadata/receipt_encoding_correction.json": "3bf90e50acfd835bf4ab76a2605165288303071798491ffd043786c8dbf6d60d",
+      "input_metadata/schema.json": "e4e6c2bf979d7a5e3f5700079a523ecdfdd98947d912d012406b3420ef7bab0d",
+      "input_metadata/source_binding.json": "f696b4b9adf6601fa2e9a2fcb5ac5d0b39890e38d62be5ecc3d519eeb7398dd7",
+      "input_metadata/technical_receipt_confirmation.json": "84bd27fb88e1b022e4e37d872d6866ea8e920f38289f07634ca53aec8b168d1b",
+      "input_metadata/validation.json": "08b66e54df2797e252df5d060e3da0394269c13de9969df3ab4deb85e25af9e2",
+      "input_metadata/writer_schema.json": "e4e6c2bf979d7a5e3f5700079a523ecdfdd98947d912d012406b3420ef7bab0d",
+      "README_TV3.md": "970116e58d4315e5b127bd6181917ea8f261ad3e2c708e12372f07ed0a45642c",
+      "requirements-receiving.txt": "fccef2370ec204113427b1ab714ea356b89d6b29e20d0ca69e2d9c55c78999fc",
+      "run/independent_validation.json": "8cc17d0e08680709679a2c72f95db7aca21b1865baed0e836eab1e8664611409",
+      "run/independent_validation_completion.json": "8cf1ec2557281fe07ec9d3c33ef92e08919f0b3f3ca1159a5825494338a58201",
+      "run/manifest.json": "5665057f408e279d09c2130d7cb7e59a564d093f1516ddd1e0cf2576931450ac",
+      "schema/q08_listed_month_parquet_writer.json": "74d5874f3104c26d4a8bb5fdc13fa39bf34b47ef50658f627c206bcfd68820e7",
+      "schema/q08_listed_month_spark_readback.json": "67d0d7a8120ec81a5de2285b7d047a074897a77bfcebd15f22c6501eec0e62fc",
+      "schema/q08_listed_week_start_utc_parquet_writer.json": "74d5874f3104c26d4a8bb5fdc13fa39bf34b47ef50658f627c206bcfd68820e7",
+      "schema/q08_listed_week_start_utc_spark_readback.json": "67d0d7a8120ec81a5de2285b7d047a074897a77bfcebd15f22c6501eec0e62fc",
+      "schema/q08_original_month_parquet_writer.json": "74d5874f3104c26d4a8bb5fdc13fa39bf34b47ef50658f627c206bcfd68820e7",
+      "schema/q08_original_month_spark_readback.json": "67d0d7a8120ec81a5de2285b7d047a074897a77bfcebd15f22c6501eec0e62fc",
+      "schema/q08_original_week_start_utc_parquet_writer.json": "74d5874f3104c26d4a8bb5fdc13fa39bf34b47ef50658f627c206bcfd68820e7",
+      "schema/q08_original_week_start_utc_spark_readback.json": "67d0d7a8120ec81a5de2285b7d047a074897a77bfcebd15f22c6501eec0e62fc",
+      "SHA256_INVENTORY.json": "b4add43aef72e5daeef9da03057ae09f00d328479dc741aa9aeaa52c76448650",
+      "SOURCE_COPIES.json": "d02face4134323c320fcbe01d55d839b4aba3c50e50a841eeefd327ffd748292",
+      "source_reports/q01_official_validation_20261022.md": "73873d0b24109c6e164f3329e2385356a8850e2f072c4f2311c64da8a1365c8d",
+      "source_reports/tv2_enriched_input_20261022.md": "d914bd55f7b7f76716da3ba0fe4bcf29874062b4fbd24d49050556d73a88a806",
+      "source_reports/tv2_tv1_supplement_verification_20261022.md": "f597c24994c0aaba9c9e3a3e2cd0847e812df10a9ddfe8fc48356d791583669c",
+      "verify_handoff.py": "bd1aea94f439d9f61a2ae8e168904e293ef1db586a4547c293a3941655d3abf5",
+      "WINDOWS_RECEIVING.json": "40374a377cc0d5a2c1030f1164f13bc1177bd70132eb79a7f4b5d00a6b27d10b"
+    },
+    "root": "TV2_Q08_VALIDATED_HANDOFF_TV3_20261022/",
+    "tables": {
+      "q08_listed_month": {
+        "prefix": "data/q08_listed_month",
+        "rows": 1,
+        "fields": [
+          {
+            "name": "period",
+            "type": "string",
+            "nullable": true
+          },
+          {
+            "name": "job_count",
+            "type": "int64",
+            "nullable": false
+          },
+          {
+            "name": "valid_timestamp_n",
+            "type": "int32",
+            "nullable": false
+          },
+          {
+            "name": "share_of_valid",
+            "type": "double",
+            "nullable": true
+          }
+        ],
+        "keys": [
+          "period"
+        ],
+        "writer_schema": {
+          "type": "struct",
+          "fields": [
+            {
+              "name": "period",
+              "type": "string",
+              "nullable": true,
+              "metadata": {}
+            },
+            {
+              "name": "job_count",
+              "type": "long",
+              "nullable": false,
+              "metadata": {}
+            },
+            {
+              "name": "valid_timestamp_n",
+              "type": "integer",
+              "nullable": false,
+              "metadata": {}
+            },
+            {
+              "name": "share_of_valid",
+              "type": "double",
+              "nullable": true,
+              "metadata": {}
+            }
+          ]
+        },
+        "valid_timestamp_n": 5206
+      },
+      "q08_listed_week_start_utc": {
+        "prefix": "data/q08_listed_week_start_utc",
+        "rows": 3,
+        "fields": [
+          {
+            "name": "period",
+            "type": "string",
+            "nullable": true
+          },
+          {
+            "name": "job_count",
+            "type": "int64",
+            "nullable": false
+          },
+          {
+            "name": "valid_timestamp_n",
+            "type": "int32",
+            "nullable": false
+          },
+          {
+            "name": "share_of_valid",
+            "type": "double",
+            "nullable": true
+          }
+        ],
+        "keys": [
+          "period"
+        ],
+        "writer_schema": {
+          "type": "struct",
+          "fields": [
+            {
+              "name": "period",
+              "type": "string",
+              "nullable": true,
+              "metadata": {}
+            },
+            {
+              "name": "job_count",
+              "type": "long",
+              "nullable": false,
+              "metadata": {}
+            },
+            {
+              "name": "valid_timestamp_n",
+              "type": "integer",
+              "nullable": false,
+              "metadata": {}
+            },
+            {
+              "name": "share_of_valid",
+              "type": "double",
+              "nullable": true,
+              "metadata": {}
+            }
+          ]
+        },
+        "valid_timestamp_n": 5206
+      },
+      "q08_original_month": {
+        "prefix": "data/q08_original_month",
+        "rows": 3,
+        "fields": [
+          {
+            "name": "period",
+            "type": "string",
+            "nullable": true
+          },
+          {
+            "name": "job_count",
+            "type": "int64",
+            "nullable": false
+          },
+          {
+            "name": "valid_timestamp_n",
+            "type": "int32",
+            "nullable": false
+          },
+          {
+            "name": "share_of_valid",
+            "type": "double",
+            "nullable": true
+          }
+        ],
+        "keys": [
+          "period"
+        ],
+        "writer_schema": {
+          "type": "struct",
+          "fields": [
+            {
+              "name": "period",
+              "type": "string",
+              "nullable": true,
+              "metadata": {}
+            },
+            {
+              "name": "job_count",
+              "type": "long",
+              "nullable": false,
+              "metadata": {}
+            },
+            {
+              "name": "valid_timestamp_n",
+              "type": "integer",
+              "nullable": false,
+              "metadata": {}
+            },
+            {
+              "name": "share_of_valid",
+              "type": "double",
+              "nullable": true,
+              "metadata": {}
+            }
+          ]
+        },
+        "valid_timestamp_n": 5206
+      },
+      "q08_original_week_start_utc": {
+        "prefix": "data/q08_original_week_start_utc",
+        "rows": 9,
+        "fields": [
+          {
+            "name": "period",
+            "type": "string",
+            "nullable": true
+          },
+          {
+            "name": "job_count",
+            "type": "int64",
+            "nullable": false
+          },
+          {
+            "name": "valid_timestamp_n",
+            "type": "int32",
+            "nullable": false
+          },
+          {
+            "name": "share_of_valid",
+            "type": "double",
+            "nullable": true
+          }
+        ],
+        "keys": [
+          "period"
+        ],
+        "writer_schema": {
+          "type": "struct",
+          "fields": [
+            {
+              "name": "period",
+              "type": "string",
+              "nullable": true,
+              "metadata": {}
+            },
+            {
+              "name": "job_count",
+              "type": "long",
+              "nullable": false,
+              "metadata": {}
+            },
+            {
+              "name": "valid_timestamp_n",
+              "type": "integer",
+              "nullable": false,
+              "metadata": {}
+            },
+            {
+              "name": "share_of_valid",
+              "type": "double",
+              "nullable": true,
+              "metadata": {}
+            }
+          ]
+        },
+        "valid_timestamp_n": 5206
+      }
+    },
+    "approval": {
+      "decision_id": "TV2-Q08-BUSINESS-20261022-b26ca261094f44d392b733ee24fe419c",
+      "sha256": "f645180e75acbadcf1be5c28ab41edf08cc124cdc8b3f725092fc9fd39a56017"
+    }
+  },
+  "Q06": {
+    "sha256": "e655362c5b9364767b666f38d1076c043066518a56b34b54b09166124f4e3420",
+    "run_id": "tv2_q06_official_20261022_01",
+    "manifest": "runner_manifest.json",
+    "members": {
+      "a05_confirmation.confirmed.json": "ba40cc86f510020334302e73c36c52c75f5a1ad4ddd45e5b0ef28bb10157d86c",
+      "analysis_contract.confirmed.json": "70bd51a58617fbf3906bd3512b6fed1dc6ec51c2fbe5603562d2c7ef8ad800a3",
+      "independent_validation/completion.json": "41bf6b04b921b7618662903a840adc54c61ab082cfddb0fe50c1749c65ed5c52",
+      "independent_validation/q06_skills_by_experience_schema.json": "2d8fab7c26e7709360277a229ad9ca2b165446a11cd03b7f08315c1e1bcc3e42",
+      "independent_validation/q06_skills_by_group_schema.json": "ea7f458c2b3de6f18e67816ec1c0d023ce1994828de11498efb6d0c38da94278",
+      "independent_validation/q06_skills_global_schema.json": "53ffd077315a5f609242b33bc84ef66840afe898ad2f5ba9d5b65c69890c25f8",
+      "independent_validation/validation.json": "c723434c6a73b7cf729bda6c4d8267782c26a5c5385903e995df76a33fd98f17",
+      "input_lineage.json": "f183ec723e197e9d4667caf8acff9bf6bf93169defc53b6886bad9bc1ae55207",
+      "logical_output_schema.json": "cf35a7330d829cdb18a358f88491371b539868d1636dbea345be54b8b1686034",
+      "manifest.json": "d94f06d6ecf15d99212612f264dce4ddcdb0f0191f7ad3598bca691e0c363f59",
+      "q06_a05_technical_confirmation_user_20261022.txt": "70e3f70d7af79fe18e30f2a496cdb3a4004ecff302a1051731c9d14345db2ed3",
+      "q06_skills_by_experience.csv": "72c6a0a65eaf21cfddb5e1767c45adb492f360d1ce0866538f81ed0cc935daa1",
+      "q06_skills_by_experience.parquet/_SUCCESS": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "q06_skills_by_experience.parquet/part-00000-5282c241-e77e-4525-964e-0f24cb4ec5a7-c000.snappy.parquet": "dce4dcbcc3905de5089eafa3aef68cc19ecff774d683c90c4e9ee49fb3867936",
+      "q06_skills_by_group.csv": "440ee4abe2c5d130e4cf59003c2f9d89c1630e00de1e7d68683f29dd690bce42",
+      "q06_skills_by_group.parquet/_SUCCESS": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "q06_skills_by_group.parquet/part-00000-54ac31ab-a888-43a1-a538-01301466265f-c000.snappy.parquet": "03841d57593dc39262363b944f774c85f9e2bb2c3877387498d722c2b1e2b493",
+      "q06_skills_global.csv": "cf81d549784b77bbd28ea3319173098d3c2fba5357f5087e81163a04f98551d8",
+      "q06_skills_global.parquet/_SUCCESS": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "q06_skills_global.parquet/part-00000-3ebd2762-6a66-4507-af2e-e34796cebb4f-c000.snappy.parquet": "ce5d75138ade58e7f338f3ea49884680a1e2c3be8fe22612f7c8f78dc364d8e3",
+      "q06_tv1_delegation_user_quote_20261022.md": "3876eac2325e5a5c6880c66ed320b89c0ee8b1c2bfde71e4a9125656bb378023",
+      "README.md": "cb6f4dd8cc128cf7f3449d1a76ff4d22acd0801cdaff89f1774f48e9284c9ce2",
+      "receipt.pending_tv3.json": "377b0495c6bfcf4bf951df67023e4c9ff8ae6af0cc3040d24427f891cd90cd06",
+      "runner_manifest.json": "b50c0aaf9d72d891c11da1471b29935a73f5795a26f2e4ecb08871a45c820804",
+      "SHA256SUMS.json": "3a94a288c10ea5774baa1f5df06364d876a12806eb7ba46d213f8e89c211120f",
+      "tv2_a05_reverification_after_delegation_20261022.json": "db228126700c7571f3c41dea076012b6b32b9dd4cbdb4e1d5b7e0c9cfdb03be5",
+      "tv2_package_q06_tv3_20261022.py": "b350914df9288118623e1e0cd82a14dcfa7142f0ad1cd34492e0c71cbc97104d",
+      "tv2_q06_confirmed_final_runtime_20261022.json": "f36e5889a4a0ef96b69a68b8ab2bc840b05d8f0f5133a64a3e5d6f051f01035e",
+      "tv2_q06_exact_lineage_after_delegation_20261022.json": "4153ba2c5eeb2202f37c7a3af12457a380e34a974127117c415d3af11a181ed8",
+      "tv2_q06_official_runner_exit_20261022.json": "e867c4743b6f3be30677c15dbe30340ca01d96f6da5c25d800f09d3b4af199d2",
+      "tv2_validate_q06_official_20261022.py": "553f39d5bee3c20dea29c27749b1cb8c781e7b610398e0fb033829a6bb40a8d7"
+    },
+    "root": "",
+    "tables": {
+      "q06_skills_by_experience": {
+        "prefix": "q06_skills_by_experience",
+        "rows": 256,
+        "fields": [
+          {
+            "name": "formatted_experience_level",
+            "type": "string",
+            "nullable": true
+          },
+          {
+            "name": "skill_code",
+            "type": "string",
+            "nullable": true
+          },
+          {
+            "name": "skill_name",
+            "type": "string",
+            "nullable": true
+          },
+          {
+            "name": "job_count",
+            "type": "int64",
+            "nullable": false
+          },
+          {
+            "name": "processed_n",
+            "type": "int64",
+            "nullable": true
+          },
+          {
+            "name": "share_of_processed_group",
+            "type": "double",
+            "nullable": true
+          }
+        ],
+        "keys": [
+          "formatted_experience_level",
+          "skill_code"
+        ],
+        "writer_schema": {
+          "type": "struct",
+          "fields": [
+            {
+              "name": "formatted_experience_level",
+              "type": "string",
+              "nullable": true,
+              "metadata": {}
+            },
+            {
+              "name": "skill_code",
+              "type": "string",
+              "nullable": true,
+              "metadata": {}
+            },
+            {
+              "name": "skill_name",
+              "type": "string",
+              "nullable": true,
+              "metadata": {}
+            },
+            {
+              "name": "job_count",
+              "type": "long",
+              "nullable": false,
+              "metadata": {}
+            },
+            {
+              "name": "processed_n",
+              "type": "long",
+              "nullable": true,
+              "metadata": {}
+            },
+            {
+              "name": "share_of_processed_group",
+              "type": "double",
+              "nullable": true,
+              "metadata": {}
+            }
+          ]
+        },
+        "scope_denominators": [
+          {
+            "scope": "Mid-Senior level",
+            "processed_n": 2566
+          },
+          {
+            "scope": "Entry level",
+            "processed_n": 773
+          },
+          {
+            "scope": "Associate",
+            "processed_n": 307
+          },
+          {
+            "scope": "Director",
+            "processed_n": 42
+          },
+          {
+            "scope": "Internship",
+            "processed_n": 25
+          },
+          {
+            "scope": null,
+            "processed_n": 1484
+          },
+          {
+            "scope": "Executive",
+            "processed_n": 9
+          }
+        ]
+      },
+      "q06_skills_by_group": {
+        "prefix": "q06_skills_by_group",
+        "rows": 317,
+        "fields": [
+          {
+            "name": "a02_group",
+            "type": "string",
+            "nullable": true
+          },
+          {
+            "name": "skill_code",
+            "type": "string",
+            "nullable": true
+          },
+          {
+            "name": "skill_name",
+            "type": "string",
+            "nullable": true
+          },
+          {
+            "name": "job_count",
+            "type": "int64",
+            "nullable": false
+          },
+          {
+            "name": "processed_n",
+            "type": "int64",
+            "nullable": true
+          },
+          {
+            "name": "share_of_processed_group",
+            "type": "double",
+            "nullable": true
+          }
+        ],
+        "keys": [
+          "a02_group",
+          "skill_code"
+        ],
+        "writer_schema": {
+          "type": "struct",
+          "fields": [
+            {
+              "name": "a02_group",
+              "type": "string",
+              "nullable": true,
+              "metadata": {}
+            },
+            {
+              "name": "skill_code",
+              "type": "string",
+              "nullable": true,
+              "metadata": {}
+            },
+            {
+              "name": "skill_name",
+              "type": "string",
+              "nullable": true,
+              "metadata": {}
+            },
+            {
+              "name": "job_count",
+              "type": "long",
+              "nullable": false,
+              "metadata": {}
+            },
+            {
+              "name": "processed_n",
+              "type": "long",
+              "nullable": true,
+              "metadata": {}
+            },
+            {
+              "name": "share_of_processed_group",
+              "type": "double",
+              "nullable": true,
+              "metadata": {}
+            }
+          ]
+        },
+        "scope_denominators": [
+          {
+            "scope": "SOFTWARE",
+            "processed_n": 2393
+          },
+          {
+            "scope": "DATA_AI",
+            "processed_n": 1115
+          },
+          {
+            "scope": "SECURITY",
+            "processed_n": 187
+          },
+          {
+            "scope": "DEVOPS_CLOUD",
+            "processed_n": 441
+          },
+          {
+            "scope": "QA_TESTING",
+            "processed_n": 103
+          },
+          {
+            "scope": "IT_SUPPORT",
+            "processed_n": 152
+          },
+          {
+            "scope": "IT_MANAGEMENT",
+            "processed_n": 90
+          },
+          {
+            "scope": "NETWORK_SYSTEMS",
+            "processed_n": 556
+          },
+          {
+            "scope": "IT_OTHER",
+            "processed_n": 77
+          },
+          {
+            "scope": "IT_BUSINESS",
+            "processed_n": 92
+          }
+        ]
+      },
+      "q06_skills_global": {
+        "prefix": "q06_skills_global",
+        "rows": 46,
+        "fields": [
+          {
+            "name": "skill_code",
+            "type": "string",
+            "nullable": true
+          },
+          {
+            "name": "skill_name",
+            "type": "string",
+            "nullable": true
+          },
+          {
+            "name": "job_count",
+            "type": "int64",
+            "nullable": false
+          },
+          {
+            "name": "processed_n",
+            "type": "int32",
+            "nullable": false
+          },
+          {
+            "name": "share_of_processed",
+            "type": "double",
+            "nullable": true
+          }
+        ],
+        "keys": [
+          "skill_code"
+        ],
+        "writer_schema": {
+          "type": "struct",
+          "fields": [
+            {
+              "name": "skill_code",
+              "type": "string",
+              "nullable": true,
+              "metadata": {}
+            },
+            {
+              "name": "skill_name",
+              "type": "string",
+              "nullable": true,
+              "metadata": {}
+            },
+            {
+              "name": "job_count",
+              "type": "long",
+              "nullable": false,
+              "metadata": {}
+            },
+            {
+              "name": "processed_n",
+              "type": "integer",
+              "nullable": false,
+              "metadata": {}
+            },
+            {
+              "name": "share_of_processed",
+              "type": "double",
+              "nullable": true,
+              "metadata": {}
+            }
+          ]
+        },
+        "processed_n": 5206
+      }
+    },
+    "approval": null
+  }
+}

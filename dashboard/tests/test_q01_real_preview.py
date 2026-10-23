@@ -343,7 +343,7 @@ class PreviewPageTests(unittest.TestCase):
             app = self.load(self.page())
             spy.assert_called_once_with("C:/explicit/synthetic.zip", confirmed=True)
             self.assertEqual(len(app.metric), 4)
-            self.assertEqual([x.value for x in app.metric], ["5206", "5206", "0", "10"])
+            self.assertEqual([x.value for x in app.metric], ["5,206", "5,206", "0", "10"])
             self.assertEqual(tuple(app.dataframe[0].value.columns), q.COLUMNS)
             self.assertEqual(len(app.get("arrow_vega_lite_chart")), 1)
             self.assertEqual(len(app.multiselect), 0)

@@ -70,6 +70,13 @@ def empty_state(title, description):
 
 def horizontal_bar(data, category, value, *, color=BLUE, tooltip=None, height=None, value_title=None, number_format=",.0f"):
     """Presentation only: values and units are supplied unchanged by the caller."""
+    axis = {"gridColor": "#E1E7EF", "domain": False, "tickCount": 4, "tickMinStep": 1,
+            "labelFlush": True, "labelBound": True, "format": number_format}
+    # Explicit integer ticks avoid duplicate rounded labels on tiny demo counts,
+    # including frontends which do not honor Vega-Lite's tickMinStep hint.
+    maximum = float(data[value].max()) if len(data) else 0
+    if number_format == ",.0f" and 0 < maximum < 4 and maximum.is_integer():
+        axis["values"] = list(range(int(maximum) + 1))
     spec = {
         "height": height or max(240, len(data) * 30),
         "mark": {"type": "bar", "color": color, "cornerRadiusEnd": 3, "size": 16},
@@ -78,7 +85,7 @@ def horizontal_bar(data, category, value, *, color=BLUE, tooltip=None, height=No
                   "axis": {"title": None, "labelLimit": 230, "labelFontSize": 12,
                            "labelPadding": 10, "ticks": False, "domain": False}},
             "x": {"field": value, "type": "quantitative", "title": value_title or value,
-                  "axis": {"gridColor": "#E1E7EF", "domain": False, "tickCount": 4, "labelFlush": True, "labelBound": True, "format": number_format}},
+                  "axis": axis},
             "tooltip": tooltip or [{"field": category}, {"field": value}],
         },
         "config": {"view": {"stroke": None}, "font": "Arial", "background": "white"},

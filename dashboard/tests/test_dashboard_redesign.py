@@ -37,7 +37,8 @@ class RedesignTests(unittest.TestCase):
 
     def test_all_native_routes_render(self):
         app = AppTest.from_file(str(DASHBOARD / "app.py")).run(timeout=20)
-        for route in ["Data_Quality", "Skills", "Salary_Quality", "Overview", "Demo_Analytics", "Q01_Synthetic_Demo", "Q01_Real_Preview"]:
+        for route in ["Data_Quality", "Skills", "Salary_Quality", "Overview", "Demo_Analytics", "Q01_Synthetic_Demo", "Q01_Real_Preview",
+                      "Experience", "Locations", "Work_Type", "Time_Trends", "Query_Demo"]:
             app._page_hash = calc_md5(route)
             app.run(timeout=20)
             self.assertEqual(len(app.exception), 0, route)

@@ -18,6 +18,7 @@ from components.ui_helpers import page_setup, render_header, horizontal_bar
 page_setup("Tuyển dụng IT · Q01")
 render_header("Tuyển dụng IT · Q01")
 st.warning("VALIDATED / NOT ACCEPTED · Xem trước dữ liệu thật · Production Gate CLOSED")
+st.caption("Metadata VALIDATED / NOT ACCEPTED trong gói là trạng thái lịch sử lúc đóng gói. Receipt TV1 đã xác minh: Q01 aggregate ACCEPT WITH CONDITIONS (22/10/2026); Q01 display mapping và Dashboard final vẫn PENDING. Không thay manifest hoặc mở Production Gate.")
 # Reserve result placement before the input form, without storing results,
 # consent or artifact bytes across reruns. Failed submissions leave it empty.
 results_area = st.container()
@@ -41,8 +42,8 @@ with results_area:
     table = pd.DataFrame([asdict(row) for row in result.rows])
     for column, label, value in zip(st.columns(4),
                                     ("Tổng tin ACCEPT", "Có phân loại", "Thiếu nhóm", "Số nhóm"),
-                                    (result.rows[0].denominator_all_it, result.rows[0].denominator_known,
-                                     result.rows[0].denominator_all_it - result.rows[0].denominator_known, len(result.rows))):
+                                    (f"{result.rows[0].denominator_all_it:,}", f"{result.rows[0].denominator_known:,}",
+                                     f"{result.rows[0].denominator_all_it - result.rows[0].denominator_known:,}", f"{len(result.rows):,}")):
         column.metric(label, value)
     st.subheader("Phân bố nhóm nghề")
     chart = table[["category", "job_count", "share_all_it"]].copy()
