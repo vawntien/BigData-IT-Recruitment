@@ -46,7 +46,7 @@ class Q01DemoPageTests(unittest.TestCase):
         # legacy file hashes. Keep the same live session and widget cleanup.
         routes = {"4_Q01_Synthetic_Demo.py": "Q01_Synthetic_Demo",
                   "1_Overview.py": "Overview", "2_Skills.py": "Skills"}
-        app._page_hash = calc_md5(routes[name])
+        app._page_hash = calc_md5(routes.get(name, Path(name).stem.split("_", 1)[1]))
         return app.run(timeout=20)
 
     def page(self):
@@ -209,29 +209,21 @@ class Q01DemoPageTests(unittest.TestCase):
         self.no_findings(self.page())
         self.assertEqual(len(self.on().dataframe), 1)
 
-    def test_t24_navigation_no_permission_transfer(self):
-        for page in ("1_Overview.py", "2_Skills.py"):
+    def test_t24_legacy_synthetic_routes_not_exposed_in_real_shell(self):
+        for page in ("1_Overview.py", "4_Q01_Synthetic_Demo.py", "7_Demo_Analytics.py", "12_Query_Demo.py"):
             with self.subTest(page=page):
                 app = AppTest.from_file(str(DASHBOARD_DIR / "app.py")).run(timeout=20)
-                self.navigate(app, "4_Q01_Synthetic_Demo.py")
-                self.on(app)
                 self.navigate(app, page)
                 self.assertEqual(len(app.exception), 0)
-                if page == "1_Overview.py":
-                    self.assertFalse(app.toggle[0].value)
-                else:
-                    self.assertEqual(len(app.toggle), 0)
-                self.assertEqual(len(app.get("arrow_vega_lite_chart")), 0)
+                self.assertEqual(len(app.toggle), 0)
+                self.no_findings(app)
 
-    def test_t25_fresh_session_and_return_navigation_off(self):
+    def test_t25_standalone_fixture_opt_in_cannot_enter_real_shell(self):
         self.on()
         self.assertFalse(self.page().toggle[0].value)
         app = AppTest.from_file(str(DASHBOARD_DIR / "app.py")).run(timeout=20)
         self.navigate(app, "4_Q01_Synthetic_Demo.py")
-        self.on(app)
-        self.navigate(app, "2_Skills.py")
-        self.navigate(app, "4_Q01_Synthetic_Demo.py")
-        self.assertFalse(app.toggle[0].value)
+        self.assertEqual(len(app.toggle), 0)
         self.no_findings(app)
 
     def test_t26_existing_overview_behavior_preserved(self):

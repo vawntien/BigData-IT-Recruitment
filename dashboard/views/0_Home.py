@@ -1,54 +1,46 @@
-"""Product landing page. No dataset discovery or implicit receiving."""
+"""Landing page derived only from session-verified real aggregates."""
 from pathlib import Path
 import sys
 import streamlit as st
-DASHBOARD_DIR = Path(__file__).resolve().parent.parent
-if str(DASHBOARD_DIR) not in sys.path:
-    sys.path.insert(0, str(DASHBOARD_DIR))
-from components.ui_helpers import navigation_link, page_setup, render_header, source_strip
+sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
+from components.preview_manager import STATE_KEY, QUERIES
+from components.ui_helpers import navigation_link, page_setup, render_header, source_strip, horizontal_bar
+import pandas as pd
 
-page_setup("Tổng quan")
-render_header("IT Recruitment Analytics", "Khám phá cơ cấu tuyển dụng, kỹ năng và thu nhập.")
-source_strip("Demo Big Data · Q01 preview thật · Q02/Q03/Q04/Q06/Q08: real technical preview · Production Gate CLOSED")
-st.subheader("Không gian phân tích")
-left, right = st.columns(2)
-with left, st.container(border=True):
-    st.markdown('<span class="nav-card-marker"></span>', unsafe_allow_html=True)
-    st.subheader("Tuyển dụng IT · Q01")
-    st.caption("Aggregate có approval kèm điều kiện; display mapping và Dashboard final vẫn pending.")
-    navigation_link("views/5_Q01_Real_Preview.py", label="Xem tuyển dụng IT →")
-with right, st.container(border=True):
-    st.markdown('<span class="nav-card-marker"></span>', unsafe_allow_html=True)
-    st.subheader("Chất lượng dữ liệu")
-    st.caption("Kiểm kê lịch sử RAW/CLEAN: khuyết thiếu và độ phủ khóa.")
-    navigation_link("views/6_Data_Quality.py", label="Xem chất lượng dữ liệu →")
-left, right = st.columns(2)
-with left, st.container(border=True):
-    st.markdown('<span class="nav-card-marker"></span>', unsafe_allow_html=True)
-    st.subheader("Kỹ năng & thu nhập")
-    st.caption("Theo dõi trạng thái nguồn của các phân tích chính thức.")
-    c1, c2 = st.columns(2)
-    with c1:
-        navigation_link("views/2_Skills.py", label="Kỹ năng →")
-    with c2:
-        navigation_link("views/3_Salary_Quality.py", label="Thu nhập →")
-with right, st.container(border=True):
-    st.markdown('<span class="nav-card-marker"></span>', unsafe_allow_html=True)
-    st.subheader("Khu vực minh họa")
-    st.caption("Khám phá biểu đồ tuyển dụng bằng dữ liệu SYNTHETIC.")
-    navigation_link("views/1_Overview.py", label="Khám phá bản minh họa →")
-st.subheader("Khám phá theo câu hỏi")
-left, right = st.columns(2)
-with left, st.container(border=True):
-    st.subheader("Kinh nghiệm, địa điểm & việc làm")
-    st.caption("Preview thật tại localhost sau consent và kiểm ZIP. Có phòng demo SYNTHETIC riêng.")
-    navigation_link("views/8_Experience.py", label="Kinh nghiệm · Q02 →")
-    navigation_link("views/9_Locations.py", label="Địa điểm · Q03 →")
-    navigation_link("views/10_Work_Type.py", label="Việc làm & remote · Q04 →")
-with right, st.container(border=True):
-    st.subheader("Xu hướng & phòng demo")
-    st.caption("Hai mốc thời gian UTC riêng. Demo giữ NULL, mẫu số và zero-hit rõ ràng.")
-    navigation_link("views/11_Time_Trends.py", label="Xu hướng thời gian · Q08 →")
-    navigation_link("views/12_Query_Demo.py", label="Trình diễn Q02–Q08 · SYNTHETIC →")
-with st.expander("Nguồn & phạm vi sử dụng"):
-    st.markdown("- Trang chủ không tự tải dữ liệu.\n- Q01 chỉ xem toàn bộ snapshot sau xác nhận quyền đọc.\n- Dữ liệu SYNTHETIC và kiểm kê HISTORICAL không phải kết quả IT production.\n- Q01–Q04/Q08 aggregates APPROVED WITH CONDITIONS; Q06 NOT BUSINESS ACCEPTED; Dashboard final pending, Production Gate CLOSED.")
+page_setup('Tổng quan')
+render_header('IT Recruitment Analytics', 'Phân tích tuyển dụng IT từ các nguồn aggregate đã xác minh.')
+source_strip('REAL DATA — TECHNICAL PREVIEW · Localhost / nội bộ · Production Gate CLOSED')
+sources = st.session_state.get(STATE_KEY, {})
+q01 = sources.get('Q01', {})
+if q01.get('status') == 'READY':
+    result = q01['result']
+    for col, title, value in zip(st.columns(3), ('Tin tuyển dụng IT', 'Nhóm nghề', 'Nguồn sẵn sàng'),
+                                (f'{result.rows[0].denominator_all_it:,}', str(len(result.rows)),
+                                 str(sum(sources.get(q, {}).get('status') == 'READY' for q in QUERIES)) + '/6')):
+        col.metric(title, value)
+    st.subheader('Cơ cấu nhóm nghề IT')
+    horizontal_bar(pd.DataFrame([{'Nhóm nghề': row.category, 'Số tin': row.job_count} for row in result.rows]),
+                   'Nhóm nghề', 'Số tin', value_title='Số tin ACCEPT')
+else:
+    st.error('Q01 không khả dụng · ' + q01.get('issue', 'LOCAL_DEMO_NOT_ENABLED'))
+    st.caption('Không hiển thị KPI population khi nguồn Q01 chưa được xác minh.')
+
+st.subheader('Khám phá dữ liệu thật')
+destinations = [('Q01', 'Nhóm nghề', '5_Q01_Real_Preview.py'),
+                ('Q02', 'Kinh nghiệm', '8_Experience.py'), ('Q03', 'Địa điểm', '9_Locations.py'),
+                ('Q04', 'Hình thức làm việc', '10_Work_Type.py'), ('Q06', 'Kỹ năng', '2_Skills.py'),
+                ('Q08', 'Xu hướng thời gian', '11_Time_Trends.py')]
+for offset in range(0, len(destinations), 2):
+    for col, (query, title, view) in zip(st.columns(2), destinations[offset:offset+2]):
+        with col, st.container(border=True):
+            st.subheader(query + ' · ' + title)
+            entry = sources.get(query, {})
+            st.caption('READY · Đã xác minh' if entry.get('status') == 'READY'
+                       else 'ERROR · ' + entry.get('issue', 'LOCAL_DEMO_NOT_ENABLED'))
+            navigation_link('views/' + view, label='Xem ' + title.lower() + ' →')
+if st.button('Kiểm tra lại nguồn'):
+    st.session_state.pop(STATE_KEY, None)
+    st.rerun()
+with st.expander('Nguồn & phạm vi sử dụng'):
+    st.caption('Mỗi phiên mới kiểm SHA-256, manifest, schema và lineage của sáu gói pinned. Chuyển trang giữ kết quả đã xác minh; nguồn thay đổi sẽ bị kiểm lại và lỗi sẽ loại kết quả cũ. Không cộng population giữa các query.')
+    st.caption('Q01/Q02/Q03/Q04/Q08 aggregates APPROVED WITH CONDITIONS. Q06 VALIDATED — NOT BUSINESS ACCEPTED. Q05/Q07 chưa có dữ liệu Official trên Dashboard. Dashboard final pending; Production Gate CLOSED.')

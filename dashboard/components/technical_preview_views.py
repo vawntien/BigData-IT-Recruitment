@@ -1,4 +1,4 @@
-"""Real technical preview presentation. Form submissions never persist result data."""
+"""Validated aggregate presentation for local sessions and manual receiver tests."""
 import pandas as pd
 import streamlit as st
 from .technical_preview import PINS, load_preview
@@ -37,34 +37,49 @@ def render_real(query):
     st.caption(NOTES[query])
     result_area = st.container()
     pin = PINS[query]
-    with st.expander('Tải / đổi tệp ' + query, expanded=True):
-        with st.form('technical_preview_' + query):
-            path = st.text_input('Đường dẫn ZIP ' + query + ' trên máy', value='')
-            consent = st.checkbox('Tôi xác nhận quyền đọc và hiển thị technical preview ' + query, value=False)
-            top_n = 10
-            selected = {}
-            if query in ('Q03', 'Q06'):
-                top_n = st.selectbox('Top N · chỉ thay trình bày', (5, 10, 15, 30), index=1)
-            if query == 'Q06':
-                for suffix, dim, title in [('group','a02_group','Nhóm IT'), ('experience','formatted_experience_level','Kinh nghiệm')]:
-                    scopes = [s['scope'] for s in pin['tables']['q06_skills_by_' + suffix]['scope_denominators']]
-                    index = st.selectbox(title + ' · scope độc lập', range(len(scopes)), format_func=lambda i, s=scopes: label(s[i]))
-                    selected[suffix] = scopes[index]
-            submitted = st.form_submit_button('Tải và xác minh', type='primary')
-        st.caption('Đổi Top N / scope rồi bấm Tải và xác minh. Không tự đọc khi điều hướng; mỗi lần tải đều kiểm lại toàn bộ gói.')
-    if not submitted:
-        st.info('Chọn ZIP và bật consent để xem dữ liệu thật. Chưa đọc artifact.')
-        return
-    result = load_preview(query, path, confirmed=consent)
-    if not result.passed:
-        st.error('Không thể tải ' + query + ' · ' + result.issue)
-        st.caption('Đã xóa toàn bộ KPI, biểu đồ và bảng của lần tải trước.')
-        return
+    if st.session_state.get('_real_only', False):
+        from .preview_manager import current_result
+        result = current_result(query)
+        if result is None:
+            return
+        top_n = 10
+        selected = {}
+        if query in ('Q03', 'Q06'):
+            top_n = st.selectbox('Top N · chỉ thay trình bày', (5, 10, 15, 30), index=1, key=query + '_top_n')
+        if query == 'Q06':
+            for suffix, dim, title in [('group','a02_group','Nhóm IT'), ('experience','formatted_experience_level','Kinh nghiệm')]:
+                scopes = [s['scope'] for s in pin['tables']['q06_skills_by_' + suffix]['scope_denominators']]
+                index = st.selectbox(title + ' · scope độc lập', range(len(scopes)), format_func=lambda i, s=scopes: label(s[i]), key=query + suffix)
+                selected[suffix] = scopes[index]
+    else:
+        with st.expander('Tải / đổi tệp ' + query, expanded=True):
+            with st.form('technical_preview_' + query):
+                path = st.text_input('Đường dẫn ZIP ' + query + ' trên máy', value='')
+                consent = st.checkbox('Tôi xác nhận quyền đọc và hiển thị technical preview ' + query, value=False)
+                top_n = 10
+                selected = {}
+                if query in ('Q03', 'Q06'):
+                    top_n = st.selectbox('Top N · chỉ thay trình bày', (5, 10, 15, 30), index=1)
+                if query == 'Q06':
+                    for suffix, dim, title in [('group','a02_group','Nhóm IT'), ('experience','formatted_experience_level','Kinh nghiệm')]:
+                        scopes = [s['scope'] for s in pin['tables']['q06_skills_by_' + suffix]['scope_denominators']]
+                        index = st.selectbox(title + ' · scope độc lập', range(len(scopes)), format_func=lambda i, s=scopes: label(s[i]))
+                        selected[suffix] = scopes[index]
+                submitted = st.form_submit_button('Tải và xác minh', type='primary')
+            st.caption('Đổi Top N / scope rồi bấm Tải và xác minh. Không tự đọc khi điều hướng; mỗi lần tải đều kiểm lại toàn bộ gói.')
+        if not submitted:
+            st.info('Chọn ZIP và bật consent để xem dữ liệu thật. Chưa đọc artifact.')
+            return
+        result = load_preview(query, path, confirmed=consent)
+        if not result.passed:
+            st.error('Không thể tải ' + query + ' · ' + result.issue)
+            st.caption('Đã xóa toàn bộ KPI, biểu đồ và bảng của lần tải trước.')
+            return
     with result_area:
         if query in ('Q02','Q03'):
             rows = next(iter(result.tables.values()))
             N, K = rows[0]['denominator_all_it'], rows[0]['denominator_known']
-            metrics([('Tổng tin ACCEPT', N), ('Có giá trị', K), ('Thiếu dữ liệu', N-K)])
+            metrics([('Tổng tin ACCEPT', N), ('Có giá trị', K), ('Thiếu dữ liệu', N-K)] + ([('Raw buckets',len(rows))] if query == 'Q03' else []))
             bar(rows, 'category', 'Phân bố kinh nghiệm' if query == 'Q02' else 'Top địa điểm nguyên gốc', top_n if query == 'Q03' else None)
             st.caption(f'Mẫu số toàn bộ {N:,}; mẫu số có giá trị {K:,}. share_all_it / share_known là fraction [0,1]; không cộng mẫu số lặp theo dòng.')
         elif query == 'Q04':
@@ -72,8 +87,8 @@ def render_real(query):
                 with tab:
                     rows = result.tables[name]
                     if key:
-                        if key == 'category': metrics([('Tổng tin ACCEPT',5206),('Có giá trị',rows[0]['denominator_known']),('Thiếu dữ liệu',5206-rows[0]['denominator_known'])])
-                        else: metrics([('Tổng tin ACCEPT',5206),('TRUE',1485),('NULL',3721)])
+                        if key == 'category': metrics([('Tổng tin ACCEPT',rows[0]['denominator_all_it']),('Có giá trị',rows[0]['denominator_known']),('Thiếu dữ liệu',rows[0]['denominator_all_it']-rows[0]['denominator_known'])])
+                        else: metrics([('Tổng tin ACCEPT',rows[0]['denominator_all_it']),('TRUE',sum(r['job_count'] for r in rows if r['remote_allowed'] is True)),('NULL',sum(r['job_count'] for r in rows if r['remote_allowed'] is None))])
                         bar(rows,key,title)
                     else: detail(pd.DataFrame(rows), 'Raw formatted_work_type × work_type · không phải remote joint')
         elif query == 'Q08':
@@ -82,7 +97,7 @@ def render_real(query):
             for tab, name, title in zip(st.tabs(titles),names,titles):
                 with tab:
                     rows = result.tables[name]; valid = rows[0]['valid_timestamp_n']
-                    metrics([('Population',5206),('Timestamp hợp lệ',valid),('Thiếu timestamp',5206-valid)])
+                    metrics([('Population',result.summary['denominator']),('Timestamp hợp lệ',valid),('Thiếu timestamp',result.summary['denominator']-valid)])
                     st.subheader(title)
                     frame = pd.DataFrame(rows).sort_values('period')
                     st.vega_lite_chart(frame, {'height':280, 'mark':{'type':'bar','color':'#2563A6'},
@@ -93,7 +108,7 @@ def render_real(query):
                     detail(frame, 'Bảng aggregate đầy đủ · ' + title)
                     st.caption('UTC · chỉ kỳ quan sát. Tuần bắt đầu thứ Hai. Không thêm kỳ có count=0.')
         else:
-            metrics([('Population · gồm zero-hit',5206),('Có skill',4082),('Zero-hit',1124)])
+            metrics([('Population · gồm zero-hit',result.summary['denominator']),('Có skill',result.summary['denominator']-result.summary['zero_hit_jobs']),('Zero-hit',result.summary['zero_hit_jobs'])])
             for tab,suffix in zip(st.tabs(['Global Top Skills','Theo nhóm IT','Theo kinh nghiệm']), ['global','group','experience']):
                 with tab:
                     name = 'q06_skills_' + ('global' if suffix == 'global' else 'by_' + suffix)

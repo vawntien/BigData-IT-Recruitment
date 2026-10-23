@@ -24,12 +24,12 @@ Thumbs.db
 
 # =============================================
 # Raw Big Data
-# Không đưa dataset gốc lên Git
+# KhĂ´ng Ä‘Æ°a dataset gá»‘c lĂªn Git
 # =============================================
 
 data/raw/*
 
-# Giữ thư mục tồn tại
+# Giá»¯ thÆ° má»¥c tá»“n táº¡i
 !data/raw/.gitkeep
 
 # =============================================
@@ -57,3 +57,5 @@ derby.log
 *.log
 tmp/
 temp/
+# Per-machine authorized local demo configuration
+/dashboard/local_preview.json

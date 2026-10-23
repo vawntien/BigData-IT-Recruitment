@@ -28,6 +28,7 @@ class Result:
     tables: dict = field(default_factory=dict)
     run_id: str = ''
     sha256: str = ''
+    summary: dict = field(default_factory=dict)
 
 class Rejected(ValueError):
     pass
@@ -185,7 +186,7 @@ def _receive(data, query):
             for r in tables[name]: totals[r['skill_code']] = totals.get(r['skill_code'], 0) + r['job_count']
             require(totals == global_counts, 'SKILL_SCOPE_CONSERVATION')
             require(sum(s['processed_n'] for s in pin['tables'][name]['scope_denominators']) == 5206, 'SKILL_DENOMINATOR_CONSERVATION')
-    return Result(True, tables=tables, run_id=pin['run_id'], sha256=pin['sha256'])
+    return Result(True, tables=tables, run_id=pin['run_id'], sha256=pin['sha256'], summary={k: manifest['queries'][query][k] for k in ('denominator', 'zero_hit_jobs') if k in manifest['queries'][query]})
 
 def load_preview(query, local_path, *, confirmed=False):
     if confirmed is not True:
